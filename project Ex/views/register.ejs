@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>USER REGISTER</title>
+	<meta charset="UTF-8">
+
+	<meta name="keywords" content="LERAMIZ, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="/assets/img/favicon.ico" rel="shortcut icon"/>
+
+	
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<script>addEventListener("load", function () {setTimeout(hideURLbar, 0);}, false);function hideURLbar() {window.scrollTo(0, 1);}</script>
+	<link rel="stylesheet" href="/assets/css/stylereg.css" type="text/css" media="all" />
+	
+	<link href="//fonts.googleapis.com/css?family=Cuprum:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"
+	    rel="stylesheet">
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/assets/css/animate.css"/>
+	<link rel="stylesheet" href="/assets/css/owl.carousel.css"/>
+	<link rel="stylesheet" href="/assets/css/style.css"/>
+
+
+	
+</head>
+<body style="background:url(/assets/img/wall8.jpg)no-repeat">
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+	
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 header-top-left">
+						<div class="top-info">
+							<i class="fa fa-phone"></i>
+							(+11) 233 2444
+						</div>
+						<div class="top-info">
+							<i class="fa fa-envelope"></i>
+							AMG Management System
+						</div>
+					</div>
+					<div class="col-lg-6 text-lg-right header-top-right">
+						<div class="top-social">
+							<a href="https:www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a>
+							<a href="https:www.twitter.com" target="_blank"><i class="fa fa-twitter"></i></a>
+							<a href="https:www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a>
+							
+						</div>
+						<div class="user-panel">
+						
+							
+				
+							<a href="/login"><i class="fa fa-sign-in"></i> Login</a>
+							<a href="/signup"><i class="fa fa-sign-in"></i> Register</a>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12-sm">
+					<div class="mt-1-sm">
+						<a href="/" ><img src="/assets/img/logo2.png" style="width:100px; height:auto" class="rounded-circle"alt="logo"></a>
+						<div class="nav-switch">
+							<i class="fa fa-bars"></i>
+						</div>
+						<ul class="main-menu nav flex-column"style="font-style:bold;font-family: fantasy">
+							<li><a href="/">Home</a></li>
+							<li><a href="/feature">FEATURED LISTING</a></li>
+							<li><a href="/about">ABOUT US</a></li>
+							<li><a href="/page">Pages</a></li>
+							<li><a href="/blog">Blog</a></li>
+							<li><a href="/contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+
+
+				<div class="sub-main-w3">
+					
+					<form validate="true" action="/signup" method="post">
+						<h3 style="color: springgreen;font-weight:bold;font-family: cursive">Register Form</h3>
+						<% if(message.length> 0) { %>
+							<div class="alert alert-danger alert-dismissible fadeIn"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+							<p style="font-family:cursive;color:firebrick;font-size: larger">Warning!:
+							<%= message %> </p>
+						</div>
+							<% }%>
+						<div class="form-group">
+							<label for="Name">Name:</label>
+							<input type="text" class="form-control" name="name" id="exampleInputText" placeholder="Enter Name" required>
+						</div>
+						<div class="form-group">
+							<label for="Email">Email address:</label>
+							<input type="email" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+						</div>
+						<div class="form-group">
+							<label for="TelNumber">Mobile Number:</label>
+							<input type="tel" class="form-control" name="contactno" id="exampleMobile1" placeholder="Mobile number" required>
+						</div>
+						<div class="form-group">
+							<label for="usertype">User Type:</label>
+			<select class=" sele" placeholder="type"  name="type" id="type" onchange="return TypeCheck()" required>
+							   <option class="sele" value="" >----</option>
+							   <option class="sele" value="admin" >Admin</option>
+								<option class="sele" value="owner" >Owner</option>
+								<option class="sele" value="employee">Employee</option>
+							</select>
+						</div>
+							<div class="form-group" id="des" style="visibility:visible">
+								<label for="Job">Description:</label>
+								<input type="text" id="sala" class="form-control" name="des" id="exampleMobile1" placeholder="Your Jop Ex:Security,Cleaners  " required >
+							</div>
+			
+			
+					
+						<div class="form-group">
+							<label for="Password1">Password:</label>
+							<input maxlength="30" minlength="3" type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password"
+								required>
+						</div>
+						<div class="form-group">
+							<label for="ConfirmPassword1">Confirm Password:</label>
+							<input type="password" class="form-control" id="exampleConfirmPassword1" name="password2" placeholder="Re Enter Password" required data-match="password"
+								data-match-field="#exampleInputPassword1">
+						</div>
+						
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		
+		
+	</header>
+	<!-- Header section end -->
+
+		
+		
+			
+	
+		
+			
+
+
+
+
+
+			  
+				 
+
+
+	<!-- Hero section -->
+
+		
+
+
+
+
+			  
+				 
+
+	<!-- Hero section end -->
+
+
+	<!-- Filter form section -->
+	
+		
+	<!-- Footer section end -->
+                                        
+	<!--====== Javascripts & Jquery ======-->
+	
+	
+	
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/assets/js/jquery-simple-validator.min.js"></script>
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/owl.carousel.min.js"></script>
+	<script src="/assets/js/masonry.pkgd.min.js"></script>
+	<script src="/assets/js/magnific-popup.min.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/js/typecheck.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>USER LOG IN</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="LERAMIZ Landing Page Template">
+	<meta name="keywords" content="LERAMIZ, unica, creative, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="/assets/img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="/assets/css/animate.css"/>
+	<link rel="stylesheet" href="/assets/css/owl.carousel.css"/>
+	<link rel="stylesheet" href="/assets/css/style.css"/>
+	<link rel="stylesheet" href="/assets/css/stylelog.css"/>
+
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body style="background:url(/assets/img/login.jpg)no-repeat">
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+	
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 header-top-left">
+						<div class="top-info" >
+							<i class="fa fa-phone"style="font-size: 15px"></i>
+							(+11) 233 2444
+						</div>
+						<div class="top-info">
+							<i class="fa fa-envelope"style="font-size: 15px"></i>
+							AMG Management System
+						</div>
+					</div>
+					<div class="col-lg-6 text-lg-right header-top-right">
+						<div class="top-social">
+							<a href="https:www.facebook.com" target="_blank"><i class="fa fa-facebook"style="font-size: 15px"></i></a>
+							<a href="https:www.twitter.com" target="_blank"><i class="fa fa-twitter"style="font-size: 15px"></i></a>
+							<a href="https:www.instagram.com" target="_blank"><i class="fa fa-instagram"style="font-size: 15px"></i></a>
+							
+						</div>
+						<div class="user-panel">
+							<a href="/signup" style="font-size:15px"><i class="fa fa-sign-in" ></i> Register</a>
+							
+			
+						
+						
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container ">
+			<div class="row justify-content-center">
+				<div class="col-12-sm">
+					<div class="mt-1-sm ">
+						
+						<div class="nav-switch">
+							<i class="fa fa-bars"></i>
+						</div>
+					
+						<ul class="main-menu"style="font-style:bold;font-family: fantasy">
+							<li><a href="/">Home</a></li>
+							<li><a href="/feature">FEATURED LISTING</a></li>
+							<li><a href="/about">ABOUT US</a></li>
+							<li><a href="/page">PAGE</a></li>
+							<li><a href="/blog">BLOG</a></li>
+							<li><a href="/contact">CONTACT</a></li>
+						</ul>
+				
+					</div>
+				</div>
+			</div>
+		</div>
+	
+				
+				
+		
+				
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Hero section -->
+	
+		
+	  
+
+	     <!-- Trigger the modal with a button -->
+		
+
+ 
+				
+     
+		
+
+<div class="form">
+		
+	 
+  <div class="forceColor"></div>
+  <div class="topbar">
+		<% if(message.length> 0) { %>
+			<div class="alert alert-danger alert-dismissible fadeIn"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<p style="font-family:cursive;color:firebrick;font-size: larger">Warning!:
+			<%= message %> </p>
+		</div>
+			<% }%>
+	<form action="/login" method="post">
+	 <input type="text" class="input" name="username" placeholder="Email Id" required/>
+	<input type="password" class="input" name="password" placeholder="Password" required/>
+	<button class="submit"data-toggle="modal" data-target="#myModal" id="submit" style="background-color:chartreuse" >Login</button>
+</form>
+  
+  
+</div>
+
+			
+			
+					
+			
+		
+			
+	
+
+
+
+
+
+
+			  
+				 
+	
+	<!-- Hero section end -->
+
+
+	<!-- Filter form section -->
+	
+		
+	<!-- Footer section end -->
+                                        
+	<!--====== Javascripts & Jquery ======-->
+	<script src="/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/owl.carousel.min.js"></script>
+	<script src="/assets/js/masonry.pkgd.min.js"></script>
+	<script src="/assets/js/magnific-popup.min.js"></script>
+	<script src="/assets/js/main.js"></script>
+	<script src="/assets/js/login.js"></script>
+
+</body>
+</html>
