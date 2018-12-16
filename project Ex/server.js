@@ -11,6 +11,7 @@ var flash = require('connect-flash');
 
 require('./config/passport')(passport);
 app.use(express.static('./public'));
+ app.use(express.static('./views'));
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
@@ -32,6 +33,7 @@ app.use(passport.session());
 app.use(flash());
 
 require('./controllers/routes.js')(app, passport);
+
 
 app.listen(port);
 console.log("listening on Port: " + port);

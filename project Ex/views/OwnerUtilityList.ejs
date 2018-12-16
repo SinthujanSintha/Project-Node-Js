@@ -1,0 +1,631 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Admin Owner Utility List</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://dhakadailybazar.com/apartment-management-system/dist/js/jquery.mask.min.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+	<script src="js/jquery-2.1.1.min.js"></script>
+
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<link href="css/popup.css" rel="stylesheet">
+
+	<link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
+
+	<script src="js/Chart.min.js"></script>
+
+
+	<script src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+	<script>
+		window.modernizr || document.write('<script src="lib/modernizr/modernizr-custom.js"><\/script>')
+	</script>
+
+	<script src="js/chartinator.js"></script>
+	<script src="js/jqery.js"></script>
+
+	<script src="js/skycons.js"></script>
+
+</head>
+
+<body>
+	<div class="page-container">
+		<div class="left-content">
+			<div class="mother-grid-inner">
+				<!--header start here-->
+				<div class="header-main">
+					<div class="header-left">
+						<div class="logo-name">
+							<a href="index.html">
+								<h1>Apartment Management System</h1>
+
+							</a>
+						</div>
+
+
+						<div class="clearfix"> </div>
+					</div>
+					<div class="header-right">
+
+						<!--notification menu end -->
+
+						<!-- profile Icons Settings -->
+						<div class="profile_details">
+							<ul>
+								<li class="dropdown profile_details_drop">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+										<div class="profile_img">
+											<span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px" alt=""> </span>
+											<div class="user-name">
+												<p>P.Sinthujan</p>
+												<span>Administrator</span>
+											</div>
+											<i class="fa fa-angle-down lnr"></i>
+											<i class="fa fa-angle-up lnr"></i>
+											<div class="clearfix"></div>
+										</div>
+									</a>
+									<ul class="dropdown-menu drp-mnu">
+										<li> <a href="/adpro"><i class="fa fa-cog"></i> Settings</a> </li>
+										<li> <a href="/adview"><i class="fa fa-user"></i> Profile</a> </li>
+										<li> <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="inner-block">
+
+						<!-- Box Bars Menu -->
+				
+						
+					
+						
+						
+				
+				
+				
+						<div class="chit-chat-layer1t">
+							<!-- last Fivve Complain -->
+							<div class="col-md-12 chit-chat-layer1-left">
+								<div class="work-progres">
+										<nav aria-label="breadcrumb br" style=" margin-left:-5px;">
+												<ol class="breadcrumb" style="background-color: #07f389">
+												  <li class="breadcrumb-item"><a href="index.html"style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
+												  <li class="breadcrumb-item"style="color:chocolate; font-weight:bold;font-size:27px;">Owner Utility Information</li>
+												  <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "aria-current="page">Owner Utility List</li>
+										
+												</ol>
+												<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
+												 href="addOwnerUtility.html" data-toggle="tooltip" data-placement="left" title="Add owner Utility">
+														<i class="fa fa-plus"></i></a>	
+														<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
+												 href="index.html" data-toggle="tooltip" data-placement="left" title="Home">
+														<i class="fa fa-dashboard"></i></a>	
+											  </nav>
+									<div class="chit-chat-heading">
+											<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Owner Utility List
+									</div>
+				
+									<div class="table-responsive" style="border: 3px solid whitesmoke; border-radius: 29px">
+										<table class="table table-dark table-hover">
+											<thead>
+				
+												<tr>
+													<th style=" font-size: 20px;">Image</th>
+													<th style=" font-size: 20px;">Owner Name</th>
+													<th style=" font-size: 20px;">FloorNo</th>
+													<th style=" font-size: 20px;">House No</th>
+													<th style=" font-size: 20px;">Month</th>
+                                                    <th style=" font-size: 20px;">Year</th>
+                                                    <th style=" font-size: 20px;">Total Utility</th>
+													<th colspan="2" align="center"style=" font-size: 20px;">Action</th>
+												</tr>
+				
+				
+											</thead>
+											
+											<tbody>
+													<tr>
+															<td><img class="img-circle" style="width:50px;height:50px;" 
+																src="/images/mypro.jpg"></td>
+															
+																<td>Sujanthan</td>
+																<td>2L</td>
+																<td>3A</td>
+																<td>March</td>
+																<td>2018</td>
+                                                                <td>5500</td>
+															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
+																<div id="v1" class="modal">
+			
+																	<!-- Modal content -->
+																	<div class="modalt-content">
+																		<div class="modalt-header">
+																			<span class="closet" data-dismiss="modal">&times;</span>
+			
+																			<h2>Owner utility Details:</h2>
+																		</div>
+																		<div class="modal-body model_view" align="center">&nbsp;
+																			<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
+																			<h3 style="text-decoration:underline;font-weight:bold ">Janu</h3>
+																		  </div>
+																		<div class="modalt-body">
+			
+																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																			<div class="row">
+																				<div class="col-xs-6"> <b>Owner Name :</b>janu<br>
+																					<b>FloorNo:</b> 2<br>
+																					<b>Unit No:</b> 2A<br>
+                                                                                    <b>Month Name :</b> March<br>
+                                                                                    <b>Total Bill:</b> 11000<br>
+                                                                                </div>
+																				<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
+                                                                                    <b>Water Bill:</b> 5000<br>
+                                                                                    <b>Electric Bill</b> 3000<br>
+                                                                                    <b>Gas Bill:</b> 2000<br>
+                                                                                    <b>Security Bill:</b> 1000<br>
+																				
+																				</div>
+																			</div>
+																		</div>
+																		<div class="modalt-footer">
+																			<h3>Thank you</h3>
+			
+																		</div>
+			
+																	</div>
+			
+			
+																</div>
+			
+																	<a href="editOwnerUtility.html"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																	</td>
+															</tr>
+				
+															<tr>
+																	<td><img class="img-circle" style="width:50px;height:50px;" 
+																		src="/images/mypro.jpg"></td>
+																	
+																		<td>Sujanthan</td>
+																		<td>2L</td>
+																		<td>3A</td>
+																		<td>March</td>
+																		<td>2018</td>
+																		<td>5500</td>
+																	<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
+																		<div id="v1" class="modal">
+					
+																			<!-- Modal content -->
+																			<div class="modalt-content">
+																				<div class="modalt-header">
+																					<span class="closet" data-dismiss="modal">&times;</span>
+					
+																					<h2>Owner utility Details:</h2>
+																				</div>
+																				<div class="modal-body model_view" align="center">&nbsp;
+																					<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
+																					<h3 style="text-decoration:underline;font-weight:bold ">Janu</h3>
+																				  </div>
+																				<div class="modalt-body">
+					
+																					<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																					<div class="row">
+																						<div class="col-xs-6"> <b>Owner Name :</b>janu<br>
+																							<b>FloorNo:</b> 2<br>
+																							<b>Unit No:</b> 2A<br>
+																							<b>Month Name :</b> March<br>
+																							<b>Total Bill:</b> 11000<br>
+																						</div>
+																						<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
+																							<b>Water Bill:</b> 5000<br>
+																							<b>Electric Bill</b> 3000<br>
+																							<b>Gas Bill:</b> 2000<br>
+																							<b>Security Bill:</b> 1000<br>
+																						
+																						</div>
+																					</div>
+																				</div>
+																				<div class="modalt-footer">
+																					<h3>Thank you</h3>
+					
+																				</div>
+					
+																			</div>
+					
+					
+																		</div>
+					
+																			<a href="editOwnerUtility.html"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																				<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																			</td>
+																	</tr>
+																	<tr>
+																			<td><img class="img-circle" style="width:50px;height:50px;" 
+																				src="/images/mypro.jpg"></td>
+																			
+																				<td>Sujanthan</td>
+																				<td>2L</td>
+																				<td>3A</td>
+																				<td>March</td>
+																				<td>2018</td>
+																				<td>5500</td>
+																			<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
+																				<div id="v1" class="modal">
+							
+																					<!-- Modal content -->
+																					<div class="modalt-content">
+																						<div class="modalt-header">
+																							<span class="closet" data-dismiss="modal">&times;</span>
+							
+																							<h2>Owner utility Details:</h2>
+																						</div>
+																						<div class="modal-body model_view" align="center">&nbsp;
+																							<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
+																							<h3 style="text-decoration:underline;font-weight:bold ">Janu</h3>
+																						  </div>
+																						<div class="modalt-body">
+							
+																							<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																							<div class="row">
+																								<div class="col-xs-6"> <b>Owner Name :</b>janu<br>
+																									<b>FloorNo:</b> 2<br>
+																									<b>Unit No:</b> 2A<br>
+																									<b>Month Name :</b> March<br>
+																									<b>Total Bill:</b> 11000<br>
+																								</div>
+																								<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
+																									<b>Water Bill:</b> 5000<br>
+																									<b>Electric Bill</b> 3000<br>
+																									<b>Gas Bill:</b> 2000<br>
+																									<b>Security Bill:</b> 1000<br>
+																								
+																								</div>
+																							</div>
+																						</div>
+																						<div class="modalt-footer">
+																							<h3>Thank you</h3>
+							
+																						</div>
+							
+																					</div>
+							
+							
+																				</div>
+							
+																					<a href="editOwnerUtility.html"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																						<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																					</td>
+																			</tr>
+																			<tr>
+																					<td><img class="img-circle" style="width:50px;height:50px;" 
+																						src="/images/mypro.jpg"></td>
+																					
+																						<td>Sujanthan</td>
+																						<td>2L</td>
+																						<td>3A</td>
+																						<td>March</td>
+																						<td>2018</td>
+																						<td>5500</td>
+																					<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
+																						<div id="v1" class="modal">
+									
+																							<!-- Modal content -->
+																							<div class="modalt-content">
+																								<div class="modalt-header">
+																									<span class="closet" data-dismiss="modal">&times;</span>
+									
+																									<h2>Owner utility Details:</h2>
+																								</div>
+																								<div class="modal-body model_view" align="center">&nbsp;
+																									<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
+																									<h3 style="text-decoration:underline;font-weight:bold ">Janu</h3>
+																								  </div>
+																								<div class="modalt-body">
+									
+																									<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																									<div class="row">
+																										<div class="col-xs-6"> <b>Owner Name :</b>janu<br>
+																											<b>FloorNo:</b> 2<br>
+																											<b>Unit No:</b> 2A<br>
+																											<b>Month Name :</b> March<br>
+																											<b>Total Bill:</b> 11000<br>
+																										</div>
+																										<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
+																											<b>Water Bill:</b> 5000<br>
+																											<b>Electric Bill</b> 3000<br>
+																											<b>Gas Bill:</b> 2000<br>
+																											<b>Security Bill:</b> 1000<br>
+																										
+																										</div>
+																									</div>
+																								</div>
+																								<div class="modalt-footer">
+																									<h3>Thank you</h3>
+									
+																								</div>
+									
+																							</div>
+									
+									
+																						</div>
+									
+																							<a href="editOwnerUtility.html"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																								<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																							</td>
+																					</tr>>
+																					<tr>
+																							<td><img class="img-circle" style="width:50px;height:50px;" 
+																								src="/images/mypro.jpg"></td>
+																							
+																								<td>Sujanthan</td>
+																								<td>2L</td>
+																								<td>3A</td>
+																								<td>March</td>
+																								<td>2018</td>
+																								<td>5500</td>
+																							<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
+																								<div id="v1" class="modal">
+											
+																									<!-- Modal content -->
+																									<div class="modalt-content">
+																										<div class="modalt-header">
+																											<span class="closet" data-dismiss="modal">&times;</span>
+											
+																											<h2>Owner utility Details:</h2>
+																										</div>
+																										<div class="modal-body model_view" align="center">&nbsp;
+																											<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
+																											<h3 style="text-decoration:underline;font-weight:bold ">Janu</h3>
+																										  </div>
+																										<div class="modalt-body">
+											
+																											<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																											<div class="row">
+																												<div class="col-xs-6"> <b>Owner Name :</b>janu<br>
+																													<b>FloorNo:</b> 2<br>
+																													<b>Unit No:</b> 2A<br>
+																													<b>Month Name :</b> March<br>
+																													<b>Total Bill:</b> 11000<br>
+																												</div>
+																												<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
+																													<b>Water Bill:</b> 5000<br>
+																													<b>Electric Bill</b> 3000<br>
+																													<b>Gas Bill:</b> 2000<br>
+																													<b>Security Bill:</b> 1000<br>
+																												
+																												</div>
+																											</div>
+																										</div>
+																										<div class="modalt-footer">
+																											<h3>Thank you</h3>
+											
+																										</div>
+											
+																									</div>
+											
+											
+																								</div>
+											
+																									<a href="editOwnerUtility.html"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																										<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																									</td>
+																							</tr>
+				
+				
+				
+															
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+													
+												
+				
+											</tbody>
+										</table>
+									
+									</div>
+									<ul class="pagination">
+											<li class="active" disabled><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+											<li ><a href="ownerUtilityList2.html"><i class="fa fa-angle-double-right"></i></a></li>
+									
+										
+										  </ul>
+								</div>
+							</div>
+							<!-- Last five vistiors -->
+						
+				
+							<div class="clearfix"> </div>
+						</div>
+						<div class="chit-chat-layer1"></div>
+				
+					
+						
+				
+				
+				
+				
+				
+					</div>
+					<br>
+								<br>
+								<br>
+								<br><br><br><br><br><br><br><br>
+
+				<div class="copyrights">
+					<p>© 2019 Fantastic 5. All Rights Reserved. </p>
+				</div>
+				<!--COPY rights end here-->
+			</div>
+		</div>
+
+		<!--slider menu-->
+		<div class="sidebar-menu">
+			<div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo"></span>
+					<!--<img id="logo" src="" alt="Logo"/>-->
+				</a> </div>
+			<div class="menu">
+				<ul id="menu">
+					<li id="menu-home"><a href="/in"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+					<li><a href="#"><i class="fa fa-book nav_icon"></i><span>Floor Information</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li><a href="/FloorList">Flooar List</a></li>
+							<li><a href="/addFloor">Add Floor</a></li>
+						</ul>
+					</li>
+					<li id="menu-comunicacao"><a href="#"><i class="fa fa-users"></i><span>Owner Information</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li id="menu-arquivos"><a href="/ownerList">Owner List</a></li>
+							<li id="menu-arquivos"><a href="/addOwner">Add Owner</a></li>
+						</ul>
+					</li>
+
+					<li id="menu-comunicacao"><a href="#"><i class="fa fa-users"></i><span>Employee Information</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+
+							<li id="menu-arquivos"><a href="/employeeList">Employee List</a></li>
+							<li id="menu-arquivos"><a href="/addEmp">Add Employee</a></li>
+							<li id="menu-arquivos"><a href="/salaryList">Employee Salary</a></li>
+							<li id="menu-arquivos"><a href="/leaveReqList">Employee Leave Request</a></li>
+
+						</ul>
+					</li>
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-cog"></i><span>Owner Utility</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li id="menu-arquivos"><a href="/OwnerUtilityList">Owner Utility List</a></li>
+							<li id="menu-arquivos"><a href="/addOwnerUtility">Add Owner Utility</a></li>
+						</ul>
+					</li>
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-scissors"></i><span>Maintenance Cost</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li id="menu-arquivos"><a href="/maintainCostList">Maintenance Cost List</a></li>
+							<li id="menu-arquivos"><a href="/addMaintCost">Add Maintenance Cost</a></li>
+						</ul>
+					</li>
+
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-user"></i><span>Committee</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li id="menu-arquivos"><a href="/committeList">Member List</a></li>
+							<li id="menu-arquivos"><a href="/addCommitte">Add Member</a></li>
+						</ul>
+					</li>
+
+				
+
+
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-comments"></i><span>Complain</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+
+							<li id="menu-arquivos"><a href="/complainList">Complain List</a></li>
+					
+						</ul>
+					</li>
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-car"></i><span>Visitors</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+
+							<li id="menu-arquivos"><a href="/visitorsList">Visitors List</a></li>
+							<li id="menu-arquivos"><a href="/addVisitors">Add Visitors</a></li>
+						</ul>
+					</li>
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-commenting"></i><span>NoticeBoard</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+
+							<li id="menu-arquivos"><a href="/empNotice">Employee NoticeBoard</a></li>
+							<li id="menu-arquivos"><a href="/ownerNotice">Owner NoticeBoard</a></li>
+						</ul>
+					</li>
+
+
+
+
+
+
+
+				
+
+
+
+
+					<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
+						<ul>
+								<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
+							<li id="menu-academico-boletim"><a href="/buildingSet">Building Detail Setup</a></li>
+		
+							
+						</ul>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+
+
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/bootstrap.js"> </script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
