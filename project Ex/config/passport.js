@@ -1,5 +1,5 @@
 var LocalStrategy = require("passport-local").Strategy;
-//var session = require('express-session');
+
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var dbconfig = require('./database');
@@ -9,6 +9,7 @@ connection.query('USE ' + dbconfig.database);
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, done){
+  
    done(null, user.id);
   });
  
@@ -47,6 +48,7 @@ module.exports = function(passport) {
     conpassword:req.body.password2,
       password: bcrypt.hashSync(password, null, null)
      };
+     module.exports=newUserMysql;
      if(!bcrypt.compareSync(newUserMysql.conpassword,newUserMysql.password)){
      return done(null, false, req.flash('signupMessage', 'both password are diffrent'));}
 
@@ -113,17 +115,26 @@ module.exports = function(passport) {
   },
   function(req, username, password, done){
    connection.query("SELECT * FROM users WHERE email = ? ", [username],
-   function(err, rows){
+   function(err, rows,user){
     if(err)
      return done(err);
     if(!rows.length){
      return done(null, false, req.flash('loginMessage', 'No User Found'));
     }
-    if(!bcrypt.compareSync(password, rows[0].password))
-     return done(null, false, req.flash('loginMessage', 'Wrong Password'));
-
-    return done(null, rows[0]);
+    if(!bcrypt.compareSync(password, rows[0].password)){
+     return done(null, false, req.flash('loginMessage', 'Wrong Password'));}
+     req.session.user=user;
+     return done(null, rows[0]);
+    
+    
    });
+   
+   
   })
  );
-};
+
+
+
+
+}
+

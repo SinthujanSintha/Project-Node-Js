@@ -17,11 +17,13 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({
     extended: true
    }));
+
 app.use(session({
     secret: 'dkllsdmookmfemfk',
     resave:false,
     saveUninitialized: true
-   }))
+   
+   }));
 
 
 app.set('view engine', 'ejs');
@@ -33,6 +35,7 @@ app.use(passport.session());
 app.use(flash());
 
 require('./controllers/routes.js')(app, passport);
+require('./controllers/routes2.js')(app);
 
 
 app.listen(port);
