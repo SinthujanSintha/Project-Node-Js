@@ -1,36 +1,42 @@
 var mysql = require('mysql');
-var dbconfig = require('../config/database');
-var con = mysql.createConnection(dbconfig.connection);
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var createHtml=require('create-html');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "amsystem"
+});
+
+
+
 module.exports = function (app){
 
 
 app.post('/addFloor',urlencodedParser,(function(req,res)  {
+var FloorName=req.body.Floorname ;
+var  houses=req.body.houses;
 
-
-
-con.connect(function(err) {
-    if (err) throw err;
-     console.log("Connected!");
-     var sql = "INSERT INTO floor(floorName, Houses)values ('"+req.body.Floorname+"','"+  req.body.houses+ "' )";
+ 
+    var sql = "INSERT INTO floor (floorName, Houses) VALUES (?,?)";
+    con.query(sql, [FloorName,houses], function (err, result) {
+      if (err) throw err;
      
+      console.log("Number of records inserted: " + result.affectedRows);
+      if(result.affectedRows==1){
+      res.redirect('/FloorList');
     
+   
+    }
 
-     console.log(sql);
-     con.query(sql, function (err, result) {
-             console.log(result.insertId);
-             
+    });
 
-           if (err) throw err;
-
-
-
-        })});
-
-    }));
+    })
+  );
 
 
 
@@ -56,9 +62,38 @@ con.connect(function(err) {
   });
 
 
-  app.get('/FloorList', function (req, res) {
-    res.render('FloorList.ejs');
+  app.get('/FloorList',function (req, res) {
+   
+ 
+      con.query("SELECT * FROM floor", function (err,result, fields) {
+        if (err) throw err;
+        Object.size = function(obj) {
+          var size = 0, key;
+          for (key in obj) {
+              if (obj.hasOwnProperty(key)) size++;
+          }
+          return size;
+      };
+        var size=Object.size(result);
+        
+        res.render('FloorList.ejs',{
+          floor:result,
+        size:size
+      });
+   
+       
+     
+        console.log(result[0].floorName);
+        console.log(size);
+        
+      });
+  
   });
+
+ 
+
+
+
   app.get('/addFloor', function (req, res) {
     res.render('addFloor.ejs');
   });

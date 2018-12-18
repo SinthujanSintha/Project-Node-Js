@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var app = express();
 var port = process.env.PORT || 3000;
-
+var x=0;
 var passport = require('passport');
 var flash = require('connect-flash');
 
