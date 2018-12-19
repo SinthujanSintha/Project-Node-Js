@@ -83,14 +83,24 @@ var  houses=req.body.houses;
    
        
      
-        console.log(result[0].floorName);
+      
         console.log(size);
         
       });
   
   });
 
- 
+ app.get('/FloorDel/:id',(req,res)=>{
+  var sql = "DELETE FROM floor WHERE floorId =?";
+  con.query(sql, [req.params.id],function (err, result) {
+    if (err) throw err;
+   
+   console.log(result.affectedRows);
+  
+    res.redirect('/FloorList');
+  
+}
+ )});
 
 
 
@@ -197,7 +207,29 @@ var  houses=req.body.houses;
   });
 
   app.get('/FloorList2', function (req, res) {
-    res.render('FloorList2.ejs');
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('FloorList2.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+      console.log(result[0].floorName);
+      console.log(size);
+      
+    });
+   
   });
 
   app.get('/editMaintCost', function (req, res) {
