@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 var express = require('express');
 var app = express();
+var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
 var createHtml=require('create-html');
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -60,6 +61,22 @@ var  houses=req.body.houses;
         })
       );
 
+  app.post('/adminEdit',function(req,res){
+
+  var FloorName=req.body.Floorname ;
+    var  houses=req.body.houses;
+    var  idd=req.params.id;
+    password: bcrypt.hashSync(password, null, null)
+    
+     
+        var sql = "UPDATE floor SET floorName = ?, Houses = ? WHERE floorId = ?";
+        con.query(sql, [FloorName,houses,idd], function (err, result) {
+          if (err) throw err;
+         
+          console.log("Number of records inserted: " + result.affectedRows);
+          if(result.affectedRows==1){
+          res.redirect('/FloorList');}
+      })})
 
 
 
@@ -75,7 +92,7 @@ var  houses=req.body.houses;
 
 
 
-  app.get('/in', isLoggedIn, function (req, res) {
+  app.get('/in', function (req, res) {
     res.render('index3.ejs', {
       user: req.user
     });
@@ -199,7 +216,32 @@ var  houses=req.body.houses;
 
 
   app.get('/adpro', function (req, res) {
+
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('FloorList.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
     res.render('adminprofile.ejs');
+
   });
 
   app.get('/editCommitte', function (req, res) {
