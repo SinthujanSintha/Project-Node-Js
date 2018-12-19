@@ -38,7 +38,27 @@ var  houses=req.body.houses;
     })
   );
 
-
+  app.post('/editFloor/:id',urlencodedParser,(function(req,res)  {
+    var FloorName=req.body.Floorname ;
+    var  houses=req.body.houses;
+    var  idd=req.params.id;
+    
+     
+        var sql = "UPDATE floor SET floorName = ?, Houses = ? WHERE floorId = ?";
+        con.query(sql, [FloorName,houses,idd], function (err, result) {
+          if (err) throw err;
+         
+          console.log("Number of records inserted: " + result.affectedRows);
+          if(result.affectedRows==1){
+          res.redirect('/FloorList');
+        
+       
+        }
+    
+        });
+    
+        })
+      );
 
 
 
@@ -199,7 +219,204 @@ var  houses=req.body.houses;
   });
 
   app.get('/editFloor', function (req, res) {
-    res.render('editFloor.ejs');
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('editFloor.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
+  });
+  app.get('/editFloor2', function (req, res) {
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('editFloor2.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
+  });
+  app.get('/editFloor3', function (req, res) {
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('editFloor3.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
+  });
+  app.get('/editFloor4', function (req, res) {
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('editFloor4.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
+  });
+  app.get('/editFloor5', function (req, res) {
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('editFloor5.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
+  });
+  app.get('/editFloor6', function (req, res) {
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('editFloor6.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
+  });
+  app.get('/editFloor7', function (req, res) {
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('editFloor7.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
+  });
+  app.get('/editFloor8', function (req, res) {
+    con.query("SELECT * FROM floor", function (err,result, fields) {
+      if (err) throw err;
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+      var size=Object.size(result);
+      
+      res.render('editFloor8.ejs',{
+        floor:result,
+      size:size
+    });
+ 
+     
+   
+    
+      console.log(size);
+      
+    });
+
   });
 
   app.get('/employeeList2', function (req, res) {
