@@ -80,7 +80,7 @@ module.exports = function (app, passport) {
     }),
     function (req, res) {
       if (req.body.remember) {
-        req.session.cookie.maxAge = 1000 * 60 * 3;
+        req.session.cookie.maxAge = 1000 * 60 * 8;
       } else {
         req.session.cookie.expires = false;
         res.redirect('/');
@@ -90,9 +90,12 @@ module.exports = function (app, passport) {
 
   app.post('/signup', passport.authenticate('local-signup', {
     successRedirect: '/profile',
-    failureRedirect: '/signup',
+    failureRedirect: '/',
     failureFlash: true
-  }));
+  
+  }
+  )
+ );
 
 
  

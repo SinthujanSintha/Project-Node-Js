@@ -31,6 +31,7 @@ module.exports = function(passport) {
    passReqToCallback: true
   },
   function(req, username, password, done){
+    
    connection.query("SELECT email FROM users WHERE email = ? ", 
    [username], function(err, rows,){
     if(err)
@@ -41,7 +42,10 @@ module.exports = function(passport) {
      var newUserMysql = {
 
       username: username,
-      name:req.body.name,
+      firstname:req.body.name,
+      lastname:req.body.lastname,
+      location:req.body.location,
+      phoe:req.body.phone,
       type:req.body.type,
       des:req.body.des,
     contact:req.body.contactno,
@@ -53,14 +57,16 @@ module.exports = function(passport) {
      return done(null, false, req.flash('signupMessage', 'both password are diffrent'));}
 
  if(newUserMysql.type=='admin'){ 
-     var insertQuery = "INSERT INTO admin (password,name,email,contactNo) values (?,?,?,?)";
+
+  var  idd=req.params.id;
+     var updateQuery = "update admin set password=?,name=?,email=?, contactNo=?,Lastname=?,Phone=?,Location=? where adminId=?";
 
 
-     connection.query(insertQuery, [newUserMysql.password,
-      newUserMysql.name,newUserMysql.username, newUserMysql.contact],
-      function(err, rows){
+     connection.query(updateQuery, [newUserMysql.password,
+      newUserMysql.firstname,newUserMysql.username, newUserMysql.contact,newUserMysql.lastname ,newUserMysql.phoe,newUserMysql.location,idd],
+      function(err, rows,){
      
-
+console.log(rows.insertId);
        newUserMysql.id = rows.insertId;
        return done(null, newUserMysql);
       });
