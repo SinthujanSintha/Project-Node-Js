@@ -1,6 +1,6 @@
 module.exports = function (app, passport) {
 
-  //get functions  
+  
  
 
 
@@ -55,7 +55,17 @@ module.exports = function (app, passport) {
       } else {
         res.redirect('/');
 
-      }
+      }});
+
+      app.get('/profileO',isLoggedIn, function (req, res) {
+        if (req.session.user) {
+          res.render('indexO.ejs', {
+            user: req.user
+          });
+        } else {
+          res.redirect('/');
+  
+        }
 
 
     }
@@ -88,15 +98,22 @@ module.exports = function (app, passport) {
 
     });
 
-  app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/profile',
-    failureRedirect: '/',
+  app.post('/signupO', passport.authenticate('local-signup', {
+    successRedirect: '/ownerList',
+    failureRedirect: '/addOwner',
     failureFlash: true
-  
   }
   )
  );
 
+ app.post('/signup', passport.authenticate('local-signup',{
+  successRedirect: '/profile',
+  failureRedirect: '/',
+  failureFlash: true
+
+}
+)
+);
 
  
 
@@ -117,11 +134,13 @@ module.exports = function (app, passport) {
 
 
 
-};
+
 //outer functions
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
     return next();
 
-  res.redirect('/');
+  res.redirect('/');}
+
+
 }

@@ -98,94 +98,112 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="inner-block">
 
-						<!-- Box Bars Menu -->
-				
-						
-					
-						
-						
-				
-				
-				
-						<div class="chit-chat-layer1t">
-								<!-- last Fivve Complain -->
-								<div class="col-md-12 chit-chat-layer1-left">
-									<div class="work-progres">
-											<nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
-													<ol class="breadcrumb" style="background-color: #07f389;">
-													  <li class="breadcrumb-item"><a href="/in"style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
-													  <li class="breadcrumb-item"style="color:chocolate; font-weight:bold;font-size:27px;">Owner Information</li>
-													  <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "aria-current="page">Add Owner</li>
-											
-													</ol>
-												
-															<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
-													 href="/in" data-toggle="tooltip" data-placement="left" title="Home">
-															<i class="fa fa-dashboard"></i></a>	
-												  </nav>
-				
-				
-				
-												
-										<div class="chit-chat-heading">
-												<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Add New Owner
-										</div>
-				
-										<div class="table-responsive">
-										
-											<div class="col-md-12 compose-right">
-												<div class="inbox-details -default">
-													
-													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
-														
-														<form class="com-mail" action="">
-															<div class="form-group">
-												
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Owner Name:</h4>
-                                                                <input type="text" name="Owner Name" class="form-control" required placeholder="Enter the owner Name">
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Email:</h4>
-                                                                    <input type="text" name="OEmail" class="form-control" required placeholder="Enter the Email">
-                                                                    <h4 style="color:cornsilk;font-weight: bold">*Pass Word:</h4>
-                                                                <input type="password" name="OPassword" class="form-control" required placeholder="Enter the PassWord">
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Contact:</h4>
-																	<input type="text" name="OContact" class="form-control" required placeholder="Enter Contact">
-																	<h4 style="color:cornsilk;font-weight: bold">*Type:</h4>
-																	<input type="text" name="OType" class="form-control" required placeholder="Enter type">
-																	
+					<!-- Box Bars Menu -->
 
 
 
-														</div>
-																
-														
-															<input type="submit" value="Save Information"> 
-														<a href="/ownerList"><input type="button" value="Back" > </a>	
-														</form>
+
+
+
+
+
+					<div class="chit-chat-layer1t">
+						<!-- last Fivve Complain -->
+						<div class="col-md-12 chit-chat-layer1-left">
+							<div class="work-progres">
+								<nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
+									<ol class="breadcrumb" style="background-color: #07f389;">
+										<li class="breadcrumb-item"><a href="/in" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
+										<li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Owner Information</li>
+										<li class="breadcrumb-item active" style="color:chocolate;font-size:27px; " aria-current="page">Add Owner</li>
+
+									</ol>
+
+									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/in" data-toggle="tooltip"
+									 data-placement="left" title="Home">
+										<i class="fa fa-dashboard"></i></a>
+								</nav>
+
+
+
+
+								<div class="chit-chat-heading">
+									<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Add New Owner
+								</div>
+
+								<div class="table-responsive">
+
+									<div class="col-md-12 compose-right">
+										<div class="inbox-details -default">
+
+											<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
+
+												<form class="com-mail" action="/signupO" method="post">
+													<% if(message.length> 0) { %>
+													<div class="alert alert-danger alert-dismissible fadeIn"><a href="#" class="close" data-dismiss="alert"
+														 aria-label="close">&times;</a>
+														<p style="font-family:cursive;color:firebrick;font-size: larger">Warning!:
+															<%= message %>
+														</p>
 													</div>
-												</div>
+													<% }%>
+													<div class="form-group">
+
+														<h4 style="color:cornsilk;font-weight: bold">*FirstName:</h4>
+														<input type="text" name="FirstName" class="form-control" required placeholder="Enter the First Name">
+														<h4 style="color:cornsilk;font-weight: bold">*LastName:</h4>
+														<input type="text" name="LastName" class="form-control" required placeholder="Enter the Last Name">
+														<h4 style="color:cornsilk;font-weight: bold">*Email:</h4>
+														<input type="text" name="username" class="form-control" required placeholder="Enter the Email">
+														<h4 style="color:cornsilk;font-weight: bold">*PassWord:</h4>
+														<input type="password" name="password" class="form-control" required placeholder="Enter the PassWord">
+														<h4 style="color:cornsilk;font-weight: bold">*ConfirmPassWord:</h4>
+														<input type="password" name="password2" class="form-control" required placeholder="Re Enter PassWord">
+														<h4 style="color:cornsilk;font-weight: bold">*ContactNUmber:</h4>
+														<input type="tel" name="Contact" class="form-control" required placeholder="Enter Contact Number">
+														<h4 style="color:cornsilk;font-weight: bold">*MobileNUmber:</h4>
+														<input type="tel" name="Phone" class="form-control" required placeholder="Enter MobileNumber">
+														<h4 style="color:cornsilk;font-weight: bold">*HouseNo:</h4>
+														<input type="text" name="HouseNo" class="form-control" required placeholder="Enter HouseNo">
+														<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
+														<input type="text" name="Address" class="form-control" required placeholder="Enter Address">
+														<h4 style="color:cornsilk;font-weight: bold">*UserType:</h4>
+														<input type="text" name="Type" class="form-control" value="owner" >
+
+
+
+
+													</div>
+
+
+													<input type="submit" value="Save Information">
+													<a href="/ownerList"><input type="button" value="Back"> </a>
+												</form>
 											</div>
 										</div>
 									</div>
 								</div>
-								<!-- Last five vistiors -->
-							
-				
-								<div class="clearfix"> </div>
 							</div>
-						<div class="chit-chat-layer1"></div>
-				
-					
-						
-				
-				
-				
-				
-				
+						</div>
+						<!-- Last five vistiors -->
+
+
+						<div class="clearfix"> </div>
 					</div>
-					<br>
-								<br>
-								<br>
-								<br><br><br><br><br><br><br><br>
+					<div class="chit-chat-layer1"></div>
+
+
+
+
+
+
+
+
+				</div>
+				<br>
+				<br>
+				<br>
+				<br><br><br><br><br><br><br><br>
 
 				<div class="copyrights">
 					<p>© 2019 Fantastic 5. All Rights Reserved. </p>
@@ -254,7 +272,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</li>
 
-				
+
 
 
 
@@ -263,7 +281,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 
 							<li id="menu-arquivos"><a href="/complainList">Complain List</a></li>
-					
+
 						</ul>
 					</li>
 
@@ -291,17 +309,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-				
+
 
 
 
 
 					<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
 						<ul>
-								<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
+							<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
 							<li id="menu-academico-boletim"><a href="/buildingSet">Building Detail Setup</a></li>
-		
-							
+
+
 						</ul>
 					</li>
 
@@ -320,10 +338,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
-
-
-
-
-
-
-

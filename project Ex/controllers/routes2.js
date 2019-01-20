@@ -14,7 +14,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "amsystem"
+  database: "ams2"
 });
 
 
@@ -197,7 +197,9 @@ module.exports = function (app) {
     res.render('ownerList2.ejs');
   });
   app.get('/addOwner', function (req, res) {
-    res.render('addOwner.ejs');
+    res.render('addOwner.ejs',{
+      message: req.flash('signupMessage')
+    });
   });
   app.get('/employeeList', function (req, res) {
     res.render('employeeList.ejs');

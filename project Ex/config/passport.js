@@ -10,11 +10,11 @@ connection.query('USE ' + dbconfig.database);
 module.exports = function(passport) {
   passport.serializeUser(function(user, done){
   
-   done(null, user.User_Id);
+   done(null, user.id);
   });
  
-  passport.deserializeUser(function(User_Id, done){
-   connection.query("SELECT * FROM users WHERE User_Id = ? ", [User_Id],
+  passport.deserializeUser(function(id, done){
+   connection.query("SELECT * FROM users WHERE id = ? ", [id],
     function(err, rows){
      done(err, rows[0]);
     });
@@ -39,16 +39,18 @@ module.exports = function(passport) {
     if(rows.length){
      return done(null, false, req.flash('signupMessage', 'This user is already taken'));
     }else{
+      
      var newUserMysql = {
 
-      username: username,
-      firstname:req.body.name,
-      lastname:req.body.lastname,
-      location:req.body.location,
-      phoe:req.body.phone,
-      type:req.body.type,
+      username:req.body.username,
+      firstname:req.body.FirstName,
+      lastname:req.body.LastName,
+      location:req.body.Address,
+      phone:req.body.Phone,
+      type:req.body.Type,
       des:req.body.des,
-    contact:req.body.contactno,
+    contact:req.body.Contact,
+    HouseNo:req.body.HouseNo,
     conpassword:req.body.password2,
       password: bcrypt.hashSync(password, null, null)
      };
@@ -64,7 +66,7 @@ module.exports = function(passport) {
 
 
      connection.query(updateQuery, [newUserMysql.password,
-      newUserMysql.firstname,newUserMysql.username, newUserMysql.contact,newUserMysql.lastname ,newUserMysql.phoe,newUserMysql.location,idd],
+      newUserMysql.firstname,newUserMysql.username, newUserMysql.contact,newUserMysql.lastname ,newUserMysql.phone,newUserMysql.location,idd],
       function(err, rows,){
      
 console.log(rows.insertId);
@@ -74,11 +76,17 @@ console.log(rows.insertId);
    }
 
   else if(newUserMysql.type=='owner'){ 
-    var insertQuery = "INSERT INTO house_owner (password,name,email,contactNo) values (?,?,?,?)";
+    console.log("fdf");
 
-    connection.query(insertQuery, [newUserMysql.password,
-     newUserMysql.name,newUserMysql.username,newUserMysql.contact],
+    var insertQuery = "INSERT INTO house_owner (First_Name, Last_Name, Contact_Number, Email_ID, House_ID, PassWord, Phone,Address) values (?,?,?,?,?,?,?,?)";
+
+    connection.query(insertQuery, [newUserMysql.firstname,
+     newUserMysql.lastname,newUserMysql.contact,newUserMysql.username,newUserMysql.HouseNo,newUserMysql.password,newUserMysql.phone,newUserMysql.Address],
      function(err, rows){
+       if(err)
+       console.log(err);
+
+       console.log(rows.insertId);
       newUserMysql.id = rows.insertId;
 
       return done(null, newUserMysql);
