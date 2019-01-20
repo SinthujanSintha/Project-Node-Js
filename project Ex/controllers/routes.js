@@ -47,7 +47,7 @@ module.exports = function (app, passport) {
     });
   });
 
-  app.get('/profile', function (req, res) {
+  app.get('/profile',isLoggedIn, function (req, res) {
       if (req.session.user) {
         res.render('index.ejs', {
           user: req.user

@@ -3,8 +3,12 @@ var express = require('express');
 var app = express();
 var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
-var createHtml=require('create-html');
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+var createHtml = require('create-html');
+var urlencodedParser = bodyParser.urlencoded({
+  extended: false
+});
+var msg="";
+
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -15,88 +19,108 @@ var con = mysql.createConnection({
 
 
 
-module.exports = function (app){
+module.exports = function (app) {
 
 
-app.post('/addFloor',urlencodedParser,(function(req,res)  {
-var FloorName=req.body.Floorname ;
-var  houses=req.body.houses;
+  app.post('/addFloor', urlencodedParser, (function (req, res) {
+    var FloorName = req.body.Floorname;
+    var houses = req.body.houses;
 
- 
+
     var sql = "INSERT INTO floor (floorName, Houses) VALUES (?,?)";
-    con.query(sql, [FloorName,houses], function (err, result) {
+    con.query(sql, [FloorName, houses], function (err, result) {
       if (err) throw err;
-     
+
       console.log("Number of records inserted: " + result.affectedRows);
-      if(result.affectedRows==1){
-      res.redirect('/FloorList');
-    
-   
-    }
+      if (result.affectedRows == 1) {
+        res.redirect('/FloorList');
+
+
+      }
 
     });
 
-    })
-  );
+  }));
 
-  app.post('/editFloor/:id',urlencodedParser,(function(req,res)  {
-    var FloorName=req.body.Floorname ;
-    var  houses=req.body.houses;
-    var  idd=req.params.id;
-    
-     
-        var sql = "UPDATE floor SET floorName = ?, Houses = ? WHERE floorId = ?";
-        con.query(sql, [FloorName,houses,idd], function (err, result) {
-          if (err) throw err;
-         
-          console.log("Number of records inserted: " + result.affectedRows);
-          if(result.affectedRows==1){
-          res.redirect('/FloorList');
-        
-       
-        }
-    
-        });
-    
-        })
-      );
+  app.post('/editFloor/:id', urlencodedParser, (function (req, res) {
+    var FloorName = req.body.Floorname;
+    var houses = req.body.houses;
+    var idd = req.params.id;
 
-      app.post('/editAdmin/:id',urlencodedParser,(function(req,res){
-    var idd=req.params.id;   
-   var   username= req.body.username;
-   var   firstname=req.body.name;
-    var lastname=req.body.lastname;
-    var   location=req.body.location;
-    var   phone=req.body.phone;
+
+    var sql = "UPDATE floor SET floorName = ?, Houses = ? WHERE floorId = ?";
+    con.query(sql, [FloorName, houses, idd], function (err, result) {
+      if (err) throw err;
+
+      console.log("Number of records inserted: " + result.affectedRows);
+      if (result.affectedRows == 1) {
+        res.redirect('/FloorList');
+
+
+      }
+
+    });
+
+  }));
+
+  app.post('/editAdmin/:id', urlencodedParser, (function (req, res) {
+    var idd = req.params.id;
+    var username = req.body.username;
+    var firstname = req.body.name;
+    var lastname = req.body.lastname;
+    var location = req.body.location;
+    var phone = req.body.phone;
+
+    var contact = req.body.contactno;
    
-    var    contact=req.body.contactno;
-    var  conpassword=req.body.password2;
-    var  password= req.body.password;
-  var pas=bcrypt.hashSync(password, null, null);
-    
-    
-     if(!bcrypt.compareSync(conpassword,pas)){
-      var msg='both password are diffrent';
-      module.exports=msg; }
+   
 
-         
-            var sql = "UPDATE admin SET password=?,name=?,email=?, contactNo=?,Lastname=?,Phone=?,Location=? where adminId=?";
-            con.query(sql, [pas,firstname,username, contact,lastname ,phone,location,idd], function (err, result) {
-              if (err) throw err;
-             
-              console.log("Number of records inserted: " + result.affectedRows);
-              if(result.affectedRows==1){
-              res.redirect('/adview');
-            
-           
-            }
-        
-            });
-        
-            })
-          );
 
- 
+  
+
+
+    var sql = "UPDATE admin SET name=?,email=?, contactNo=?,Lastname=?,Phone=?,Location=? where adminId=?";
+    con.query(sql, [ firstname, username, contact, lastname, phone, location, idd], function (err, result) {
+      if (err) throw err;
+
+      console.log("Number of records inserted: " + result.affectedRows);
+      if (result.affectedRows == 1) {
+        res.redirect('/adview');
+
+
+      }
+
+    });
+
+  }));
+
+
+  app.post('/ChangePassword/:id', urlencodedParser, (function (req, res) {
+    var idd = req.params.id;
+    var newPassword = req.body.newPassword;
+
+
+    var pas = bcrypt.hashSync(newPassword, null, null);
+
+
+
+
+
+    var sql = "UPDATE admin SET password=? where adminId=?";
+    con.query(sql, [pas, idd], function (err, result) {
+      if (err) throw err;
+
+      console.log("Number of records inserted: " + result.affectedRows);
+      if (result.affectedRows == 1) {
+        msg = "PassWord Change SuccessFully";
+        res.redirect('/adpro');
+
+
+      }
+
+    });
+
+  }));
 
 
 
@@ -119,45 +143,46 @@ var  houses=req.body.houses;
   });
 
 
-  app.get('/FloorList',function (req, res) {
-   
- 
-      con.query("SELECT * FROM floor", function (err,result, fields) {
-        if (err) throw err;
-        Object.size = function(obj) {
-          var size = 0, key;
-          for (key in obj) {
-              if (obj.hasOwnProperty(key)) size++;
-          }
-          return size;
+  app.get('/FloorList', function (req, res) {
+
+
+    con.query("SELECT * FROM floor", function (err, result, fields) {
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
       };
-        var size=Object.size(result);
-        
-        res.render('FloorList.ejs',{
-          floor:result,
-        size:size
+      var size = Object.size(result);
+
+      res.render('FloorList.ejs', {
+        floor: result,
+        size: size
       });
-   
-       
-     
-      
-        console.log(size);
-        
-      });
-  
+
+
+
+
+      console.log(size);
+
+    });
+
   });
 
- app.get('/FloorDel/:id',(req,res)=>{
-  var sql = "DELETE FROM floor WHERE floorId =?";
-  con.query(sql, [req.params.id],function (err, result) {
-    if (err) throw err;
-   
-   console.log(result.affectedRows);
-  
-    res.redirect('/FloorList');
-  
-}
- )});
+  app.get('/FloorDel/:id', (req, res) => {
+    var sql = "DELETE FROM floor WHERE floorId =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/FloorList');
+
+    })
+  });
 
 
 
@@ -228,8 +253,8 @@ var  houses=req.body.houses;
     res.render('ownerNotice.ejs');
   });
   app.get('/adview', function (req, res) {
-    res.render('AdminProView.ejs',{
-    user:req.user
+    res.render('AdminProView.ejs', {
+      user: req.user
     });
   });
   app.get('/buildingSet', function (req, res) {
@@ -238,20 +263,29 @@ var  houses=req.body.houses;
 
 
   app.get('/adpro', function (req, res) {
+msg="";
+    res.render('adminprofile.ejs', {
+      user: req.user,
+      msg:msg
+    })
+  });
 
-   res.render('adminprofile.ejs',{
-     user:req.user
-      
-    });
- 
-     
-   
-    
-     
-      
-    });
 
-    
+  app.get('/ChangeAdPass', function (req, res) {
+
+    res.render('ChangeAdPass.ejs', {
+      user: req.user
+    })
+  });
+
+
+
+
+
+
+
+
+
 
   app.get('/editCommitte', function (req, res) {
     res.render('editCommitte.ejs');
@@ -270,202 +304,210 @@ var  houses=req.body.houses;
   });
 
   app.get('/editFloor', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('editFloor.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
-    
+      };
+      var size = Object.size(result);
+
+      res.render('editFloor.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
+
       console.log(size);
-      
+
     });
 
   });
   app.get('/editFloor2', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('editFloor2.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
-    
+      };
+      var size = Object.size(result);
+
+      res.render('editFloor2.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
+
       console.log(size);
-      
+
     });
 
   });
   app.get('/editFloor3', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('editFloor3.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
-    
+      };
+      var size = Object.size(result);
+
+      res.render('editFloor3.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
+
       console.log(size);
-      
+
     });
 
   });
   app.get('/editFloor4', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('editFloor4.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
-    
+      };
+      var size = Object.size(result);
+
+      res.render('editFloor4.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
+
       console.log(size);
-      
+
     });
 
   });
   app.get('/editFloor5', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('editFloor5.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
-    
+      };
+      var size = Object.size(result);
+
+      res.render('editFloor5.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
+
       console.log(size);
-      
+
     });
 
   });
   app.get('/editFloor6', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('editFloor6.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
-    
+      };
+      var size = Object.size(result);
+
+      res.render('editFloor6.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
+
       console.log(size);
-      
+
     });
 
   });
   app.get('/editFloor7', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('editFloor7.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
-    
+      };
+      var size = Object.size(result);
+
+      res.render('editFloor7.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
+
       console.log(size);
-      
+
     });
 
   });
   app.get('/editFloor8', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('editFloor8.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
-    
+      };
+      var size = Object.size(result);
+
+      res.render('editFloor8.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
+
       console.log(size);
-      
+
     });
 
   });
@@ -475,29 +517,30 @@ var  houses=req.body.houses;
   });
 
   app.get('/FloorList2', function (req, res) {
-    con.query("SELECT * FROM floor", function (err,result, fields) {
+    con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
-      Object.size = function(obj) {
-        var size = 0, key;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
         for (key in obj) {
-            if (obj.hasOwnProperty(key)) size++;
+          if (obj.hasOwnProperty(key)) size++;
         }
         return size;
-    };
-      var size=Object.size(result);
-      
-      res.render('FloorList2.ejs',{
-        floor:result,
-      size:size
-    });
- 
-     
-   
+      };
+      var size = Object.size(result);
+
+      res.render('FloorList2.ejs', {
+        floor: result,
+        size: size
+      });
+
+
+
       console.log(result[0].floorName);
       console.log(size);
-      
+
     });
-   
+
   });
 
   app.get('/editMaintCost', function (req, res) {
@@ -521,7 +564,7 @@ var  houses=req.body.houses;
   app.get('/EditVisitors', function (req, res) {
     res.render('EditVisitors.ejs');
   });
-  app.get('/', function (req, res) {
+  app.get('', function (req, res) {
     res.render('.ejs');
   });
 
@@ -532,7 +575,7 @@ var  houses=req.body.houses;
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
       return next();
-  
+
     res.redirect('/');
   }
 }

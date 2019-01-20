@@ -4,6 +4,6 @@ module.exports = {
   'user':'root',
   'password':''
  },
- 'database':'amsystem',
+ 'database':'ams2',
 
 }

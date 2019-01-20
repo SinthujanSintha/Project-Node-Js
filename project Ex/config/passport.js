@@ -10,11 +10,11 @@ connection.query('USE ' + dbconfig.database);
 module.exports = function(passport) {
   passport.serializeUser(function(user, done){
   
-   done(null, user.id);
+   done(null, user.User_Id);
   });
  
-  passport.deserializeUser(function(id, done){
-   connection.query("SELECT * FROM users WHERE id = ? ", [id],
+  passport.deserializeUser(function(User_Id, done){
+   connection.query("SELECT * FROM users WHERE User_Id = ? ", [User_Id],
     function(err, rows){
      done(err, rows[0]);
     });
@@ -32,7 +32,7 @@ module.exports = function(passport) {
   },
   function(req, username, password, done){
     
-   connection.query("SELECT email FROM users WHERE email = ? ", 
+   connection.query("SELECT Email_Id FROM users WHERE Email_Id = ? ", 
    [username], function(err, rows,){
     if(err)
      return done(err);
@@ -58,8 +58,9 @@ module.exports = function(passport) {
 
  if(newUserMysql.type=='admin'){ 
 
+
   var  idd=req.params.id;
-     var updateQuery = "update admin set password=?,name=?,email=?, contactNo=?,Lastname=?,Phone=?,Location=? where adminId=?";
+     var updateQuery = "update admin set passWord=?,First_Name=?,Email_Id=?, Contact_Number=?,Last_Name=?,Phone=?,Address=? where User_Id=?";
 
 
      connection.query(updateQuery, [newUserMysql.password,
@@ -73,7 +74,7 @@ console.log(rows.insertId);
    }
 
   else if(newUserMysql.type=='owner'){ 
-    var insertQuery = "INSERT INTO owner (password,name,email,contactNo) values (?,?,?,?)";
+    var insertQuery = "INSERT INTO house_owner (password,name,email,contactNo) values (?,?,?,?)";
 
     connection.query(insertQuery, [newUserMysql.password,
      newUserMysql.name,newUserMysql.username,newUserMysql.contact],
@@ -120,14 +121,14 @@ console.log(rows.insertId);
    passReqToCallback: true
   },
   function(req, username, password, done){
-   connection.query("SELECT * FROM users WHERE email = ? ", [username],
+   connection.query("SELECT * FROM users WHERE Email_Id = ? ", [username],
    function(err, rows,user){
     if(err)
      return done(err);
     if(!rows.length){
      return done(null, false, req.flash('loginMessage', 'No User Found'));
     }
-    if(!bcrypt.compareSync(password, rows[0].password)){
+    if(!bcrypt.compareSync(password, rows[0].PassWord)){
      return done(null, false, req.flash('loginMessage', 'Wrong Password'));}
      req.session.user=user;
      return done(null, rows[0]);
