@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var passport = require('passport');
+
 var con = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -19,29 +19,45 @@ module.exports = function (app, passport) {
 
 
   
+  app.get('/ownerList', function (req, res) {
+   
+    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
 
+      res.render('ownerList.ejs', {
+        owner: result,
+        size: size,
+        user:req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+  app.get('/ownerList2', function (req, res) {
+    res.render('ownerList2.ejs');
+  });
 
 
   app.get('/', function (req, res) {
-    res.render('index2.ejs');
+    res.render('Home.ejs');
   });
 
-  app.get('/feature', function (req, res) {
-    res.render('feature.ejs');
-  });
-  app.get('/about', function (req, res) {
-    res.render('about.ejs');
-  });
-
-  app.get('/page', function (req, res) {
-    res.render('page.ejs');
-  });
-  app.get('/blog', function (req, res) {
-    res.render('blog.ejs');
-  });
-  app.get('/contact', function (req, res) {
-    res.render('contact.ejs');
-  });
+ 
 
 
   app.get('/signup', function (req, res) {
@@ -56,13 +72,7 @@ module.exports = function (app, passport) {
     });
   });
 
-  // app.get('/profile',isLoggedIn, function (req, res) {
-   
-  //       res.render('index.ejs', {
-  //         user: req.user
-  //       });
-  //     } );
-
+  
 
   app.get('/profile',isLoggedIn,function (req, res) {
      console.log(ty.type);

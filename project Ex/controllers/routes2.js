@@ -137,7 +137,7 @@ module.exports = function (app) {
 
 
   app.get('/in', function (req, res) {
-    res.render('index3.ejs', {
+    res.render('index2.ejs', {
       user: req.user
     });
   });
@@ -190,7 +190,9 @@ module.exports = function (app) {
     res.render('addFloor.ejs');
   });
   app.get('/ownerList', function (req, res) {
-    res.render('ownerList.ejs');
+    res.render('ownerList.ejs',{
+      user:req.user
+    });
   });
 
   app.get('/ownerList2', function (req, res) {
@@ -569,7 +571,22 @@ msg="";
   app.get('', function (req, res) {
     res.render('.ejs');
   });
+  app.get('/feature', function (req, res) {
+    res.render('feature.ejs');
+  });
+  app.get('/about', function (req, res) {
+    res.render('about.ejs');
+  });
 
+  app.get('/page', function (req, res) {
+    res.render('page.ejs');
+  });
+  app.get('/blog', function (req, res) {
+    res.render('blog.ejs');
+  });
+  app.get('/contact', function (req, res) {
+    res.render('contact.ejs');
+  });
 
 
 

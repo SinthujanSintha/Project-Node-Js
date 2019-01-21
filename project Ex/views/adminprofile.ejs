@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px"
                                                     alt=""> </span>
                                             <div class="user-name">
-                                                <p>P.Sinthujan</p>
+                                                <p><%=user.First_Name%></p>
                                                 <span>Administrator</span>
                                             </div>
                                             <i class="fa fa-angle-down lnr"></i>
@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 </div>
                                         </div>
                                         <% }%>
-                                              <form class="form" action="/editAdmin/<%=user.adminId%>" method="post" id="registrationForm">
+                                              <form class="form" action="/editAdmin/<%=user.User_Id%>" method="post" id="registrationForm">
                                                
                                                 
                                                    
@@ -155,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                       <div class="col-xs-6">
                                                             <h4 style="color:cornsilk;font-weight: bold">First name:</h4>
                                                       
-                                                          <input type="text" class="form-control" name="name" id="first_name" value="<%=user.name%>" placeholder="first name" title="enter your first name if any.">
+                                                          <input type="text" class="form-control" name="name" id="first_name" value="<%=user.First_Name%>" placeholder="first name" title="enter your first name if any.">
                                                       </div>
                                                   </div>
                                                   <div class="form-group">
@@ -163,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                       <div class="col-xs-6">
                                                             <h4 style="color:cornsilk;font-weight: bold">Last name:</h4>
                                             
-                                                          <input type="text" class="form-control" name="lastname"  value="<%=user.Lastname%>" placeholder="last name" title="enter your last name if any.">
+                                                          <input type="text" class="form-control" name="lastname"  value="<%=user.Last_Name%>" placeholder="last name" title="enter your last name if any.">
                                                       </div>
                                                   </div>
                                       
@@ -180,7 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                       <div class="col-xs-6">
                                                    
                                                          <h4 style="color:cornsilk;font-weight: bold">Mobile:</h4>
-                                                          <input type="text" class="form-control" name="contactno" value="<%=user.contactNo%>" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                                          <input type="text" class="form-control" name="contactno" value="<%=user.Contact_Number%>" placeholder="enter mobile number" title="enter your mobile number if any.">
                                                       </div>
                                                   </div>
                                                   <div class="form-group">
@@ -188,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                       <div class="col-xs-6">
                                                    
                                                           <h4 style="color:cornsilk;font-weight: bold">Email:</h4>
-                                                          <input type="email" class="form-control" name="username" value="<%=user.email%>"  placeholder="you@email.com" title="enter your email.">
+                                                          <input type="email" class="form-control" name="username" value="<%=user.Email_Id%>"  placeholder="you@email.com" title="enter your email.">
                                   
                                                       </div>
                                                   </div>
@@ -197,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                       <div class="col-xs-6">
                                                           
                                                           <h4 style="color:cornsilk;font-weight: bold">Location:</h4>
-                                                          <input type="text" class="form-control" name="location"value="<%=user.Location%>"  placeholder="somewhere" title="enter a location">
+                                                          <input type="text" class="form-control" name="location"value="<%=user.Address%>"  placeholder="somewhere" title="enter a location">
                                                       </div>
                                                   </div>
                                                  
