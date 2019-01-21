@@ -27,7 +27,7 @@ module.exports = function (app) {
     var houses = req.body.houses;
 
 
-    var sql = "INSERT INTO floor (floorName, Houses) VALUES (?,?)";
+    var sql = "INSERT INTO floor (Name, Houses) VALUES (?,?)";
     con.query(sql, [FloorName, houses], function (err, result) {
       if (err) throw err;
 
@@ -48,7 +48,7 @@ module.exports = function (app) {
     var idd = req.params.id;
 
 
-    var sql = "UPDATE floor SET floorName = ?, Houses = ? WHERE floorId = ?";
+    var sql = "UPDATE floor SET Name = ?, Houses = ? WHERE Floor_Id = ?";
     con.query(sql, [FloorName, houses, idd], function (err, result) {
       if (err) throw err;
 
@@ -173,7 +173,7 @@ module.exports = function (app) {
   });
 
   app.get('/FloorDel/:id', (req, res) => {
-    var sql = "DELETE FROM floor WHERE floorId =?";
+    var sql = "DELETE FROM floor WHERE Floor_Id =?";
     con.query(sql, [req.params.id], function (err, result) {
       if (err) throw err;
 

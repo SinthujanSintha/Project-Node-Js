@@ -1,7 +1,16 @@
+var mysql = require('mysql');
+var passport = require('passport');
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "ams2"
+});
+var ty=require('../config/passport.js');
 module.exports = function (app, passport) {
-
   
- 
+  
+  
 
 
 
@@ -47,31 +56,48 @@ module.exports = function (app, passport) {
     });
   });
 
-  app.get('/profile',isLoggedIn, function (req, res) {
-      if (req.session.user) {
-        res.render('index.ejs', {
-          user: req.user
-        });
-      } else {
-        res.redirect('/');
+  // app.get('/profile',isLoggedIn, function (req, res) {
+   
+  //       res.render('index.ejs', {
+  //         user: req.user
+  //       });
+  //     } );
 
-      }});
 
-      app.get('/profileO',isLoggedIn, function (req, res) {
-        if (req.session.user) {
-          res.render('indexO.ejs', {
+  app.get('/profile',isLoggedIn,function (req, res) {
+     console.log(ty.type);
+      if(ty.type=='Admin'){
+          res.render('index.ejs', {
             user: req.user
-          });
-        } else {
-          res.redirect('/');
-  
+          });}
+          else if(ty.type=='Owner'){
+            res.render('feature.ejs', {
+              user: req.user
+            });
+          }
+          else{
+            res.render('contact.ejs', {
+              user: req.user
+            });
+          }
+          
+
         }
 
-
-    }
+    
 
   );
 
+  app.post('/login',  passport.authenticate('local-login',{
+   
+   
+   
+    successRedirect: '/profile',
+    failureRedirect: '/login',
+    failureFlash: true,
+
+   
+  } ));
 
   app.get('/logout', function (req, res) {
 
@@ -82,21 +108,19 @@ module.exports = function (app, passport) {
 
   });
 
-  //post functions
-  app.post('/login', passport.authenticate('local-login', {
-      successRedirect: '/profile',
-      failureRedirect: '/login',
-      failureFlash: true
-    }),
-    function (req, res) {
-      if (req.body.remember) {
-        req.session.cookie.maxAge = 1000 * 60 * 8;
-      } else {
-        req.session.cookie.expires = false;
-        res.redirect('/');
-      }
 
-    });
+  
+ 
+
+       
+
+  //post functions
+  
+
+
+
+
+
 
   app.post('/signupO', passport.authenticate('local-signup', {
     successRedirect: '/ownerList',
@@ -106,14 +130,14 @@ module.exports = function (app, passport) {
   )
  );
 
- app.post('/signup', passport.authenticate('local-signup',{
-  successRedirect: '/profile',
-  failureRedirect: '/',
-  failureFlash: true
+// //  app.post('/signup', passport.authenticate('local-signup',{
+// //   successRedirect: '/profile',
+// //   failureRedirect: '/',
+// //   failureFlash: true
 
-}
-)
-);
+// // }
+// )
+// );
 
  
 
