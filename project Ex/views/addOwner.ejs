@@ -137,8 +137,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="inbox-details -default">
 
 											<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
+												<script>
 
-												<form class="com-mail" action="/signupO" method="post">
+
+													var check = function() {
+													  if (document.getElementById('password').value ==
+														document.getElementById('password2').value) {
+														document.getElementById('message').style.color = 'green';
+														document.getElementById('message').innerHTML = 'PassWord Matching';
+													  } else {
+														document.getElementById('message').style.color = 'red';
+														document.getElementById('message').innerHTML = 'PassWord Not Mathching';
+													  }
+													}
+																															</script>
+												<form class="com-mail" action="/addOwner" method="post">
 													<% if(message.length> 0) { %>
 													<div class="alert alert-danger alert-dismissible fadeIn"><a href="#" class="close" data-dismiss="alert"
 														 aria-label="close">&times;</a>
@@ -156,9 +169,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<h4 style="color:cornsilk;font-weight: bold">*Email:</h4>
 														<input type="text" name="username" class="form-control" required placeholder="Enter the Email">
 														<h4 style="color:cornsilk;font-weight: bold">*PassWord:</h4>
-														<input type="password" name="password" class="form-control" required placeholder="Enter the PassWord">
+														<input type="password" name="password" id="password"  class="form-control" required placeholder="Enter the PassWord"onkeyup='check();' >
 														<h4 style="color:cornsilk;font-weight: bold">*ConfirmPassWord:</h4>
-														<input type="password" name="password2" class="form-control" required placeholder="Re Enter PassWord">
+														<input type="password" name="password2" id="password2" class="form-control" required placeholder="Re Enter PassWord"onkeyup='check();' >
+														<h3 id='message'></h3>
 														<h4 style="color:cornsilk;font-weight: bold">*ContactNUmber:</h4>
 														<input type="tel" name="Contact" class="form-control" required placeholder="Enter Contact Number">
 														<h4 style="color:cornsilk;font-weight: bold">*MobileNUmber:</h4>

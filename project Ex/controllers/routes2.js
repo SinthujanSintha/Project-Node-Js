@@ -62,6 +62,7 @@ module.exports = function (app) {
     });
 
   }));
+ 
 
   app.post('/editAdmin/:id', urlencodedParser, (function (req, res) {
     var idd = req.params.id;
@@ -136,14 +137,14 @@ module.exports = function (app) {
 
 
 
-  app.get('/in', function (req, res) {
+  app.get('/in',isLoggedIn, function (req, res) {
     res.render('index2.ejs', {
       user: req.user
     });
   });
 
 
-  app.get('/FloorList', function (req, res) {
+  app.get('/FloorList',isLoggedIn, function (req, res) {
 
 
     con.query("SELECT * FROM floor", function (err, result, fields) {
@@ -160,7 +161,8 @@ module.exports = function (app) {
 
       res.render('FloorList.ejs', {
         floor: result,
-        size: size
+        size: size,
+        user:req.user
       });
 
 
@@ -184,89 +186,94 @@ module.exports = function (app) {
     })
   });
 
+  app.get('/OwnerDel/:id', (req, res) => {
+    var sql = "DELETE FROM user WHERE User_Id =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+      var sqll = "DELETE FROM house WHERE Owner_Id =?";
+      con.query(sqll, [req.params.id], function (err, result) {
+        if (err) throw err;
+      console.log(result.affectedRows);
+
+      res.redirect('/ownerList');}
+
+    )
+  });})
 
 
-  app.get('/addFloor', function (req, res) {
+  app.get('/addFloor',isLoggedIn, function (req, res) {
     res.render('addFloor.ejs');
   });
-  app.get('/ownerList', function (req, res) {
-    res.render('ownerList.ejs',{
-      user:req.user
-    });
-  });
 
-  app.get('/ownerList2', function (req, res) {
-    res.render('ownerList2.ejs');
-  });
-  app.get('/addOwner', function (req, res) {
+
+ 
+  app.get('/addOwner',isLoggedIn, function (req, res) {
     res.render('addOwner.ejs',{
       message: req.flash('signupMessage')
     });
   });
-  app.get('/employeeList', function (req, res) {
-    res.render('employeeList.ejs');
-  });
-  app.get('/addEmp', function (req, res) {
+ 
+  app.get('/addEmp',isLoggedIn, function (req, res) {
     res.render('addEmployee.ejs');
   });
-  app.get('/salaryList', function (req, res) {
+  app.get('/salaryList',isLoggedIn, function (req, res) {
     res.render('salaryList.ejs');
   });
-  app.get('/salaryList2', function (req, res) {
+  app.get('/salaryList2',isLoggedIn, function (req, res) {
     res.render('salaryList2.ejs');
   });
-  app.get('/leaveReqList', function (req, res) {
+  app.get('/leaveReqList',isLoggedIn, function (req, res) {
     res.render('leaveReqList.ejs');
   });
-  app.get('/OwnerUtilityList', function (req, res) {
+  app.get('/OwnerUtilityList',isLoggedIn, function (req, res) {
     res.render('OwnerUtilityList.ejs');
   });
-  app.get('/OwnerUtilityList2', function (req, res) {
+  app.get('/OwnerUtilityList2',isLoggedIn, function (req, res) {
     res.render('OwnerUtilityList2.ejs');
   });
 
-  app.get('/addOwnerUtility', function (req, res) {
+  app.get('/addOwnerUtility',isLoggedIn, function (req, res) {
     res.render('addOwnerUtility.ejs');
   });
 
-  app.get('/maintainCostList', function (req, res) {
+  app.get('/maintainCostList',isLoggedIn, function (req, res) {
     res.render('maintainCostList.ejs');
   });
-  app.get('/addMaintCost', function (req, res) {
+  app.get('/addMaintCost',isLoggedIn, function (req, res) {
     res.render('addMaintCost.ejs');
   });
-  app.get('/committeList', function (req, res) {
+  app.get('/committeList',isLoggedIn, function (req, res) {
     res.render('committeList.ejs');
   });
-  app.get('/addCommitte', function (req, res) {
+  app.get('/addCommitte',isLoggedIn, function (req, res) {
     res.render('addCommitte.ejs');
   });
-  app.get('/complainList', function (req, res) {
+  app.get('/complainList',isLoggedIn, function (req, res) {
     res.render('complainList.ejs');
   });
-  app.get('/visitorsList', function (req, res) {
+  app.get('/visitorsList',isLoggedIn, function (req, res) {
     res.render('visitorsList.ejs');
   });
-  app.get('/addVisitors', function (req, res) {
+  app.get('/addVisitors',isLoggedIn, function (req, res) {
     res.render('addVisitors.ejs');
   });
-  app.get('/empNotice', function (req, res) {
+  app.get('/empNotice',isLoggedIn, function (req, res) {
     res.render('empNotice.ejs');
   });
-  app.get('/ownerNotice', function (req, res) {
+  app.get('/ownerNotice',isLoggedIn, function (req, res) {
     res.render('ownerNotice.ejs');
   });
-  app.get('/adview', function (req, res) {
+  app.get('/adview',isLoggedIn, function (req, res) {
     res.render('AdminProView.ejs', {
       user: req.user
     });
   });
-  app.get('/buildingSet', function (req, res) {
+  app.get('/buildingSet',isLoggedIn, function (req, res) {
     res.render('buildingSet.ejs');
   });
 
 
-  app.get('/adpro', function (req, res) {
+  app.get('/adpro',isLoggedIn, function (req, res) {
 msg="";
     res.render('adminprofile.ejs', {
       user: req.user,
@@ -275,7 +282,7 @@ msg="";
   });
 
 
-  app.get('/ChangeAdPass', function (req, res) {
+  app.get('/ChangeAdPass',isLoggedIn, function (req, res) {
 
     res.render('ChangeAdPass.ejs', {
       user: req.user
@@ -291,15 +298,15 @@ msg="";
 
 
 
-  app.get('/editCommitte', function (req, res) {
+  app.get('/editCommitte',isLoggedIn, function (req, res) {
     res.render('editCommitte.ejs');
   });
 
-  app.get('/ComReply', function (req, res) {
+  app.get('/ComReply',isLoggedIn, function (req, res) {
     res.render('ComReply.ejs');
   });
 
-  app.get('/editEmployee', function (req, res) {
+  app.get('/editEmployee',isLoggedIn, function (req, res) {
     res.render('editEmployee.ejs');
   });
 
@@ -359,7 +366,7 @@ msg="";
     });
 
   });
-  app.get('/editFloor3', function (req, res) {
+  app.get('/editFloor3',isLoggedIn, function (req, res) {
     con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
       Object.size = function (obj) {
@@ -385,7 +392,7 @@ msg="";
     });
 
   });
-  app.get('/editFloor4', function (req, res) {
+  app.get('/editFloor4',isLoggedIn, function (req, res) {
     con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
       Object.size = function (obj) {
@@ -411,7 +418,7 @@ msg="";
     });
 
   });
-  app.get('/editFloor5', function (req, res) {
+  app.get('/editFloor5',isLoggedIn, function (req, res) {
     con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
       Object.size = function (obj) {
@@ -437,7 +444,7 @@ msg="";
     });
 
   });
-  app.get('/editFloor6', function (req, res) {
+  app.get('/editFloor6',isLoggedIn, function (req, res) {
     con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
       Object.size = function (obj) {
@@ -463,7 +470,7 @@ msg="";
     });
 
   });
-  app.get('/editFloor7', function (req, res) {
+  app.get('/editFloor7',isLoggedIn, function (req, res) {
     con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
       Object.size = function (obj) {
@@ -489,7 +496,7 @@ msg="";
     });
 
   });
-  app.get('/editFloor8', function (req, res) {
+  app.get('/editFloor8',isLoggedIn, function (req, res) {
     con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
       Object.size = function (obj) {
@@ -516,11 +523,11 @@ msg="";
 
   });
 
-  app.get('/employeeList2', function (req, res) {
+  app.get('/employeeList2',isLoggedIn, function (req, res) {
     res.render('employeeList2.ejs');
   });
 
-  app.get('/FloorList2', function (req, res) {
+  app.get('/FloorList2',isLoggedIn, function (req, res) {
     con.query("SELECT * FROM floor", function (err, result, fields) {
       if (err) throw err;
       Object.size = function (obj) {
@@ -547,12 +554,10 @@ msg="";
 
   });
 
-  app.get('/editMaintCost', function (req, res) {
+  app.get('/editMaintCost',isLoggedIn, function (req, res) {
     res.render('editMaintCost.ejs');
   });
-  app.get('/EditOwner', function (req, res) {
-    res.render('EditOwner.ejs');
-  });
+ 
   app.get('/editOwnerNotice', function (req, res) {
     res.render('editOwnerNotice.ejs');
   });

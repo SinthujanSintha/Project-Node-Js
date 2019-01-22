@@ -1,5 +1,6 @@
 var LocalStrategy = require("passport-local").Strategy;
-
+var Cryptr = require('cryptr');
+var cryptr = new Cryptr('myTotalySecretKey');
 var mysql = require('mysql');
 var bcrypt = require('bcrypt-nodejs');
 var dbconfig = require('./database');
@@ -54,6 +55,7 @@ module.exports = function (passport) {
                 HouseNo: req.body.HouseNo,
                 conpassword: req.body.password2,
                 password: bcrypt.hashSync(password, null, null)
+           
               };
               //  module.exports=newUserMysql;
               if (!bcrypt.compareSync(newUserMysql.conpassword, newUserMysql.password)) {
@@ -166,7 +168,7 @@ module.exports = function (passport) {
               return done(null, false, req.flash('loginMessage', 'Wrong Password'));
             }
 
-            req.session.user = user;
+            // req.session.user = user;
 
 
             module.exports.type = rows[0].Type;
