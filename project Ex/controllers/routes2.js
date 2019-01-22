@@ -214,7 +214,9 @@ module.exports = function (app) {
   });
  
   app.get('/addEmp',isLoggedIn, function (req, res) {
-    res.render('addEmployee.ejs');
+    res.render('addEmployee.ejs',{
+      message: req.flash('signupMessage')
+    });
   });
   app.get('/salaryList',isLoggedIn, function (req, res) {
     res.render('salaryList.ejs');
@@ -306,9 +308,7 @@ msg="";
     res.render('ComReply.ejs');
   });
 
-  app.get('/editEmployee',isLoggedIn, function (req, res) {
-    res.render('editEmployee.ejs');
-  });
+ 
 
   app.get('/editEmpNotice', function (req, res) {
     res.render('editEmpNotice.ejs');
@@ -523,9 +523,7 @@ msg="";
 
   });
 
-  app.get('/employeeList2',isLoggedIn, function (req, res) {
-    res.render('employeeList2.ejs');
-  });
+ 
 
   app.get('/FloorList2',isLoggedIn, function (req, res) {
     con.query("SELECT * FROM floor", function (err, result, fields) {
