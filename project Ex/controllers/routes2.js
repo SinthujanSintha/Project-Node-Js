@@ -282,6 +282,18 @@ app.post('/editOwnerUtility/:id',urlencodedParser,function(req,res){
     });
   });
 
+  app.get('/delUtility/:id',isLoggedIn,function(req,res){
+
+    var sql = "DELETE FROM owner_utility WHERE Cost_Id =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/OwnerUtilityList');
+
+    })
+  })
 
   app.get('/FloorList',isLoggedIn, function (req, res) {
 
@@ -313,7 +325,7 @@ app.post('/editOwnerUtility/:id',urlencodedParser,function(req,res){
 
   });
 
-  app.get('/FloorDel/:id', (req, res) => {
+  app.get('/FloorDel/:id',isLoggedIn, (req, res) => {
     var sql = "DELETE FROM floor WHERE Floor_Id =?";
     con.query(sql, [req.params.id], function (err, result) {
       if (err) throw err;
