@@ -172,21 +172,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<input type="password" name="password" id="password" class="form-control" required placeholder="Enter the PassWord" value="<%=emp[size-1].First_Name %>"
 														 onkeyup='check();'>
 														<h4 style="color:cornsilk;font-weight: bold">*ConfirmPassWord:</h4>
-														<input type="password" name="password2" id="password2" class="form-control" required placeholder="Re Enter PassWord"
+														<input type="password" name="password2" id="password2" class="form-control" required placeholder="Re Enter PassWord" value="<%=emp[size-1].First_Name %>"
 														 onkeyup='check();'>
 														<h3 id='message'></h3>
 														<h4 style="color:cornsilk;font-weight: bold">*ContactNUmber:</h4>
-														<input type="tel" name="Contact" class="form-control" required placeholder="Enter Contact Number">
+														<input type="tel" name="Contact" class="form-control" required placeholder="Enter Contact Number"value="<%=emp[size-1].Contact_Number %>" >
 
 														<h4 style="color:cornsilk;font-weight: bold">*MobileNUmber:</h4>
-														<input type="tel" name="Phone" class="form-control" required placeholder="Enter MobileNumber">
+														<input type="tel" name="Phone" class="form-control" required placeholder="Enter MobileNumber" value="<%=emp[size-1].Phone %>"  > 
 														<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
-														<input type="text" name="Address" class="form-control" required placeholder="Enter Address">
+														<input type="text" name="Address" class="form-control" required placeholder="Enter Address"value="<%=emp[size-1].Address %>" >
 						
 														<h4 style="color:cornsilk;font-weight: bold">*Designation:</h4>
 
 														<select name="job" id="ddlMemberType" class="form-control">
-															<option value="">--Select--</option>
+															<option value="<%=emp[size-1].Job %>" ><%=emp[size-1].Job %></option>
 
 															<option value="electricians">Electricians</option>
 															<option value="cleaner">Cleaner</option>
@@ -196,10 +196,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</select>
 													
 														<h4 style="color:cornsilk;font-weight: bold">*UserType:</h4>
-														<input type="text" name="Type" class="form-control" value="Employee">
+														<input type="text" name="Type" class="form-control" value="<%=emp[size-1].Type%>">
 
 														<h4 style="color:cornsilk;font-weight: bold">*Salary:</h4>
-														<input type="number" name="salary" class="form-control" required placeholder="Enter Salary">
+														<input type="number" name="salary" class="form-control" required placeholder="Enter Salary"value="<%=emp[size-1].Amount%>" >
 													</div>
 
 

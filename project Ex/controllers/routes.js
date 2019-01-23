@@ -91,7 +91,9 @@ module.exports = function (app, passport) {
       res.render('editEmployee.ejs', {
         emp: result,
         size: size,
-        user: req.user
+        user: req.user,
+        message: req.flash('signupMessage')
+
       });
 
 

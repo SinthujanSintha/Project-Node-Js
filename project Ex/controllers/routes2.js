@@ -215,6 +215,7 @@ module.exports = function (app) {
  
   app.get('/addEmp',isLoggedIn, function (req, res) {
     res.render('addEmployee.ejs',{
+      user:req.user,
       message: req.flash('signupMessage')
     });
   });
