@@ -683,7 +683,10 @@ app.post('/editOwnerUtility/:id',urlencodedParser,function(req,res){
     res.render('maintainCostList.ejs');
   });
   app.get('/addMaintCost',isLoggedIn, function (req, res) {
-    res.render('addMaintCost.ejs');
+    res.render('addMaintCost.ejs',{
+      user:req.user
+    });
+
   });
   app.get('/committeList',isLoggedIn, function (req, res) {
     res.render('committeList.ejs');
