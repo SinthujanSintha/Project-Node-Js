@@ -138,13 +138,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-												<form class="com-mail" action="/editEmployee/<%=emp[size-1].User_Id %>" method="post">
+												<form class="com-mail" action="/editEmployee/<%=emp[size-3].User_Id %>" method="post">
 													
 													<div class="form-group">
 															<script>
 
-
-																	var check = function() {
+                    var check = function() {
 																	  if (document.getElementById('password').value ==
 																		document.getElementById('password2').value) {
 																		document.getElementById('message').style.color = 'green';
@@ -156,30 +155,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																	}
 																																			</script>
 														<h4 style="color:cornsilk;font-weight: bold">*FirstName:</h4>
-														<input type="text" name="FirstName" class="form-control" required placeholder="Enter the First Name" value="<%=emp[size-1].First_Name %>">
+														<input type="text" name="FirstName" class="form-control" required placeholder="Enter the First Name" value="<%=emp[size-3].First_Name %>">
 														<h4 style="color:cornsilk;font-weight: bold">*LastName:</h4>
-														<input type="text" name="LastName" class="form-control" required placeholder="Enter the Last Name"value="<%=emp[size-1].Last_Name %>">
+														<input type="text" name="LastName" class="form-control" required placeholder="Enter the Last Name"value="<%=emp[size-3].Last_Name %>">
 														<h4 style="color:cornsilk;font-weight: bold">*Email:</h4>
-														<input type="text" name="username" class="form-control" required placeholder="Enter the Email"value="<%=emp[size-1].Email_Id %>">
+														<input type="text" name="username" class="form-control" required placeholder="Enter the Email"value="<%=emp[size-3].Email_Id %>">
 														<h4 style="color:cornsilk;font-weight: bold">*PassWord:</h4>
-														<input type="password" name="password" id="password" class="form-control" required placeholder="Enter the PassWord" value="<%=emp[size-1].First_Name %>"
+														<input type="password" name="password" id="password" class="form-control" required placeholder="Enter the PassWord" value="<%=emp[size-3].First_Name %>"
 														 onkeyup='check();'>
 														<h4 style="color:cornsilk;font-weight: bold">*ConfirmPassWord:</h4>
-														<input type="password" name="password2" id="password2" class="form-control" required placeholder="Re Enter PassWord" value="<%=emp[size-1].First_Name %>"
+														<input type="password" name="password2" id="password2" class="form-control" required placeholder="Re Enter PassWord" value="<%=emp[size-3].First_Name %>"
 														 onkeyup='check();'>
 														<h3 id='message'></h3>
 														<h4 style="color:cornsilk;font-weight: bold">*ContactNUmber:</h4>
-														<input type="tel" name="Contact" class="form-control" required placeholder="Enter Contact Number"value="<%=emp[size-1].Contact_Number %>" >
+														<input type="tel" name="Contact" class="form-control" required placeholder="Enter Contact Number"value="<%=emp[size-3].Contact_Number %>" >
 
 														<h4 style="color:cornsilk;font-weight: bold">*MobileNUmber:</h4>
-														<input type="tel" name="Phone" class="form-control" required placeholder="Enter MobileNumber" value="<%=emp[size-1].Phone %>"  > 
+														<input type="tel" name="Phone" class="form-control" required placeholder="Enter MobileNumber" value="<%=emp[size-3].Phone %>"  > 
 														<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
-														<input type="text" name="Address" class="form-control" required placeholder="Enter Address"value="<%=emp[size-1].Address %>" >
+														<input type="text" name="Address" class="form-control" required placeholder="Enter Address"value="<%=emp[size-3].Address %>" >
 						
 														<h4 style="color:cornsilk;font-weight: bold">*Designation:</h4>
 
 														<select name="job" id="ddlMemberType" class="form-control">
-															<option value="<%=emp[size-1].Job %>" ><%=emp[size-1].Job %></option>
+															<option value="<%=emp[size-3].Job %>" ><%=emp[size-3].Job %></option>
 
 															<option value="electricians">Electricians</option>
 															<option value="cleaner">Cleaner</option>
@@ -189,10 +188,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</select>
 													
 														<h4 style="color:cornsilk;font-weight: bold">*UserType:</h4>
-														<input type="text" name="Type" class="form-control" value="<%=emp[size-1].Type%>">
+														<input type="text" name="Type" class="form-control" value="<%=emp[size-3].Type%>">
 
 														<h4 style="color:cornsilk;font-weight: bold">*Salary:</h4>
-														<input type="number" name="salary" class="form-control" required placeholder="Enter Salary"value="<%=emp[size-1].Amount%>" >
+														<input type="number" name="salary" class="form-control" required placeholder="Enter Salary"value="<%=emp[size-3].Amount%>" >
 													</div>
 
 

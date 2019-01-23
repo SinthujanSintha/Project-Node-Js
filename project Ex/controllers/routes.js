@@ -14,8 +14,8 @@ var con = mysql.createConnection({
 var ty = require('../config/passport.js');
 module.exports = function (app, passport) {
 
-
-  app.get('/employeeList', isLoggedIn, function (req, res) {
+//GetFunction
+  app.get('/employeeList', isLoggedIn, function (req, res){
 
     con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
       con
@@ -72,7 +72,6 @@ module.exports = function (app, passport) {
     });
   });
 
-
   app.get('/editEmployee',isLoggedIn, function (req, res) {
 
     con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
@@ -103,6 +102,158 @@ module.exports = function (app, passport) {
 
     });
   });
+  app.get('/editEmployee2',isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editEmployee2.ejs', {
+        emp: result,
+        size: size,
+        user: req.user,
+        message: req.flash('signupMessage')
+
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editEmployee3',isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editEmployee3.ejs', {
+        emp: result,
+        size: size,
+        user: req.user,
+        message: req.flash('signupMessage')
+
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editEmployee4',isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editEmployee4.ejs', {
+        emp: result,
+        size: size,
+        user: req.user,
+        message: req.flash('signupMessage')
+
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+  app.get('/editEmployee5',isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editEmployee5.ejs', {
+        emp: result,
+        size: size,
+        user: req.user,
+        message: req.flash('signupMessage')
+
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editEmployee6',isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editEmployee6.ejs', {
+        emp: result,
+        size: size,
+        user: req.user,
+        message: req.flash('signupMessage')
+
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
 
 
 
@@ -136,37 +287,6 @@ module.exports = function (app, passport) {
 
     });
   });
-
-  app.post('/editOwner/:id', urlencodedParser, (function (req, res) {
-    var idd = req.params.id;
-    var firstName = req.body.FirstName;
-    var lastName = req.body.LastName;
-    var emailId = req.body.username;
-    var password = bcrypt.hashSync(req.body.password, null, null);
-    var contact = req.body.Contact;
-    var phone = req.body.Phone;
-    var housename = req.body.HouseName;
-    var Address = req.body.Address;
-
-
-    var sql = "update user set PassWord=?,First_Name=?,Email_Id=?, Contact_Number=?,Last_Name=?,Phone=?,Address=? where User_Id=?";
-    con.query(sql, [password, firstName, emailId, contact, lastName, phone, Address, idd], function (err, result) {
-      if (err) throw err;
-      var sql = "update house set House_Name=? where Owner_Id=?";
-      con.query(sql, [housename, idd], function (err, result) {
-        if (err) throw err;
-      })
-      console.log("Number of records inserted: " + result.affectedRows);
-      if (result.affectedRows == 1) {
-        res.redirect('/ownerList');
-
-
-      }
-
-    });
-
-  }));
-
 
   app.get('/EditOwner1', isLoggedIn, function (req, res) {
 
@@ -338,9 +458,6 @@ module.exports = function (app, passport) {
   });
 
 
-
-
-
   app.get('/ownerList2', isLoggedIn, function (req, res) {
     con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
       con
@@ -374,9 +491,6 @@ module.exports = function (app, passport) {
     res.render('Home.ejs');
   });
 
-
-
-
   app.get('/signup', isLoggedIn, function (req, res) {
     res.render('register.ejs', {
       message: req.flash('signupMessage')
@@ -389,31 +503,38 @@ module.exports = function (app, passport) {
     });
   });
 
-
-
   app.get('/profile', isLoggedIn, function (req, res) {
-      console.log(ty.type);
-      if (ty.type == 'Admin') {
-        res.render('index.ejs', {
-          user: req.user
-        });
-      } else if (ty.type == 'Owner') {
-        res.render('feature.ejs', {
-          user: req.user
-        });
-      } else {
-        res.render('contact.ejs', {
-          user: req.user
-        });
-      }
-
-
+    console.log(ty.type);
+    if (ty.type == 'Admin') {
+      res.render('index.ejs', {
+        user: req.user
+      });
+    } else if (ty.type == 'Owner') {
+      res.render('feature.ejs', {
+        user: req.user
+      });
+    } else {
+      res.render('contact.ejs', {
+        user: req.user
+      });
     }
 
 
+  } );
 
-  );
+  app.get('/logout', function (req, res) {
 
+    req.session.destroy();
+    res.redirect('/');
+
+   
+
+  });
+ 
+ //Post functions
+ 
+
+ 
   app.post('/login', passport.authenticate('local-login', {
 
 
@@ -430,18 +551,38 @@ module.exports = function (app, passport) {
       res.redirect('/');
     });
 
-  app.get('/logout', function (req, res) {
-
-    req.session.destroy();
-    res.redirect('/');
-
-    // Redirect to root
-
-  });
 
 
 
+  app.post('/editOwner/:id', urlencodedParser, (function (req, res) {
+    var idd = req.params.id;
+    var firstName = req.body.FirstName;
+    var lastName = req.body.LastName;
+    var emailId = req.body.username;
+    var password = bcrypt.hashSync(req.body.password, null, null);
+    var contact = req.body.Contact;
+    var phone = req.body.Phone;
+    var housename = req.body.HouseName;
+    var Address = req.body.Address;
 
+
+    var sql = "update user set PassWord=?,First_Name=?,Email_Id=?, Contact_Number=?,Last_Name=?,Phone=?,Address=? where User_Id=?";
+    con.query(sql, [password, firstName, emailId, contact, lastName, phone, Address, idd], function (err, result) {
+      if (err) throw err;
+      var sql = "update house set House_Name=? where Owner_Id=?";
+      con.query(sql, [housename, idd], function (err, result) {
+        if (err) throw err;
+      })
+      console.log("Number of records inserted: " + result.affectedRows);
+      if (result.affectedRows == 1) {
+        res.redirect('/ownerList');
+
+
+      }
+
+    });
+
+  }));
 
   app.post('/addOwner', function (req, res) {
     var username = req.body.username;
@@ -608,7 +749,90 @@ module.exports = function (app, passport) {
     )
   })
 
-  //post functions
+  app.post('/editEmployee/:id', function (req, res) {
+    var idd = req.params.id;
+    
+   
+      
+
+          var newUserMysql = {
+
+            username: req.body.username,
+            firstname: req.body.FirstName,
+            lastname: req.body.LastName,
+            location: req.body.Address,
+            phone: req.body.Phone,
+            type: req.body.Type,
+            sal: req.body.salary,
+            contact: req.body.Contact,
+            job: req.body.job,
+            conpassword: req.body.password2,
+            password: bcrypt.hashSync(req.body.password, null, null)
+
+          };
+
+
+
+
+
+
+          var updateQuery = "update user set First_Name=?, Last_Name=?, Contact_Number=?, Email_ID=?, PassWord=?, Phone=?,Address=?,Type=? where User_Id=?";
+
+          con.query(updateQuery, [newUserMysql.firstname,
+              newUserMysql.lastname, newUserMysql.contact, newUserMysql.username, newUserMysql.password, newUserMysql.phone, newUserMysql.location, newUserMysql.type,idd
+            ],
+            function (err) {
+              if (err)
+                console.log(err);
+
+            
+            })
+
+
+
+
+             
+
+
+                  var updateSalary = "update salary set Amount=? where Emp_Id=? ";
+                  con.query(updateSalary, [newUserMysql.sal,idd],
+                    function (err, row) {
+                      if (err)
+                        console.log(err);
+                    })
+
+
+
+                  var updateJob = "update employee_job set Job=? where Emp_Id=?";
+
+                  con.query(updateJob, [ newUserMysql.job,idd],
+                    function (err) {
+                      if (err)
+                        console.log(err);
+                      res.redirect('/employeeList');
+                    });
+
+               
+
+          
+
+
+          })
+
+
+
+
+
+
+
+  
+
+
+  app.post('/signupO', passport.authenticate('local-signup', {
+    successRedirect: '/ownerList',
+    failureRedirect: '/addOwner',
+    failureFlash: true
+  }));
 
 
 
@@ -634,11 +858,7 @@ module.exports = function (app, passport) {
 
 
 
-  app.post('/signupO', passport.authenticate('local-signup', {
-    successRedirect: '/ownerList',
-    failureRedirect: '/addOwner',
-    failureFlash: true
-  }));
+
 
   // //  app.post('/signup', passport.authenticate('local-signup',{
   // //   successRedirect: '/profile',
