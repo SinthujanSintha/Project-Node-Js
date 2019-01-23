@@ -142,31 +142,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-                                                <form class="com-mail" action="">
+                                                <form class="com-mail" action="/addOwnerUtility" method="post">
                                                     <div class="form-group">
+                                                        <script>
 
+
+                                                            var check = function() {
+                                                              var x=document.getElementById('c1').value ;
+                                                              var y=document.getElementById('c2').value; 
+                                                              var z=document.getElementById('c3').value;
+                                                              var w=document.getElementById('c4').value;
+                                                              var o=document.getElementById('c5').value;
+                                                              var m=Number(x)+Number(y)+Number(z)+Number(w)+Number(o);
+                                                                document.getElementById('c6').value =m;
+                                                              }
+                                                            
+                                                                                                                                    </script>
                                                      
                                                     
                                                         
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Owner Name:</h4>
-                                                        <select onchange="getActiveUnit(this.value)" name="" 
-                                                        id="ddlFloorNo" class="form-control">
-                                                        <option value="">Owner Name</option>
-                                                        <option value="1A">1A</option>
-                                                        <option value="1B">1B</option>
-                                                        <option value="1C">1C</option>
-                                                        <option value="1D">1D</option>
-                                                        <option value="2A">2A</option>
-                                                        <option value="2B">2B</option>
-                                                      
-                                                      
+                                                        <!--  
+<!--                                                     
+                                                            <select onchange="getActiveUnit(this.value)"id="ddlFloorNo" nama="email" class="form-control" >
+                                                        <option value="">-----</option>
+                                                        <option value="<%=cost[size-1].Email_Id %>"><%=cost[size-1].Email_Id %></option>
+                                                        <option value="<%=cost[size-2].Email_Id %>"><%=cost[size-2].Email_Id %></option>
+                                                        <option value="<%=cost[size-3].Email_Id %>"><%=cost[size-3].Email_Id %></option>
+                                                        <option value="<%=cost[size-4].Email_Id %>"><%=cost[size-4].Email_Id %></option>
+                                                        <option value="<%=cost[size-5].Email_Id %>"><%=cost[size-5].Email_Id %></option>
+                                                        <option value="<%=cost[size-6].Email_Id %>"><%=cost[size-6].Email_Id %></option>
+                                                    </select> -->
+                                               <h4 style="color:cornsilk;font-weight: bold">*Owner Username:</h4>
+                                                
+                                                 <input list="owners" name="email"class="form-control">
+                                                 <datalist id="owners">
+                                                   <option value="<%=cost[size-1].Email_Id %>" >
+                                                   <option value="<%=cost[size-2].Email_Id %>" >
+                                                   <option value="<%=cost[size-3].Email_Id %>" >
+                                                   <option value="<%=cost[size-4].Email_Id %>" >
+                                                   <option value="<%=cost[size-5].Email_Id %>" >
+                                                 </datalist>
                                  
                                                        
-                                                    </select>
+                                                   
 
                                                         <h4 style="color:cornsilk;font-weight: bold">*Select Utility
                                                             Month:</h4>
-                                                        <select name="ddlMonth" id="ddlMonth" class="form-control">
+                                                        <select name="month" id="ddlMonth" class="form-control">
                                                             <option value="">--Select Utility Month--</option>
                                                             <option value="January">January</option>
                                                             <option value="February">February</option>
@@ -177,29 +199,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             <option value="July">July</option>
                                                             <option value="August">August</option>
                                                             <option value="September">September</option>
-                                                            <option value="October">Octobor</option>
+                                                            <option value="October">October</option>
                                                             <option value="November">November</option>
                                                             <option value="December">December</option>
                                                         </select>
                                                         <h4 style="color:cornsilk;font-weight: bold">*Select Utility
                                                             Year:</h4>
-                                                            <select name="ddlYear" id="ddlYear" class="form-control">
+                                                            <select name="year" id="ddlYear" class="form-control">
                                                                 <option value="">--Select Utility Year--</option>
-                                                                              <option value="2000">2000</option>
-                                                                              <option value="2001">2001</option>
-                                                                              <option value="2002">2002</option>
-                                                                              <option value="2003">2003</option>
-                                                                              <option value="2004">2004</option>
-                                                                              <option value="2005">2005</option>
-                                                                              <option value="2006">2006</option>
-                                                                              <option value="2007">2007</option>
-                                                                              <option value="2008">2008</option>
-                                                                              <option value="2009">2009</option>
-                                                                              <option value="2010">2010</option>
-                                                                              <option value="2011">2011</option>
-                                                                              <option value="2012">2012</option>
-                                                                              <option value="2013">2013</option>
-                                                                              <option value="2014">2014</option>
+                                                                            
                                                                               <option value="2015">2015</option>
                                                                               <option value="2016">2016</option>
                                                                               <option value="2017">2017</option>
@@ -211,22 +219,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                               <option value="2023">2023</option>
                                                                             </select>
                                                                             <h4 style="color:cornsilk;font-weight: bold">*Gas Cost:</h4>
-                                                                            <input type="number" name="gas" class="form-control" required
+                                                                            <input type="number" name="gas" id="c1" class="form-control" required  onkeyup='check();'
                                                                                 placeholder="Enter Amount">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Water Cost:</h4>
-                                                                            <input type="number" name="water" class="form-control" required
+                                                                            <input type="number" name="water" id="c2" onkeyup='check();' class="form-control" required
                                                                                 placeholder="Enter Amount">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Electricity Cost:</h4>
-                                                                            <input type="number" name="electric" class="form-control" required
+                                                                            <input type="number" name="electric" id="c3" onkeyup='check();' class="form-control" required
                                                                                 placeholder="Enter Amount">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Security Charge:</h4>
-                                                                            <input type="number" name="security" class="form-control" required
+                                                                            <input type="number" name="security" id="c4" onkeyup='check();' class="form-control" required
                                                                                 placeholder="Enter Amount">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Other Expensive:</h4>
-                                                                                <input type="number" name="other" class="form-control" required
+                                                                                <input type="number" name="other" id="c5" onkeyup='check();' class="form-control" required
                                                                                     placeholder="Enter Amount">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Total Utility:</h4>
-                                                                                <input type="number" name="total" class="form-control" required
+                                                                                <input type="number" name="total" id="c6" class="form-control" required
                                                                                     placeholder="Enter Amount">
                                                     </div>
 

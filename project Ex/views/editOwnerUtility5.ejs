@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-                                                <form class="com-mail" action="/editOwnerUtility/<%=cost[size-1].Cost_Id %>" method="post">
+                                                <form class="com-mail" action="/editOwnerUtility/<%=cost[size-5].Cost_Id %>" method="post">
                                                     <div class="form-group">
                                                         <script>
 
@@ -174,7 +174,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     </select> -->
                                                <h4 style="color:cornsilk;font-weight: bold">*Owner Username:</h4>
                                                 
-                                                 <input list="owners" name="email"class="form-control" value="<%=cost[size-1].Email_Id %>">
+                                                 <input list="owners" name="email"class="form-control" value="<%=cost[size-5].Email_Id %>">
                                                  <datalist id="owners">
                                                    <option value="<%=cost[size-1].Email_Id %>" >
                                                    <option value="<%=cost[size-2].Email_Id %>" >
@@ -189,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <h4 style="color:cornsilk;font-weight: bold">*Select Utility
                                                             Month:</h4>
                                                         <select name="month" id="ddlMonth" class="form-control" >
-                                                            <option value="<%=cost[size-1].Month %>"><%=cost[size-1].Month %></option>
+                                                            <option value="<%=cost[size-5].Month %>"><%=cost[size-5].Month %></option>
                                                             <option value="January">January</option>
                                                             <option value="February">February</option>
                                                             <option value="March">March</option>
@@ -206,7 +206,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <h4 style="color:cornsilk;font-weight: bold">*Select Utility
                                                             Year:</h4>
                                                             <select name="year" id="ddlYear" class="form-control" >
-                                                                <option value="<%=cost[size-1].Year %>"><%=cost[size-1].Year %></option>
+                                                                <option value="<%=cost[size-5].Year %>"><%=cost[size-5].Year %></option>
                                                                             
                                                                               <option value="2015">2015</option>
                                                                               <option value="2016">2016</option>
@@ -220,22 +220,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                             </select>
                                                                             <h4 style="color:cornsilk;font-weight: bold">*Gas Cost:</h4>
                                                                             <input type="number" name="gas" id="c1" class="form-control" required  onkeyup='check();'
-                                                                                placeholder="Enter Amount" value="<%=cost[size-1].Gas_Amount %>">
+                                                                                placeholder="Enter Amount" value="<%=cost[size-5].Gas_Amount %>">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Water Cost:</h4>
                                                                             <input type="number" name="water" id="c2" onkeyup='check();' class="form-control" required
-                                                                                placeholder="Enter Amount" value="<%=cost[size-1].Water_Amount %>">
+                                                                                placeholder="Enter Amount" value="<%=cost[size-5].Water_Amount %>">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Electricity Cost:</h4>
                                                                             <input type="number" name="electric" id="c3" onkeyup='check();' class="form-control" required
-                                                                                placeholder="Enter Amount" value="<%=cost[size-1].Electricity_Amount%>" >
+                                                                                placeholder="Enter Amount" value="<%=cost[size-5].Electricity_Amount%>" >
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Security Charge:</h4>
                                                                             <input type="number" name="security" id="c4" onkeyup='check();' class="form-control" required
-                                                                                placeholder="Enter Amount" value="<%=cost[size-1].Security_Charge %>">
+                                                                                placeholder="Enter Amount" value="<%=cost[size-5].Security_Charge %>">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Other Expensive:</h4>
                                                                                 <input type="number" name="other" id="c5" onkeyup='check();' class="form-control" required
-                                                                                    placeholder="Enter Amount" value="<%=cost[size-1].	Other_Expensive %>">
+                                                                                    placeholder="Enter Amount" value="<%=cost[size-5].	Other_Expensive %>">
                                                                                 <h4 style="color:cornsilk;font-weight: bold">*Total Utility:</h4>
                                                                                 <input type="number" name="total" id="c6" class="form-control" required
-                                                                                    placeholder="Enter Amount" value="<%=cost[size-1].Total_Amount %>">
+                                                                                    placeholder="Enter Amount" value="<%=cost[size-5].Total_Amount %>">
                                                     </div>
 
 

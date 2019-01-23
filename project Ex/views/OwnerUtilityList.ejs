@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="profile_img">
 											<span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px" alt=""> </span>
 											<div class="user-name">
-												<p> </p>
+												<p><%=user.First_Name%> </p>
 												<span>Administrator</span>
 											</div>
 											<i class="fa fa-angle-down lnr"></i>
@@ -147,6 +147,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <th style=" font-size: 20px;">Total Utility</th>
 													<th colspan="2" align="center"style=" font-size: 20px;">Action</th>
 												</tr>
+												
 				
 				
 											</thead>
@@ -156,12 +157,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<td><img class="img-circle" style="width:50px;height:50px;" 
 																src="/images/mypro.jpg"></td>
 															
-																<td>Sujanthan</td>
+																<td><%=cost[size-1].First_Name %></td>
 															
-																<td>3A</td>
-																<td>March</td>
-																<td>2018</td>
-                                                                <td>5500</td>
+																<td><%=cost[size-1].House_Name %></td>
+																<td><%=cost[size-1].Month %></td>
+																<td><%=cost[size-1].Year %></td>
+                                                                <td><%=cost[size-1].Total_Amount %></td>
 															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
 																<div id="v1" class="modal">
 			
@@ -174,24 +175,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																		</div>
 																		<div class="modal-body model_view" align="center">&nbsp;
 																			<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
-																			<h3 style="text-decoration:underline;font-weight:bold ">Janu</h3>
+																			<h3 style="text-decoration:underline;font-weight:bold "><%=cost[size-1].First_Name %></h3>
 																		  </div>
 																		<div class="modalt-body">
 			
 																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																			<div class="row">
-																				<div class="col-xs-6"> <b>Owner Name :</b>janu<br>
+																				<div class="col-xs-6"> <b>Owner Name :</b><%=cost[size-1].First_Name %><br>
 																				
-																					<b>Unit No:</b> 2A<br>
-                                                                                    <b>Month Name :</b> March<br>
-                                                                                    <b>Total Bill:</b> 11000<br>
+																					<b>HouseName:</b><%=cost[size-1].House_Name %><br>
+                                                                                    <b>Month  :</b> <%=cost[size-1].Month %><br>
+                                                                                    <b>Total Cost:</b><%=cost[size-1].Total_Amount %><br>
                                                                                 </div>
-																				<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
-                                                                                    <b>Water Bill:</b> 5000<br>
-                                                                                    <b>Electric Bill</b> 3000<br>
-                                                                                    <b>Gas Bill:</b> 2000<br>
-                                                                                    <b>Security Bill:</b> 1000<br>
-																				
+																				<div class="col-xs-6">
+                                                                                    <b>Water Bill:</b> <%=cost[size-1].Water_Amount %><br>
+                                                                                    <b>Electric Bill</b><%=cost[size-1].Electricity_Amount%><br>
+                                                                                    <b>Gas Bill:</b> <%=cost[size-1].Gas_Amount %><br>
+                                                                                    <b>Security Bill:</b> <%=cost[size-1].Security_Charge %><br>
+																					<b>Other Bill:</b> <%=cost[size-1].	Other_Expensive %><br>
 																				</div>
 																			</div>
 																		</div>
@@ -209,6 +210,177 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
 																	</td>
 															</tr>
+															<tr>
+																<td><img class="img-circle" style="width:50px;height:50px;" 
+																	src="/images/mypro.jpg"></td>
+																
+																	<td><%=cost[size-2].First_Name %></td>
+																
+																	<td><%=cost[size-2].House_Name %></td>
+																	<td><%=cost[size-2].Month %></td>
+																	<td><%=cost[size-2].Year %></td>
+																	<td><%=cost[size-2].Total_Amount %></td>
+																<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i class="fa fa-eye"></i></button>
+																	<div id="v2" class="modal">
+				
+																		<!-- Modal content -->
+																		<div class="modalt-content">
+																			<div class="modalt-header">
+																				<span class="closet" data-dismiss="modal">&times;</span>
+				
+																				<h2>Owner utility Details:</h2>
+																			</div>
+																			<div class="modal-body model_view" align="center">&nbsp;
+																				<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
+																				<h3 style="text-decoration:underline;font-weight:bold "><%=cost[size-2].First_Name %></h3>
+																			  </div>
+																			<div class="modalt-body">
+				
+																				<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																				<div class="row">
+																					<div class="col-xs-6"> <b>Owner Name :</b><%=cost[size-2].First_Name %><br>
+																					
+																						<b>HouseName:</b><%=cost[size-2].House_Name %><br>
+																						<b>Month  :</b> <%=cost[size-2].Month %><br>
+																						<b>Total Cost:</b><%=cost[size-2].Total_Amount %><br>
+																					</div>
+																					<div class="col-xs-6">
+																						<b>Water Bill:</b> <%=cost[size-2].Water_Amount %><br>
+																						<b>Electric Bill</b><%=cost[size-2].Electricity_Amount%><br>
+																						<b>Gas Bill:</b> <%=cost[size-2].Gas_Amount %><br>
+																						<b>Security Bill:</b> <%=cost[size-2].Security_Charge %><br>
+																						<b>Other Bill:</b> <%=cost[size-2].	Other_Expensive %><br>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="modalt-footer">
+																				<h3>Thank you</h3>
+				
+																			</div>
+				
+																		</div>
+				
+				
+																	</div>
+				
+																		<a href="/editOwnerUtility2"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																			<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																		</td>
+																</tr>
+																<tr>
+																	<td><img class="img-circle" style="width:50px;height:50px;" 
+																		src="/images/mypro.jpg"></td>
+																	
+																		<td><%=cost[size-3].First_Name %></td>
+																	
+																		<td><%=cost[size-3].House_Name %></td>
+																		<td><%=cost[size-3].Month %></td>
+																		<td><%=cost[size-3].Year %></td>
+																		<td><%=cost[size-3].Total_Amount %></td>
+																	<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i class="fa fa-eye"></i></button>
+																		<div id="v3" class="modal">
+					
+																			<!-- Modal content -->
+																			<div class="modalt-content">
+																				<div class="modalt-header">
+																					<span class="closet" data-dismiss="modal">&times;</span>
+					
+																					<h2>Owner utility Details:</h2>
+																				</div>
+																				<div class="modal-body model_view" align="center">&nbsp;
+																					<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
+																					<h3 style="text-decoration:underline;font-weight:bold "><%=cost[size-3].First_Name %></h3>
+																				  </div>
+																				<div class="modalt-body">
+					
+																					<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																					<div class="row">
+																						<div class="col-xs-6"> <b>Owner Name :</b><%=cost[size-3].First_Name %><br>
+																						
+																							<b>HouseName:</b><%=cost[size-3].House_Name %><br>
+																							<b>Month  :</b> <%=cost[size-3].Month %><br>
+																							<b>Total Cost:</b><%=cost[size-3].Total_Amount %><br>
+																						</div>
+																						<div class="col-xs-6">
+																							<b>Water Bill:</b> <%=cost[size-3].Water_Amount %><br>
+																							<b>Electric Bill</b><%=cost[size-3].Electricity_Amount%><br>
+																							<b>Gas Bill:</b> <%=cost[size-3].Gas_Amount %><br>
+																							<b>Security Bill:</b> <%=cost[size-3].Security_Charge %><br>
+																							<b>Other Bill:</b> <%=cost[size-3].	Other_Expensive %><br>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="modalt-footer">
+																					<h3>Thank you</h3>
+					
+																				</div>
+					
+																			</div>
+					
+					
+																		</div>
+					
+																			<a href="/editOwnerUtility3"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																				<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																			</td>
+																	</tr>
+																	<tr>
+																		<td><img class="img-circle" style="width:50px;height:50px;" 
+																			src="/images/mypro.jpg"></td>
+																		
+																			<td><%=cost[size-4].First_Name %></td>
+																		
+																			<td><%=cost[size-4].House_Name %></td>
+																			<td><%=cost[size-4].Month %></td>
+																			<td><%=cost[size-4].Year %></td>
+																			<td><%=cost[size-4].Total_Amount %></td>
+																		<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i class="fa fa-eye"></i></button>
+																			<div id="v4" class="modal">
+						
+																				<!-- Modal content -->
+																				<div class="modalt-content">
+																					<div class="modalt-header">
+																						<span class="closet" data-dismiss="modal">&times;</span>
+						
+																						<h2>Owner utility Details:</h2>
+																					</div>
+																					<div class="modal-body model_view" align="center">&nbsp;
+																						<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
+																						<h3 style="text-decoration:underline;font-weight:bold "><%=cost[size-4].First_Name %></h3>
+																					  </div>
+																					<div class="modalt-body">
+						
+																						<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																						<div class="row">
+																							<div class="col-xs-6"> <b>Owner Name :</b><%=cost[size-4].First_Name %><br>
+																							
+																								<b>HouseName:</b><%=cost[size-4].House_Name %><br>
+																								<b>Month  :</b> <%=cost[size-4].Month %><br>
+																								<b>Total Cost:</b><%=cost[size-4].Total_Amount %><br>
+																							</div>
+																							<div class="col-xs-6">
+																								<b>Water Bill:</b> <%=cost[size-4].Water_Amount %><br>
+																								<b>Electric Bill</b><%=cost[size-4].Electricity_Amount%><br>
+																								<b>Gas Bill:</b> <%=cost[size-4].Gas_Amount %><br>
+																								<b>Security Bill:</b> <%=cost[size-4].Security_Charge %><br>
+																								<b>Other Bill:</b> <%=cost[size-4].	Other_Expensive %><br>
+																							</div>
+																						</div>
+																					</div>
+																					<div class="modalt-footer">
+																						<h3>Thank you</h3>
+						
+																					</div>
+						
+																				</div>
+						
+						
+																			</div>
+						
+																				<a href="/editOwnerUtility4"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																					<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																				</td>
+																		</tr>
 				
 														
 				

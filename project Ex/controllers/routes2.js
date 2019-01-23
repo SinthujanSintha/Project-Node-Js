@@ -42,6 +42,125 @@ module.exports = function (app) {
 
   }));
 
+
+
+
+app.post('/addOwnerUtility',urlencodedParser,function(req,res){
+
+  
+
+      
+
+         var  username= req.body.email;
+          var month = req.body.month;
+          var year= req.body.year;
+          var gas=req.body.gas;
+          var water= req.body.water;
+          var electric= req.body.electric;
+          var security= req.body.security;
+          var other= req.body.other;
+          var total=req.body.total;
+         
+    
+          var selectuser = "select * from user  where Email_Id =?";
+
+          con.query(selectuser, [username],
+            function (err, rowss) {
+              if (err)
+                console.log(err);
+
+
+              var insertutil = "INSERT INTO owner_utility (Owner_Id,Month,Year,Gas_Amount,Water_Amount,Electricity_Amount,Security_Charge,Other_Expensive,Total_Amount) values (?,?,?,?,?,?,?,?,?)";
+              con.query(insertutil, [rowss[0].User_Id,month,year,gas,water,electric,security,other,total],
+                function (err, row) {
+                  if (err)
+                    console.log(err);
+                    res.redirect('/OwnerUtilityList');
+                })
+
+
+
+             
+                 
+             
+
+            });
+
+       
+
+
+
+
+          }
+          )
+
+      
+
+app.post('/editOwnerUtility/:id',urlencodedParser,function(req,res){
+  var idd = req.params.id;
+
+  var  username= req.body.email;
+  var month = req.body.month;
+  var year= req.body.year;
+  var gas=req.body.gas;
+  var water= req.body.water;
+  var electric= req.body.electric;
+  var security= req.body.security;
+  var other= req.body.other;
+  var total=req.body.total;
+ 
+
+  var selectuser = "select * from user  where Email_Id =?";
+
+  con.query(selectuser, [username],
+    function (err, rowss) {
+      if (err)
+        console.log(err);
+
+
+      var insertutil = "update owner_utility set Owner_Id=?,Month=?,Year=?,Gas_Amount=?,Water_Amount=?,Electricity_Amount=?,Security_Charge=?,Other_Expensive=?,Total_Amount=? where Cost_Id=?";
+      con.query(insertutil, [rowss[0].User_Id,month,year,gas,water,electric,security,other,total,idd],
+        function (err, row) {
+          if (err)
+            console.log(err);
+            res.redirect('/OwnerUtilityList');
+        })
+
+
+
+     
+         
+     
+
+    });
+
+
+
+
+
+})
+
+
+
+
+           
+         
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
   app.post('/editFloor/:id', urlencodedParser, (function (req, res) {
     var FloorName = req.body.Floorname;
     var houses = req.body.houses;
@@ -287,15 +406,265 @@ module.exports = function (app) {
 
 
   app.get('/OwnerUtilityList',isLoggedIn, function (req, res) {
-    res.render('OwnerUtilityList.ejs');
-  });
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
-  app.get('/OwnerUtilityList2',isLoggedIn, function (req, res) {
-    res.render('OwnerUtilityList2.ejs');
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('OwnerUtilityList.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
 
+  app.get('/OwnerUtilityList2',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('OwnerUtilityList2.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+
+  app.get('/editOwnerUtility',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editOwnerUtility.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editOwnerUtility2',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editOwnerUtility2.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editOwnerUtility3',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editOwnerUtility3.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editOwnerUtility4',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editOwnerUtility4.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+  app.get('/editOwnerUtility5',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editOwnerUtility5.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editOwnerUtility6',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editOwnerUtility6.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
   app.get('/addOwnerUtility',isLoggedIn, function (req, res) {
-    res.render('addOwnerUtility.ejs');
+
+
+    con.query("SELECT * FROM user u where u.Type='Owner' ", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('addOwnerUtility.ejs', {
+        cost: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
 
   app.get('/maintainCostList',isLoggedIn, function (req, res) {
@@ -619,9 +988,7 @@ msg="";
   app.get('/editOwnerNotice',isLoggedIn, function (req, res) {
     res.render('editOwnerNotice.ejs');
   });
-  app.get('/editOwnerUtility',isLoggedIn, function (req, res) {
-    res.render('editOwnerUtility.ejs');
-  });
+ 
   app.get('/addSalary',isLoggedIn, function (req, res) {
     res.render('addSalary.ejs');
   });
