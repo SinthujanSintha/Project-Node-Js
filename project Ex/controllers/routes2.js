@@ -124,6 +124,26 @@ module.exports = function (app) {
   }));
 
 
+  app.post('/editSalary/:id',urlencodedParser,(function(req,res){
+    var idd = req.params.id;
+    var sal=req.body.salary;
+
+    var sql = "UPDATE salary SET Amount = ? WHERE Emp_Id = ?";
+    con.query(sql, [sal, idd], function (err, result) {
+      if (err) throw err;
+
+      console.log("Number of records inserted: " + result.affectedRows);
+      if (result.affectedRows == 1) {
+        res.redirect('/salaryList');
+
+
+      }
+
+    });
+
+    
+  }))
+
 
 
 
@@ -186,19 +206,7 @@ module.exports = function (app) {
     })
   });
 
-  app.get('/OwnerDel/:id', (req, res) => {
-    var sql = "DELETE FROM user WHERE User_Id =?";
-    con.query(sql, [req.params.id], function (err, result) {
-      if (err) throw err;
-      var sqll = "DELETE FROM house WHERE Owner_Id =?";
-      con.query(sqll, [req.params.id], function (err, result) {
-        if (err) throw err;
-      console.log(result.affectedRows);
-
-      res.redirect('/ownerList');}
-
-    )
-  });})
+ 
 
 
   app.get('/addFloor',isLoggedIn, function (req, res) {
@@ -220,17 +228,68 @@ module.exports = function (app) {
     });
   });
   app.get('/salaryList',isLoggedIn, function (req, res) {
-    res.render('salaryList.ejs');
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('salaryList.ejs', {
+        emp: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
   app.get('/salaryList2',isLoggedIn, function (req, res) {
-    res.render('salaryList2.ejs');
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('salaryList2.ejs', {
+        emp: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
   app.get('/leaveReqList',isLoggedIn, function (req, res) {
     res.render('leaveReqList.ejs');
   });
+
+
   app.get('/OwnerUtilityList',isLoggedIn, function (req, res) {
     res.render('OwnerUtilityList.ejs');
   });
+  
   app.get('/OwnerUtilityList2',isLoggedIn, function (req, res) {
     res.render('OwnerUtilityList2.ejs');
   });
@@ -557,24 +616,186 @@ msg="";
     res.render('editMaintCost.ejs');
   });
  
-  app.get('/editOwnerNotice', function (req, res) {
+  app.get('/editOwnerNotice',isLoggedIn, function (req, res) {
     res.render('editOwnerNotice.ejs');
   });
-  app.get('/editOwnerUtility', function (req, res) {
+  app.get('/editOwnerUtility',isLoggedIn, function (req, res) {
     res.render('editOwnerUtility.ejs');
   });
-  app.get('/addSalary', function (req, res) {
+  app.get('/addSalary',isLoggedIn, function (req, res) {
     res.render('addSalary.ejs');
   });
-  app.get('/editSalary', function (req, res) {
-    res.render('editSalary.ejs');
+  app.get('/editSalary',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editSalary.ejs', {
+        emp: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
-  app.get('/EditVisitors', function (req, res) {
+  app.get('/editSalary2',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editSalary2.ejs', {
+        emp: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editSalary3',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editSalary3.ejs', {
+        emp: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editSalary4',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editSalary4.ejs', {
+        emp: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editSalary5',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editSalary5.ejs', {
+        emp: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editSalary6',isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+      con
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editSalary6.ejs', {
+        emp: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+
+
+  app.get('/EditVisitors',isLoggedIn, function (req, res) {
     res.render('EditVisitors.ejs');
   });
-  app.get('', function (req, res) {
-    res.render('.ejs');
-  });
+
+
+ 
   app.get('/feature', function (req, res) {
     res.render('feature.ejs');
   });
@@ -594,6 +815,12 @@ msg="";
 
 
 
+
+
+
+  app.get('', function (req, res) {
+    res.render('.ejs');
+  });
 
   function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())

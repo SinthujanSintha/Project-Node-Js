@@ -171,8 +171,51 @@ var check = function() {
 																<input type="tel" name="Contact" class="form-control" required placeholder="Enter Contact Number"value="<%=owner[size-4].Contact_Number %>">
 																<h4 style="color:cornsilk;font-weight: bold">*MobileNUmber:</h4>
 																<input type="tel" name="Phone" class="form-control" required placeholder="Enter MobileNumber"value="<%=owner[size-4].Phone %>">
-																<h4 style="color:cornsilk;font-weight: bold">*HouseName:</h4>
-																<input type="text" name="HouseName" class="form-control" required placeholder="Enter HouseNo"value="<%=owner[size-4].House_Name %>">
+																<h4 style="color:cornsilk;font-weight: bold">*House Name:</h4>
+																<select onchange="getActiveUnit(this.value)" name="HouseName"
+																id="ddlFloorNo" class="form-control" required>
+																<option value="<%=owner[size-4].House_Name %>"><%=owner[size-4].House_Name %></option>
+																<option value="1A">1A</option>
+																<option value="1B">1B</option>
+																<option value="1C">1C</option>
+																<option value="1D">1D</option>
+	
+																<option value="2A">2A</option>
+																<option value="2B">2B</option>
+																<option value="2C">2C</option>
+																<option value="2D">2D</option>
+	
+																<option value="3A">3A</option>
+																<option value="3B">3B</option>
+																<option value="3C">3C</option>
+																<option value="3D">3D</option>
+	
+																<option value="4A">4A</option>
+																<option value="4B">4B</option>
+																<option value="4C">4C</option>
+																<option value="4D">4D</option>
+	
+																<option value="5A">5A</option>
+																<option value="5B">5B</option>
+																<option value="5C">5C</option>
+																<option value="5D">5D</option>
+	
+																<option value="6A">6A</option>
+																<option value="6B">6B</option>
+																<option value="6C">6C</option>
+																<option value="6D">6D</option>
+	
+																<option value="7A">7A</option>
+																<option value="7B">7B</option>
+																<option value="7C">7C</option>
+																<option value="7D">7D</option>
+	
+																<option value="8A">8A</option>
+																<option value="8B">8B</option>
+																<option value="8C">8C</option>
+																<option value="8D">8D</option>
+															   
+															</select>
 																<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
 																<input type="text" name="Address" class="form-control" required placeholder="Enter Address"value="<%=owner[size-4].Address %>">
 															

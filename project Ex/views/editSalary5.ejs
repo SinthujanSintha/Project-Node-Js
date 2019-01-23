@@ -138,14 +138,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													
 													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 														
-														<form class="com-mail" action="/editSalary/<%=emp[size-1].User_Id %>" method="post">
+														<form class="com-mail" action="/editSalary/<%=emp[size-5].User_Id %>" method="post">
 															<div class="form-group">
 												
                                                                <h4 style="color:cornsilk;font-weight: bold">*Employee Name:</h4>
-                                                                <input type="text" value="<%=emp[size-1].First_Name %>"  class="form-control" required placeholder="Enter the Employee Name" disabled>
+                                                                <input type="text" value="<%=emp[size-5].First_Name %>"  class="form-control" required placeholder="Enter the Employee Name" disabled>
                                                                <h4 style="color:cornsilk;font-weight: bold">*Designation:</h4>
 															   <select id="ddlMemberType" class="form-control" disabled>
-																<option value="<%=emp[size-1].Job %>"><%=emp[size-1].Job %></option>
+																<option value="<%=emp[size-5].Job %>"><%=emp[size-5].Job %></option>
 																			
 																			  <option value="Electricians">Electricians</option>
 																			  <option value="Cleaner">Cleaner</option>
@@ -154,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																			 
 																			</select>
                                                                     <h4 style="color:cornsilk;font-weight: bold">*Salary:</h4>
-                                                                <input type="number" name="salary" class="form-control" required placeholder="Enter the Salary" value="<%=emp[size-1].Amount %>">
+                                                                <input type="number" name="salary" class="form-control" required placeholder="Enter the Salary" value="<%=emp[size-5].Amount %>">
                                                                
 																	
 

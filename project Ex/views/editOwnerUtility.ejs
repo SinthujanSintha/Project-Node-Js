@@ -145,32 +145,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <form class="com-mail" action="">
                                                     <div class="form-group">
 
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Floor No:</h4>
-                                                        <select onchange="getActiveUnit(this.value)" name="ddlFloorNo"
-                                                            id="ddlFloorNo" class="form-control">
-                                                            <option value="">--Select Floor--</option>
-                                                            <option value="1">First Floor</option>
-                                                            <option value="3">Second Floor</option>
-                                                            <option value="4">Third Floor</option>
-                                                            <option value="5">Fourth Floor</option>
-                                                            <option value="6">Fifth Floor</option>
-                                                            <option value="8">Sixth Floor</option>
-                                                        </select>
-                                                        <h4 style="color:cornsilk;font-weight: bold">*House No:</h4>
-                                                        <select onchange="getActiveUnit(this.value)" name="ddlFloorNo"
-                                                            id="ddlFloorNo" class="form-control">
-                                                            <option value="">--Select Floor--</option>
-                                                            <option value="1">1A</option>
-                                                            <option value="3">2B</option>
-                                                            <option value="4">3C</option>
-                                                            <option value="5">4D</option>
-                                                            <option value="6">5E</option>
-                                                            <option value="8">6F</option>
-                                                        </select>
+                                                        <script>
+
+
+                                                            var check = function() {
+                                                              if (document.getElementById('password').value ==
+                                                                document.getElementById('conpassword').value) {
+                                                                document.getElementById('message').style.color = 'green';
+                                                                document.getElementById('message').innerHTML = 'PassWord Matching';
+                                                              } else {
+                                                                document.getElementById('message').style.color = 'red';
+                                                                document.getElementById('message').innerHTML = 'PassWord Not Mathching';
+                                                              }
+                                                            }
+                                                                                                                                    </script>
+                                                       
                                                         <h4 style="color:cornsilk;font-weight: bold">*Owner Name:</h4>
                                                         <input type="text" name="OType" class="form-control" required
                                                             placeholder="Enter type">
-
+                                                            <h4 style="color:cornsilk;font-weight: bold">*House Name:</h4>
+                                                            <select onchange="getActiveUnit(this.value)" name="ddlFloorNo"
+                                                                id="ddlFloorNo" class="form-control">
+                                                                <option value="">--Select Floor--</option>
+                                                                <option value="1A">1A</option>
+                                                                <option value="1B">1B</option>
+                                                                <option value="1C">1C</option>
+                                                                <option value="1D">1D</option>
+    
+                                                                <option value="2A">2A</option>
+                                                                <option value="2B">2B</option>
+                                                                <option value="2C">2C</option>
+                                                                <option value="2D">2D</option>
+    
+                                                                <option value="3A">3A</option>
+                                                                <option value="3B">3B</option>
+                                                                <option value="3C">3C</option>
+                                                                <option value="3D">3D</option>
+    
+                                                                <option value="4A">4A</option>
+                                                                <option value="4B">4B</option>
+                                                                <option value="4C">4C</option>
+                                                                <option value="4D">4D</option>
+    
+                                                                <option value="5A">5A</option>
+                                                                <option value="5B">5B</option>
+                                                                <option value="5C">5C</option>
+                                                                <option value="5D">5D</option>
+    
+                                                                <option value="6A">6A</option>
+                                                                <option value="6B">6B</option>
+                                                                <option value="6C">6C</option>
+                                                                <option value="6D">6D</option>
+    
+                                                                <option value="7A">7A</option>
+                                                                <option value="7B">7B</option>
+                                                                <option value="7C">7C</option>
+                                                                <option value="7D">7D</option>
+    
+                                                                <option value="8A">8A</option>
+                                                                <option value="8B">8B</option>
+                                                                <option value="8C">8C</option>
+                                                                <option value="8D">8D</option>
+                                                               
+                                                            </select>
                                                         <h4 style="color:cornsilk;font-weight: bold">*Select Utility
                                                             Month:</h4>
                                                         <select name="ddlMonth" id="ddlMonth" class="form-control">

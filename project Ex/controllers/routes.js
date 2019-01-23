@@ -71,6 +71,61 @@ module.exports = function (app, passport) {
 
     });
   });
+  app.get('/delEmployee/:id', function (req, res) {
+    var idd = req.params.id;
+    
+   
+      
+
+         
+
+
+
+
+
+
+          var deleteQuery = "delete from user  where User_Id=?";
+
+          con.query(deleteQuery, [idd
+            ],
+            function (err) {
+              if (err)
+                console.log(err);
+
+            
+            })
+
+
+
+
+             
+
+
+                  var deleteSalary = "delete  from salary  where Emp_Id=? ";
+                  con.query(deleteSalary, [idd],
+                    function (err, row) {
+                      if (err)
+                        console.log(err);
+                    })
+
+
+
+                  var deleteJob = "delete from  employee_job where Emp_Id=?";
+
+                  con.query(deleteJob, [ idd],
+                    function (err) {
+                      if (err)
+                        console.log(err);
+                      res.redirect('/employeeList');
+                    });
+
+               
+
+          
+
+
+          })
+
 
   app.get('/editEmployee',isLoggedIn, function (req, res) {
 
@@ -287,7 +342,19 @@ module.exports = function (app, passport) {
 
     });
   });
+  app.get('/OwnerDel/:id',isLoggedIn, (req, res) => {
+    var sql = "DELETE FROM user WHERE User_Id =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+      var sqll = "DELETE FROM house WHERE Owner_Id =?";
+      con.query(sqll, [req.params.id], function (err, result) {
+        if (err) throw err;
+      console.log(result.affectedRows);
 
+      res.redirect('/ownerList');}
+
+    )
+  });})
   app.get('/EditOwner1', isLoggedIn, function (req, res) {
 
     con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
@@ -605,7 +672,7 @@ module.exports = function (app, passport) {
             type: req.body.Type,
             des: req.body.des,
             contact: req.body.Contact,
-            HouseNo: req.body.HouseNo,
+            HouseNo: req.body.HouseName,
             conpassword: req.body.password2,
             password: bcrypt.hashSync(req.body.password, null, null)
 

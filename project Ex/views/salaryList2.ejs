@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="profile_img">
 											<span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px" alt=""> </span>
 											<div class="user-name">
-												<p>P.Sinthujan</p>
+												<p><%=user.First_Name %></p>
 												<span>Administrator</span>
 											</div>
 											<i class="fa fa-angle-down lnr"></i>
@@ -118,9 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												  <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "aria-current="page">Salary List</li>
 										
 												</ol>
-												<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
-												 href="/addSalary" data-toggle="tooltip" data-placement="left" title="Add Salary">
-														<i class="fa fa-plus"></i></a>	
+												
 														<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
 												 href="/in" data-toggle="tooltip" data-placement="left" title="Home">
 														<i class="fa fa-dashboard"></i></a>	
@@ -134,11 +132,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<thead>
 				
 												<tr>
-                                                    <th style=" font-size: 20px;">Employee Id</th>
+                                                  
 													<th style=" font-size: 20px;">Employee Name</th>
 													<th style=" font-size: 20px;">Designation</th>
 													<th style=" font-size: 20px;">Salary per Month</th>
-													<th style=" font-size: 20px;">Issue Date</th>
+									
                                                     <th colspan="2" align="center"style=" font-size: 20px;">Action</th>
 												
 												</tr>
@@ -149,15 +147,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<tbody>
 													<tr>
 															
-																<td>EM001</td>
-																<td>Sujanthan</td>
-																<td>Security</td>
-																<td>35000</td>
-																<td>21/12/2018</td>
+																<td><%=emp[size-5].First_Name %></td>
+																<td><%=emp[size-5].Job %></td>
+																<td><%=emp[size-5].Amount %></td>
+															
 															
 														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
+															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i class="fa fa-eye"></i></button>
+																<div id="v5" class="modal">
 			
 																	<!-- Modal content -->
 																	<div class="modalt-content">
@@ -171,16 +168,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																			<div class="row">
-																				<div class="col-xs-6"> <b>Employee Name :</b>janu<br>
-																					<b>Email :</b> Janu@gmail.com<br>
-                                                                                    <b>Mobile :</b> +89898989<br>
+																				<div class="col-xs-6"> <b>Employee Name :</b><%=emp[size-5].First_Name %><br>
+																					<b>Email :</b> <%=emp[size-5].Email_Id %><br>
+                                                                                    <b>Mobile :</b> <%=emp[size-5].Phone%><br>
                                                                                   
-																					<b>Address :</b> Test Address
-																					thanks<br></div>
+																					<b>Address :</b> <%=emp[size-5].Address %><br></div>
 																				<div class="col-xs-6">
-                                                                                    <b>Designation :</b> Securtity<br>
-                                                                                    <b>Salary:</b> 55500<br>
-                                                                                    <b>IssueDate:</b> 23/12/2018<br>
+                                                                                    <b>Designation :</b> <%=emp[size-5].Job %><br>
+                                                                                    <b>Salary:</b> <%=emp[size-5].Amount%><br>
+                                                                               
 																				</div>
 																			</div>
 																		</div>
@@ -194,218 +190,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 																</div>
 			
-																	<a href="/editSalary"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																	<a href="/editSalary5"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																		
+																	</td>
+															</tr>
+															<tr>
+															
+																<td><%=emp[size-6].First_Name %></td>
+																<td><%=emp[size-6].Job %></td>
+																<td><%=emp[size-6].Amount %></td>
+															
+															
+														
+															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v6"><i class="fa fa-eye"></i></button>
+																<div id="v6" class="modal">
+			
+																	<!-- Modal content -->
+																	<div class="modalt-content">
+																		<div class="modalt-header">
+																			<span class="closet" data-dismiss="modal">&times;</span>
+			
+																			<h2>Employee Salary Details:</h2>
+																		</div>
+																	
+																		<div class="modalt-body">
+			
+																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																			<div class="row">
+																				<div class="col-xs-6"> <b>Employee Name :</b><%=emp[size-6].First_Name %><br>
+																					<b>Email :</b> <%=emp[size-6].Email_Id %><br>
+                                                                                    <b>Mobile :</b> <%=emp[size-6].Phone%><br>
+                                                                                  
+																					<b>Address :</b> <%=emp[size-6].Address %><br></div>
+																				<div class="col-xs-6">
+                                                                                    <b>Designation :</b> <%=emp[size-6].Job %><br>
+                                                                                    <b>Salary:</b> <%=emp[size-6].Amount%><br>
+                                                                               
+																				</div>
+																			</div>
+																		</div>
+																		<div class="modalt-footer">
+																			<h3>Thank you</h3>
+			
+																		</div>
+			
+																	</div>
+			
+			
+																</div>
+			
+																	<a href="/editSalary6"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																		
 																	</td>
 															</tr>
 				
-                                                            <tr>
 															
-																<td>EM001</td>
-																<td>Sujanthan</td>
-																<td>Security</td>
-																<td>35000</td>
-																<td>21/12/2018</td>
-															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Employee Salary Details:</h2>
-																		</div>
-																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Employee Name :</b>janu<br>
-																					<b>Email :</b> Janu@gmail.com<br>
-                                                                                    <b>Mobile :</b> +89898989<br>
-                                                                                  
-																					<b>Address :</b> Test Address
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Designation :</b> Securtity<br>
-                                                                                    <b>Salary:</b> 55500<br>
-                                                                                    <b>IssueDate:</b> 23/12/2018<br>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-																	<a href="/editSalary"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
-                                                            <tr>
-															
-																<td>EM001</td>
-																<td>Sujanthan</td>
-																<td>Security</td>
-																<td>35000</td>
-																<td>21/12/2018</td>
-															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Employee Salary Details:</h2>
-																		</div>
-																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Employee Name :</b>janu<br>
-																					<b>Email :</b> Janu@gmail.com<br>
-                                                                                    <b>Mobile :</b> +89898989<br>
-                                                                                  
-																					<b>Address :</b> Test Address
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Designation :</b> Securtity<br>
-                                                                                    <b>Salary:</b> 55500<br>
-                                                                                    <b>IssueDate:</b> 23/12/2018<br>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-																	<a href="/editSalary"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
-                                                            <tr>
-															
-																<td>EM001</td>
-																<td>Sujanthan</td>
-																<td>Security</td>
-																<td>35000</td>
-																<td>21/12/2018</td>
-															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Employee Salary Details:</h2>
-																		</div>
-																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Employee Name :</b>janu<br>
-																					<b>Email :</b> Janu@gmail.com<br>
-                                                                                    <b>Mobile :</b> +89898989<br>
-                                                                                  
-																					<b>Address :</b> Test Address
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Designation :</b> Securtity<br>
-                                                                                    <b>Salary:</b> 55500<br>
-                                                                                    <b>IssueDate:</b> 23/12/2018<br>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-																	<a href="/editSalary"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
-                                                            <tr>
-															
-																<td>EM001</td>
-																<td>Sujanthan</td>
-																<td>Security</td>
-																<td>35000</td>
-																<td>21/12/2018</td>
-															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Employee Salary Details:</h2>
-																		</div>
-																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Employee Name :</b>janu<br>
-																					<b>Email :</b> Janu@gmail.com<br>
-                                                                                    <b>Mobile :</b> +89898989<br>
-                                                                                  
-																					<b>Address :</b> Test Address
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Designation :</b> Securtity<br>
-                                                                                    <b>Salary:</b> 55500<br>
-                                                                                    <b>IssueDate:</b> 23/12/2018<br>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-																	<a href="/editSalary"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
-				
-				
-				
 															
 				
 				
