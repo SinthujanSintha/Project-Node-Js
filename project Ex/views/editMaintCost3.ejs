@@ -144,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-                                                <form class="com-mail" action="/editMaintenance/<%=main[size-1].Maintenance_Id %>" method="post">
+                                                <form class="com-mail"action="/editMaintenance/<%=main[size-3].Maintenance_Id %>" method="post">
                                                     <div class="form-group">
 
 
@@ -156,24 +156,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <h4 style="color:cornsilk;font-weight: bold">*Maintenance
                                                             Title:</h4>
                                                         <input type="text" name="title" class="form-control" required
-                                                            placeholder="Enter Maintenance Title" value="<%=main[size-1].Title %>">
+                                                            placeholder="Enter Maintenance Title" value="<%=main[size-3].Title %>">
                                                         <h4 style="color:cornsilk;font-weight: bold">*TotalAmount:</h4>
-                                                        <input type="number" name="total" class="form-control" required value="<%=main[size-1].Total_Amount%>"
+                                                        <input type="number" name="total" class="form-control" required value="<%=main[size-3].Total_Amount%>"
                                                             placeholder="Enter Total Amount">
                                                         <h4 style="color:cornsilk;font-weight: bold">*PaidAmount:</h4>
-                                                        <input type="number" name="paid" class="form-control" required value="<%=main[size-1].Paid_Amount%>"
+                                                        <input type="number" name="paid" class="form-control" required value="<%=main[size-3].Paid_Amount%>"
                                                             placeholder="Enter Paid Amount">
 
                                                         <h4 style="color:cornsilk;font-weight: bold">*DueDate:</h4>
-                                                        <input type="date" name="endDate" class="form-control" required value="<%=main[size-1].Due_Date%>"
+                                                        <input type="date" name="endDate" class="form-control" required value="<%=main[size-3].Due_Date%>"
                                                             placeholder="Enter  DueDate" onchange="(this.value)">
 
                                                         <h4 style="color:cornsilk;font-weight: bold">*PaidDate:</h4>
-                                                        <input type="date" name="paidDate" class="form-control" value="<%=main[size-1].Paid_Date%>"
+                                                        <input type="date" name="paidDate" class="form-control" value="<%=main[size-3].Paid_Date%>"
                                                             required placeholder="Enter PaidDate" onchange="(this.value)">
                                                         <h4 style="color:cornsilk;font-weight: bold">*Description:</h4>
                                                         <textarea placeholder="Enter Description" name="des" id="txtMDetails"
-                                                            class="form-control"><%=main[size-1].Description%> </textarea>
+                                                            class="form-control"><%=main[size-3].Description%> </textarea>
                                                     </div>
 
 

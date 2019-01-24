@@ -169,7 +169,31 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
 }));
 
+app.post('/editMaintenance/:id', urlencodedParser, (function (req, res) {
 
+  var idd=req.params.id;
+  var title=req.body.title;
+  var total=req.body.total;
+  var paid=req.body.paid;
+  var due=req.body.endDate;
+  var pdate=req.body.paidDate;
+  var des=req.body.des;
+
+
+  var sql = "update maintenance set Title =?,Total_Amount=?,Paid_Amount=?,Due_Date=?,Paid_Date=?,Description=? where Maintenance_Id=?";
+  con.query(sql, [title,total,paid,due,pdate,des,idd], function (err, result) {
+    if (err) throw err;
+
+    console.log("Number of records inserted: " + result.affectedRows);
+    if (result.affectedRows == 1) {
+      res.redirect('/maintainCostList');
+
+
+    }
+
+  });
+
+}));
 
 
 
@@ -381,7 +405,7 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
     });
   });
   app.get('/salaryList',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -408,7 +432,7 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
     });
   });
   app.get('/salaryList2',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -440,7 +464,7 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
 
   app.get('/OwnerUtilityList',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -468,7 +492,7 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
   });
 
   app.get('/OwnerUtilityList2',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -497,7 +521,7 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
 
   app.get('/editOwnerUtility',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -523,8 +547,9 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
     });
   });
+
   app.get('/editOwnerUtility2',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -550,8 +575,9 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
     });
   });
+
   app.get('/editOwnerUtility3',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -577,8 +603,9 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
     });
   });
+
   app.get('/editOwnerUtility4',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -604,9 +631,10 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
     });
   });
+  
 
   app.get('/editOwnerUtility5',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -632,8 +660,9 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
     });
   });
+
   app.get('/editOwnerUtility6',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type='Owner' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -674,7 +703,7 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
   app.get('/addOwnerUtility',isLoggedIn, function (req, res) {
 
 
-    con.query("SELECT * FROM user u where u.Type='Owner' ", function (err, result, fields) {
+    con.query("SELECT * FROM user u where u.Type_Id='TY002' ", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -702,7 +731,7 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
   });
 
   app.get('/maintainCostList',isLoggedIn, function (req, res) {
-    con.query("SELECT Title,Total_Amount, Paid_Amount,Due_Date ,Paid_Date, Description FROM maintenance", function (err, result, fields) {
+    con.query("SELECT Maintenance_Id, Title,Total_Amount, Paid_Amount,Due_Date ,Paid_Date, Description FROM maintenance", function (err, result, fields) {
   
       if (err) throw err;
       Object.size = function (obj) {
@@ -728,7 +757,7 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
 
     });
   });
-
+  
 
   
   app.get('/addMaintCost',isLoggedIn, function (req, res) {
@@ -737,6 +766,105 @@ app.post('/addMaintenance', urlencodedParser, (function (req, res) {
     });
 
   });
+
+  app.get('/delMaint/:id',isLoggedIn,function(req,res){
+
+    var sql = "DELETE FROM maintenance WHERE Maintenance_Id=?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/maintainCostList');
+
+    })
+  })
+  app.get('/editMaintCost',isLoggedIn, function (req, res) {
+    con.query("SELECT Maintenance_Id,Title,Total_Amount, Paid_Amount,Due_Date ,Paid_Date, Description FROM maintenance", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editMaintCost.ejs', {
+        main: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editMaintCost2',isLoggedIn, function (req, res) {
+    con.query("SELECT Maintenance_Id,Title,Total_Amount, Paid_Amount,Due_Date ,Paid_Date, Description FROM maintenance", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editMaintCost2.ejs', {
+        main: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editMaintCost3',isLoggedIn, function (req, res) {
+    con.query("SELECT Maintenance_Id, Title,Total_Amount, Paid_Amount,Due_Date ,Paid_Date, Description FROM maintenance", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editMaintCost3.ejs', {
+        main: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+
+
+
+
   app.get('/committeList',isLoggedIn, function (req, res) {
     res.render('committeList.ejs');
   });
@@ -1045,33 +1173,7 @@ msg="";
 
   });
 
-  app.get('/editMaintCost',isLoggedIn, function (req, res) {
-    con.query("SELECT Title,Total_Amount, Paid_Amount,Due_Date ,Paid_Date, Description FROM maintenance", function (err, result, fields) {
-  
-      if (err) throw err;
-      Object.size = function (obj) {
-        var size = 0,
-          key;
-        for (key in obj) {
-          if (obj.hasOwnProperty(key)) size++;
-        }
-        return size;
-      };
-      var size = Object.size(result);
-
-      res.render('editMaintCost.ejs', {
-        main: result,
-        size: size,
-        user: req.user
-      });
-
-
-
-
-      console.log(size);
-
-    });
-  });
+ 
  
   app.get('/editOwnerNotice',isLoggedIn, function (req, res) {
     res.render('editOwnerNotice.ejs');
@@ -1081,7 +1183,7 @@ msg="";
     res.render('addSalary.ejs');
   });
   app.get('/editSalary',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -1108,7 +1210,7 @@ msg="";
     });
   });
   app.get('/editSalary2',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -1135,7 +1237,7 @@ msg="";
     });
   });
   app.get('/editSalary3',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -1162,7 +1264,7 @@ msg="";
     });
   });
   app.get('/editSalary4',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -1189,7 +1291,7 @@ msg="";
     });
   });
   app.get('/editSalary5',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -1216,7 +1318,7 @@ msg="";
     });
   });
   app.get('/editSalary6',isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
