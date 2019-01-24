@@ -138,37 +138,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													
 													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 														
-														<form class="com-mail" action="">
+														<form class="com-mail" action="/addCommitte" method="post">
 															<div class="form-group">
 												
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Member Name:</h4>
-                                                                <input type="text" name="Owner Name" class="form-control" required placeholder="Enter the owner Name">
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Email:</h4>
-                                                                    <input type="text" name="OEmail" class="form-control" required placeholder="Enter the Email">
-                                                                    <h4 style="color:cornsilk;font-weight: bold">*Pass Word:</h4>
-                                                                <input type="password" name="OPassword" class="form-control" required placeholder="Enter the PassWord">
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Contact:</h4>
-																	<input type="tel" name="OContact" class="form-control" required placeholder="Enter Contact">
-																	<h4 style="color:cornsilk;font-weight: bold">*Designation:</h4>
-																	<select name="ddlMemberType" id="ddlMemberType" class="form-control">
-                                                                            <option value="">--Select--</option>
-                                                                                          <option value="1">Moderator</option>
-                                                                                          <option value="2">Secretary General</option>
-                                                                                          <option value="3">Member</option>
-                                                                                          <option value="4">Pion</option>
-                                                                                          <option value="5">Security Gard</option>
-                                                                                          <option value="6">Caretaker</option>
-                                                                                          <option value="7">Maker</option>
-                                                                                        </select>
+                                                                <h4 style="color:cornsilk;font-weight: bold">*Member Username:</h4>
+                                                
+                                                 <input list="members" name="email"class="form-control">
+                                                 <datalist id="members">
+                                                   <option value="<%=com[size-1].Email_Id %>" >
+                                                   <option value="<%=com[size-2].Email_Id %>" >
+                                                   <option value="<%=com[size-3].Email_Id %>" >
+                                                   <option value="<%=com[size-4].Email_Id %>" >
+                                                   <option value="<%=com[size-5].Email_Id %>" >
+												   <option value="<%=com[size-6].Email_Id %>" >
+												   <option value="<%=com[size-7].Email_Id %>" >
+												   <option value="<%=com[size-8].Email_Id %>" >
+												   <option value="<%=com[size-9].Email_Id %>" >
+												  <option value="<%=com[size-10].Email_Id %>" >
+                                                 </datalist>
+                                                               
+																	<h4 style="color:cornsilk;font-weight: bold">*MemberType:</h4>
+																	<select name="mTypeId" id="ddlMemberType" class="form-control">
+																			<option value="">--Select--</option>
+																			<option value="CT001">President</option>
+																			<option value="CT002">Secretary</option>
+																			<option value="CT004">Member</option>
+																			<option value="CT003">Moderator</option>       	
+																		</select>	
+                                                                                          
+                                                                                         
+                                                                                         
+                                                                                      
 																	
-																						<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
-																						<input type="text" name="Owner Name" class="form-control" required placeholder="Enter the Address">
+																						
                                                                                         <h4 style="color:cornsilk;font-weight: bold">*Status:</h4>
-                                                                                        <input type="text" name="Owner Name" class="form-control" required placeholder="Enter the owner Name">
+                                                                                        <select name="status" id="ddlMemberType" class="form-control">
+																								
+																								<option value="Active">Active</option>
+																								<option value="Deactive">Deactive</option>
+																							      	
+																							</select>	
                                                                                         <h4 style="color:cornsilk;font-weight: bold">*Joining Date:</h4>
-                                                                                        <input type="date" name="Owner Name" class="form-control" required placeholder="Enter the Join Date">
-                                                                                        <h4 style="color:cornsilk;font-weight: bold">*Ending Date:</h4>
-                                                                                        <input type="date" name="Owner Name" class="form-control" required placeholder="Enter the End Date">
+                                                                                        <input type="date"onchange="(this.value)" name="jdate" class="form-control" required placeholder="Enter the Join Date">
+                                                                                       
 
 														</div>
 																

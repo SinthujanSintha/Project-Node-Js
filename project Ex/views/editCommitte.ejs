@@ -98,118 +98,132 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="inner-block">
 
-						<!-- Box Bars Menu -->
-				
-						
-					
-						
-						
-				
-				
-				
-						<div class="chit-chat-layer1t">
-								<!-- last Fivve Complain -->
-								<div class="col-md-12 chit-chat-layer1-left">
-									<div class="work-progres">
-											<nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
-													<ol class="breadcrumb" style="background-color: #07f389;">
-													  <li class="breadcrumb-item"><a href="/in"style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
-													  <li class="breadcrumb-item"style="color:chocolate; font-weight:bold;font-size:27px;">Management Committee</li>
-													  <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "aria-current="page">Update Management Commitee</li>
-											
-													</ol>
-												
-															<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
-													 href="/in" data-toggle="tooltip" data-placement="left" title="Home">
-															<i class="fa fa-dashboard"></i></a>	
-												  </nav>
-				
-				
-				
-												
-										<div class="chit-chat-heading">
-												<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Management Committee Entry Form
-										</div>
-				
-										<div class="table-responsive">
-										
-											<div class="col-md-12 compose-right">
-												<div class="inbox-details -default">
-													
-													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
-														
-														<form class="com-mail" action="">
-															<div class="form-group">
-												
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Member Name:</h4>
-                                                                <input type="text" name="Owner Name" class="form-control" required placeholder="Enter the owner Name">
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Email:</h4>
-                                                                    <input type="text" name="OEmail" class="form-control" required placeholder="Enter the Email">
-                                                                    <h4 style="color:cornsilk;font-weight: bold">*Pass Word:</h4>
-                                                                <input type="password" name="OPassword" class="form-control" required placeholder="Enter the PassWord">
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Contact:</h4>
-																	<input type="tel" name="OContact" class="form-control" required placeholder="Enter Contact">
-																	<h4 style="color:cornsilk;font-weight: bold">*Designation:</h4>
-																	<select name="ddlMemberType" id="ddlMemberType" class="form-control">
-                                                                            <option value="">--Select--</option>
-                                                                                          <option value="1">Moderator</option>
-                                                                                          <option value="2">Secretary General</option>
-                                                                                          <option value="3">Member</option>
-                                                                                          <option value="4">Pion</option>
-                                                                                          <option value="5">Security Gard</option>
-                                                                                          <option value="6">Caretaker</option>
-                                                                                          <option value="7">Maker</option>
-                                                                                        </select>
-																	
-																						<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
-																						<input type="text" name="Owner Name" class="form-control" required placeholder="Enter the Address">
-                                                                                        <h4 style="color:cornsilk;font-weight: bold">*Status:</h4>
-                                                                                        <input type="text" name="Owner Name" class="form-control" required placeholder="Enter the owner Name">
-                                                                                        <h4 style="color:cornsilk;font-weight: bold">*Joining Date:</h4>
-                                                                                        <input type="date" name="Owner Name" class="form-control" required placeholder="Enter the Join Date">
-                                                                                        <h4 style="color:cornsilk;font-weight: bold">*Ending Date:</h4>
-                                                                                        <input type="date" name="Owner Name" class="form-control" required placeholder="Enter the End Date">
+					<!-- Box Bars Menu -->
 
-														</div>
+
+
+
+
+
+
+
+					<div class="chit-chat-layer1t">
+						<!-- last Fivve Complain -->
+						<div class="col-md-12 chit-chat-layer1-left">
+							<div class="work-progres">
+								<nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
+									<ol class="breadcrumb" style="background-color: #07f389;">
+										<li class="breadcrumb-item"><a href="/in" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
+										<li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Management Committee</li>
+										<li class="breadcrumb-item active" style="color:chocolate;font-size:27px; " aria-current="page">Update
+											Management Commitee</li>
+
+									</ol>
+
+									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/in" data-toggle="tooltip"
+									 data-placement="left" title="Home">
+										<i class="fa fa-dashboard"></i></a>
+								</nav>
+
+
+
+
+								<div class="chit-chat-heading">
+									<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Management Committee
+									Entry Form
+								</div>
+
+								<div class="table-responsive">
+
+									<div class="col-md-12 compose-right">
+										<div class="inbox-details -default">
+
+											<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
+
+													<form class="com-mail" action="/editCommitte/" method="post">
+														<div class="form-group">
+											
+															<h4 style="color:cornsilk;font-weight: bold">*Member Username:</h4>
+											
+											 <input list="members" name="email"class="form-control">
+											 <datalist id="members">
+											   <option value="<%=com[size-1].Email_Id %>" >
+											   <option value="<%=com[size-2].Email_Id %>" >
+											   <option value="<%=com[size-3].Email_Id %>" >
+											   <option value="<%=com[size-4].Email_Id %>" >
+											   <option value="<%=com[size-5].Email_Id %>" >
+											   <option value="<%=com[size-6].Email_Id %>" >
+											   <option value="<%=com[size-7].Email_Id %>" >
+											   <option value="<%=com[size-8].Email_Id %>" >
+											   <option value="<%=com[size-9].Email_Id %>" >
+											  <option value="<%=com[size-10].Email_Id %>" >
+											 </datalist>
+														   
+																<h4 style="color:cornsilk;font-weight: bold">*MemberType:</h4>
+																<select name="mTypeId" id="ddlMemberType" class="form-control">
+																		<option value="">--Select--</option>
+																		<option value="CT001">President</option>
+																		<option value="CT002">Secretary</option>
+																		<option value="CT004">Member</option>
+																		<option value="CT003">Moderator</option>       	
+																	</select>	
+																					  
+																					 
+																					 
+																				  
 																
-														
-															<input type="submit" value="Update Information"> 
-														<a href="/committeList"><input type="button" value="Back" > </a>	
-														</form>
+																					
+																					<h4 style="color:cornsilk;font-weight: bold">*Status:</h4>
+																					<select name="status" id="ddlMemberType" class="form-control">
+																							
+																							<option value="Active">Active</option>
+																							<option value="Deactive">Deactive</option>
+																								  
+																						</select>	
+																					<h4 style="color:cornsilk;font-weight: bold">*Joining Date:</h4>
+																					<input type="date"onchange="(this.value)" name="jdate" class="form-control" required placeholder="Enter the Join Date">
+																				   
+
 													</div>
-												</div>
+															
+													
+														<input type="submit" value="Save Information"> 
+													<a href="/FloorList"><input type="button" value="Back" > </a>	
+													</form>
 											</div>
 										</div>
 									</div>
 								</div>
-								<!-- Last five vistiors -->
-							
-				
-								<div class="clearfix"> </div>
 							</div>
-						<div class="chit-chat-layer1"></div>
-				
-					
-						
-				
-				
-				
-				
-				
+						</div>
+						<!-- Last five vistiors -->
+
+
+						<div class="clearfix"> </div>
 					</div>
-					<br>
-								<br>
-								<br>
-                                <br><br><br><br><br><br><br><br>
-                                <br>
-								<br>
-                                <br><br><br><br><br><br><br><br>
-                                <br>
-								<br>
-                                <br><br><br><br><br><br><br><br>
-                                <br>
-								<br>
-								<br><br><br><br><br><br><br><br>
+					<div class="chit-chat-layer1"></div>
+
+
+
+
+
+
+
+
+				</div>
+				<br>
+				<br>
+				<br>
+				<br><br><br><br><br><br><br><br>
+				<br>
+				<br>
+				<br><br><br><br><br><br><br><br>
+				<br>
+				<br>
+				<br><br><br><br><br><br><br><br>
+				<br>
+				<br>
+				<br><br><br><br><br><br><br><br>
 
 				<div class="copyrights">
 					<p>© 2019 Fantastic 5. All Rights Reserved. </p>
@@ -278,7 +292,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</li>
 
-				
+
 
 
 
@@ -287,7 +301,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 
 							<li id="menu-arquivos"><a href="/complainList">Complain List</a></li>
-					
+
 						</ul>
 					</li>
 
@@ -315,17 +329,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-				
+
 
 
 
 
 					<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
 						<ul>
-								<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
+							<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
 							<li id="menu-academico-boletim"><a href="/buildingSet">Building Detail Setup</a></li>
-		
-							
+
+
 						</ul>
 					</li>
 
@@ -344,10 +358,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
-
-
-
-
-
-
-
