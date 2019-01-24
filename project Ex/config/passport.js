@@ -171,7 +171,7 @@ module.exports = function (passport) {
             // req.session.user = user;
 
 
-            module.exports.type = rows[0].Type;
+            module.exports.type = rows[0].Type_Id;
 
 
 

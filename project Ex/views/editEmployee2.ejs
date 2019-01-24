@@ -178,18 +178,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 														<h4 style="color:cornsilk;font-weight: bold">*Designation:</h4>
 
-														<select name="job" id="ddlMemberType" class="form-control">
+														<select name="job"value="<%=emp[size-2].Job %>"  id="ddlMemberType" class="form-control">
 															<option value="<%=emp[size-2].Job %>" ><%=emp[size-2].Job %></option>
 
-															<option value="electricians">Electricians</option>
-															<option value="cleaner">Cleaner</option>
-															<option value="Security">Security Guard</option>
-															<option value="plumper">Plumber</option>
+															<option value="ET004">Electricians</option>
+															<option value="ET001">Cleaner</option>
+															<option value="ET002">Security Guard</option>
+															<option value="ET003">Plumber</option>
 
 														</select>
 													
-														<h4 style="color:cornsilk;font-weight: bold">*UserType:</h4>
-														<input type="text" name="Type" class="form-control" value="<%=emp[size-2].Type%>">
+														<!-- <h4 style="color:cornsilk;font-weight: bold">*UserType:</h4>
+														<input type="text" name="Type" class="form-control" value="<%=emp[size-2].Type%>"> -->
 
 														<h4 style="color:cornsilk;font-weight: bold">*Salary:</h4>
 														<input type="number" name="salary" class="form-control" required placeholder="Enter Salary"value="<%=emp[size-2].Amount%>" >

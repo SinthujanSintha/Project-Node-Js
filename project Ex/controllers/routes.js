@@ -12,12 +12,15 @@ var con = mysql.createConnection({
   database: "ams2"
 });
 var ty = require('../config/passport.js');
+
+
+
 module.exports = function (app, passport) {
 
 //GetFunction
   app.get('/employeeList', isLoggedIn, function (req, res){
 
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -45,7 +48,7 @@ module.exports = function (app, passport) {
   });
   app.get('/employeeList2', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -71,6 +74,8 @@ module.exports = function (app, passport) {
 
     });
   });
+
+
   app.get('/delEmployee/:id', function (req, res) {
     var idd = req.params.id;
     
@@ -129,7 +134,7 @@ module.exports = function (app, passport) {
 
   app.get('/editEmployee',isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -145,9 +150,7 @@ module.exports = function (app, passport) {
       res.render('editEmployee.ejs', {
         emp: result,
         size: size,
-        user: req.user,
-        message: req.flash('signupMessage')
-
+        user: req.user
       });
 
 
@@ -159,7 +162,7 @@ module.exports = function (app, passport) {
   });
   app.get('/editEmployee2',isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -175,9 +178,7 @@ module.exports = function (app, passport) {
       res.render('editEmployee2.ejs', {
         emp: result,
         size: size,
-        user: req.user,
-        message: req.flash('signupMessage')
-
+        user: req.user
       });
 
 
@@ -189,7 +190,7 @@ module.exports = function (app, passport) {
   });
   app.get('/editEmployee3',isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -205,9 +206,7 @@ module.exports = function (app, passport) {
       res.render('editEmployee3.ejs', {
         emp: result,
         size: size,
-        user: req.user,
-        message: req.flash('signupMessage')
-
+        user: req.user
       });
 
 
@@ -219,7 +218,7 @@ module.exports = function (app, passport) {
   });
   app.get('/editEmployee4',isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -235,9 +234,7 @@ module.exports = function (app, passport) {
       res.render('editEmployee4.ejs', {
         emp: result,
         size: size,
-        user: req.user,
-        message: req.flash('signupMessage')
-
+        user: req.user
       });
 
 
@@ -250,7 +247,7 @@ module.exports = function (app, passport) {
 
   app.get('/editEmployee5',isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -266,9 +263,7 @@ module.exports = function (app, passport) {
       res.render('editEmployee5.ejs', {
         emp: result,
         size: size,
-        user: req.user,
-        message: req.flash('signupMessage')
-
+        user: req.user
       });
 
 
@@ -280,7 +275,7 @@ module.exports = function (app, passport) {
   });
   app.get('/editEmployee6',isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,employee_job e ,salary s where u.Type='Employee' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -296,9 +291,7 @@ module.exports = function (app, passport) {
       res.render('editEmployee6.ejs', {
         emp: result,
         size: size,
-        user: req.user,
-        message: req.flash('signupMessage')
-
+        user: req.user
       });
 
 
@@ -316,7 +309,7 @@ module.exports = function (app, passport) {
 
   app.get('/ownerList', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -354,10 +347,11 @@ module.exports = function (app, passport) {
       res.redirect('/ownerList');}
 
     )
-  });})
+  });}
+  )
   app.get('/EditOwner1', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -383,9 +377,10 @@ module.exports = function (app, passport) {
 
     });
   });
+
   app.get('/EditOwner2', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -411,9 +406,10 @@ module.exports = function (app, passport) {
 
     });
   });
+
   app.get('/EditOwner3', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -439,9 +435,10 @@ module.exports = function (app, passport) {
 
     });
   });
+
   app.get('/EditOwner4', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -467,9 +464,10 @@ module.exports = function (app, passport) {
 
     });
   });
+
   app.get('/EditOwner5', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -495,9 +493,10 @@ module.exports = function (app, passport) {
 
     });
   });
+
   app.get('/EditOwner6', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -526,7 +525,7 @@ module.exports = function (app, passport) {
 
 
   app.get('/ownerList2', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,house h where u.Type='Owner' and u.user_Id=h.Owner_Id", function (err, result, fields) {
+    con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
       con
       if (err) throw err;
       Object.size = function (obj) {
@@ -572,11 +571,11 @@ module.exports = function (app, passport) {
 
   app.get('/profile', isLoggedIn, function (req, res) {
     console.log(ty.type);
-    if (ty.type == 'Admin') {
+    if (ty.type == 'TY001') {
       res.render('index.ejs', {
         user: req.user
       });
-    } else if (ty.type == 'Owner') {
+    } else if (ty.type == 'TY002') {
       res.render('feature.ejs', {
         user: req.user
       });
@@ -683,7 +682,7 @@ module.exports = function (app, passport) {
 
 
 
-          var insertQuery = "INSERT INTO user (First_Name, Last_Name, Contact_Number, Email_ID, PassWord, Phone,Address,Type) values (?,?,?,?,?,?,?,?)";
+          var insertQuery = "INSERT INTO user (First_Name, Last_Name, Contact_Number, Email_ID, PassWord, Phone,Address,Type_Id) values (?,?,?,?,?,?,?,?)";
 
           con.query(insertQuery, [newUserMysql.firstname,
               newUserMysql.lastname, newUserMysql.contact, newUserMysql.username, newUserMysql.password, newUserMysql.phone, newUserMysql.location, newUserMysql.type
@@ -745,7 +744,7 @@ module.exports = function (app, passport) {
             type: req.body.Type,
             sal: req.body.salary,
             contact: req.body.Contact,
-            job: req.body.job,
+            job_Id: req.body.job,
             conpassword: req.body.password2,
             password: bcrypt.hashSync(req.body.password, null, null)
 
@@ -756,7 +755,7 @@ module.exports = function (app, passport) {
 
 
 
-          var insertQuery = "INSERT INTO user (First_Name, Last_Name, Contact_Number, Email_ID, PassWord, Phone,Address,Type) values (?,?,?,?,?,?,?,?)";
+          var insertQuery = "INSERT INTO user (First_Name, Last_Name, Contact_Number, Email_ID, PassWord, Phone,Address,Type_Id) values (?,?,?,?,?,?,?,?)";
 
           con.query(insertQuery, [newUserMysql.firstname,
               newUserMysql.lastname, newUserMysql.contact, newUserMysql.username, newUserMysql.password, newUserMysql.phone, newUserMysql.location, newUserMysql.type
@@ -789,9 +788,9 @@ module.exports = function (app, passport) {
 
 
 
-                  var insertJob = "INSERT INTO employee_job (Emp_Id,Job) values (?,?)";
+                  var insertJob = "INSERT INTO employee_job (Emp_Id,Emtype_Id) values (?,?)";
 
-                  con.query(insertJob, [rowss[0].User_Id, newUserMysql.job],
+                  con.query(insertJob, [rowss[0].User_Id, newUserMysql.job_Id],
                     function (err, rowss) {
                       if (err)
                         console.log(err);
@@ -843,10 +842,10 @@ module.exports = function (app, passport) {
 
 
 
-          var updateQuery = "update user set First_Name=?, Last_Name=?, Contact_Number=?, Email_ID=?, PassWord=?, Phone=?,Address=?,Type=? where User_Id=?";
+          var updateQuery = "update user set First_Name=?, Last_Name=?, Contact_Number=?, Email_ID=?, PassWord=?, Phone=?,Address=? where User_Id=?";
 
           con.query(updateQuery, [newUserMysql.firstname,
-              newUserMysql.lastname, newUserMysql.contact, newUserMysql.username, newUserMysql.password, newUserMysql.phone, newUserMysql.location, newUserMysql.type,idd
+              newUserMysql.lastname, newUserMysql.contact, newUserMysql.username, newUserMysql.password, newUserMysql.phone, newUserMysql.location,newUserMysql.type,idd
             ],
             function (err) {
               if (err)
@@ -870,7 +869,7 @@ module.exports = function (app, passport) {
 
 
 
-                  var updateJob = "update employee_job set Job=? where Emp_Id=?";
+                  var updateJob = "update employee_job set Emtype_Id=? where Emp_Id=?";
 
                   con.query(updateJob, [ newUserMysql.job,idd],
                     function (err) {

@@ -145,7 +145,29 @@ app.post('/editOwnerUtility/:id',urlencodedParser,function(req,res){
 
            
          
+app.post('/addMaintenance', urlencodedParser, (function (req, res) {
+  var title=req.body.title;
+  var total=req.body.total;
+  var paid=req.body.paid;
+  var due=req.body.endDate;
+  var pdate=req.body.paidDate;
+  var des=req.body.des;
 
+
+  var sql = "INSERT INTO maintenance(Title,Total_Amount,Paid_Amount,Due_Date,Paid_Date,Description) VALUES (?,?,?,?,?,?)";
+  con.query(sql, [title,total,paid,due,pdate,des], function (err, result) {
+    if (err) throw err;
+
+    console.log("Number of records inserted: " + result.affectedRows);
+    if (result.affectedRows == 1) {
+      res.redirect('/maintainCostList');
+
+
+    }
+
+  });
+
+}));
 
 
 
@@ -680,8 +702,35 @@ app.post('/editOwnerUtility/:id',urlencodedParser,function(req,res){
   });
 
   app.get('/maintainCostList',isLoggedIn, function (req, res) {
-    res.render('maintainCostList.ejs');
+    con.query("SELECT Title,Total_Amount, Paid_Amount,Due_Date ,Paid_Date, Description FROM maintenance", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('maintainCostList.ejs', {
+        main: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
+
+
+  
   app.get('/addMaintCost',isLoggedIn, function (req, res) {
     res.render('addMaintCost.ejs',{
       user:req.user
@@ -997,7 +1046,31 @@ msg="";
   });
 
   app.get('/editMaintCost',isLoggedIn, function (req, res) {
-    res.render('editMaintCost.ejs');
+    con.query("SELECT Title,Total_Amount, Paid_Amount,Due_Date ,Paid_Date, Description FROM maintenance", function (err, result, fields) {
+  
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editMaintCost.ejs', {
+        main: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
  
   app.get('/editOwnerNotice',isLoggedIn, function (req, res) {
