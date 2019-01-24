@@ -105,7 +105,7 @@ module.exports = function (app) {
     var jdate = req.body.jdate;
     
 
-    var selectuser = "select * from user  where Email_Id =?";
+    var selectuser = "select * from user where Email_Id=?";
 
     con.query(selectuser, [username],
       function (err, rowss) {
@@ -118,7 +118,7 @@ module.exports = function (app) {
           function (err, row) {
             if (err)
               console.log(err);
-            res.redirect('/committeeList');
+            res.redirect('/committeList');
           })
 
 
@@ -175,7 +175,45 @@ module.exports = function (app) {
 
   })
 
+  app.post('/editCommitte/:id', urlencodedParser, function (req, res) {
+    var idd = req.params.id;
 
+    var username = req.body.email;
+    var ctype = req.body.mTypeId;
+    var status= req.body.status;
+    var jdate = req.body.jdate;
+
+    var selectuser = "select * from user  where Email_Id =?";
+
+    con.query(selectuser, [username],
+      function (err, rowss) {
+        if (err)
+          console.log(err);
+
+   
+
+
+        var insertutil = "update committee set  Member_Id=?,CType_Id=?,Join_Date=?,Status=? where Committee_Id=?";
+        con.query(insertutil, [rowss[0].User_Id, ctype, jdate,status, idd],
+          function (err, row) {
+            if (err)
+              console.log(err);
+            res.redirect('/committeList');
+          })
+
+
+
+
+        })
+
+
+     
+
+
+
+
+
+  })
 
 
 
@@ -418,6 +456,17 @@ module.exports = function (app) {
     })
   });
 
+  app.get('/delCommittee/:id', isLoggedIn, (req, res) => {
+    var sql = "DELETE FROM committee WHERE Committee_Id =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/committeList');
+
+    })
+  });
 
 
 
@@ -942,7 +991,7 @@ module.exports = function (app) {
       };
       var size = Object.size(result);
 
-      res.render('addCommittee.ejs', {
+      res.render('addCommitte.ejs', {
         com: result,
         size: size,
         user: req.user
@@ -1006,7 +1055,31 @@ module.exports = function (app) {
 
 
   app.get('/editCommitte', isLoggedIn, function (req, res) {
-    res.render('editCommitte.ejs');
+    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editCommitte.ejs', {
+        com: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
 
   app.get('/ComReply', isLoggedIn, function (req, res) {

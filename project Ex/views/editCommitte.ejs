@@ -140,28 +140,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-													<form class="com-mail" action="/editCommitte/" method="post">
+													<form class="com-mail" action="/editCommitte/<%=com[size-1].Committee_Id%>" method="post">
 														<div class="form-group">
 											
 															<h4 style="color:cornsilk;font-weight: bold">*Member Username:</h4>
 											
-											 <input list="members" name="email"class="form-control">
+											 <input list="members" name="email"class="form-control" value="<%=com[size-1].Email_Id%>">
 											 <datalist id="members">
-											   <option value="<%=com[size-1].Email_Id %>" >
-											   <option value="<%=com[size-2].Email_Id %>" >
-											   <option value="<%=com[size-3].Email_Id %>" >
-											   <option value="<%=com[size-4].Email_Id %>" >
-											   <option value="<%=com[size-5].Email_Id %>" >
-											   <option value="<%=com[size-6].Email_Id %>" >
-											   <option value="<%=com[size-7].Email_Id %>" >
-											   <option value="<%=com[size-8].Email_Id %>" >
-											   <option value="<%=com[size-9].Email_Id %>" >
-											  <option value="<%=com[size-10].Email_Id %>" >
+											   
 											 </datalist>
 														   
 																<h4 style="color:cornsilk;font-weight: bold">*MemberType:</h4>
 																<select name="mTypeId" id="ddlMemberType" class="form-control">
-																		<option value="">--Select--</option>
+																		<option value="<%=com[size-1].CType_Id%>"><%=com[size-1].Member_Type%></option>
 																		<option value="CT001">President</option>
 																		<option value="CT002">Secretary</option>
 																		<option value="CT004">Member</option>
@@ -175,13 +166,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																					
 																					<h4 style="color:cornsilk;font-weight: bold">*Status:</h4>
 																					<select name="status" id="ddlMemberType" class="form-control">
-																							
+																							<option value="<%=com[size-1].Status%>" ><%=com[size-1].Status%> </option>
 																							<option value="Active">Active</option>
 																							<option value="Deactive">Deactive</option>
 																								  
 																						</select>	
 																					<h4 style="color:cornsilk;font-weight: bold">*Joining Date:</h4>
-																					<input type="date"onchange="(this.value)" name="jdate" class="form-control" required placeholder="Enter the Join Date">
+																					<input type="date"onchange="(this.value)"value="<%=com[size-1].Join_Date%>" name="jdate" class="form-control" required placeholder="Enter the Join Date">
 																				   
 
 													</div>
