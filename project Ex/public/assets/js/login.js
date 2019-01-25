@@ -27,37 +27,7 @@ btn.on('click',function(){
     article.addClass('active');
     tries=0;
   }
-    else{
-      topbar.addClass('error');
-      tries++;
-      switch(tries){
-        case 0:
-          btn.text('Login');
-          break;
-        case 1:
-          setTimeout(function(){
-          btn.text('You have 2 tries left');
-          },300);
-          break;
-        case 2:
-          setTimeout(function(){
-          btn.text('Only 1 more');
-          },300);
-          break;
-        case 3:
-          setTimeout(function(){
-          btn.text('Recover password?');
-          },300);
-          input.prop('disabled',true);
-          topbar.removeClass('error');
-          input.addClass('disabled');
-          btn.addClass('recover');
-          break;
-         defaut:
-          btn.text('Login');
-          break;
-      }
-    } 
+    
   }
   else{
     topbar.addClass('disabled');

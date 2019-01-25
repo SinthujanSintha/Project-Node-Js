@@ -950,7 +950,7 @@ module.exports = function (app) {
 
 
   app.get('/committeList', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID", function (err, result, fields) {
+    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID order by u.User_Id DESC", function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -1005,11 +1005,41 @@ module.exports = function (app) {
     });
   });
   app.get('/complainList', isLoggedIn, function (req, res) {
-    res.render('complainList.ejs');
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('complainList.ejs', {
+        cop: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+
   });
+
+
+
+
   app.get('/visitorsList', isLoggedIn, function (req, res) {
     res.render('visitorsList.ejs');
   });
+
   app.get('/addVisitors', isLoggedIn, function (req, res) {
     res.render('addVisitors.ejs');
   });
@@ -1055,7 +1085,7 @@ module.exports = function (app) {
 
 
   app.get('/editCommitte', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID", function (err, result, fields) {
+    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID order by u.User_Id DESC", function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -1081,10 +1111,208 @@ module.exports = function (app) {
 
     });
   });
+  app.get('/editCommitte2', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID order by u.User_Id DESC", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editCommitte2.ejs', {
+        com: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editCommitte3', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID order by u.User_Id DESC", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editCommitte3.ejs', {
+        com: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/editCommitte4', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID order by u.User_Id DESC", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editCommitte4.ejs', {
+        com: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+
+
 
   app.get('/ComReply', isLoggedIn, function (req, res) {
-    res.render('ComReply.ejs');
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('ComReply.ejs', {
+        cop: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
+  app.get('/ComReply2', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('ComReply2.ejs', {
+        cop: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+  app.get('/ComReply3', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('ComReply3.ejs', {
+        cop: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+  app.get('/ComReply4', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('ComReply4.ejs', {
+        cop: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+
+
+
+
+
+
+
 
 
 

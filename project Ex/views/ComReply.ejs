@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="profile_img">
 											<span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px" alt=""> </span>
 											<div class="user-name">
-												<p>P.Sinthujan</p>
+												<p><%=user.First_Name%></p>
 												<span>Administrator</span>
 											</div>
 											<i class="fa fa-angle-down lnr"></i>
@@ -138,11 +138,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													
 													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 														
-														<form class="com-mail" action="">
+														<form class="com-mail" action="/comReply/<%=cop[size-1].Complaint_ID%>">
 															<div class="form-group">
 																<h4 style="color:cornsilk;font-weight: bold">Response:</h4>
 															<textarea class="form-control" name="replyCom">
-
+																	<%=cop[size-1].Response%>
                                                             </textarea>
 														</div>
 																
