@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="profile_img">
 											<span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px" alt=""> </span>
 											<div class="user-name">
-												<p>P.Sinthujan</p>
+												<p><%=user.First_Name%></p>
 												<span>Administrator</span>
 											</div>
 											<i class="fa fa-angle-down lnr"></i>
@@ -98,113 +98,161 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="inner-block">
 
-						<!-- Box Bars Menu -->
-				
-						
-					
-						
-						
-				
-				
-				
-						<div class="chit-chat-layer1t">
-								<!-- last Fivve Complain -->
-								<div class="col-md-12 chit-chat-layer1-left">
-									<div class="work-progres">
-											<nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
-													<ol class="breadcrumb" style="background-color: #07f389;">
-													  <li class="breadcrumb-item"><a href="/in"style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
-													  <li class="breadcrumb-item"style="color:chocolate; font-weight:bold;font-size:27px;">Visitor Information</li>
-													  <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "aria-current="page">Edit Visitors</li>
-											
-													</ol>
-												
-															<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
-													 href="/in" data-toggle="tooltip" data-placement="left" title="Home">
-															<i class="fa fa-dashboard"></i></a>	
-												  </nav>
-				
-				
-				
-												
-										<div class="chit-chat-heading">
-												<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Visitors Entry form
-										</div>
-				
-										<div class="table-responsive">
-										
-											<div class="col-md-12 compose-right">
-												<div class="inbox-details -default">
-													
-													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
-														
-														<form class="com-mail" action="">
-															<div class="form-group">
-												
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Entry Date:</h4>
-                                                                <input type="text" name="Owner Name" class="form-control" required placeholder="Enter the owner Name">
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Name:</h4>
-                                                                    <input type="text" name="OEmail" class="form-control" required placeholder="Enter the Email">
-                                                                    <h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
-                                                                <input type="text" name="OPassword" class="form-control" required placeholder="Enter the PassWord">
-                                                               <h4 style="color:cornsilk;font-weight: bold">*Contact:</h4>
-																	<input type="text" name="OContact" class="form-control" required placeholder="Enter Contact">
-																	<h4 style="color:cornsilk;font-weight: bold">*Floor No:</h4>
-                                                                    <select onchange="" name="ddlFloorNo" id="ddlFloorNo" class="form-control">
-                                                                        <option value="">--Select Floor--</option>
-                                                                                      <option value="1">First Floor</option>
-                                                                                      <option value="3">Second Floor</option>
-                                                                                      <option value="4">Third Floor</option>
-                                                                                      <option value="5">Fourth Floor</option>
-                                                                                      <option value="6">Fifth Floor</option>
-                                                                                      <option value="8">Sixth Floor</option>
-                                                                                    </select>
-                                                                                    <h4 style="color:cornsilk;font-weight: bold">*House No:</h4>
-                                                                                    <select name="ddlUnitNo" id="ddlUnitNo" class="form-control">
-                                                                                        <option value="">--Select Unit--</option>
-                                                                                        <option value="1">1A</option>
-                                                                                      <option value="3">2B</option>
-                                                                                      <option value="4">3C</option>
-                                                                                      <option value="5">4D</option>
-                                                                                      <option value="6">5E</option>
-                                                                                    
-                                                                                                    </select>
-                                                                                                    <h4 style="color:cornsilk;font-weight: bold">*Intime:</h4>
-                                                                                                    <input type="time" name="OContact" class="form-control" required placeholder="Enter Contact">
+					<!-- Box Bars Menu -->
 
-                                                                                                    <h4 style="color:cornsilk;font-weight: bold">*Outtime:</h4>
-                                                                                                    <input type="time" name="OContact" class="form-control" required placeholder="Enter Contact">
-														</div>
-																
+
+
+
+
+
+
+
+					<div class="chit-chat-layer1t">
+						<!-- last Fivve Complain -->
+						<div class="col-md-12 chit-chat-layer1-left">
+							<div class="work-progres">
+								<nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
+									<ol class="breadcrumb" style="background-color: #07f389;">
+										<li class="breadcrumb-item"><a href="/in" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
+										<li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Visitor Information</li>
+										<li class="breadcrumb-item active" style="color:chocolate;font-size:27px; " aria-current="page">Edit Visitors</li>
+
+									</ol>
+
+									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/in" data-toggle="tooltip"
+									 data-placement="left" title="Home">
+										<i class="fa fa-dashboard"></i></a>
+								</nav>
+
+
+
+
+								<div class="chit-chat-heading">
+									<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Visitors Entry form
+								</div>
+
+								<div class="table-responsive">
+
+									<div class="col-md-12 compose-right">
+										<div class="inbox-details -default">
+
+											<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
+
+												<form class="com-mail" action="">
+													<div class="form-group">
+
+
+														<h4 style="color:cornsilk;font-weight: bold">*VisitorsName:</h4>
+														<input type="text" name="vname" value="<%=vis[size-1].Full_Name%>" class="form-control" required placeholder="Enter the visitor name">
+														<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
+														<input type="text" name="address" value="<%=vis[size-1].Address%>" class="form-control" required placeholder="Enter the address of visitors">
+														<h4 style="color:cornsilk;font-weight: bold">*MobileNumber:</h4>
+														<input type="text" name="OContact" value="<%=vis[size-1].Mobile_No%>" class="form-control" required placeholder="Enter Contact">
+														<h4 style="color:cornsilk;font-weight: bold">*Floor Name:</h4>
+														<select onchange="" name="ddlFloorNo" id="ddlFloorNo" class="form-control">
+															<option value="<%=vis[size-1].Name%>"><%=vis[size-1].Name%></option>
+															<option value="FirstFloor">FirstFloor</option>
+															<option value="SecondFloor">SecondFloor</option>
+															<option value="ThirdFloor">ThirdFloor</option>
+															<option value="FourthFloor">FourthFloor"</option>
+															<option value="FifthFloor">FifthFloor</option>
+															<option value="SixthFloor">SixthFloor</option>
+															<option value="SeventhFloor">SeventhFloor</option>
+															<option value="EighthFloor">EighthFloor</option>
+														</select>
 														
-															<input type="submit" value="Update Information"> 
-														<a href="/visitorsList"><input type="button" value="Back" > </a>	
-														</form>
+
+
+
+
+														
+														<h4 style="color:cornsilk;font-weight: bold">*House Name:</h4>
+														<select onchange="getActiveUnit(this.value)" name="HouseName" id="ddlFloorNo" class="form-control"
+														 required>
+															<option value="<%=vis[size-1].House_Name %>">
+																<%=vis[size-1].House_Name %>
+															</option>
+															<option value="1A">1A</option>
+															<option value="1B">1B</option>
+															<option value="1C">1C</option>
+															<option value="1D">1D</option>
+
+															<option value="2A">2A</option>
+															<option value="2B">2B</option>
+															<option value="2C">2C</option>
+															<option value="2D">2D</option>
+
+															<option value="3A">3A</option>
+															<option value="3B">3B</option>
+															<option value="3C">3C</option>
+															<option value="3D">3D</option>
+
+															<option value="4A">4A</option>
+															<option value="4B">4B</option>
+															<option value="4C">4C</option>
+															<option value="4D">4D</option>
+
+															<option value="5A">5A</option>
+															<option value="5B">5B</option>
+															<option value="5C">5C</option>
+															<option value="5D">5D</option>
+
+															<option value="6A">6A</option>
+															<option value="6B">6B</option>
+															<option value="6C">6C</option>
+															<option value="6D">6D</option>
+
+															<option value="7A">7A</option>
+															<option value="7B">7B</option>
+															<option value="7C">7C</option>
+															<option value="7D">7D</option>
+
+															<option value="8A">8A</option>
+															<option value="8B">8B</option>
+															<option value="8C">8C</option>
+															<option value="8D">8D</option>
+
+														</select>
+														<h4 style="color:cornsilk;font-weight: bold">*Entry Date:</h4>
+														<input type="date" onchange="(this.value)" Name="edate" class="form-control" value="<%=vis[size-1].InDate%>"required placeholder="Enter the entry date">
+														<h4 style="color:cornsilk;font-weight: bold">*Out Date:</h4>
+														<input type="date" onchange="(this.value)" Name="odate" class="form-control" value="<%=vis[size-1].OutDate%>" required placeholder="Enter the entry date">
+														<h4 style="color:cornsilk;font-weight: bold">*Intime:</h4>
+														<input type="time" onchange="(this.value)" name="etime" class="form-control" value="<%=vis[size-1].InTime%>" required placeholder="Enter Intime Of visitors">
+														<h4 style="color:cornsilk;font-weight: bold">*Outtime:</h4>
+														<input type="time" onchange="(this.value)" name="otime" class="form-control" value="<%=vis[size-1].OutTime%>" required placeholder="Enter outtime of visitors">
+
 													</div>
-												</div>
+
+
+													<input type="submit" value="Update Information">
+													<a href="/visitorsList"><input type="button" value="Back"> </a>
+												</form>
 											</div>
 										</div>
 									</div>
 								</div>
-								<!-- Last five vistiors -->
-							
-				
-								<div class="clearfix"> </div>
 							</div>
-						<div class="chit-chat-layer1"></div>
-				
-					
-						
-				
-				
-				
-				
-				
+						</div>
+						<!-- Last five vistiors -->
+
+
+						<div class="clearfix"> </div>
 					</div>
-					<br>
-								<br>
-								<br>
-								<br><br><br><br><br><br><br><br>
+					<div class="chit-chat-layer1"></div>
+
+
+
+
+
+
+
+
+				</div>
+				<br>
+				<br>
+				<br>
+				<br><br><br><br><br><br><br><br>
 
 				<div class="copyrights">
 					<p>© 2019 Fantastic 5. All Rights Reserved. </p>
@@ -273,7 +321,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</li>
 
-				
+
 
 
 
@@ -282,7 +330,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 
 							<li id="menu-arquivos"><a href="/complainList">Complain List</a></li>
-					
+
 						</ul>
 					</li>
 
@@ -310,17 +358,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-				
+
 
 
 
 
 					<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
 						<ul>
-								<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
+							<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
 							<li id="menu-academico-boletim"><a href="/buildingSet">Building Detail Setup</a></li>
-		
-							
+
+
 						</ul>
 					</li>
 
@@ -339,10 +387,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
-
-
-
-
-
-
-

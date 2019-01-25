@@ -241,6 +241,11 @@ var remark=req.body.status;
 
         })
 
+  app.post('/addVisitors', isLoggedIn, function (req, res) {
+          res.render('addVisitors.ejs',{
+            user:req.user
+          });
+        });
 
      
 
@@ -422,7 +427,18 @@ var remark=req.body.status;
 
 
 
+  app.get('/delvisitor/:id', isLoggedIn, function (req, res) {
 
+    var sql = "DELETE FROM visitor WHERE Visitor_Id =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/visitorsList.ejs');
+
+    })
+  })
 
 
 
@@ -1069,11 +1085,37 @@ var remark=req.body.status;
 
 
   app.get('/visitorsList', isLoggedIn, function (req, res) {
-    res.render('visitorsList.ejs');
+    con.query("SELECT * FROM visitor", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('visitorsList.ejs', {
+        vis: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
 
   app.get('/addVisitors', isLoggedIn, function (req, res) {
-    res.render('addVisitors.ejs');
+    res.render('addVisitors.ejs',{
+      user:req.user
+    });
   });
   app.get('/empNotice', isLoggedIn, function (req, res) {
     res.render('empNotice.ejs');
@@ -1776,7 +1818,31 @@ var remark=req.body.status;
 
 
   app.get('/EditVisitors', isLoggedIn, function (req, res) {
-    res.render('EditVisitors.ejs');
+    con.query("SELECT * FROM  floor f,house h,visitor v where h.Owner_Id=v.User_Id and h.Floor_Id=f.Floor_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('EditVisitors.ejs', {
+        vis: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
 
 

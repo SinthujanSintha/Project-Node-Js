@@ -14,7 +14,6 @@ var con = mysql.createConnection({
 var ty = require('../config/passport.js');
 
 
-
 module.exports = function (app, passport) {
 
 //GetFunction
@@ -635,16 +634,26 @@ module.exports = function (app, passport) {
     var sql = "update user set PassWord=?,First_Name=?,Email_Id=?, Contact_Number=?,Last_Name=?,Phone=?,Address=? where User_Id=?";
     con.query(sql, [password, firstName, emailId, contact, lastName, phone, Address, idd], function (err, result) {
       if (err) throw err;
-      var sql = "update house set House_Name=? where Owner_Id=?";
-      con.query(sql, [housename, idd], function (err, result) {
+      var selectFloor = "SELECT * FROM floor where Houses like CONCAT (?, '%')"
+
+      con.query(selectFloor, [housename],
+        function (err, rowss) {
+          if (err)
+            console.log(err);
+
+
+      var sql = "update house set Floor_Id=?,House_Name=? where Owner_Id=?";
+      con.query(sql, [rowss[0].Floor_Id,housename, idd], function (err, result) {
         if (err) throw err;
-      })
+     
       console.log("Number of records inserted: " + result.affectedRows);
       if (result.affectedRows == 1) {
         res.redirect('/ownerList');
 
-
-      }
+    
+      }  })
+    
+    })
 
     });
 
@@ -698,16 +707,28 @@ module.exports = function (app, passport) {
 
             });
 
+            var selectFloor = "SELECT * FROM floor where Houses like CONCAT (?, '%')"
+
+            con.query(selectFloor, [newUserMysql.HouseNo],
+              function (err, rowss) {
+                if (err)
+                  console.log(err);
+         
+              
+               
+
+
           var selectuser = "select * from user where Email_Id =?";
 
           con.query(selectuser, [newUserMysql.username],
             function (err, rows) {
               if (err)
                 console.log(err);
+              
 
-              var insertHouse = "INSERT INTO house (Owner_Id,House_Name) values (?,?)";
+              var insertHouse = "INSERT INTO house (Floor_Id,Owner_Id,House_Name) values (?,?,?)";
 
-              con.query(insertHouse, [rows[0].User_Id, newUserMysql.HouseNo],
+              con.query(insertHouse, [rowss[0].Floor_Id,rows[0].User_Id,newUserMysql.HouseNo],
                 function (err, rows) {
                   if (err)
                     console.log(err);
@@ -715,12 +736,13 @@ module.exports = function (app, passport) {
                 });
 
             });
-        }
+          })
+        
 
 
-      }
-    );
-  })
+      
+   
+  }})})
 
   app.post('/addEmployee', function (req, res) {
     var username = req.body.username;
