@@ -138,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													
 													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 														
-															<form class="com-mail" action="">
+															<form class="com-mail" action="/addVisitors" method="post">
 																	<div class="form-group">
 				
 				
@@ -147,19 +147,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																		<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
 																		<input type="text" name="address" class="form-control" required placeholder="Enter the address of visitors">
 																		<h4 style="color:cornsilk;font-weight: bold">*MobileNumber:</h4>
-																		<input type="text" name="OContact" class="form-control" required placeholder="Enter Contact">
-																		<h4 style="color:cornsilk;font-weight: bold">*Floor No:</h4>
-																		<select onchange="" name="ddlFloorNo" id="ddlFloorNo" class="form-control">
-																			<option value="">--Select Floor--</option>
-																			<option value="FirstFloor">FirstFloor</option>
-																			<option value="SecondFloor">SecondFloor</option>
-																			<option value="ThirdFloor">ThirdFloor</option>
-																			<option value="FourthFloor">FourthFloor"</option>
-																			<option value="FifthFloor">FifthFloor</option>
-																			<option value="SixthFloor">SixthFloor</option>
-																			<option value="SeventhFloor">SeventhFloor</option>
-																			<option value="EighthFloor">EighthFloor</option>
-																		</select>
+																		<input type="text" name="phone" class="form-control" required placeholder="Enter Contact">
+																		
 																		
 				
 				
@@ -167,54 +156,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 																		
 																		<h4 style="color:cornsilk;font-weight: bold">*House No:</h4>
-																		<select onchange="getActiveUnit(this.value)" name="HouseName" id="ddlFloorNo" class="form-control"
-																		 required>
-																			
-																			<option value="1A">1A</option>
-																			<option value="1B">1B</option>
-																			<option value="1C">1C</option>
-																			<option value="1D">1D</option>
-				
-																			<option value="2A">2A</option>
-																			<option value="2B">2B</option>
-																			<option value="2C">2C</option>
-																			<option value="2D">2D</option>
-				
-																			<option value="3A">3A</option>
-																			<option value="3B">3B</option>
-																			<option value="3C">3C</option>
-																			<option value="3D">3D</option>
-				
-																			<option value="4A">4A</option>
-																			<option value="4B">4B</option>
-																			<option value="4C">4C</option>
-																			<option value="4D">4D</option>
-				
-																			<option value="5A">5A</option>
-																			<option value="5B">5B</option>
-																			<option value="5C">5C</option>
-																			<option value="5D">5D</option>
-				
-																			<option value="6A">6A</option>
-																			<option value="6B">6B</option>
-																			<option value="6C">6C</option>
-																			<option value="6D">6D</option>
-				
-																			<option value="7A">7A</option>
-																			<option value="7B">7B</option>
-																			<option value="7C">7C</option>
-																			<option value="7D">7D</option>
-				
-																			<option value="8A">8A</option>
-																			<option value="8B">8B</option>
-																			<option value="8C">8C</option>
-																			<option value="8D">8D</option>
-				
-																		</select>
+
+																		 
+																		<input list="house" name="HouseName"class="form-control" >
+																		<datalist id="house">
+																				<option value="<%=vis[size-1].House_Name%>">
+																						<option value="<%=vis[size-2].House_Name%>">
+																						<option value="<%=vis[size-3].House_Name%>">
+																						<option value="<%=vis[size-4].House_Name%>">
+																						<option value="<%=vis[size-5].House_Name%>">
+																						<option value="<%=vis[size-6].House_Name%>">
+																		</datalist>
+								
 																		<h4 style="color:cornsilk;font-weight: bold">*Entry Date:</h4>
 																		<input type="date" onchange="(this.value)" Name="edate" class="form-control" required placeholder="Enter the entry date">
 																		<h4 style="color:cornsilk;font-weight: bold">*Out Date:</h4>
-																		<input type="date" onchange="(this.value)" Name="odate" class="form-control" required placeholder="Enter the entry date">
+																		<input type="date" onchange="(this.value)" Name="odate" class="form-control" required placeholder="Enter the out date">
 																		<h4 style="color:cornsilk;font-weight: bold">*Intime:</h4>
 																		<input type="time" onchange="(this.value)" name="etime" class="form-control" required placeholder="Enter Intime Of visitors">
 																		<h4 style="color:cornsilk;font-weight: bold">*Outtime:</h4>

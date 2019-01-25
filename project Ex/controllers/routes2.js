@@ -242,12 +242,86 @@ var remark=req.body.status;
         })
 
   app.post('/addVisitors', isLoggedIn, function (req, res) {
-          res.render('addVisitors.ejs',{
-            user:req.user
-          });
+
+    var visitorname = req.body.vname;
+    var address = req.body.address;
+    var phone = req.body.phone;
+  
+    var HouseName = req.body.HouseName;
+    var entryDate = req.body.edate;
+    var odate = req.body.odate;
+    var etime = req.body.etime;
+    var Outtime = req.body.otime;
+
+
+    var selectuser = "select * from house  where House_Name =?";
+
+    con.query(selectuser, [HouseName],
+      function (err, rowss) {
+        if (err)
+          console.log(err);
+
+
+        var insertutil = "INSERT INTO visitor (User_Id,Full_Name,Address,Mobile_No,InDate	,OutDate,InTime,OutTime) values (?,?,?,?,?,?,?,?)";
+        con.query(insertutil, [rowss[0].Owner_Id,visitorname,address,phone,entryDate,odate,etime,Outtime],
+          function (err, row) {
+            if (err)
+              console.log(err);
+            res.redirect('/visitorsList');
+          })
+
+
+
+
+
+
+
+      });
+
+ 
         });
 
      
+        
+  app.post('/editVisitors/:id', isLoggedIn, function (req, res) {
+var id=req.params.id;
+    var visitorname = req.body.vname;
+    var address = req.body.address;
+    var phone = req.body.phone;
+  
+    var HouseName = req.body.HouseName;
+    var entryDate = req.body.edate;
+    var odate = req.body.odate;
+    var etime = req.body.etime;
+    var Outtime = req.body.otime;
+
+
+    var selectuser = "select * from house  where House_Name =?";
+
+    con.query(selectuser, [HouseName],
+      function (err, rowss) {
+        if (err)
+          console.log(err);
+
+
+        var insertutil = "update visitor set User_Id=?,Full_Name=?,Address=?,Mobile_No=?,InDate=?	,OutDate=?,InTime=?,OutTime=? where Visitor_Id=?";
+        con.query(insertutil, [rowss[0].Owner_Id,visitorname,address,phone,entryDate,odate,etime,Outtime,id],
+          function (err, row) {
+            if (err)
+              console.log(err);
+            res.redirect('/visitorsList');
+          })
+
+
+
+
+
+
+
+      });
+
+ 
+        });
 
 
 
@@ -1085,7 +1159,7 @@ var remark=req.body.status;
 
 
   app.get('/visitorsList', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM visitor", function (err, result, fields) {
+    con.query("SELECT * FROM visitor v,floor f,house h where v.User_Id=h.Owner_Id and h.Floor_Id=f.Floor_Id", function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -1113,8 +1187,31 @@ var remark=req.body.status;
   });
 
   app.get('/addVisitors', isLoggedIn, function (req, res) {
-    res.render('addVisitors.ejs',{
-      user:req.user
+
+   con.query("SELECT * FROM house", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('addVisitors.ejs', {
+        vis: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
     });
   });
   app.get('/empNotice', isLoggedIn, function (req, res) {
@@ -1818,7 +1915,7 @@ var remark=req.body.status;
 
 
   app.get('/EditVisitors', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM  floor f,house h,visitor v where h.Owner_Id=v.User_Id and h.Floor_Id=f.Floor_Id", function (err, result, fields) {
+    con.query("SELECT * FROM house h ,visitor v where h.Owner_Id=v.User_Id", function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -1830,13 +1927,90 @@ var remark=req.body.status;
         return size;
       };
       var size = Object.size(result);
+      con.query("SELECT * FROM house ", function (err, row, fields) {
 
-      res.render('EditVisitors.ejs', {
-        vis: result,
-        size: size,
-        user: req.user
+        if (err) throw err;
+        Object.size = function (obj) {
+          var siz = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) siz++;
+          }
+          return siz;
+        };
+        var siz = Object.size(row);
+  
+       
+  
+  
+  
+        console.log(siz);
+        res.render('EditVisitors.ejs', {
+          vis: result,
+          size: size,
+          siz:siz,
+          hou:row,
+          user: req.user
+        });
+  
+  
       });
 
+      
+
+
+
+      console.log(size);
+
+    });
+   
+  });
+
+
+
+  app.get('/EditVisitors2', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM house h ,visitor v where h.Owner_Id=v.User_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+      con.query("SELECT * FROM house ", function (err, row, fields) {
+
+        if (err) throw err;
+        Object.size = function (obj) {
+          var siz = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) siz++;
+          }
+          return siz;
+        };
+        var siz = Object.size(row);
+  
+       
+  
+  
+  
+        console.log(siz);
+        res.render('EditVisitors2.ejs', {
+          vis: result,
+          size: size,
+          siz:siz,
+          hou:row,
+          user: req.user
+        });
+  
+  
+      });
+
+      
 
 
 
@@ -1845,7 +2019,156 @@ var remark=req.body.status;
     });
   });
 
+  app.get('/EditVisitors3', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM house h ,visitor v where h.Owner_Id=v.User_Id", function (err, result, fields) {
 
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+      con.query("SELECT * FROM house ", function (err, row, fields) {
+
+        if (err) throw err;
+        Object.size = function (obj) {
+          var siz = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) siz++;
+          }
+          return siz;
+        };
+        var siz = Object.size(row);
+  
+       
+  
+  
+  
+        console.log(siz);
+        res.render('EditVisitors3.ejs', {
+          vis: result,
+          size: size,
+          siz:siz,
+          hou:row,
+          user: req.user
+        });
+  
+  
+      });
+
+      
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/EditVisitors4', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM house h ,visitor v where h.Owner_Id=v.User_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+      con.query("SELECT * FROM house ", function (err, row, fields) {
+
+        if (err) throw err;
+        Object.size = function (obj) {
+          var siz = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) siz++;
+          }
+          return siz;
+        };
+        var siz = Object.size(row);
+  
+       
+  
+  
+  
+        console.log(siz);
+        res.render('EditVisitors4.ejs', {
+          vis: result,
+          size: size,
+          siz:siz,
+          hou:row,
+          user: req.user
+        });
+  
+  
+      });
+
+      
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/EditVisitors5', isLoggedIn, function (req, res) {
+    con.query("SELECT * FROM house h ,visitor v where h.Owner_Id=v.User_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+      con.query("SELECT * FROM house ", function (err, row, fields) {
+
+        if (err) throw err;
+        Object.size = function (obj) {
+          var siz = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) siz++;
+          }
+          return siz;
+        };
+        var siz = Object.size(row);
+  
+       
+  
+  
+  
+        console.log(siz);
+        res.render('EditVisitors5.ejs', {
+          vis: result,
+          size: size,
+          siz:siz,
+          hou:row,
+          user: req.user
+        });
+  
+  
+      });
+
+      
+
+
+
+      console.log(size);
+
+    });
+  });
 
   app.get('/feature', function (req, res) {
     res.render('feature.ejs');

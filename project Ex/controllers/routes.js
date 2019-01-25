@@ -742,7 +742,8 @@ module.exports = function (app, passport) {
 
       
    
-  }})})
+  }})
+})
 
   app.post('/addEmployee', function (req, res) {
     var username = req.body.username;

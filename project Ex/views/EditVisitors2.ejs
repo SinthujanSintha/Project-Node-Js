@@ -138,16 +138,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-												<form class="com-mail" action="/editVisitors/<%=vis[size-1].Visitor_Id%>" method="post">
+												<form class="com-mail" action="/editVisitors/<%=vis[size-2].Visitor_Id%>" method="post">
 													<div class="form-group">
 
 
 														<h4 style="color:cornsilk;font-weight: bold">*VisitorsName:</h4>
-														<input type="text" name="vname" value="<%=vis[size-1].Full_Name%>" class="form-control" required placeholder="Enter the visitor name">
+														<input type="text" name="vname" value="<%=vis[size-2].Full_Name%>" class="form-control" required placeholder="Enter the visitor name">
 														<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
-														<input type="text" name="address" value="<%=vis[size-1].Address%>" class="form-control" required placeholder="Enter the address of visitors">
+														<input type="text" name="address" value="<%=vis[size-2].Address%>" class="form-control" required placeholder="Enter the address of visitors">
 														<h4 style="color:cornsilk;font-weight: bold">*MobileNumber:</h4>
-														<input type="text" name="phone" value="<%=vis[size-1].Mobile_No%>" class="form-control" required placeholder="Enter Contact">
+														<input type="text" name="phone" value="<%=vis[size-2].Mobile_No%>" class="form-control" required placeholder="Enter Contact">
 											
 													
 
@@ -156,7 +156,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 														
 														<h4 style="color:cornsilk;font-weight: bold">*House Name:</h4>
-														<input list="house" value="<%=vis[size-1].House_Name%>"name="HouseName"class="form-control" >
+														<input list="house" value="<%=vis[size-2].House_Name%>"name="HouseName"class="form-control" >
 														<datalist id="house">
 																<option value="<%=hou[siz-1].House_Name%>">
 																		<option value="<%=hou[siz-2].House_Name%>">
@@ -167,13 +167,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														</datalist>
 
 														<h4 style="color:cornsilk;font-weight: bold">*Entry Date:</h4>
-														<input type="date" onchange="(this.value)" Name="edate" class="form-control" value="<%=vis[size-1].InDate%>"required placeholder="Enter the entry dateof visitors">
+														<input type="date" onchange="(this.value)" Name="edate" class="form-control" value="<%=vis[size-2].InDate%>"required placeholder="Enter the entry dateof visitors">
 														<h4 style="color:cornsilk;font-weight: bold">*Out Date:</h4>
-														<input type="date" onchange="(this.value)" Name="odate" class="form-control" value="<%=vis[size-1].OutDate%>" required placeholder="Enter the OutDate of visiors">
+														<input type="date" onchange="(this.value)" Name="odate" class="form-control" value="<%=vis[size-2].OutDate%>" required placeholder="Enter the OutDate of visiors">
 														<h4 style="color:cornsilk;font-weight: bold">*Intime:</h4>
-														<input type="time" onchange="(this.value)" name="etime" class="form-control" value="<%=vis[size-1].InTime%>" required placeholder="Enter Intime Of visitors">
+														<input type="time" onchange="(this.value)" name="etime" class="form-control" value="<%=vis[size-2].InTime%>" required placeholder="Enter Intime Of visitors">
 														<h4 style="color:cornsilk;font-weight: bold">*Outtime:</h4>
-														<input type="time" onchange="(this.value)" name="otime" class="form-control" value="<%=vis[size-1].OutTime%>" required placeholder="Enter outtime of visitors">
+														<input type="time" onchange="(this.value)" name="otime" class="form-control" value="<%=vis[size-2].OutTime%>" required placeholder="Enter outtime of visitors">
 
 													</div>
 
