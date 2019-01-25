@@ -138,19 +138,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													
 													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 														
-														<form class="com-mail" action="/comReply/<%=cop[size-1].Complaint_ID%>" method="post">
+														<form class="com-mail" action="/comReply/<%=cop[size-2].Complaint_ID%>" method="post">
 															<div class="form-group">
-																	<h4 style="color:cornsilk;font-weight: bold">Status:</h4>
+                                                                	<h4 style="color:cornsilk;font-weight: bold">Status:</h4>
 																	<select name="status" id="ddlYear" class="form-control" >
-																			<option value="<%=cop[size-1].Remark %>"><%=cop[size-1].Remark%></option>
+																			<option value="<%=cop[size-2].Remark %>"><%=cop[size-2].Remark%></option>
 																			<option value="Solved">Solved</option>
 																			<option value="NotSolved">NotSolved</option>
 																		</select>
-																						
-																						
+																					
 																<h4 style="color:cornsilk;font-weight: bold">Response:</h4>
 															<textarea class="form-control" name="replyCom">
-																	<%=cop[size-1].Response%>
+																	<%=cop[size-2].Response%>
                                                             </textarea>
 														</div>
 																

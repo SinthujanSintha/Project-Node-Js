@@ -216,7 +216,39 @@ module.exports = function (app) {
   })
 
 
+  app.post('/comReply/:id', urlencodedParser, function (req, res) {
+    var idd = req.params.id;
+var remark=req.body.status;
+    var resPonse = req.body.replyCom;
+   
+    
 
+   
+
+   
+
+
+        var insertutil = "update complaint set Response=?,Remark=? where Complaint_ID=?";
+        con.query(insertutil, [resPonse,remark,idd],
+          function (err, row) {
+            if (err)
+              console.log(err);
+            res.redirect('/complainList');
+          })
+
+
+
+
+        })
+
+
+     
+
+
+
+
+
+  
 
   app.post('/addMaintenance', urlencodedParser, (function (req, res) {
     var title = req.body.title;
@@ -1193,6 +1225,17 @@ module.exports = function (app) {
     });
   });
 
+  app.get('/delComplain/:id', isLoggedIn, (req, res) => {
+    var sql = "DELETE FROM complaint WHERE Complaint_ID =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/complainlist');
+
+    })
+  });
 
 
 
