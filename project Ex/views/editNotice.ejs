@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Admin Edit Owner Notice</title>
+    <title>Admin Employee Notice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -16,8 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             window.scrollTo(0, 1);
         }
     </script>
-     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-     <script>tinymce.init({ selector:'textarea' });</script>
+     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://dhakadailybazar.com/apartment-management-system/dist/js/jquery.mask.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
@@ -79,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px"
                                                     alt=""> </span>
                                             <div class="user-name">
-                                                <p>P.Sinthujan</p>
+                                                <p><%=user.First_Name%></p>
                                                 <span>Administrator</span>
                                             </div>
                                             <i class="fa fa-angle-down lnr"></i>
@@ -117,9 +116,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
                                     <ol class="breadcrumb" style="background-color: #07f389;">
                                         <li class="breadcrumb-item"><a href="/in" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
-                                        <li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Notice</li>
+                                        <li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Notice Board</li>
                                         <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "
-                                            aria-current="page">Edit Owner Notice Board</li>
+                                            aria-current="page"> AddNotice</li>
 
                                     </ol>
 
@@ -143,22 +142,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-                                                <form class="com-mail" action="">
+                                                <form class="com-mail" action="/" method="post">
                                                     <div class="form-group">
 
                                                         <h4 style="color:cornsilk;font-weight: bold">*Notice Title:</h4>
-                                                        <input type="text" name="Owner Name" class="form-control"
-                                                            required placeholder="Enter the owner Name">
+                                                        <input type="text" name="title" class="form-control"
+                                                            required placeholder="Enter the title of notice">
                                                         <h4 style="color:cornsilk;font-weight: bold">*Notice Date:</h4>
-                                                        <input type="date" name="OEmail" class="form-control" required
-                                                            placeholder="Enter the Email">
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Notice Status:</h4>
-                                                        <select name="ddlNoticeStatus" id="ddlNoticeStatus" class="form-control">
-                                                            <option value="1">Publish Now</option>
-                                                            <option value="0">Disable</option>
+                                                        <input type="date" onchange="(this.value)" name="date" class="form-control" required
+                                                            placeholder="Enter thr Date">
+                                                        <h4 style="color:cornsilk;font-weight: bold">*Notice For:</h4>
+                                                        <select name="type" id="ddlNoticeStatus" class="form-control">
+                                                            <option value="ForOwners">Owners</option>
+                                                            <option value="ForEmployee">Employees</option>
+                                                            <option value="Common">Common</option>
                                                         </select>
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Notice Title:</h4>
-                                                        <textarea class="form-control"></textarea>
+                                                        <h4 style="color:cornsilk;font-weight: bold">*Subject:</h4>
+                                                        <textarea name="des" id="txtMDetails" class="form-control"> </textarea>
                                                     </div>
 
 
@@ -177,7 +177,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="clearfix"> </div>
                     </div>
                  
-                    
+                 
 
 
 
@@ -285,9 +285,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                              style="float: right"></span></a>
                         <ul>
 
-                           
-								<li id="menu-arquivos"><a href="/empNotice">NoticeBoard</a></li>
-								<li id="menu-arquivos"><a href="/ownerNotice">Add Notice</a></li>
+                            <li id="menu-arquivos"><a href="/empNotice">NoticeBoard</a></li>
+                            <li id="menu-arquivos"><a href="/ownerNotice">Add Notice</a></li>
                         </ul>
                     </li>
 

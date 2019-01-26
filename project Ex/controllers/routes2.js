@@ -321,8 +321,7 @@ var remark=req.body.status;
 
      
         
-  app.post('/editVisitors/:id', isLoggedIn, function (req, res) {
-var id=req.params.id;
+  app.post('/editVisitors/:id', isLoggedIn, function (req, res) {var id=req.params.id;
     var visitorname = req.body.vname;
     var address = req.body.address;
     var phone = req.body.phone;
@@ -367,6 +366,14 @@ var id=req.params.id;
 
   
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   app.post('/addMaintenance', urlencodedParser, (function (req, res) {
     var title = req.body.title;
     var total = req.body.total;

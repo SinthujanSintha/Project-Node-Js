@@ -160,7 +160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     </thead>
                                                     
                                                     <tbody>
-						<% if(not.length==size 0) { %>
+						
 
                                                             <tr>
                                                                     
@@ -221,14 +221,185 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                            </td>
                                                                     </tr>
                         
-                                                                
+                                                                    <tr>
+                                                                    
+                                                                    
+                                                                        <td><%=not[size-2].Subject %></td>
+                                                                      
+                                                                        
+                                                                   
+                                                                   
+                                                                       <td><label class="label label-success ams_label">
+                                                                               <%=not[size-2].Notice_Type %>
+                                                                              </label></td>
+                                                                               
+                                                                       
+                                                                           
+                                                                        <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+                                                                            class="fa fa-eye"></i></button>
+                                                                       <div id="v2" class="modal">
+                   
+                                                                           <!-- Modal content -->
+                                                                           <div class="modalt-content">
+                                                                               <div class="modalt-header">
+                                                                                   <span class="closet" data-dismiss="modal">&times;</span>
+                   
+                                                                                   <h2>Notice Details:</h2>
+                                                                               </div>
+                                                                              
+                                                                               <div class="modalt-body">
+                   
+                                                                                   <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-2].Subject%></h3>
+                                                                                   <div class="row">
+                                                                                       <div class="col-xs-6"> <b>Notice Title:</b>
+                                                                                           <%=not[size-2].Subject %><br>
+                                                                                           <b>Date:</b>
+                                                                                           <%=not[size-2].Date %><br>
+                                                                                           <b>Notice For :</b>
+                                                                                           <%=not[size-2].Type %><br> 
+                                                                                       </div>
+                                                                                       <div class="col-xs-6"><b>Description :</b>
+                                                                                           <%=not[size-2].Content%><br>
+                                                                                        
+                                                                                       </div>
+                                                                                   </div>
+                                                                               </div>
+                                                                               <div class="modalt-footer">
+                                                                                   <h3>Thank you</h3>
+                   
+                                                                               </div>
+                   
+                                                                           </div>
+                   
+                   
+                                                                       </div>
+                   
+                                                                       <a href="/EditNoitce2"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+                                                                       <a href="/delNotice/<%=not[size-2].Notification_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')"
+                                                                            title="Delete"><i class="fa fa-trash"></i></button></a>
+                                                                   </td>
+                                                                            </tr>
                         
-                        
+                                                                            <tr>
+                                                                    
+                                                                    
+                                                                                <td><%=not[size-3].Subject %></td>
+                                                                              
+                                                                                
+                                                                           
+                                                                           
+                                                                               <td><label class="label label-success ams_label">
+                                                                                       <%=not[size-3].Notice_Type %>
+                                                                                      </label></td>
+                                                                                       
+                                                                               
+                                                                                   
+                                                                                <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+                                                                                    class="fa fa-eye"></i></button>
+                                                                               <div id="v3" class="modal">
+                           
+                                                                                   <!-- Modal content -->
+                                                                                   <div class="modalt-content">
+                                                                                       <div class="modalt-header">
+                                                                                           <span class="closet" data-dismiss="modal">&times;</span>
+                           
+                                                                                           <h2>Notice Details:</h2>
+                                                                                       </div>
+                                                                                      
+                                                                                       <div class="modalt-body">
+                           
+                                                                                           <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-3].Subject%></h3>
+                                                                                           <div class="row">
+                                                                                               <div class="col-xs-6"> <b>Notice Title:</b>
+                                                                                                   <%=not[size-3].Subject %><br>
+                                                                                                   <b>Date:</b>
+                                                                                                   <%=not[size-3].Date %><br>
+                                                                                                   <b>Notice For :</b>
+                                                                                                   <%=not[size-3].Type %><br> 
+                                                                                               </div>
+                                                                                               <div class="col-xs-6"><b>Description :</b>
+                                                                                                   <%=not[size-3].Content%><br>
+                                                                                                
+                                                                                               </div>
+                                                                                           </div>
+                                                                                       </div>
+                                                                                       <div class="modalt-footer">
+                                                                                           <h3>Thank you</h3>
+                           
+                                                                                       </div>
+                           
+                                                                                   </div>
+                           
+                           
+                                                                               </div>
+                           
+                                                                               <a href="/EditNoitce3"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+                                                                               <a href="/delNotice/<%=not[size-3].Notification_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')"
+                                                                                    title="Delete"><i class="fa fa-trash"></i></button></a>
+                                                                           </td>
+                                                                                    </tr>
                                                                     
                         
                         
                         
-                        
+                                                                                    <tr>
+                                                                    
+                                                                    
+                                                                                        <td><%=not[size-4].Subject %></td>
+                                                                                      
+                                                                                        
+                                                                                   
+                                                                                   
+                                                                                       <td><label class="label label-success ams_label">
+                                                                                               <%=not[size-4].Notice_Type %>
+                                                                                              </label></td>
+                                                                                               
+                                                                                       
+                                                                                           
+                                                                                        <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+                                                                                            class="fa fa-eye"></i></button>
+                                                                                       <div id="v4" class="modal">
+                                   
+                                                                                           <!-- Modal content -->
+                                                                                           <div class="modalt-content">
+                                                                                               <div class="modalt-header">
+                                                                                                   <span class="closet" data-dismiss="modal">&times;</span>
+                                   
+                                                                                                   <h2>Notice Details:</h2>
+                                                                                               </div>
+                                                                                              
+                                                                                               <div class="modalt-body">
+                                   
+                                                                                                   <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-4].Subject%></h3>
+                                                                                                   <div class="row">
+                                                                                                       <div class="col-xs-6"> <b>Notice Title:</b>
+                                                                                                           <%=not[size-4].Subject %><br>
+                                                                                                           <b>Date:</b>
+                                                                                                           <%=not[size-4].Date %><br>
+                                                                                                           <b>Notice For :</b>
+                                                                                                           <%=not[size-4].Type %><br> 
+                                                                                                       </div>
+                                                                                                       <div class="col-xs-6"><b>Description :</b>
+                                                                                                           <%=not[size-4].Content%><br>
+                                                                                                        
+                                                                                                       </div>
+                                                                                                   </div>
+                                                                                               </div>
+                                                                                               <div class="modalt-footer">
+                                                                                                   <h3>Thank you</h3>
+                                   
+                                                                                               </div>
+                                   
+                                                                                           </div>
+                                   
+                                   
+                                                                                       </div>
+                                   
+                                                                                       <a href="/EditNoitce4"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+                                                                                       <a href="/delNotice/<%=not[size-4].Notification_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')"
+                                                                                            title="Delete"><i class="fa fa-trash"></i></button></a>
+                                                                                   </td>
+                                                                                            </tr>
                         
                         
                         
