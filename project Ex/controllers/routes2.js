@@ -134,6 +134,47 @@ module.exports = function (app) {
 
 
 
+  app.post('/editNotice/:id', urlencodedParser, function (req, res) {
+
+var id=req.params.id;
+
+
+
+    var title = req.body.title;
+    var date = req.body.date;
+    var type = req.body.type;
+    var des= req.body.des;
+   
+
+
+   
+
+
+        var insertutil = "update noticeboard set Notice_Type=?,Date=?,Subject=?,Content=? where Notification_Id=? ";
+        con.query(insertutil, [type, date, title,des,id],
+          function (err, row) {
+            if (err)
+              console.log(err);
+            res.redirect('/empNotice');
+          })
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+  })
+
+
+
   app.post('/addCommitte', isLoggedIn, function (req, res) {
 
 
@@ -636,6 +677,17 @@ var remark=req.body.status;
   });
 
 
+  app.get('/delNotice/:id', isLoggedIn, (req, res) => {
+    var sql = "DELETE FROM noticeboard WHERE Notification_Id =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/empNotice');
+
+    })
+  });
 
   app.get('/addFloor', isLoggedIn, function (req, res) {
     res.render('addFloor.ejs');
@@ -655,6 +707,7 @@ var remark=req.body.status;
       message: req.flash('signupMessage')
     });
   });
+
   app.get('/salaryList', isLoggedIn, function (req, res) {
     con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and t.Emtype_Id=e.Emtype_Id", function (err, result, fields) {
       con
@@ -1259,6 +1312,8 @@ var remark=req.body.status;
 
     });
   });
+
+
   app.get('/empNotice', isLoggedIn, function (req, res) {
     con.query("SELECT * FROM noticeboard ", function (err, result, fields) {
       if (err) throw err;
@@ -1278,13 +1333,13 @@ var remark=req.body.status;
         user: req.user
       });
 
+    })
 
 
-
-      console.log(size);
+     
 
     });
-  });
+ 
   app.get('/ownerNotice', isLoggedIn, function (req, res) {
    
 
@@ -1814,8 +1869,113 @@ var remark=req.body.status;
 
 
 
-  app.get('/editOwnerNotice', isLoggedIn, function (req, res) {
-    res.render('editOwnerNotice.ejs');
+  app.get('/EditNotice', isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM noticeboard ", function (err, result, fields) {
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editNotice.ejs', {
+        not: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/EditNotice2', isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM noticeboard ", function (err, result, fields) {
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editNotice2.ejs', {
+        not: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/EditNotice3', isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM noticeboard ", function (err, result, fields) {
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editNotice3.ejs', {
+        not: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  });
+  app.get('/EditNotice4', isLoggedIn, function (req, res) {
+
+    con.query("SELECT * FROM noticeboard ", function (err, result, fields) {
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('editNotice4.ejs', {
+        not: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
 
   app.get('/addSalary', isLoggedIn, function (req, res) {

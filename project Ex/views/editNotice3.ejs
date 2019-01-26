@@ -142,26 +142,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-                                                <form class="com-mail" action="/editNotice/<%=not[size-1].Notification_Id %>" method="post">
+                                                <form class="com-mail" action="/editNotice/<%=not[size-3].Notification_Id%>" method="post">
                                                     <div class="form-group">
 
                                                         <h4 style="color:cornsilk;font-weight: bold">*Notice Title:</h4>
-                                                        <input type="text" name="title" value=" <%=not[size-1].Subject %>"   class="form-control"
+                                                        <input type="text" name="title" value=" <%=not[size-3].Subject %>"   class="form-control"
                                                             required placeholder="Enter the title of notice">
                                                         <h4 style="color:cornsilk;font-weight: bold">*Notice Date:</h4>
-                                                        <input type="date" onchange="(this.value)" value="<%=not[size-1].Date%>" name="date" class="form-control" required
+                                                        <input type="date" onchange="(this.value)" value="<%=not[size-3].Date%>" name="date" class="form-control" required
                                                             placeholder="Enter thr Date">
                                                         <h4 style="color:cornsilk;font-weight: bold">*Notice For:</h4>
                                                         <select name="type" id="ddlNoticeStatus" class="form-control">
                                                              
-                                                                <option value="<%=not[size-1].Notice_Type %>"><%=not[size-1].Notice_Type%></option>
+                                                                <option value="<%=not[size-2].Notice_Type%>"><%=not[size-3].Notice_Type%></option>
                                                             <option value="ForOwners">Owners</option>
                                                             <option value="ForEmployee">Employees</option>
                                                             <option value="Common">Common</option>
                                                         </select>
                                                         <h4 style="color:cornsilk;font-weight: bold">*Subject:</h4>
-                                                                                                          
-                                                                                                           <textarea name="des" id="txtMDetails" class="form-control"> <%=not[size-1].Content%> </textarea>
+                                                                                                           
+                                                                                                           <textarea name="des" id="txtMDetails" class="form-control"><%=not[size-3].Content%> </textarea>
                                                     </div>
 
 
