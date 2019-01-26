@@ -1253,8 +1253,29 @@ var id=req.params.id;
     });
   });
   app.get('/empNotice', isLoggedIn, function (req, res) {
-    res.render('noticeList.ejs',{
-      user:req.user
+    con.query("SELECT * FROM noticeboard n ,user_type u where n.User_Type_Id=u.Type_Id", function (err, result, fields) {
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('noticeList.ejs', {
+        not: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
     });
   });
   app.get('/ownerNotice', isLoggedIn, function (req, res) {
