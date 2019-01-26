@@ -660,14 +660,14 @@ module.exports = function (app, passport) {
   }));
 
   app.post('/addOwner', function (req, res) {
-    var username = req.body.username;
-    con.query("SELECT Email_Id FROM user WHERE Email_Id = ? ",
-      [username],
-      function (err, rows, ) {
+    var user = req.body.username;
+    con.query("SELECT Email_Id FROM user WHERE Email_Id = ? ", [user],function (err, rowse, ) {
         if (err)
           return (err);
-        if (rows.length) {
-          res.send('signupMessage', 'This user is already taken');
+        if (rowse.length) {
+          res.render('addOwner.ejs',{
+            msg:'This user is already taken'
+          } );
         } else {
 
           var newUserMysql = {
@@ -693,57 +693,65 @@ module.exports = function (app, passport) {
 
           var insertQuery = "INSERT INTO user (First_Name, Last_Name, Contact_Number, Email_ID, PassWord, Phone,Address,Type_Id) values (?,?,?,?,?,?,?,?)";
 
-          con.query(insertQuery, [newUserMysql.firstname,
-              newUserMysql.lastname, newUserMysql.contact, newUserMysql.username, newUserMysql.password, newUserMysql.phone, newUserMysql.location, newUserMysql.type
-            ],
-            function (err, rows) {
+          con.query(insertQuery, [newUserMysql.firstname,newUserMysql.lastname, newUserMysql.contact, newUserMysql.username, newUserMysql.password, newUserMysql.phone, newUserMysql.location, newUserMysql.type],function (err, ro) {
               if (err)
-                console.log(err);
+                console.log(err); });
+             
+             
+           
+                var selectuser = "select * from user where Email_Id =?";
 
-              console.log(rows.insertId);
-              newUserMysql.id = rows.insertId;
+                con.query(selectuser, [newUserMysql.username],
+                  function (err, rows) {
+                    if (err)
+                      console.log(err);
+                      var insertHouse = "INSERT INTO house (Owner_Id,House_Name) values (?,?)";
 
 
+            con.query(insertHouse, [rows[0].User_Id,newUserMysql.HouseNo],
+              function (err, rows) {
+                if (err)
+                  console.log(err);
+            
+              });
 
-            });
+       
+            
 
-            var selectFloor = "SELECT * FROM floor where Houses like CONCAT (?, '%')"
+          
+
+          });
+
+
+           
+
+         
+        
+        
+         
+         
+               
+            
+
+            var selectFloor = "SELECT * FROM floor where Houses like CONCAT ('%',?,'%')";
 
             con.query(selectFloor, [newUserMysql.HouseNo],
+              function (err, rows) {
+                if (err)
+                  console.log(err);
+console.log(rows[0].Floor_Id,)
+            var inserfloor = "update house set Floor_Id=?  where House_Name=?";
+            con.query(inserfloor, [rows[0].Floor_Id,newUserMysql.HouseNo],
               function (err, rowss) {
                 if (err)
                   console.log(err);
-         
-              
-               
-
-
-          var selectuser = "select * from user where Email_Id =?";
-
-          con.query(selectuser, [newUserMysql.username],
-            function (err, rows) {
-              if (err)
-                console.log(err);
-              
-
-              var insertHouse = "INSERT INTO house (Floor_Id,Owner_Id,House_Name) values (?,?,?)";
-
-              con.query(insertHouse, [rowss[0].Floor_Id,rows[0].User_Id,newUserMysql.HouseNo],
-                function (err, rows) {
-                  if (err)
-                    console.log(err);
-                  res.redirect('/Ownerlist');
-                });
-
-            });
-          })
-        
-
-
+                
+                res.redirect('/ownerList');
+                })
       
-   
-  }})
-})
+          })
+        }})})
+
 
   app.post('/addEmployee', function (req, res) {
     var username = req.body.username;
@@ -754,7 +762,9 @@ module.exports = function (app, passport) {
           return (err);
         if (rows.length) {
 
-          res.send('signupMessage', 'This user is already taken');
+          res.render('addEmployee.ejs' ,{
+            msg:'This user is already taken'}
+          );
         } else {
 
           var newUserMysql = {

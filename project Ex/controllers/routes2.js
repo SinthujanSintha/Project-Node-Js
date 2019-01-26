@@ -108,7 +108,7 @@ module.exports = function (app) {
    
 
 
-        var insertutil = "INSERT INTO noticeboard (User_Type_Id,Date,Subject,Content) values (?,?,?,?)";
+        var insertutil = "INSERT INTO noticeboard (Notice_Type,Date,Subject,Content) values (?,?,?,?)";
         con.query(insertutil, [type, date, title,des],
           function (err, row) {
             if (err)
@@ -1253,7 +1253,7 @@ var id=req.params.id;
     });
   });
   app.get('/empNotice', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM noticeboard n ,user_type u where n.User_Type_Id=u.Type_Id", function (err, result, fields) {
+    con.query("SELECT * FROM noticeboard ", function (err, result, fields) {
       if (err) throw err;
       Object.size = function (obj) {
         var size = 0,
