@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Admin Edit Employee</title>
+	<title>Admin Edit Visitors</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -55,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="header-main">
 					<div class="header-left">
 						<div class="logo-name">
-							<a href="/profile">
+							<a href="/in">
 								<h1>Apartment Management System</h1>
 
 							</a>
@@ -113,13 +113,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="work-progres">
 								<nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
 									<ol class="breadcrumb" style="background-color: #07f389;">
-										<li class="breadcrumb-item"><a href="/profile" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
-										<li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Employee Information</li>
-										<li class="breadcrumb-item active" style="color:chocolate;font-size:27px; " aria-current="page">Edit Employee</li>
+										<li class="breadcrumb-item"><a href="/in" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
+										<li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Visitor Information</li>
+										<li class="breadcrumb-item active" style="color:chocolate;font-size:27px; " aria-current="page">Edit Visitors</li>
 
 									</ol>
 
-									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/profile" data-toggle="tooltip"
+									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/in" data-toggle="tooltip"
 									 data-placement="left" title="Home">
 										<i class="fa fa-dashboard"></i></a>
 								</nav>
@@ -128,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 								<div class="chit-chat-heading">
-									<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Employee Edit Form
+									<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Visitors Entry form
 								</div>
 
 								<div class="table-responsive">
@@ -138,63 +138,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-												<form class="com-mail" action="/editEmployee/<%=emp[size-3].User_Id %>" method="post">
-													
+												<form class="com-mail" action="/editVisitors/<%=vis[size-3].Visitor_Id%>" method="post">
 													<div class="form-group">
-															<script>
 
-                    var check = function() {
-																	  if (document.getElementById('password').value ==
-																		document.getElementById('password2').value) {
-																		document.getElementById('message').style.color = 'green';
-																		document.getElementById('message').innerHTML = 'PassWord Matching';
-																	  } else {
-																		document.getElementById('message').style.color = 'red';
-																		document.getElementById('message').innerHTML = 'PassWord Not Mathching';
-																	  }
-																	}
-																																			</script>
-														<h4 style="color:cornsilk;font-weight: bold">*FirstName:</h4>
-														<input type="text" name="FirstName" class="form-control" required placeholder="Enter the First Name" value="<%=emp[size-3].First_Name %>">
-														<h4 style="color:cornsilk;font-weight: bold">*LastName:</h4>
-														<input type="text" name="LastName" class="form-control" required placeholder="Enter the Last Name"value="<%=emp[size-3].Last_Name %>">
-														<h4 style="color:cornsilk;font-weight: bold">*Email:</h4>
-														<input type="text" name="username" class="form-control" required placeholder="Enter the Email"value="<%=emp[size-3].Email_Id %>">
-														<h4 style="color:cornsilk;font-weight: bold">*PassWord:</h4>
-														<input type="password" name="password" id="password" class="form-control" required placeholder="Enter the PassWord" value="<%=emp[size-3].First_Name %>"
-														 onkeyup='check();'>
-														<h4 style="color:cornsilk;font-weight: bold">*ConfirmPassWord:</h4>
-														<input type="password" name="password2" id="password2" class="form-control" required placeholder="Re Enter PassWord" value="<%=emp[size-3].First_Name %>"
-														 onkeyup='check();'>
-														<h3 id='message'></h3>
-														<h4 style="color:cornsilk;font-weight: bold">*ContactNUmber:</h4>
-														<input type="tel" name="Contact" class="form-control" required placeholder="Enter Contact Number"value="<%=emp[size-3].Contact_Number %>" >
 
-														<h4 style="color:cornsilk;font-weight: bold">*MobileNUmber:</h4>
-														<input type="tel" name="Phone" class="form-control" required placeholder="Enter MobileNumber" value="<%=emp[size-3].Phone %>"  > 
+														<h4 style="color:cornsilk;font-weight: bold">*VisitorsName:</h4>
+														<input type="text" name="vname" value="<%=vis[size-3].Full_Name%>" class="form-control" required placeholder="Enter the visitor name">
 														<h4 style="color:cornsilk;font-weight: bold">*Address:</h4>
-														<input type="text" name="Address" class="form-control" required placeholder="Enter Address"value="<%=emp[size-3].Address %>" >
-						
-														<h4 style="color:cornsilk;font-weight: bold">*Designation:</h4>
-														<select name="job"  id="ddlMemberType" class="form-control">
-															<option  value="<%=emp[size-3].Emtype_Id %>"><%=emp[size-3].Job %></option>
-
-															<option value="ET004">Electricians</option>
-															<option value="ET001">Cleaner</option>
-															<option value="ET002">Security Guard</option>
-															<option value="ET003">Plumber</option>
-
-														</select>
+														<input type="text" name="address" value="<%=vis[size-3].Address%>" class="form-control" required placeholder="Enter the address of visitors">
+														<h4 style="color:cornsilk;font-weight: bold">*MobileNumber:</h4>
+														<input type="text" name="phone" value="<%=vis[size-3].Mobile_No%>" class="form-control" required placeholder="Enter Contact">
+											
 													
-														
 
-														<h4 style="color:cornsilk;font-weight: bold">*Salary:</h4>
-														<input type="number" name="salary" class="form-control" required placeholder="Enter Salary"value="<%=emp[size-3].Amount%>" >
+
+
+
+														
+														<h4 style="color:cornsilk;font-weight: bold">*House Name:</h4>
+														<input list="house" value="<%=vis[size-3].House_Name%>"name="HouseName"class="form-control" >
+														<datalist id="house">
+																<option value="<%=hou[siz-1].House_Name%>">
+																		<option value="<%=hou[siz-2].House_Name%>">
+																		<option value="<%=hou[siz-3].House_Name%>">
+																		<option value="<%=hou[siz-4].House_Name%>">
+																		<option value="<%=hou[siz-5].House_Name%>">
+																		<option value="<%=hou[siz-6].House_Name%>">
+														</datalist>
+
+														<h4 style="color:cornsilk;font-weight: bold">*Entry Date:</h4>
+														<input type="date" onchange="(this.value)" Name="edate" class="form-control" value="<%=vis[size-3].InDate%>"required placeholder="Enter the entry dateof visitors">
+														<h4 style="color:cornsilk;font-weight: bold">*Out Date:</h4>
+														<input type="date" onchange="(this.value)" Name="odate" class="form-control" value="<%=vis[size-3].OutDate%>" required placeholder="Enter the OutDate of visiors">
+														<h4 style="color:cornsilk;font-weight: bold">*Intime:</h4>
+														<input type="time" onchange="(this.value)" name="etime" class="form-control" value="<%=vis[size-3].InTime%>" required placeholder="Enter Intime Of visitors">
+														<h4 style="color:cornsilk;font-weight: bold">*Outtime:</h4>
+														<input type="time" onchange="(this.value)" name="otime" class="form-control" value="<%=vis[size-3].OutTime%>" required placeholder="Enter outtime of visitors">
+
 													</div>
 
 
-													<input type="submit" value="Save Information">
-													<a href="/employeeList"><input type="button" value="Back"> </a>
+													<input type="submit" value="Update Information">
+													<a href="/visitorsList"><input type="button" value="Back"> </a>
 												</form>
 											</div>
 										</div>
@@ -217,11 +202,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 				</div>
-
 				<br>
 				<br>
 				<br>
 				<br><br><br><br><br><br><br><br>
+
 				<div class="copyrights">
 					<p>© 2019 Fantastic 5. All Rights Reserved. </p>
 				</div>
@@ -236,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</a> </div>
 			<div class="menu">
 				<ul id="menu">
-					<li id="menu-home"><a href="/profile"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+					<li id="menu-home"><a href="/in"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
 					<li><a href="#"><i class="fa fa-book nav_icon"></i><span>Floor Information</span><span class="fa fa-angle-right"
 							 style="float: right"></span></a>
 						<ul>

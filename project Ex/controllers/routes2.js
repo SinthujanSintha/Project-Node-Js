@@ -509,7 +509,7 @@ var id=req.params.id;
 
       console.log(result.affectedRows);
 
-      res.redirect('/visitorsList.ejs');
+      res.redirect('/visitorsList');
 
     })
   })
