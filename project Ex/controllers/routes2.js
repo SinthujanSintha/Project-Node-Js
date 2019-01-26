@@ -92,6 +92,44 @@ module.exports = function (app) {
 
 
   })
+  app.post('/addNotice', urlencodedParser, function (req, res) {
+
+
+
+
+
+    var title = req.body.title;
+    var date = req.body.date;
+    var type = req.body.type;
+    var des= req.body.des;
+   
+
+
+   
+
+
+        var insertutil = "INSERT INTO noticeboard (User_Type_Id,Date,Subject,Content) values (?,?,?,?)";
+        con.query(insertutil, [type, date, title,des],
+          function (err, row) {
+            if (err)
+              console.log(err);
+            res.redirect('/empNotice');
+          })
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+  })
 
 
 
@@ -1215,10 +1253,16 @@ var id=req.params.id;
     });
   });
   app.get('/empNotice', isLoggedIn, function (req, res) {
-    res.render('empNotice.ejs');
+    res.render('noticeList.ejs',{
+      user:req.user
+    });
   });
   app.get('/ownerNotice', isLoggedIn, function (req, res) {
-    res.render('ownerNotice.ejs');
+   
+
+    res.render('addNotice.ejs',{
+      user:req.user
+    });
   });
   app.get('/adview', isLoggedIn, function (req, res) {
     res.render('AdminProView.ejs', {

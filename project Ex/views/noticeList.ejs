@@ -109,81 +109,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-                    <div class="chit-chat-layer1t">
-                        <!-- last Fivve Complain -->
-                        <div class="col-md-12 chit-chat-layer1-left">
-                            <div class="work-progres">
-                                <nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
-                                    <ol class="breadcrumb" style="background-color: #07f389;">
-                                        <li class="breadcrumb-item"><a href="/in" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
-                                        <li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Notice</li>
-                                        <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "
-                                            aria-current="page">Owner Notice Board</li>
-
-                                    </ol>
-
-                                    <a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/in"
-                                        data-toggle="tooltip" data-placement="left" title="Home">
-                                        <i class="fa fa-dashboard"></i></a>
-                                </nav>
-
-
-
-
-                                <div class="chit-chat-heading">
-                                    <i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Notice
-                                    Entry form
-                                </div>
-
-                                <div class="table-responsive">
-
-                                    <div class="col-md-12 compose-right">
-                                        <div class="inbox-details -default">
-
-                                            <div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
-
-                                                <form class="com-mail" action="">
-                                                    <div class="form-group">
-
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Notice Title:</h4>
-                                                        <input type="text" name="Owner Name" class="form-control"
-                                                            required placeholder="Enter the owner Name">
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Notice Date:</h4>
-                                                        <input type="date" name="OEmail" class="form-control" required
-                                                            placeholder="Enter the Email">
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Notice Status:</h4>
-                                                        <select name="ddlNoticeStatus" id="ddlNoticeStatus" class="form-control">
-                                                            <option value="1">Publish Now</option>
-                                                            <option value="0">Disable</option>
-                                                        </select>
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Notice Title:</h4>
-                                                        <textarea name="txtMDetails" id="txtMDetails" class="form-control"> </textarea>
-                                                    </div>
-
-
-                                                    <input type="submit" value="Save Information">
-                                                    <a href="/in"><input type="button" value="Back"> </a>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Last five vistiors -->
-
-
-                        <div class="clearfix"> </div>
-                    </div>
+                   
                  
                     <div class="chit-chat-layer1t">
                         <!-- last Fivve Complain -->
                         <div class="col-md-12 chit-chat-layer1-left">
                             <div class="work-progres">
-                                <nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
-                                    <ol class="breadcrumb" style="background-color: #07f389;">
-                                        <h3 style="color:chocolate; font-weight:bold; font-size:27px;">Notice List</h3>
-                                       
+
+                                <nav aria-label="breadcrumb br" style=" margin-left:-5px;">
+												<ol class="breadcrumb" style="background-color: #07f389">
+												  <li class="breadcrumb-item"><a href="/in"style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
+												  <li class="breadcrumb-item"style="color:chocolate; font-weight:bold;font-size:27px;">NoticeBoard</li>
+												  <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "aria-current="page">NoticeList</li>
+										
+												</ol>
+												<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
+												 href="/ownerNotice" data-toggle="tooltip" data-placement="left" title="Add Floor">
+														<i class="fa fa-plus"></i></a>	
+														<a class="btn btn-primary"  style="float: right; font-size: 2rem;"
+												 href="/in" data-toggle="tooltip" data-placement="left" title="Home">
+														<i class="fa fa-dashboard"></i></a>	
+											  </nav>
 
                                     </ol>
 
@@ -205,7 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         
                                                         <tr>
                                                             <th style=" font-size: 20px;">Notice Title</th>
-                                                            <th style=" font-size: 20px;">Status</th>
+                                                            <th style=" font-size: 20px;">Notice For</th>
                                                             
                                                             <th colspan="2" align="center"style=" font-size: 20px;">Action</th>
                                                         </tr>
@@ -217,27 +163,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             <tr>
                                                                     
                                                                     
-                                                                <td >Meeting December 2018</td>
-                                                                <td><label class="label label-success ams_label">Published</label></td>
+                                                                <td><%=not[size-1].Subject %></td>
+                                                                <td><label class="label label-success ams_label"><%=not[size-1].Type %></label></td>
                                                                        
                                                                     
                                                                    
-                                                                       <td> <a href="/editOwnerNotice"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-                                                                        <button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button></td>
+                                                                <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+                                                                    class="fa fa-eye"></i></button>
+                                                               <div id="v1" class="modal">
+           
+                                                                   <!-- Modal content -->
+                                                                   <div class="modalt-content">
+                                                                       <div class="modalt-header">
+                                                                           <span class="closet" data-dismiss="modal">&times;</span>
+           
+                                                                           <h2>Notice Details:</h2>
+                                                                       </div>
+                                                                       <div class="modal-body model_view" align="center">&nbsp;
+                                                                          
+                                                                       </div>
+                                                                       <div class="modalt-body">
+           
+                                                                           <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-1].Subject%></h3>
+                                                                           <div class="row">
+                                                                               <div class="col-xs-6"> <b>Notice Title:</b>
+                                                                                   <%=not[size-1].Subject %><br>
+                                                                                   <b>Date:</b>
+                                                                                   <%=not[size-1].Date %><br>
+                                                                                   <b>Notice For :</b>
+                                                                                   <%=not[size-1].Type %><br> 
+                                                                               </div>
+                                                                               <div class="col-xs-6"><b>Description :</b>
+                                                                                   <%=not[size-1].Content%><br>
+                                                                                
+                                                                               </div>
+                                                                           </div>
+                                                                       </div>
+                                                                       <div class="modalt-footer">
+                                                                           <h3>Thank you</h3>
+           
+                                                                       </div>
+           
+                                                                   </div>
+           
+           
+                                                               </div>
+           
+                                                               <a href="/EditNoitce"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+                                                               <a href="/delNotice/<%=not[size-1].Notification_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')"
+                                                                    title="Delete"><i class="fa fa-trash"></i></button></a>
+                                                           </td>
                                                                     </tr>
                         
-                                                                   
-                                                                    <tr>
-                                                                    
-                                                                    
-                                                                        <td >Apartment Color Meeting</td>
-                                                                        <td><label class="label label-danger ams_label">Disable</label></td>
-                                                                               
-                                                                            
-                                                                           
-                                                                               <td> <a href="/editOwnerNotice"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-                                                                                <button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button></td>
-                                                                            </tr>
+                                                                
                         
                         
                                                                     

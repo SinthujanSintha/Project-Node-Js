@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 
@@ -77,7 +76,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="profile_img">
 											<span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px" alt=""> </span>
 											<div class="user-name">
-												<p><%=user.First_Name%></p>
+												<p>
+													<%=user.First_Name%>
+												</p>
 												<span>Administrator</span>
 											</div>
 											<i class="fa fa-angle-down lnr"></i>
@@ -99,316 +100,392 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="inner-block">
 
-						<!-- Box Bars Menu -->
-				
-						
-					
-						
-							
-				
-				
-				
-						<div class="chit-chat-layer1t">
-							<!-- last Fivve Complain -->
-							<div class="col-md-12 chit-chat-layer1-left" >
-								<div class="work-progres">
-										<nav aria-label="breadcrumb br" style=" margin-left:-5px;">
-												<ol class="breadcrumb" style="background-color: #07f389">
-												  <li class="breadcrumb-item"><a href="/in"style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
-												  <li class="breadcrumb-item"style="color:chocolate; font-weight:bold;font-size:27px;">Owner Information</li>
-												  <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "aria-current="page">Owner List</li>
-										
-												</ol>
-												<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
-												 href="/addOwner" data-toggle="tooltip" data-placement="left" title="Add owner">
-														<i class="fa fa-plus"></i></a>	
-														<a class="btn btn-primary"  style="float: right;    font-size: 2rem;"
-												 href="/in" data-toggle="tooltip" data-placement="left" title="Home">
-														<i class="fa fa-dashboard"></i></a>	
-											  </nav>
-									<div class="chit-chat-heading">
-											<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Owner List
-									</div>
-				
-									<div class="table-responsive" style="border: 3px solid whitesmoke; border-radius: 29px">
-										<table class="table table-dark table-hover">
-											<thead>
-				
-												<tr>
-													<th style=" font-size: 20px;">Image</th>
-													<th style=" font-size: 20px;">Owner Name</th>
-													<th style=" font-size: 20px;">Email</th>
-													<th style=" font-size: 20px;">Contact No</th>
-													<th colspan="2" align="center"style=" font-size: 20px;">Action</th>
-												</tr>
-				
-				
-											</thead>
-											
-											<tbody>
-													<tr>
-															<td><img class="img-circle" style="width:50px;height:50px;" 
-																src="/images/mypro.jpg"></td>
-															
-																<td><%=owner[size-1].First_Name %></td>
-																<td><%=owner[size-1].Email_Id %></td>
-																<td><%=owner[size-1].Phone %></td>
-												
-																
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Owner Details:</h2>
-																		</div>
-																		<div class="modal-body model_view" align="center">&nbsp;
-																			<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
-																			<h3 style="text-decoration:underline;font-weight:bold "><%=owner[size-1].First_Name %></h3>
-																		  </div>
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>First Name :</b><%=owner[size-1].First_Name %><br>
-																					<b>Last Name :</b><%=owner[size-1].Last_Name %><br>
-																					<b>Email :</b> <%=owner[size-1].Email_Id %><br>
-																					<b>Mobile :</b> <%=owner[size-1].Phone %><br>
-																					<b>Address :</b> <%=owner[size-1].Address %></div>
-																				<div class="col-xs-6"><b>House Name :</b> <%=owner[size-1].House_Name %><br>
-																					<b>ContactNumber :</b> <%=owner[size-1].Contact_Number %><br>
-																					<b>Type :</b> <%=owner[size-1].Type %><br>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-																	<a href="/EditOwner1"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																	<a href="/OwnerDel/<%=owner[size-1].User_Id %>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')" title="Delete"><i class="fa fa-trash"></i></button></a>
-																</td>
-															</tr>
-				
-															
-				
-															<tr>
-																	<td><img class="img-circle" style="width:50px;height:50px;" 
-																		src="/images/mypro.jpg"></td>
-																	
-																		<td><%=owner[size-2].First_Name %></td>
-																		<td><%=owner[size-2].Email_Id %></td>
-																		<td><%=owner[size-2].Phone %></td>
-														
-																		
-																
-																	<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i class="fa fa-eye"></i></button>
-																		<div id="v2" class="modal">
-					
-																			<!-- Modal content -->
-																			<div class="modalt-content">
-																				<div class="modalt-header">
-																					<span class="closet" data-dismiss="modal">&times;</span>
-					
-																					<h2>Owner Details:</h2>
-																				</div>
-																				<div class="modal-body model_view" align="center">&nbsp;
-																					<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
-																					<h3 style="text-decoration:underline;font-weight:bold "><%=owner[size-2].First_Name %></h3>
-																				  </div>
-																				<div class="modalt-body">
-					
-																					<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																					<div class="row">
-																						<div class="col-xs-6"> <b>First Name :</b><%=owner[size-2].First_Name %><br>
-																							<b>Last Name :</b><%=owner[size-2].Last_Name %><br>
-																							<b>Email :</b> <%=owner[size-2].Email_Id %><br>
-																							<b>Mobile :</b> <%=owner[size-2].Phone %><br>
-																							<b>Address :</b> <%=owner[size-2].Address %></div>
-																						<div class="col-xs-6"><b>House Name :</b> <%=owner[size-2].House_Name %><br>
-																							<b>ContactNumber :</b> <%=owner[size-2].Contact_Number %><br>
-																							<b>Type :</b> <%=owner[size-2].Type %><br>
-																						</div>
-																					</div>
-																				</div>
-																				<div class="modalt-footer">
-																					<h3>Thank you</h3>
-					
-																				</div>
-					
-																			</div>
-					
-					
-																		</div>
-					
-																			<a href="/EditOwner2"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																			<a href="/OwnerDel/<%=owner[size-2].User_Id %>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')" title="Delete"><i class="fa fa-trash"></i></button></a>
-																		</td>
-																	</tr>
+					<!-- Box Bars Menu -->
 
-																	<tr>
-																			<td><img class="img-circle" style="width:50px;height:50px;" 
-																				src="/images/mypro.jpg"></td>
-																			
-																				<td><%=owner[size-3].First_Name %></td>
-																				<td><%=owner[size-3].Email_Id %></td>
-																				<td><%=owner[size-3].Phone %></td>
-																
-																				
-																		
-																			<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i class="fa fa-eye"></i></button>
-																				<div id="v3" class="modal">
-							
-																					<!-- Modal content -->
-																					<div class="modalt-content">
-																						<div class="modalt-header">
-																							<span class="closet" data-dismiss="modal">&times;</span>
-							
-																							<h2>Owner Details:</h2>
-																						</div>
-																						<div class="modal-body model_view" align="center">&nbsp;
-																							<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
-																							<h3 style="text-decoration:underline;font-weight:bold "><%=owner[size-3].First_Name %></h3>
-																						  </div>
-																						<div class="modalt-body">
-							
-																							<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																							<div class="row">
-																								<div class="col-xs-6"> <b>First Name :</b><%=owner[size-3].First_Name %><br>
-																									<b>Last Name :</b><%=owner[size-3].Last_Name %><br>
-																									<b>Email :</b> <%=owner[size-3].Email_Id %><br>
-																									<b>Mobile :</b> <%=owner[size-3].Phone %><br>
-																									<b>Address :</b> <%=owner[size-3].Address %></div>
-																								<div class="col-xs-6"><b>House Name :</b> <%=owner[size-3].House_Name %><br>
-																									<b>ContactNumber :</b> <%=owner[size-3].Contact_Number %><br>
-																									<b>Type :</b> <%=owner[size-3].Type %><br>
-																								</div>
-																							</div>
-																						</div>
-																						<div class="modalt-footer">
-																							<h3>Thank you</h3>
-							
-																						</div>
-							
-																					</div>
-							
-							
-																				</div>
-							
-																					<a href="/EditOwner3"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																					<a href="/OwnerDel/<%=owner[size-3].User_Id %>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')" title="Delete"><i class="fa fa-trash"></i></button></a>
-																				</td>
-																			</tr>
-																			<tr>
-																					<td><img class="img-circle" style="width:50px;height:50px;" 
-																						src="/images/mypro.jpg"></td>
-																					
-																						<td><%=owner[size-4].First_Name %></td>
-																						<td><%=owner[size-4].Email_Id %></td>
-																						<td><%=owner[size-4].Phone %></td>
-																		
-																						
-																				
-																					<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i class="fa fa-eye"></i></button>
-																						<div id="v4" class="modal">
-									
-																							<!-- Modal content -->
-																							<div class="modalt-content">
-																								<div class="modalt-header">
-																									<span class="closet" data-dismiss="modal">&times;</span>
-									
-																									<h2>Owner Details:</h2>
-																								</div>
-																								<div class="modal-body model_view" align="center">&nbsp;
-																									<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg"> </div>
-																									<h3 style="text-decoration:underline;font-weight:bold "><%=owner[size-4].First_Name %></h3>
-																								  </div>
-																								<div class="modalt-body">
-									
-																									<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																									<div class="row">
-																										<div class="col-xs-6"> <b>First Name :</b><%=owner[size-4].First_Name %><br>
-																											<b>Last Name :</b><%=owner[size-4].Last_Name %><br>
-																											<b>Email :</b> <%=owner[size-4].Email_Id %><br>
-																											<b>Mobile :</b> <%=owner[size-4].Phone %><br>
-																											<b>Address :</b> <%=owner[size-4].Address %></div>
-																										<div class="col-xs-6"><b>House Name :</b> <%=owner[size-4].House_Name %><br>
-																											<b>ContactNumber :</b> <%=owner[size-4].Contact_Number %><br>
-																											<b>Type :</b> <%=owner[size-4].Type %><br>
-																										</div>
-																									</div>
-																								</div>
-																								<div class="modalt-footer">
-																									<h3>Thank you</h3>
-									
-																								</div>
-									
-																							</div>
-									
-									
-																						</div>
-									
-																							<a href="/EditOwner4"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																							<a href="/OwnerDel/<%=owner[size-4].User_Id %>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')" title="Delete"><i class="fa fa-trash"></i></button></a>
-																						</td>
-																					</tr>
-				
-															
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-													
-												
-				
-											</tbody>
-										</table>
-									
-									</div>
-									<ul class="pagination">
-											<li class="active" disabled><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-											<li ><a href="/ownerList2"><i class="fa fa-angle-double-right"></i></a></li>
-									
-										
-										  </ul>
+
+
+
+
+
+
+
+					<div class="chit-chat-layer1t">
+						<!-- last Fivve Complain -->
+						<div class="col-md-12 chit-chat-layer1-left">
+							<div class="work-progres">
+								<nav aria-label="breadcrumb br" style=" margin-left:-5px;">
+									<ol class="breadcrumb" style="background-color: #07f389">
+										<li class="breadcrumb-item"><a href="/in" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
+										<li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Owner Information</li>
+										<li class="breadcrumb-item active" style="color:chocolate;font-size:27px; " aria-current="page">Owner List</li>
+
+									</ol>
+									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/addOwner" data-toggle="tooltip"
+									 data-placement="left" title="Add owner">
+										<i class="fa fa-plus"></i></a>
+									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/in" data-toggle="tooltip"
+									 data-placement="left" title="Home">
+										<i class="fa fa-dashboard"></i></a>
+								</nav>
+								<div class="chit-chat-heading">
+									<i class="fa fa-align-justify"></i><span style="display:inline-block;width: 10px;"></span>Owner List
 								</div>
+
+								<div class="table-responsive" style="border: 3px solid whitesmoke; border-radius: 29px">
+									<table class="table table-dark table-hover">
+										<thead>
+
+											<tr>
+												<th style=" font-size: 20px;">Image</th>
+												<th style=" font-size: 20px;">Owner Name</th>
+												<th style=" font-size: 20px;">Email</th>
+												<th style=" font-size: 20px;">Contact No</th>
+												<th colspan="2" align="center" style=" font-size: 20px;">Action</th>
+											</tr>
+
+
+										</thead>
+
+										<tbody>
+											<tr>
+												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+
+												<td>
+													<%=owner[size-1].First_Name %>
+												</td>
+												<td>
+													<%=owner[size-1].Email_Id %>
+												</td>
+												<td>
+													<%=owner[size-1].Phone %>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v1" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Owner Details:</h2>
+															</div>
+															<div class="modal-body model_view" align="center">&nbsp;
+																<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																</div>
+																<h3 style="text-decoration:underline;font-weight:bold ">
+																	<%=owner[size-1].First_Name %>
+																</h3>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>First Name :</b>
+																		<%=owner[size-1].First_Name %><br>
+																		<b>Last Name :</b>
+																		<%=owner[size-1].Last_Name %><br>
+																		<b>Email :</b>
+																		<%=owner[size-1].Email_Id %><br>
+																		<b>Mobile :</b>
+																		<%=owner[size-1].Phone %><br>
+																		<b>Address :</b>
+																		<%=owner[size-1].Address %>
+																	</div>
+																	<div class="col-xs-6"><b>House Name :</b>
+																		<%=owner[size-1].House_Name %><br>
+																		<b>ContactNumber :</b>
+																		<%=owner[size-1].Contact_Number %><br>
+																		<b>Type :</b>
+																		<%=owner[size-1].Type %><br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+													<a href="/EditOwner1"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+													<a href="/OwnerDel/<%=owner[size-1].User_Id %>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')"
+														 title="Delete"><i class="fa fa-trash"></i></button></a>
+												</td>
+											</tr>
+
+
+
+											<tr>
+												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+
+												<td>
+													<%=owner[size-2].First_Name %>
+												</td>
+												<td>
+													<%=owner[size-2].Email_Id %>
+												</td>
+												<td>
+													<%=owner[size-2].Phone %>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Owner Details:</h2>
+															</div>
+															<div class="modal-body model_view" align="center">&nbsp;
+																<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																</div>
+																<h3 style="text-decoration:underline;font-weight:bold ">
+																	<%=owner[size-2].First_Name %>
+																</h3>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>First Name :</b>
+																		<%=owner[size-2].First_Name %><br>
+																		<b>Last Name :</b>
+																		<%=owner[size-2].Last_Name %><br>
+																		<b>Email :</b>
+																		<%=owner[size-2].Email_Id %><br>
+																		<b>Mobile :</b>
+																		<%=owner[size-2].Phone %><br>
+																		<b>Address :</b>
+																		<%=owner[size-2].Address %>
+																	</div>
+																	<div class="col-xs-6"><b>House Name :</b>
+																		<%=owner[size-2].House_Name %><br>
+																		<b>ContactNumber :</b>
+																		<%=owner[size-2].Contact_Number %><br>
+																		<b>Type :</b>
+																		<%=owner[size-2].Type %><br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+													<a href="/EditOwner2"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+													<a href="/OwnerDel/<%=owner[size-2].User_Id %>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')"
+														 title="Delete"><i class="fa fa-trash"></i></button></a>
+												</td>
+											</tr>
+
+											<tr>
+												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+
+												<td>
+													<%=owner[size-3].First_Name %>
+												</td>
+												<td>
+													<%=owner[size-3].Email_Id %>
+												</td>
+												<td>
+													<%=owner[size-3].Phone %>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Owner Details:</h2>
+															</div>
+															<div class="modal-body model_view" align="center">&nbsp;
+																<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																</div>
+																<h3 style="text-decoration:underline;font-weight:bold ">
+																	<%=owner[size-3].First_Name %>
+																</h3>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>First Name :</b>
+																		<%=owner[size-3].First_Name %><br>
+																		<b>Last Name :</b>
+																		<%=owner[size-3].Last_Name %><br>
+																		<b>Email :</b>
+																		<%=owner[size-3].Email_Id %><br>
+																		<b>Mobile :</b>
+																		<%=owner[size-3].Phone %><br>
+																		<b>Address :</b>
+																		<%=owner[size-3].Address %>
+																	</div>
+																	<div class="col-xs-6"><b>House Name :</b>
+																		<%=owner[size-3].House_Name %><br>
+																		<b>ContactNumber :</b>
+																		<%=owner[size-3].Contact_Number %><br>
+																		<b>Type :</b>
+																		<%=owner[size-3].Type %><br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+													<a href="/EditOwner3"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+													<a href="/OwnerDel/<%=owner[size-3].User_Id %>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')"
+														 title="Delete"><i class="fa fa-trash"></i></button></a>
+												</td>
+											</tr>
+											<tr>
+												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+
+												<td>
+													<%=owner[size-4].First_Name %>
+												</td>
+												<td>
+													<%=owner[size-4].Email_Id %>
+												</td>
+												<td>
+													<%=owner[size-4].Phone %>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v4" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Owner Details:</h2>
+															</div>
+															<div class="modal-body model_view" align="center">&nbsp;
+																<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																</div>
+																<h3 style="text-decoration:underline;font-weight:bold ">
+																	<%=owner[size-4].First_Name %>
+																</h3>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>First Name :</b>
+																		<%=owner[size-4].First_Name %><br>
+																		<b>Last Name :</b>
+																		<%=owner[size-4].Last_Name %><br>
+																		<b>Email :</b>
+																		<%=owner[size-4].Email_Id %><br>
+																		<b>Mobile :</b>
+																		<%=owner[size-4].Phone %><br>
+																		<b>Address :</b>
+																		<%=owner[size-4].Address %>
+																	</div>
+																	<div class="col-xs-6"><b>House Name :</b>
+																		<%=owner[size-4].House_Name %><br>
+																		<b>ContactNumber :</b>
+																		<%=owner[size-4].Contact_Number %><br>
+																		<b>Type :</b>
+																		<%=owner[size-4].Type %><br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+													<a href="/EditOwner4"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+													<a href="/OwnerDel/<%=owner[size-4].User_Id %>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete owner?')"
+														 title="Delete"><i class="fa fa-trash"></i></button></a>
+												</td>
+											</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+										</tbody>
+									</table>
+
+								</div>
+								<ul class="pagination">
+									<li class="active" disabled><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+									<li><a href="/ownerList2"><i class="fa fa-angle-double-right"></i></a></li>
+
+
+								</ul>
 							</div>
-							<!-- Last five vistiors -->
-						
-				
-							<div class="clearfix"> </div>
 						</div>
-						<div class="chit-chat-layer1"></div>
-				
-					
-						
-				
-				
-				
-				
-				
+						<!-- Last five vistiors -->
+
+
+						<div class="clearfix"> </div>
 					</div>
-					<br>
-								<br>
-								<br>
-								<br><br><br><br><br><br><br><br>
+					<div class="chit-chat-layer1"></div>
+
+
+
+
+
+
+
+
+				</div>
+				<br>
+				<br>
+				<br>
+				<br><br><br><br><br><br><br><br>
 
 				<div class="copyrights">
 					<p>© 2019 Fantastic 5. All Rights Reserved. </p>
@@ -477,7 +554,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</li>
 
-				
+
 
 
 
@@ -486,7 +563,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 
 							<li id="menu-arquivos"><a href="/complainList">Complain List</a></li>
-					
+
 						</ul>
 					</li>
 
@@ -503,7 +580,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 style="float: right"></span></a>
 						<ul>
 
-						
+
 							<li id="menu-arquivos"><a href="/empNotice">NoticeBoard</a></li>
 							<li id="menu-arquivos"><a href="/ownerNotice">Add Notice</a></li>
 						</ul>
@@ -515,17 +592,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-				
+
 
 
 
 
 					<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
 						<ul>
-								<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
+							<li id="menu-academico-boletim"><a href="/adview">profile</a></li>
 							<li id="menu-academico-boletim"><a href="/buildingSet">Building Detail Setup</a></li>
-		
-							
+
+
 						</ul>
 					</li>
 
@@ -544,14 +621,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
