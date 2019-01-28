@@ -283,24 +283,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										</tbody>
 									</table>
+
+									
 								</div>
 							</div>
+
 						</div>
 
 
-<br><br>
+								
+												
+												
 						<div class="chart-layer-2">
 								<!-- Ownwer notice board -->
 								<div class="col-md-6 chart-layer2-left">
-									<div class="content-main revenue">
-										<h3>Owner's Notice Board</h3>
-										<br><br>
-										<p>Appartment Color Meeting on every .
-										</p>
-		
-									</div>
-								</div>
-		
+										<div class="content-main revenue">
+												<h3>Owner Notice Board</h3>
+												<br><br>
+												<% if (si >0) {%><p> <%=no[si-1].Content%></p> <%} %>
+												<% if (si >=2) {%><p> <%=no[si-1].Content%></p><%} %>
+											</div>
+										</div>
+						
 		
 		
 		
@@ -309,39 +313,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="content-main revenue">
 										<h3>Common Notice Board</h3>
 										<br><br>
-										<p>Children cannot play game inside the Appartment.
-		
-										</p>
+										<% if (siz >0) {%><p> <%=not[siz-1].Content%></p> <%} %>
+										<% if (siz >=2) {%>	<p> <%=not[siz-2].Content%></p><%} %>
 									</div>
 								</div>
-		
-								
-								<div class="clearfix"> </div>
-							</div>
-
-						<div class="clearfix"> </div>
+												
+							</div>						   
+												
+												   
+						</div>
+						<br>
+						<br>
+						<br>
+						<br><br><br><br><br><br><br><br>
+					<div class="copyrights">
+						<p>© 2019 Fantastic 5. All Rights Reserved. </p>
 					</div>
-
-					
-
-					
-
-
-
-
-
-			
-				<br>
-				<br>
-				<br>
-				<br><br><br><br><br><br><br><br>
-
-				<div class="copyrights">
-					<p>© 2019 Fantastic 5. All Rights Reserved. </p>
+					<!--COPY rights end here-->
 				</div>
-				<!--COPY rights end here-->
 			</div>
-		</div>
 
 		<!--slider menu-->
 		<div class="sidebar-menu">

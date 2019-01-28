@@ -107,6 +107,38 @@ module.exports = function (app) {
                   };
                   var size = Object.size(result);
 
+                
+                    con.query("SELECT * FROM noticeboard where Notice_Type='Common'", function (err, result1) {
+    
+                      if (err) throw err;
+                      Object.size = function (obj) {
+                        var siz = 0,
+                          key;
+                        for (key in obj) {
+                          if (obj.hasOwnProperty(key)) siz++;
+                        }
+                        return siz;
+                      };
+                      var siz = Object.size(result1);
+
+
+
+
+                      con.query("SELECT * FROM noticeboard where Notice_Type='ForOwners'", function (err, result2) {
+    
+                        if (err) throw err;
+                        Object.size = function (obj) {
+                          var si = 0,
+                            key;
+                          for (key in obj) {
+                            if (obj.hasOwnProperty(key)) si++;
+                          }
+                          return si;
+                        };
+                        var si = Object.size(result2);
+
+
+
 
                   res.render('../Oviews/indexO.ejs', {
                     floor: row,
@@ -115,14 +147,20 @@ module.exports = function (app) {
                     main: row4,
                     com: row5,
                     co: row6,
+                    not:result1,
                     vis: result,
                     size:size,
+                    no:result2,
+                    siz:siz,
+                    si:si,
                     user: req.user
 
                   });
 
                 })
               })
+            })
+            })
             })
           })
         })
