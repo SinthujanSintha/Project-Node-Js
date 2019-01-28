@@ -1,9 +1,9 @@
 var mysql = require('mysql');
-var express = require('express');
-var app = express();
+
+
 var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
-var createHtml = require('create-html');
+var user=require('./routes.js');
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
 });
@@ -210,8 +210,9 @@ module.exports = function (app) {
   
 
 
-  app.get('/OwnerUtilityList', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
+  app.get('/OwnerUtilityListO', isLoggedIn, function (req, res) {
+    console.log(user.us.User_Id)
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id and u.User_Id=?",[user.us.User_Id], function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -224,10 +225,10 @@ module.exports = function (app) {
       };
       var size = Object.size(result);
 
-      res.render('OwnerUtilityList.ejs', {
-        cost: result,
-        size: size,
-        user: req.user
+      res.render('../Oviews/OwnerUtilityListO.ejs', {
+        cost:result,
+        size:size,
+        user:req.user
       });
 
 
@@ -238,33 +239,7 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/OwnerUtilityList2', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id", function (err, result, fields) {
 
-      if (err) throw err;
-      Object.size = function (obj) {
-        var size = 0,
-          key;
-        for (key in obj) {
-          if (obj.hasOwnProperty(key)) size++;
-        }
-        return size;
-      };
-      var size = Object.size(result);
-
-      res.render('OwnerUtilityList2.ejs', {
-        cost: result,
-        size: size,
-        user: req.user
-      });
-
-
-
-
-      console.log(size);
-
-    });
-  });
 
 
  

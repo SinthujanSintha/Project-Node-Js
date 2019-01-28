@@ -18,12 +18,15 @@ module.exports = function (app, passport) {
 
 //GetFunction
 app.get('/profile', isLoggedIn, function (req, res) {
+
   console.log(ty.type);
   if (ty.type == 'TY001') {
     res.render('index.ejs', {
       user: req.user
+      
     });
   } else if (ty.type == 'TY002') {
+    module.exports.us=req.user;
     res.render('../Oviews/indexO.ejs', {
       user: req.user
     });
