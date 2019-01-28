@@ -12,6 +12,8 @@ var flash = require('connect-flash');
 require('./config/passport')(passport);
 app.use(express.static('./public'));
  app.use(express.static('./views'));
+ app.use(express.static('./Oviews'));
+ 
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
@@ -36,6 +38,7 @@ app.use(flash());
 
 require('./controllers/routes.js')(app, passport);
 require('./controllers/routes2.js')(app);
+require('./controllers/ORoute.js')(app);
 
 
 app.listen(port);

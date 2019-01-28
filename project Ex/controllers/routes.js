@@ -17,6 +17,32 @@ var ty = require('../config/passport.js');
 module.exports = function (app, passport) {
 
 //GetFunction
+app.get('/profile', isLoggedIn, function (req, res) {
+  console.log(ty.type);
+  if (ty.type == 'TY001') {
+    res.render('index.ejs', {
+      user: req.user
+    });
+  } else if (ty.type == 'TY002') {
+    res.render('../Oviews/indexO.ejs', {
+      user: req.user
+    });
+  } else {
+    res.render('contact.ejs', {
+      user: req.user
+    });
+  }
+
+
+} );
+
+
+
+
+
+
+
+
   app.get('/employeeList', isLoggedIn, function (req, res){
 
     con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
@@ -568,24 +594,7 @@ module.exports = function (app, passport) {
     });
   });
 
-  app.get('/profile', isLoggedIn, function (req, res) {
-    console.log(ty.type);
-    if (ty.type == 'TY001') {
-      res.render('index.ejs', {
-        user: req.user
-      });
-    } else if (ty.type == 'TY002') {
-      res.render('feature.ejs', {
-        user: req.user
-      });
-    } else {
-      res.render('contact.ejs', {
-        user: req.user
-      });
-    }
-
-
-  } );
+  
 
   app.get('/logout', function (req, res) {
 

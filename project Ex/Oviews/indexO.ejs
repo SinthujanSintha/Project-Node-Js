@@ -1,0 +1,936 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>HouseOwner Dashboard</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://dhakadailybazar.com/apartment-management-system/dist/js/jquery.mask.min.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+	<script src="js/jquery-2.1.1.min.js"></script>
+
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<link href="css/popup.css" rel="stylesheet">
+
+	<link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
+
+	<script src="js/Chart.min.js"></script>
+
+
+	<script src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+	<script>
+		window.modernizr || document.write('<script src="lib/modernizr/modernizr-custom.js"><\/script>')
+	</script>
+
+	<script src="js/chartinator.js"></script>
+	<script src="js/jqery.js"></script>
+
+	<script src="js/skycons.js"></script>
+
+</head>
+
+<body>
+	<div class="page-container">
+		<div class="left-content">
+			<div class="mother-grid-inner">
+				<!--header start here-->
+				<div class="header-main">
+					<div class="header-left">
+						<div class="logo-name">
+							<a href="/index">
+								<h1>Apartment Management System</h1>
+
+							</a>
+						</div>
+
+
+						<div class="clearfix"> </div>
+					</div>
+					<div class="header-right">
+
+						<!--notification menu end -->
+
+						<!-- profile Icons Settings -->
+						<div class="profile_details">
+							<ul>
+								<li class="dropdown profile_details_drop">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+										<div class="profile_img">
+											<span class="prfil-img"><img src="images/pro.jpg" width="50px" height="50px" alt=""> </span>
+											<div class="user-name">
+												<p><%=user.First_Name%></p>
+												<span>Ownner</span>
+											</div>
+											<i class="fa fa-angle-down lnr"></i>
+											<i class="fa fa-angle-up lnr"></i>
+											<div class="clearfix"></div>
+										</div>
+									</a>
+									<ul class="dropdown-menu drp-mnu">
+										<li> <a href="/ownerprofileO"><i class="fa fa-cog"></i> Settings</a> </li>
+										<li> <a href="/OwnerProViewO"><i class="fa fa-user"></i> Profile</a> </li>
+										<li> <a href="/"><i class="fa fa-sign-out"></i> Logout</a> </li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+
+				<div class="inner-block">
+
+					<!-- Box Bars Menu -->
+					<div class="market-updates">
+						<div class="row">
+
+
+							<div class="col-md-4 market-update-gd">
+								<a href="/FloorListO">
+									<div class="market-update-block clr-block-1">
+										<div class="col-md-8 market-update-left">
+											<h3>6</h3>
+											<h4>My Unit</h4>
+											<p>More Information </p>
+										</div>
+										<div class="col-md-3 market-update-right">
+											<div class="small-box"> <img height="80" width="80" src="images/room.png"> </div>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</a>
+							</div>
+
+
+							<div class="col-md-4 market-update-gd">
+								<a href="/ownerListO">
+									<div class="market-update-block clr-block-2">
+										<div class="col-md-8 market-update-left">
+											<h3>Rs.25000</h3>
+											<h4>Owner Utility</h4>
+											<p >More Information</p>
+										</div>
+										<div class="col-md-4 market-update-right">
+											<div class="small-box"> <img height="80" width="80" src="images/cash.png"> </div>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</a>
+							</div>
+
+
+							<div class="col-md-4 market-update-gd">
+								<a href="/employeeListO">
+									<div class="market-update-block clr-block-3">
+										<div class="col-md-8 market-update-left">
+											<h3>14</h3>
+											<h4>Total Employee</h4>
+											<p>More Information</p>
+										</div>
+										<div class="col-md-4 market-update-right">
+											<div class="small-box"> <img height="80" width="80" src="images/employee.png"> </div>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</a>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+
+
+
+						<br>
+						<div class="row">
+							<div class="col-md-4 market-update-gd">
+								<a href="/maintainCostListO">
+									<div class="market-update-block clr-block-1">
+										<div class="col-md-8 market-update-left">
+											<h3>Rs:45000</h3>
+											<h4>Total Maintenance</h4>
+											<p>More Information </p>
+										</div>
+										<div class="col-md-4 market-update-right">
+											<div class="small-box"> <img height="80" width="80" src="images/maintenance.png"> </div>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</a>
+							</div>
+
+
+							<div class="col-md-4 market-update-gd">
+								<a href="/complainListO">
+									<div class="market-update-block clr-block-2">
+										<div class="col-md-8 market-update-left">
+											<h3>15</h3>
+											<h4>Total Complain</h4>
+											<p>More Information</p>
+										</div>
+										<div class="col-md-4 market-update-right">
+											<div class="small-box"> <img height="80" width="80" src="images/chat-complain.png"> </div>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</a>
+							</div>
+							<div class="col-md-4 market-update-gd">
+								<a href="/committeListO">
+									<div class="market-update-block clr-block-3">
+										<div class="col-md-8 market-update-left">
+											<h3>14</h3>
+											<h4>Total Committee</h4>
+											<p>More Information</p>
+										</div>
+										<div class="col-md-4 market-update-right">
+											<div class="small-box"> <img height="80" width="80" src="images/comittee.png"> </div>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</a>
+							</div>
+
+							
+
+						</div>
+						
+
+					</div>
+
+
+
+
+					<div class="chit-chat-layer1">
+						<!-- last Fivve Complain -->
+						<div class="col-md-8 chit-chat-layer1-left">
+							<div class="work-progres">
+								<div class="chit-chat-heading">
+									<i class=" fa fa-comments"></i><span style="display:inline-block;width: 10px;"></span>Last Five Complain
+								</div>
+								<div class="table-responsive">
+									<table class="table table-dark table-hover">
+										<thead>
+
+											<tr>
+												<th>Title</th>
+												<th>Issue Date</th>
+												<th>Action</th>
+											</tr>
+
+
+										</thead>
+										<tbody>
+											<tr>
+												<td>Guard Behavior</td>
+												<td>15/05/2018</td>
+
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my1"><i class="fa fa-eye"></i></button>
+													<div id="my1" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 15/05/2018<br>
+																		<b>Title :</b> Guard Behavior<br>
+																		<b>Month :</b> May<br>
+																		<b>Year :</b> 2018<br>
+																	</div>
+																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+
+
+
+
+
+
+
+
+											</tr>
+											<tr>
+												<td>Sound issue</td>
+												<td>1/06/2018</td>
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my2"><i class="fa fa-eye"></i></button>
+													<div id="my2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 1/06/2018<br>
+																		<b>Title :</b> Sound issue<br>
+																		<b>Month :</b> june<br>
+																		<b>Year :</b> 2018<br>
+																	</div>
+																	<div class="col-xs-6"> <b>Description :</b> I am getting too much sound from Floor 6 Unit 6A kindly solve this issue thanks :).<br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+												<td>Water Issue</td>
+												<td>18/07/2018</td>
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my3"><i class="fa fa-eye"></i></button>
+													<div id="my3" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 18/07/2018<br>
+																		<b>Title :</b> Water Issue<br>
+																		<b>Month :</b> July<br>
+																		<b>Year :</b> 2018<br>
+																	</div>
+																	<div class="col-xs-6"> <b>Description :</b> Dear admin we are not getting too much water so we need to fix a meeting and solve this issue as soon as possible thanks :)<br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+												<td>Sound issue</td>
+												<td>9/08/2018</td>
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my4"><i class="fa fa-eye"></i></button>
+													<div id="my4" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 9/08/2018<br>
+																		<b>Title :</b> committee Behavior<br>
+																		<b>Month :</b> August<br>
+																		<b>Year :</b> 2018<br>
+																	</div>
+																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+												<td>Guard Behavior</td>
+												<td>9/09/2018</td>
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my5"><i class="fa fa-eye"></i></button>
+													<div id="my5" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 9/09/2018<br>
+																		<b>Title :</b> House Behavior<br>
+																		<b>Month :</b> September<br>
+																		<b>Year :</b> 2018<br>
+																	</div>
+																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- Last five vistiors -->
+						<div class="col-md-6 chit-chat-layer1-rit">
+							<div class="work-progres">
+								<div class="chit-chat-heading">
+									<i class=" fa fa-car"></i><span style="display:inline-block;width: 10px;"></span>Last Five Visitor
+								</div>
+								<div class="table-responsive">
+									<table class="table table-dark table-hover">
+										<thead>
+
+											<tr>
+												<th>Date</th>
+												<th>Names</th>
+												<th>Action</th>
+											</tr>
+
+
+										</thead>
+										<tbody>
+											<tr>
+												<td>3/06/2018</td>
+												<td>Vaani</td>
+
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
+													<div id="v1" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 3/06/2018<br>
+																		<b>Visitor Name :</b> Vaani<br>
+																		<b>Mobile :</b> +89898989<br>
+																		<b>Address :</b> Test Address
+																		thanks<br></div>
+																	
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+
+
+
+
+
+
+
+
+											</tr>
+											<tr>
+												<td>11/07/2018</td>
+												<td>Abi</td>
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
+																		<b>Visitor Name :</b> Abi<br>
+																		<b>Mobile :</b> 0772816453<br>
+																		<b>Address :</b> Test Address
+																		thanks<br></div>
+																	
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+												<td>13/07/2018</td>
+												<td>Rohit</td>
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 13/07/2018<br>
+																		<b>Visitor Name :</b> Raja<br>
+																		<b>Mobile :</b> +89898989<br>
+																		<b>Address :</b> Test Address
+																		thanks<br></div>
+																	
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+												<td>11/10/2018</td>
+												<td>rahul</td>
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i class="fa fa-eye"></i></button>
+													<div id="v4" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
+																		<b>Visitor Name :</b> Sujan<br>
+																		<b>Mobile :</b> +89898989<br>
+																		<b>Address :</b> Test Address
+																		thanks<br></div>
+																	
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+
+											</tr>
+											<tr>
+												<td>13/05/2018</td>
+												<td>saaraa</td>
+												<td>
+
+
+
+													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i class="fa fa-eye"></i></button>
+													<div id="v5" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
+																		<b>Visitor Name :</b> Janu<br>
+																		<b>Mobile :</b> +89898989<br>
+																		<b>Address :</b> Test Address
+																		thanks<br></div>
+																	<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
+																		<b>Unit No :</b> 4A<br>
+																		<b>In-Time :</b> 6:30 PM<br>
+																		<b>Out-Time :</b> 9:30 PM<br>
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="clearfix"> </div>
+					</div>
+
+					<div class="main-page-charts">
+						<div class="main-page-chart-layer1">
+							<!-- Owner Utility Graph -->
+							<div class="col-md-6 chart-layer1-left">
+								<div class="glocy-chart">
+									<div class="span-2c">
+										<h3 class="tlt">Apartment Maintenance Graph</h3>
+										<img src="images/chart1.png" height="300" width="400" style="width: 491px; height: 300px;"></img>
+
+									</div>
+								</div>
+							</div>
+							<!-- Maintenece Graph -->
+							<div class="col-md-6 chart-layer1-right">
+								<div class="glocy-chart">
+									<div class="span-2c">
+										<h3 class="tlt">Owner utility Graph</h3>
+										<img src="images/chart.png" height="300" width="400" style="width: 491px; height: 300px;"></img>
+
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+
+					<div class="chart-layer-2">
+						<!-- Ownwer notice board -->
+						<div class="col-md-6 chart-layer2-left">
+							<div class="content-main revenue">
+								<h3>Owner's Notice Board</h3>
+								<br><br>
+								<p>Appartment Color Meeting on every .
+								</p>
+
+							</div>
+						</div>
+
+
+
+
+						<!-- Employee Notice Board -->
+						<div class="col-md-6 chart-layer2-left">
+							<div class="content-main revenue">
+								<h3>Common Notice Board</h3>
+								<br><br>
+								<p>Children cannot play game inside the Appartment.
+
+								</p>
+							</div>
+						</div>
+
+						
+						<div class="clearfix"> </div>
+					</div>
+
+
+
+
+
+				</div>
+
+				<div class="copyrights">
+					<p>© 2019 Fantastic 5. All Rights Reserved. </p>
+				</div>
+				<!--COPY rights end here-->
+			</div>
+		</div>
+
+		<!--slider menu-->
+		<div class="sidebar-menu">
+			<div class="logo"> <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#"> <span id="logo"></span>
+					<!--<img id="logo" src="" alt="Logo"/>-->
+				</a> </div>
+			<div class="menu">
+				<ul id="menu">
+					<li id="menu-home"><a href="/index"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+					<li><a href="/FloorListO"><i class="fa fa-book nav_icon"></i><span>Floor Information</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						
+					</li>
+					<li id="menu-comunicacao"><a href="#"><i class="fa fa-users"></i><span>Owner Information</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li id="menu-arquivos"><a href="/ownerListlo">Owner List</a></li>
+						
+						</ul>
+					</li>
+
+					<li id="menu-comunicacao"><a href="#"><i class="fa fa-users"></i><span>Employee Information</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+
+							<li id="menu-arquivos"><a href="/employeeListO">Employee List</a></li>
+							
+
+						</ul>
+					</li>
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-cog"></i><span>Owner Utility</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li id="menu-arquivos"><a href="/OwnerUtilityListO">Owner Utility List</a></li>
+							
+						</ul>
+					</li>
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-scissors"></i><span>Maintenance Cost</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li id="menu-arquivos"><a href="/maintainCostListO">Maintenance Cost List</a></li>
+							
+						</ul>
+					</li>
+
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-user"></i><span>Committee</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+							<li id="menu-arquivos"><a href="/committeListO">Member List</a></li>
+						
+						</ul>
+					</li>
+
+				
+
+
+
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-comments"></i><span>Complain</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+
+							<li id="menu-arquivos"><a href="/complainListO">Complain List</a></li>
+							<li id="menu-arquivos"><a href="/addComplainO">Add Complain</a></li>
+					
+						</ul>
+					</li>
+
+				
+					<li id="menu-comunicacao"><a href="#"><i class=" fa fa-commenting"></i><span>NoticeBoard</span><span class="fa fa-angle-right"
+							 style="float: right"></span></a>
+						<ul>
+
+							<li id="menu-arquivos"><a href="/CommonNoticeO">Common NoticeBoard</a></li>
+							<li id="menu-arquivos"><a href="/ownerNoticeO">Owner NoticeBoard</a></li>
+						</ul>
+					</li>
+
+
+
+
+
+
+
+				
+
+
+
+
+					<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
+						<ul>
+								<li id="menu-academico-boletim"><a href="/ownerProViewO">profile</a></li>
+							
+							
+						</ul>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+
+
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/bootstrap.js"> </script>
+
+
+</body>
+
+</html>
