@@ -16,8 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             window.scrollTo(0, 1);
         }
     </script>
-     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-     <script>tinymce.init({ selector:'textarea' });</script>
+ 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://dhakadailybazar.com/apartment-management-system/dist/js/jquery.mask.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
@@ -79,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <span class="prfil-img"><img src="images/pro.jpg" width="50px" height="50px"
                                                     alt=""> </span>
                                             <div class="user-name">
-                                                <p><=/p>
+                                                <p><%=user.First_Name%>
                                                 <span>Owner</span>
                                             </div>
                                             <i class="fa fa-angle-down lnr"></i>
@@ -116,14 +115,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="work-progres">
                                 <nav aria-label="breadcrumb br" style=" margin-left:-5px;border-radius:3.25rem;">
                                     <ol class="breadcrumb" style="background-color: #07f389;">
-                                        <li class="breadcrumb-item"><a href="/in" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="/index" style="color:chocolate; font-weight:bold; font-size:27px;">Home</a></li>
                                         <li class="breadcrumb-item" style="color:chocolate; font-weight:bold;font-size:27px;">Owner</li>
                                         <li class="breadcrumb-item active" style="color:chocolate;font-size:27px; "
                                             aria-current="page">Add Complain</li>
 
                                     </ol>
 
-                                    <a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/in"
+                                    <a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/index"
                                         data-toggle="tooltip" data-placement="left" title="Home">
                                         <i class="fa fa-dashboard"></i></a>
                                 </nav>
@@ -143,27 +142,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 
-                                                <form class="com-mail" action="">
+                                                <form class="com-mail" action="/addComplainO" method="post">
                                                     <div class="form-group">
 
                                                         <h4 style="color:cornsilk;font-weight: bold">*Compalin Title:</h4>
-                                                        <input type="text" name="OwnerComTitle" class="form-control"
+                                                        <input type="text" name="title" class="form-control"
                                                             required placeholder="Enter Complain Title">
                                                         <h4 style="color:cornsilk;font-weight: bold">*Complain Date:</h4>
-                                                        <input type="date" name="OEmail" class="form-control" required
-                                                            placeholder="Enter the Email">
+                                                        <input type="date" onchange="(this.value)"  name="date" class="form-control" required
+                                                            placeholder="Enter the Date">
                                                         
                                                         <h4 style="color:cornsilk;font-weight: bold">*Description:</h4>
-                                                        <textarea class="form-control"></textarea>
+                                                        <textarea class="form-control" name="des" placeholder="Enter the Description" ></textarea>
                                                         
-                                                        <h4 style="color:cornsilk;font-weight: bold">*Compalined By:</h4>
-                                                        <input type="text" name="Owner Name" class="form-control"
-                                                            required placeholder="Enter the owner Name">
+                                                  
                                                     </div>
 
 
                                                     <input type="submit" value="Save Information">
-                                                    <a href="/in"><input type="button" value="Back"> </a>
+                                                    <a href="/index"><input type="button" value="Back"> </a>
                                                 </form>
                                             </div>
                                         </div>

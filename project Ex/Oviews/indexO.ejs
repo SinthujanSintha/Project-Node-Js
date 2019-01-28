@@ -108,8 +108,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/FloorListO">
 									<div class="market-update-block clr-block-1">
 										<div class="col-md-8 market-update-left">
-											<h3>6</h3>
-											<h4>My Unit</h4>
+											<h3><%=floor[0].total%></h3>
+											<h4>Total Floor</h4>
 											<p>More Information </p>
 										</div>
 										<div class="col-md-3 market-update-right">
@@ -125,8 +125,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/ownerListO">
 									<div class="market-update-block clr-block-2">
 										<div class="col-md-8 market-update-left">
-											<h3>Rs.25000</h3>
-											<h4>Owner Utility</h4>
+											<h3><%=utility[0].total%></h3>
+											<h4>Your Utility</h4>
 											<p >More Information</p>
 										</div>
 										<div class="col-md-4 market-update-right">
@@ -218,276 +218,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-					<div class="chit-chat-layer1">
-						<!-- last Fivve Complain -->
-						<div class="col-md-8 chit-chat-layer1-left">
-							<div class="work-progres">
-								<div class="chit-chat-heading">
-									<i class=" fa fa-comments"></i><span style="display:inline-block;width: 10px;"></span>Last Five Complain
-								</div>
-								<div class="table-responsive">
-									<table class="table table-dark table-hover">
-										<thead>
-
-											<tr>
-												<th>Title</th>
-												<th>Issue Date</th>
-												<th>Action</th>
-											</tr>
-
-
-										</thead>
-										<tbody>
-											<tr>
-												<td>Guard Behavior</td>
-												<td>15/05/2018</td>
-
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my1"><i class="fa fa-eye"></i></button>
-													<div id="my1" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Complain Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 15/05/2018<br>
-																		<b>Title :</b> Guard Behavior<br>
-																		<b>Month :</b> May<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-
-
-
-
-
-
-
-
-											</tr>
-											<tr>
-												<td>Sound issue</td>
-												<td>1/06/2018</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my2"><i class="fa fa-eye"></i></button>
-													<div id="my2" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Complain Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 1/06/2018<br>
-																		<b>Title :</b> Sound issue<br>
-																		<b>Month :</b> june<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> I am getting too much sound from Floor 6 Unit 6A kindly solve this issue thanks :).<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-											</tr>
-											<tr>
-												<td>Water Issue</td>
-												<td>18/07/2018</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my3"><i class="fa fa-eye"></i></button>
-													<div id="my3" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Complain Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 18/07/2018<br>
-																		<b>Title :</b> Water Issue<br>
-																		<b>Month :</b> July<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> Dear admin we are not getting too much water so we need to fix a meeting and solve this issue as soon as possible thanks :)<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-											</tr>
-											<tr>
-												<td>Sound issue</td>
-												<td>9/08/2018</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my4"><i class="fa fa-eye"></i></button>
-													<div id="my4" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Complain Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 9/08/2018<br>
-																		<b>Title :</b> committee Behavior<br>
-																		<b>Month :</b> August<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-											</tr>
-											<tr>
-												<td>Guard Behavior</td>
-												<td>9/09/2018</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my5"><i class="fa fa-eye"></i></button>
-													<div id="my5" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Complain Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 9/09/2018<br>
-																		<b>Title :</b> House Behavior<br>
-																		<b>Month :</b> September<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-											</tr>
-
-										</tbody>
-									</table>
-								</div>
-							</div>
-						</div>
+					
 						<!-- Last five vistiors -->
-						<div class="col-md-6 chit-chat-layer1-rit">
+						<div class="col-md-12 chit-chat-layer1-rit">
 							<div class="work-progres">
 								<div class="chit-chat-heading">
-									<i class=" fa fa-car"></i><span style="display:inline-block;width: 10px;"></span>Last Five Visitor
+									<i class=" fa fa-car"></i><span style="display:inline-block;width: 10px;"></span>Recent Visitors Details
 								</div>
 								<div class="table-responsive">
 									<table class="table table-dark table-hover">
@@ -556,192 +292,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 											</tr>
-											<tr>
-												<td>11/07/2018</td>
-												<td>Abi</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i class="fa fa-eye"></i></button>
-													<div id="v2" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Visitors Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
-																		<b>Visitor Name :</b> Abi<br>
-																		<b>Mobile :</b> 0772816453<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-											</tr>
-											<tr>
-												<td>13/07/2018</td>
-												<td>Rohit</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i class="fa fa-eye"></i></button>
-													<div id="v3" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Visitors Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/07/2018<br>
-																		<b>Visitor Name :</b> Raja<br>
-																		<b>Mobile :</b> +89898989<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-											</tr>
-											<tr>
-												<td>11/10/2018</td>
-												<td>rahul</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i class="fa fa-eye"></i></button>
-													<div id="v4" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Visitors Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
-																		<b>Visitor Name :</b> Sujan<br>
-																		<b>Mobile :</b> +89898989<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-
-											</tr>
-											<tr>
-												<td>13/05/2018</td>
-												<td>saaraa</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i class="fa fa-eye"></i></button>
-													<div id="v5" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Visitors Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
-																		<b>Visitor Name :</b> Janu<br>
-																		<b>Mobile :</b> +89898989<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
-																		<b>Unit No :</b> 4A<br>
-																		<b>In-Time :</b> 6:30 PM<br>
-																		<b>Out-Time :</b> 9:30 PM<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-
-											</tr>
+										
 
 										</tbody>
 									</table>
@@ -749,70 +300,54 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 
+
+<br><br>
+						<div class="chart-layer-2">
+								<!-- Ownwer notice board -->
+								<div class="col-md-6 chart-layer2-left">
+									<div class="content-main revenue">
+										<h3>Owner's Notice Board</h3>
+										<br><br>
+										<p>Appartment Color Meeting on every .
+										</p>
+		
+									</div>
+								</div>
+		
+		
+		
+		
+								<!-- Employee Notice Board -->
+								<div class="col-md-6 chart-layer2-left">
+									<div class="content-main revenue">
+										<h3>Common Notice Board</h3>
+										<br><br>
+										<p>Children cannot play game inside the Appartment.
+		
+										</p>
+									</div>
+								</div>
+		
+								
+								<div class="clearfix"> </div>
+							</div>
+
 						<div class="clearfix"> </div>
 					</div>
 
-					<div class="main-page-charts">
-						<div class="main-page-chart-layer1">
-							<!-- Owner Utility Graph -->
-							<div class="col-md-6 chart-layer1-left">
-								<div class="glocy-chart">
-									<div class="span-2c">
-										<h3 class="tlt">Apartment Maintenance Graph</h3>
-										<img src="images/chart1.png" height="300" width="400" style="width: 491px; height: 300px;"></img>
+					
 
-									</div>
-								</div>
-							</div>
-							<!-- Maintenece Graph -->
-							<div class="col-md-6 chart-layer1-right">
-								<div class="glocy-chart">
-									<div class="span-2c">
-										<h3 class="tlt">Owner utility Graph</h3>
-										<img src="images/chart.png" height="300" width="400" style="width: 491px; height: 300px;"></img>
-
-									</div>
-								</div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-
-					<div class="chart-layer-2">
-						<!-- Ownwer notice board -->
-						<div class="col-md-6 chart-layer2-left">
-							<div class="content-main revenue">
-								<h3>Owner's Notice Board</h3>
-								<br><br>
-								<p>Appartment Color Meeting on every .
-								</p>
-
-							</div>
-						</div>
-
-
-
-
-						<!-- Employee Notice Board -->
-						<div class="col-md-6 chart-layer2-left">
-							<div class="content-main revenue">
-								<h3>Common Notice Board</h3>
-								<br><br>
-								<p>Children cannot play game inside the Appartment.
-
-								</p>
-							</div>
-						</div>
-
-						
-						<div class="clearfix"> </div>
-					</div>
+					
 
 
 
 
 
-				</div>
+			
+				<br>
+				<br>
+				<br>
+				<br><br><br><br><br><br><br><br>
 
 				<div class="copyrights">
 					<p>© 2019 Fantastic 5. All Rights Reserved. </p>

@@ -27,9 +27,7 @@ app.get('/profile', isLoggedIn, function (req, res) {
     });
   } else if (ty.type == 'TY002') {
     module.exports.us=req.user;
-    res.render('../Oviews/indexO.ejs', {
-      user: req.user
-    });
+    res.redirect('/index');
   } else {
     res.render('contact.ejs', {
       user: req.user
