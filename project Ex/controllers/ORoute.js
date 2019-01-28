@@ -3,7 +3,7 @@ var mysql = require('mysql');
 
 var bcrypt = require('bcrypt-nodejs');
 var bodyParser = require('body-parser');
-var user=require('./routes.js');
+var user = require('./routes.js');
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
 });
@@ -23,14 +23,14 @@ module.exports = function (app) {
 
 
   app.post('/addComplainO', urlencodedParser, (function (req, res) {
-  
-  var title=req.body.title;
-  var date=req.body.date;
-  var des=req.body.des;
+
+    var title = req.body.title;
+    var date = req.body.date;
+    var des = req.body.des;
 
 
     var sql = "INSERT INTO complaint (User_Id,Subject,Description,Date) VALUES (?,?,?,?)";
-    con.query(sql, [user.us.User_Id,title,des,date], function (err, result) {
+    con.query(sql, [user.us.User_Id, title, des, date], function (err, result) {
       if (err) throw err;
 
       console.log("Number of records inserted: " + result.affectedRows);
@@ -46,30 +46,30 @@ module.exports = function (app) {
 
 
   app.post('/editComplainO/:id', urlencodedParser, (function (req, res) {
-  var id=req.params.id;
-    var title=req.body.title;
-    var date=req.body.date;
-    var des=req.body.des;
-  
-  
-      var sql = "update complaint set Subject=?,Description=?,Date=? where Complaint_ID=?";
-      con.query(sql, [title,des,date,id], function (err, result) {
-        if (err) throw err;
-  
-        console.log("Number of records inserted: " + result.affectedRows);
-        if (result.affectedRows == 1) {
-          res.redirect('/complainListO');
-  
-  
-        }
-  
-      });
-  
-    }));
-  
+    var id = req.params.id;
+    var title = req.body.title;
+    var date = req.body.date;
+    var des = req.body.des;
 
-  
- 
+
+    var sql = "update complaint set Subject=?,Description=?,Date=? where Complaint_ID=?";
+    con.query(sql, [title, des, date, id], function (err, result) {
+      if (err) throw err;
+
+      console.log("Number of records inserted: " + result.affectedRows);
+      if (result.affectedRows == 1) {
+        res.redirect('/complainListO');
+
+
+      }
+
+    });
+
+  }));
+
+
+
+
   app.get('/addComplainO', isLoggedIn, function (req, res) {
     res.render('../Oviews/addComplainO.ejs', {
       user: req.user
@@ -89,32 +89,58 @@ module.exports = function (app) {
   app.get('/index', isLoggedIn, function (req, res) {
 
     con.query("SELECT COUNT(*) as total FROM floor ", function (err, row) {
-      con.query("SELECT sum(Total_Amount) as total  FROM owner_utility where Owner_Id=? ",[user.us.User_Id], function (err, row2) {
-        con.query("SELECT COUNT(*) as total FROM  user where Type_Id=' ' ", function (err, row) {
+      con.query("SELECT sum(Total_Amount) as total  FROM owner_utility where Owner_Id=? ", [user.us.User_Id], function (err, row2) {
+        con.query("SELECT COUNT(*) as total FROM  user where Type_Id='TY002' ", function (err, row3) {
+          con.query("SELECT sum(Total_Amount) as total FROM  maintenance  ", function (err, row4) {
+            con.query("SELECT count(Complaint_ID) as total FROM  complaint where User_Id=?", [user.us.User_Id], function (err, row5) {
+              con.query("SELECT COUNT(Committee_Id)as total FROM  committee ", function (err, row6) {
+                con.query("SELECT * FROM visitor v,floor f,house h where v.User_Id=h.Owner_Id and h.Floor_Id=f.Floor_Id and v.User_Id=? ",[user.us.User_Id], function (err, result) {
 
-      res.render('../Oviews/indexO.ejs', {
-    floor: row,
-    utility:row2,
-    user: req.user
-        
-      });
+                  if (err) throw err;
+                  Object.size = function (obj) {
+                    var size = 0,
+                      key;
+                    for (key in obj) {
+                      if (obj.hasOwnProperty(key)) size++;
+                    }
+                    return size;
+                  };
+                  var size = Object.size(result);
 
-    })
-  })
+
+                  res.render('../Oviews/indexO.ejs', {
+                    floor: row,
+                    utility: row2,
+                    owner: row3,
+                    main: row4,
+                    com: row5,
+                    co: row6,
+                    vis: result,
+                    size:size,
+                    user: req.user
+
+                  });
+
+                })
+              })
+            })
+          })
+        })
+      })
 
     });
-  
+
   });
- 
 
 
 
-    
-  
+
+
+
 
   app.get('/delComplainO/:id', isLoggedIn, function (req, res) {
 
-    
+
     var sql = "DELETE FROM complaint WHERE Complaint_ID =?";
     con.query(sql, [req.params.id], function (err, result) {
       if (err) throw err;
@@ -187,7 +213,7 @@ module.exports = function (app) {
 
   });
 
-  
+
   app.get('/ownerListlo', isLoggedIn, function (req, res) {
 
     con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
@@ -218,7 +244,7 @@ module.exports = function (app) {
   });
 
 
-  
+
   app.get('/ownerList2o', isLoggedIn, function (req, res) {
 
     con.query("SELECT * FROM user u,house h,user_type t where u.Type_Id='TY002' and u.user_Id=h.Owner_Id and u.Type_Id=t.Type_Id", function (err, result, fields) {
@@ -251,7 +277,7 @@ module.exports = function (app) {
 
   app.get('/editComplain1O', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?",[user.us.User_Id], function (err, result, fields) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -280,7 +306,7 @@ module.exports = function (app) {
 
   app.get('/editComplain2O', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?",[user.us.User_Id], function (err, result, fields) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -306,17 +332,17 @@ module.exports = function (app) {
 
     });
   });
-  
 
- 
- 
-  
-  
+
+
+
+
+
 
 
   app.get('/OwnerUtilityListO', isLoggedIn, function (req, res) {
     console.log(user.us.User_Id)
-    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id and u.User_Id=?",[user.us.User_Id], function (err, result, fields) {
+    con.query("SELECT * FROM user u,owner_utility o,house h where u.Type_Id='TY002' and u.User_Id=o.Owner_Id and u.User_Id=h.Owner_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -330,9 +356,9 @@ module.exports = function (app) {
       var size = Object.size(result);
 
       res.render('../Oviews/OwnerUtilityListO.ejs', {
-        cost:result,
-        size:size,
-        user:req.user
+        cost: result,
+        size: size,
+        user: req.user
       });
 
 
@@ -346,7 +372,7 @@ module.exports = function (app) {
 
 
 
- 
+
   app.get('/employeeListO', isLoggedIn, function (req, res) {
     con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
       con
@@ -411,9 +437,9 @@ module.exports = function (app) {
 
 
 
- 
 
- 
+
+
 
 
 
@@ -446,9 +472,9 @@ module.exports = function (app) {
 
   });
 
-  
-  
- 
+
+
+
 
 
 
@@ -480,9 +506,9 @@ module.exports = function (app) {
 
     });
   });
-  
+
   app.get('/complainListO', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?",[user.us.User_Id], function (err, result, fields) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -508,9 +534,9 @@ module.exports = function (app) {
 
     });
   });
-  
- 
-  
+
+
+
   app.get('/ownerNoticeO', isLoggedIn, function (req, res) {
     con.query("SELECT * FROM noticeboard where 	Notice_Type='ForOwners' ", function (err, result, fields) {
 
@@ -538,7 +564,7 @@ module.exports = function (app) {
 
     });
   });
-  
+
   app.get('/CommonNoticeO', isLoggedIn, function (req, res) {
     con.query("SELECT * FROM noticeboard where 	Notice_Type='Common' ", function (err, result, fields) {
 
@@ -592,7 +618,6 @@ module.exports = function (app) {
   });
 
 
- 
 
 
 
@@ -600,7 +625,8 @@ module.exports = function (app) {
 
 
 
-  
+
+
 
 
 
@@ -611,21 +637,21 @@ module.exports = function (app) {
 
 
 
-  
-
- 
 
 
 
-  
 
 
 
- 
 
- 
- 
- 
+
+
+
+
+
+
+
+
 
 
   app.get('/feature', function (req, res) {
