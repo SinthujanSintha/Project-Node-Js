@@ -151,7 +151,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																																		</script>
 													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 														
-														<form  name="myform"class="com-mail" action="/ChangePassword" method='post' >
+														<form  name="myform"class="com-mail" action="/ChangePassword" method="post" >
+															<h3 id='message'></h3>
 															<div class="form-group">
 																<h4 style="color:cornsilk;font-weight: bold">New PassWord:</h4>
 																<input type="password" name="password" id="password" class="form-control" required placeholder="Enter the New PassWord"
@@ -159,11 +160,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<h4 style="color:cornsilk;font-weight: bold">Confirm New Password:</h4>
 																<input type="password" name="password2" id="password2" class="form-control" required placeholder="Re Enter PassWord"
 																onkeyup='check();'>
+																
+															<input type="submit" value="ChangePassWord"> 
+															<a href="/adpro"><input type="button" value="Back" > </a>
 														</div>
 																
-														
-															<input type="submit" value="Change PassWord"> 
-														<a href="/adpro"><input type="button" value="Back" > </a>	
+															
 														</form>
 													</div>
 												</div>
