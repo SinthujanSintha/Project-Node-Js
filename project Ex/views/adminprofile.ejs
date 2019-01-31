@@ -117,15 +117,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="row">
                                       <div class="col-sm-3"><!--left col-->
                                           
+                                        <script type="text/javascript">
+                                            $(document).ready(function() {
+                                            
+                                                
+                                                var readURL = function(input) {
+                                                    if (input.files && input.files[0]) {
+                                                        var reader = new FileReader();
+                                            
+                                                        reader.onload = function (e) {
+                                                            $('.ex').attr('src', e.target.result);
+                                                        }
+                                                
+                                                        reader.readAsDataURL(input.files[0]);
+                                                    }
+                                                }
+                                                
+                                            
+                                                $(".file-upload").on('change', function(){
+                                                    readURL(this);
+                                                });
+                                            });
+                
+                
+                
+                
+                
+                
+                                            </script>
+                                   <div class="text-center">
+                                       
+                                        <form method="post" action="/Proimage" enctype="multipart/form-data">
+                                        <img src="/public/uploads/myImage.jpg" class="avatar img-circle img-thumbnail" alt="ex" >
+         
+                                        <input type="file" class="text-center center-block file-upload" name="myImage">                               <h6>Upload a different photo...</h6>
+                                   <br></hr><br>
                             
-                                  <div class="text-center">
-                                    <img src="" class="avatar img-circle img-thumbnail" alt="avatar">
-                                    <h6>Upload a different photo...</h6>
-                                    <input type="file" class="text-center center-block file-upload" name="myImage">
-                                  </div></hr><br>
-                            
-                                           
-                                      
+                                      <input class="btn btn-lg btn-success" type="submit" value="UPLOAD">
+                             
+                    
+                                    </div>   
+                                   
+                 
+                                
+                               </form>
+
                                       
                                       
                                    
@@ -137,14 +173,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             
                                           
                                       <div class="tab-content">
-                                        <div class="tab-pane active" id="home">
-                                            <% if(msg.length> 0) { %>
-                                                <div class="alert alert-success alert-dismissible fadeIn"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                <p style="font-family:cursive;color:firebrick;font-size: larger">success!:
-                                                <%= msg %> </p>
-                                                </div>
-                                        </div>
-                                        <% }%>
+                                       
                                               <form class="form" action="/editAdmin" method="post" id="registrationForm">
                                                
                                                 
@@ -220,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                               <div class="col-xs-6">
                                                 <br>
-                                              <a href="/ChangeAdPass"><button class="btn btn-lg btn-warning" ><i class="glyphicon glyphicon-ok-sign"></i> Change Password</button></a>
+                                              <a href="/ChangeAdPass"><button class="btn btn-lg btn-warning" > Change Password</button></a>
                                             </div>
                                         </div>
                                           <hr>

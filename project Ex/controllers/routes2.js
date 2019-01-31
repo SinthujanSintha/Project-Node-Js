@@ -4,14 +4,22 @@ var app = express();
 var bcrypt = require('bcrypt-nodejs');
 var user = require('./routes.js');
 var bodyParser = require('body-parser');
-var createHtml = require('create-html');
-var urlencodedParser = bodyParser.urlencoded({
-  extended: false
-});
-var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
-var msg = "";
 
+var multer  = require('multer');
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + '.jpg')
+    }
+});
+
+var upload = multer({ storage: storage }).single('myImage');
+var urlencodedParser = bodyParser.urlencoded({ extended: false});
+
+var msg = "";
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -24,7 +32,24 @@ var con = mysql.createConnection({
 
 module.exports = function (app) {
 
+  app.post('/Proimage',isLoggedIn, function (req, res) {
+    upload(req, res, function (err) {
+        if (err) {
+           console.log(err)
+        }
+       res.render('adminprofile.ejs',{
+        
+         user:req.user,
+         img: req.file.path 
+        
+       })
 
+        // Everything went fine
+    })
+});
+  
+  
+  
   app.post('/addFloor', urlencodedParser, (function (req, res) {
     var FloorName = req.body.Floorname;
     var houses = req.body.houses;

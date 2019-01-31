@@ -42,6 +42,7 @@ app.get('/profile', isLoggedIn, function (req, res) {
 
 
 
+
   app.get('/employeeList', isLoggedIn, function (req, res){
 
     con.query("SELECT * FROM user u,employee_job e ,salary s,employee_type t where u.Type_Id='TY003' and u.User_Id=e.Emp_Id and e.Emp_Id=s.Emp_Id and e.Emtype_Id=t.Emtype_Id", function (err, result, fields) {
