@@ -22,11 +22,7 @@ app.get('/profile', isLoggedIn, function (req, res) {
   console.log(ty.type);
   if (ty.type == 'TY001') {
     module.exports.use=req.user;
-    res.render('index.ejs', {
-      
-      user: req.user
-      
-    });
+    res.redirect('/in');
   } else if (ty.type == 'TY002') {
     module.exports.us=req.user;
     res.redirect('/index');

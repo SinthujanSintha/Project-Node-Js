@@ -76,7 +76,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="profile_img">
 											<span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px" alt=""> </span>
 											<div class="user-name">
-												<p><%=user.First_Name%></p>
+												<p>
+													<%=user.First_Name%>
+												</p>
 												<span>Administrator</span>
 											</div>
 											<i class="fa fa-angle-down lnr"></i>
@@ -108,7 +110,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/FloorList">
 									<div class="market-update-block clr-block-1">
 										<div class="col-md-8 market-update-left">
-											<h3>6</h3>
+											<h3>
+												<%=floor[0].total%>
+											</h3>
 											<h4>Total Floor</h4>
 											<p>More Information </p>
 										</div>
@@ -125,7 +129,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/ownerList">
 									<div class="market-update-block clr-block-2">
 										<div class="col-md-8 market-update-left">
-											<h3>16</h3>
+											<h3>
+												<%=owner[0].total%>
+											</h3>
 											<h4>Total Owner</h4>
 											<p>More Information</p>
 										</div>
@@ -142,7 +148,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/employeeList">
 									<div class="market-update-block clr-block-3">
 										<div class="col-md-8 market-update-left">
-											<h3>14</h3>
+											<h3>
+												<%=emp[0].total%>
+											</h3>
 											<h4>Total Employee</h4>
 											<p>More Information</p>
 										</div>
@@ -164,7 +172,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/maintainCostList">
 									<div class="market-update-block clr-block-1">
 										<div class="col-md-8 market-update-left">
-											<h3>Rs:45000</h3>
+											<h3>Rs.<%=main[0].total%>
+											</h3>
 											<h4>Total Maintenance</h4>
 											<p>More Information </p>
 										</div>
@@ -181,7 +190,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/complainList">
 									<div class="market-update-block clr-block-2">
 										<div class="col-md-8 market-update-left">
-											<h3>15</h3>
+											<h3>
+												<%=com[0].total%>
+											</h3>
 											<h4>Total Complain</h4>
 											<p>More Information</p>
 										</div>
@@ -198,7 +209,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/salaryList">
 									<div class="market-update-block clr-block-3">
 										<div class="col-md-8 market-update-left">
-											<h3>14</h3>
+											<h3>Rs.<%=sal[0].total%>
+											</h3>
 											<h4>Employee Salary</h4>
 											<p>More Information</p>
 										</div>
@@ -213,14 +225,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<br>
 						<div class="row">
-						
+
 
 
 							<div class="col-md-4 market-update-gd">
 								<a href="/OwnerUtilityList">
 									<div class="market-update-block clr-block-2">
 										<div class="col-md-8 market-update-left">
-											<h3>Rs:23000</h3>
+											<h3>Rs.<%=utility[0].total%>
+											</h3>
 											<h4>Owner Utility</h4>
 											<p>More Information</p>
 										</div>
@@ -237,7 +250,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="/committeList">
 									<div class="market-update-block clr-block-3">
 										<div class="col-md-8 market-update-left">
-											<h3>14</h3>
+											<h3>
+												<%=co[0].total%>
+											</h3>
 											<h4>Total Committee</h4>
 											<p>More Information</p>
 										</div>
@@ -268,24 +283,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<thead>
 
 											<tr>
-												<th>Title</th>
-												<th>Issue Date</th>
+												<th>Date</th>
+												<th>Title </th>
 												<th>Action</th>
 											</tr>
 
 
 										</thead>
 										<tbody>
+
+												<% if(cou >0) { %>
+													<% switch (cou) { 
+															case(cou-(cou-1)): %>
+
 											<tr>
-												<td>Guard Behavior</td>
-												<td>15/05/2018</td>
+												<td>
+													<%=cop[cou-1].Date%>
+												</td>
 
 												<td>
+													<%=cop[cou-1].Subject%>
+												</td>
 
 
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my1"><i class="fa fa-eye"></i></button>
-													<div id="my1" class="modal">
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v1" class="modal">
 
 														<!-- Modal content -->
 														<div class="modalt-content">
@@ -298,12 +321,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 15/05/2018<br>
-																		<b>Title :</b> Guard Behavior<br>
-																		<b>Month :</b> May<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-1].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-1].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-1].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-1].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-1].Response%><br>
+
 																	</div>
 																</div>
 															</div>
@@ -319,27 +351,79 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 												</td>
-
-
-
-
-
-
-
-
-
-
-
 											</tr>
+											<%  break; 
+											case(cou-(cou-2)): %>
 											<tr>
-												<td>Guard Behavior</td>
-												<td>15/05/2018</td>
+													<td>
+														<%=cop[cou-1].Date%>
+													</td>
+	
+													<td>
+														<%=cop[cou-1].Subject%>
+													</td>
+	
+	
+													<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+															 class="fa fa-eye"></i></button>
+														<div id="v1" class="modal">
+	
+															<!-- Modal content -->
+															<div class="modalt-content">
+																<div class="modalt-header">
+																	<span class="closet" data-dismiss="modal">&times;</span>
+	
+																	<h2>Complain Details:</h2>
+																</div>
+																<div class="modalt-body">
+	
+																	<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																	<div class="row">
+																		<div class="col-xs-6">
+																			<b>Complained By :</b>
+																			<%=cop[cou-1].First_Name%><br>
+																			<b>Title :</b>
+																			<%=cop[cou-1].Subject%><br>
+																			<b>Date :</b>
+																			<%=cop[cou-1].Date%><br>
+	
+																			<br></div>
+																		<div class="col-xs-6">
+																			<b>Description :</b>
+																			<%=cop[cou-1].Description%><br>
+																			<b>Response :</b>
+																			<%=cop[cou-1].Response%><br>
+	
+																		</div>
+																	</div>
+																</div>
+																<div class="modalt-footer">
+																	<h3>Thank you</h3>
+	
+																</div>
+	
+															</div>
+	
+	
+														</div>
+	
+	
+													</td>
+												</tr>
+
+											<tr>
 												<td>
+													<%=cop[cou-2].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-2].Subject%>
+												</td>
 
 
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my2"><i class="fa fa-eye"></i></button>
-													<div id="my2" class="modal">
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
 
 														<!-- Modal content -->
 														<div class="modalt-content">
@@ -352,12 +436,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 15/05/2018<br>
-																		<b>Title :</b> Security Behavior<br>
-																		<b>Month :</b> May<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-2].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-2].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-2].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-2].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-2].Response%><br>
+
 																	</div>
 																</div>
 															</div>
@@ -373,19 +466,80 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 												</td>
-
-
-
 											</tr>
+
+											<%  break; 
+											case(cou-(cou-3)): %>
 											<tr>
-												<td>Guard Behavior</td>
-												<td>15/05/2018</td>
+													<td>
+														<%=cop[cou-1].Date%>
+													</td>
+	
+													<td>
+														<%=cop[cou-1].Subject%>
+													</td>
+	
+	
+													<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+															 class="fa fa-eye"></i></button>
+														<div id="v1" class="modal">
+	
+															<!-- Modal content -->
+															<div class="modalt-content">
+																<div class="modalt-header">
+																	<span class="closet" data-dismiss="modal">&times;</span>
+	
+																	<h2>Complain Details:</h2>
+																</div>
+																<div class="modalt-body">
+	
+																	<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																	<div class="row">
+																		<div class="col-xs-6">
+																			<b>Complained By :</b>
+																			<%=cop[cou-1].First_Name%><br>
+																			<b>Title :</b>
+																			<%=cop[cou-1].Subject%><br>
+																			<b>Date :</b>
+																			<%=cop[cou-1].Date%><br>
+	
+																			<br></div>
+																		<div class="col-xs-6">
+																			<b>Description :</b>
+																			<%=cop[cou-1].Description%><br>
+																			<b>Response :</b>
+																			<%=cop[cou-1].Response%><br>
+	
+																		</div>
+																	</div>
+																</div>
+																<div class="modalt-footer">
+																	<h3>Thank you</h3>
+	
+																</div>
+	
+															</div>
+	
+	
+														</div>
+	
+	
+													</td>
+												</tr>
+
+											<tr>
 												<td>
+													<%=cop[cou-2].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-2].Subject%>
+												</td>
 
 
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my3"><i class="fa fa-eye"></i></button>
-													<div id="my3" class="modal">
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
 
 														<!-- Modal content -->
 														<div class="modalt-content">
@@ -398,12 +552,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 15/05/2018<br>
-																		<b>Title :</b> Owner Behavior<br>
-																		<b>Month :</b> May<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-2].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-2].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-2].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-2].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-2].Response%><br>
+
 																	</div>
 																</div>
 															</div>
@@ -419,19 +582,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 												</td>
-
-
-
 											</tr>
 											<tr>
-												<td>Guard Behavior</td>
-												<td>15/05/2018</td>
 												<td>
+													<%=cop[cou-3].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-3].Subject%>
+												</td>
 
 
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my4"><i class="fa fa-eye"></i></button>
-													<div id="my4" class="modal">
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
 
 														<!-- Modal content -->
 														<div class="modalt-content">
@@ -444,12 +608,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 15/05/2018<br>
-																		<b>Title :</b> committee Behavior<br>
-																		<b>Month :</b> May<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-3].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-3].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-3].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-3].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-3].Response%><br>
+
 																	</div>
 																</div>
 															</div>
@@ -465,19 +638,80 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 												</td>
-
-
-
 											</tr>
+
+											<%  break; 
+											case(cou-(cou-4)): %>
 											<tr>
-												<td>Guard Behavior</td>
-												<td>15/05/2018</td>
+													<td>
+														<%=cop[cou-1].Date%>
+													</td>
+	
+													<td>
+														<%=cop[cou-1].Subject%>
+													</td>
+	
+	
+													<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+															 class="fa fa-eye"></i></button>
+														<div id="v1" class="modal">
+	
+															<!-- Modal content -->
+															<div class="modalt-content">
+																<div class="modalt-header">
+																	<span class="closet" data-dismiss="modal">&times;</span>
+	
+																	<h2>Complain Details:</h2>
+																</div>
+																<div class="modalt-body">
+	
+																	<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																	<div class="row">
+																		<div class="col-xs-6">
+																			<b>Complained By :</b>
+																			<%=cop[cou-1].First_Name%><br>
+																			<b>Title :</b>
+																			<%=cop[cou-1].Subject%><br>
+																			<b>Date :</b>
+																			<%=cop[cou-1].Date%><br>
+	
+																			<br></div>
+																		<div class="col-xs-6">
+																			<b>Description :</b>
+																			<%=cop[cou-1].Description%><br>
+																			<b>Response :</b>
+																			<%=cop[cou-1].Response%><br>
+	
+																		</div>
+																	</div>
+																</div>
+																<div class="modalt-footer">
+																	<h3>Thank you</h3>
+	
+																</div>
+	
+															</div>
+	
+	
+														</div>
+	
+	
+													</td>
+												</tr>
+
+											<tr>
 												<td>
+													<%=cop[cou-2].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-2].Subject%>
+												</td>
 
 
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#my5"><i class="fa fa-eye"></i></button>
-													<div id="my5" class="modal">
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
 
 														<!-- Modal content -->
 														<div class="modalt-content">
@@ -490,12 +724,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 15/05/2018<br>
-																		<b>Title :</b> House Behavior<br>
-																		<b>Month :</b> May<br>
-																		<b>Year :</b> 2018<br>
-																	</div>
-																	<div class="col-xs-6"> <b>Description :</b> We need to change Guard as soon as possible.<br>
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-2].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-2].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-2].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-2].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-2].Response%><br>
+
 																	</div>
 																</div>
 															</div>
@@ -511,11 +754,409 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 												</td>
+											</tr>
+											<tr>
+												<td>
+													<%=cop[cou-3].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-3].Subject%>
+												</td>
 
 
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
 
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-3].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-3].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-3].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-3].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-3].Response%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%=cop[cou-4].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-4].Subject%>
+												</td>
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v4" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-4].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-4].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-4].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-4].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-4].Response%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
 											</tr>
 
+
+											<%  break; 
+											case(cou-(cou-5)):case(cou-(cou-6)):case(cou-(cou-7)):case(cou-(cou-8)):case(cou-(cou-9)):case(cou-(cou-10)):%>
+
+											<tr>
+													<td>
+														<%=cop[cou-1].Date%>
+													</td>
+	
+													<td>
+														<%=cop[cou-1].Subject%>
+													</td>
+	
+	
+													<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+															 class="fa fa-eye"></i></button>
+														<div id="v1" class="modal">
+	
+															<!-- Modal content -->
+															<div class="modalt-content">
+																<div class="modalt-header">
+																	<span class="closet" data-dismiss="modal">&times;</span>
+	
+																	<h2>Complain Details:</h2>
+																</div>
+																<div class="modalt-body">
+	
+																	<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																	<div class="row">
+																		<div class="col-xs-6">
+																			<b>Complained By :</b>
+																			<%=cop[cou-1].First_Name%><br>
+																			<b>Title :</b>
+																			<%=cop[cou-1].Subject%><br>
+																			<b>Date :</b>
+																			<%=cop[cou-1].Date%><br>
+	
+																			<br></div>
+																		<div class="col-xs-6">
+																			<b>Description :</b>
+																			<%=cop[cou-1].Description%><br>
+																			<b>Response :</b>
+																			<%=cop[cou-1].Response%><br>
+	
+																		</div>
+																	</div>
+																</div>
+																<div class="modalt-footer">
+																	<h3>Thank you</h3>
+	
+																</div>
+	
+															</div>
+	
+	
+														</div>
+	
+	
+													</td>
+												</tr>
+
+											<tr>
+												<td>
+													<%=cop[cou-2].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-2].Subject%>
+												</td>
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-2].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-2].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-2].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-2].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-2].Response%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%=cop[cou-3].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-3].Subject%>
+												</td>
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-3].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-3].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-3].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-3].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-3].Response%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%=cop[cou-4].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-4].Subject%>
+												</td>
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v4" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-4].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-4].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-4].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-4].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-4].Response%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%=cop[cou-5].Date%>
+												</td>
+
+												<td>
+													<%=cop[cou-5].Subject%>
+												</td>
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v5" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Complain Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>Complained By :</b>
+																		<%=cop[cou-5].First_Name%><br>
+																		<b>Title :</b>
+																		<%=cop[cou-5].Subject%><br>
+																		<b>Date :</b>
+																		<%=cop[cou-5].Date%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+																		<b>Description :</b>
+																		<%=cop[cou-5].Description%><br>
+																		<b>Response :</b>
+																		<%=cop[cou-5].Response%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+											</tr>
+
+											<% } %>
+
+											<%} %>
 										</tbody>
 									</table>
 								</div>
@@ -540,15 +1181,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 										</thead>
 										<tbody>
+
+											<% if(size>0) { %>
+											<% switch (size) { 
+													case(size-(size-1)): %>
 											<tr>
-												<td>13/05/2018</td>
-												<td>Van Dum</td>
 
 												<td>
+													<%=vis[size-1].InDate%>
+												</td>
+												<td>
+													<%=vis[size-1].Full_Name%>
+												</td>
 
 
 
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+														 class="fa fa-eye"></i></button>
 													<div id="v1" class="modal">
 
 														<!-- Modal content -->
@@ -556,78 +1205,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="modalt-header">
 																<span class="closet" data-dismiss="modal">&times;</span>
 
-																<h2>Visitors Details:</h2>
+																<h2>visitors Details:</h2>
 															</div>
 															<div class="modalt-body">
 
 																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
-																		<b>Visitor Name :</b> Van Dum<br>
-																		<b>Mobile :</b> +89898989<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
-																		<b>Unit No :</b> 4A<br>
-																		<b>In-Time :</b> 6:30 PM<br>
-																		<b>Out-Time :</b> 9:30 PM<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-1].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-1].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-1].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-1].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-1].Address%><br>
 
-															</div>
-
-														</div>
+																		<br></div>
+																	<div class="col-xs-6">
 
 
-													</div>
+																		<b>OutTime:</b>
+																		<%=vis[size-1].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-1].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-1].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-1].Name %><br>
 
 
-												</td>
-
-
-
-
-
-
-
-
-
-
-
-											</tr>
-											<tr>
-												<td>13/05/2018</td>
-												<td>Van Dum</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i class="fa fa-eye"></i></button>
-													<div id="v2" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Visitors Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
-																		<b>Visitor Name :</b> Sara<br>
-																		<b>Mobile :</b> +89898989<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
-																		<b>Unit No :</b> 4A<br>
-																		<b>In-Time :</b> 6:30 PM<br>
-																		<b>Out-Time :</b> 9:30 PM<br>
 																	</div>
 																</div>
 															</div>
@@ -647,113 +1256,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 											</tr>
+
+											<%  break; 
+												case(size-(size-2)): %>
 											<tr>
-												<td>13/05/2018</td>
-												<td>Van Dum</td>
+
 												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i class="fa fa-eye"></i></button>
-													<div id="v3" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Visitors Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
-																		<b>Visitor Name :</b> Sanki Monki<br>
-																		<b>Mobile :</b> +89898989<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
-																		<b>Unit No :</b> 4A<br>
-																		<b>In-Time :</b> 6:30 PM<br>
-																		<b>Out-Time :</b> 9:30 PM<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
+													<%=vis[size-1].InDate%>
+												</td>
+												<td>
+													<%=vis[size-1].Full_Name%>
 												</td>
 
 
 
-											</tr>
-											<tr>
-												<td>13/05/2018</td>
-												<td>Van Dum</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i class="fa fa-eye"></i></button>
-													<div id="v4" class="modal">
-
-														<!-- Modal content -->
-														<div class="modalt-content">
-															<div class="modalt-header">
-																<span class="closet" data-dismiss="modal">&times;</span>
-
-																<h2>Visitors Details:</h2>
-															</div>
-															<div class="modalt-body">
-
-																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
-																		<b>Visitor Name :</b> Sujan<br>
-																		<b>Mobile :</b> +89898989<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
-																		<b>Unit No :</b> 4A<br>
-																		<b>In-Time :</b> 6:30 PM<br>
-																		<b>Out-Time :</b> 9:30 PM<br>
-																	</div>
-																</div>
-															</div>
-															<div class="modalt-footer">
-																<h3>Thank you</h3>
-
-															</div>
-
-														</div>
-
-
-													</div>
-
-
-												</td>
-
-
-
-
-											</tr>
-											<tr>
-												<td>13/05/2018</td>
-												<td>Van Dum</td>
-												<td>
-
-
-
-													<button class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i class="fa fa-eye"></i></button>
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i
+														 class="fa fa-eye"></i></button>
 													<div id="v5" class="modal">
 
 														<!-- Modal content -->
@@ -761,21 +1279,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="modalt-header">
 																<span class="closet" data-dismiss="modal">&times;</span>
 
-																<h2>Visitors Details:</h2>
+																<h2>visitors Details:</h2>
 															</div>
 															<div class="modalt-body">
 
 																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
 																<div class="row">
-																	<div class="col-xs-6"> <b>Issue Date :</b> 13/05/2018<br>
-																		<b>Visitor Name :</b> Janu<br>
-																		<b>Mobile :</b> +89898989<br>
-																		<b>Address :</b> Test Address
-																		thanks<br></div>
-																	<div class="col-xs-6"><b>Floor No :</b> Fourth Floor<br>
-																		<b>Unit No :</b> 4A<br>
-																		<b>In-Time :</b> 6:30 PM<br>
-																		<b>Out-Time :</b> 9:30 PM<br>
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-1].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-1].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-1].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-1].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-1].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-1].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-1].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-1].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-1].Name %><br>
+
+
 																	</div>
 																</div>
 															</div>
@@ -794,9 +1329,950 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
+											</tr>
+											<tr>
+
+												<td>
+													<%=vis[size-2].InDate%>
+												</td>
+												<td>
+													<%=vis[size-2].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-2].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-2].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-2].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-2].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-2].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-2].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-2].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-2].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-2].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
 
 											</tr>
 
+											<%  break;
+																case (size-(size-3)): %>
+
+											<tr>
+
+												<td>
+													<%=vis[size-1].InDate%>
+												</td>
+												<td>
+													<%=vis[size-1].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v5" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-1].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-1].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-1].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-1].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-1].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-1].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-1].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-1].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-1].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+
+												<td>
+													<%=vis[size-2].InDate%>
+												</td>
+												<td>
+													<%=vis[size-2].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-2].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-2].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-2].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-2].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-2].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-2].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-2].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-2].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-2].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+
+											<tr>
+
+												<td>
+													<%=vis[size-3].InDate%>
+												</td>
+												<td>
+													<%=vis[size-3].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-3].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-3].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-3].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-3].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-3].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-3].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-3].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-3].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-3].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+
+											<% break;
+						case (size-(size-4)): %>
+
+											<tr>
+
+												<td>
+													<%=vis[size-1].InDate%>
+												</td>
+												<td>
+													<%=vis[size-1].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v5" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-1].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-1].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-1].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-1].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-1].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-1].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-1].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-1].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-1].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+
+												<td>
+													<%=vis[size-2].InDate%>
+												</td>
+												<td>
+													<%=vis[size-2].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-2].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-2].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-2].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-2].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-2].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-2].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-2].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-2].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-2].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+
+											<tr>
+
+												<td>
+													<%=vis[size-3].InDate%>
+												</td>
+												<td>
+													<%=vis[size-3].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-3].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-3].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-3].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-3].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-3].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-3].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-3].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-3].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-3].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+
+												<td>
+													<%=vis[size-4].InDate%>
+												</td>
+												<td>
+													<%=vis[size-4].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v4" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-4].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-4].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-4].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-4].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-4].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-4].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-4].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-4].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-4].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+
+											<% break;
+														case (size): %>
+
+											<tr>
+
+												<td>
+													<%=vis[size-1].InDate%>
+												</td>
+												<td>
+													<%=vis[size-1].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v5" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-1].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-1].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-1].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-1].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-1].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-1].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-1].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-1].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-1].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+
+												<td>
+													<%=vis[size-2].InDate%>
+												</td>
+												<td>
+													<%=vis[size-2].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-2].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-2].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-2].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-2].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-2].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-2].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-2].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-2].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-2].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+
+											<tr>
+
+												<td>
+													<%=vis[size-3].InDate%>
+												</td>
+												<td>
+													<%=vis[size-3].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-3].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-3].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-3].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-3].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-3].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-3].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-3].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-3].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-3].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+											<tr>
+
+												<td>
+													<%=vis[size-4].InDate%>
+												</td>
+												<td>
+													<%=vis[size-4].Full_Name%>
+												</td>
+
+
+
+												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v4" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>visitors Details:</h2>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6">
+																		<b>InDate:</b>
+																		<%=vis[size-4].InDate%><br>
+																		<b>OutDate:</b>
+																		<%=vis[size-4].OutDate%><br>
+																		<b>visitor's name :</b>
+																		<%=vis[size-4].Full_Name%><br>
+																		<b>MobileNo:</b>
+																		<%=vis[size-4].Mobile_No%><br>
+																		<b>Address:</b>
+																		<%=vis[size-4].Address%><br>
+
+																		<br></div>
+																	<div class="col-xs-6">
+
+
+																		<b>OutTime:</b>
+																		<%=vis[size-4].OutTime%><br>
+																		<b>InTime:</b>
+																		<%=vis[size-4].InTime%><br>
+																		<b>HouseName:</b>
+																		<%=vis[size-4].House_Name %><br>
+																		<b>FloorName:</b>
+																		<%=vis[size-4].Name %><br>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+
+												</td>
+
+
+
+											</tr>
+
+											<tr>
+
+													<td>
+														<%=vis[size-4].InDate%>
+													</td>
+													<td>
+														<%=vis[size-4].Full_Name%>
+													</td>
+	
+	
+	
+													<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+															 class="fa fa-eye"></i></button>
+														<div id="v4" class="modal">
+	
+															<!-- Modal content -->
+															<div class="modalt-content">
+																<div class="modalt-header">
+																	<span class="closet" data-dismiss="modal">&times;</span>
+	
+																	<h2>visitors Details:</h2>
+																</div>
+																<div class="modalt-body">
+	
+																	<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																	<div class="row">
+																		<div class="col-xs-6">
+																			<b>InDate:</b>
+																			<%=vis[size-4].InDate%><br>
+																			<b>OutDate:</b>
+																			<%=vis[size-4].OutDate%><br>
+																			<b>visitor's name :</b>
+																			<%=vis[size-4].Full_Name%><br>
+																			<b>MobileNo:</b>
+																			<%=vis[size-4].Mobile_No%><br>
+																			<b>Address:</b>
+																			<%=vis[size-4].Address%><br>
+	
+																			<br></div>
+																		<div class="col-xs-6">
+	
+	
+																			<b>OutTime:</b>
+																			<%=vis[size-4].OutTime%><br>
+																			<b>InTime:</b>
+																			<%=vis[size-4].InTime%><br>
+																			<b>HouseName:</b>
+																			<%=vis[size-4].House_Name %><br>
+																			<b>FloorName:</b>
+																			<%=vis[size-4].Name %><br>
+	
+	
+																		</div>
+																	</div>
+																</div>
+																<div class="modalt-footer">
+																	<h3>Thank you</h3>
+	
+																</div>
+	
+															</div>
+	
+	
+														</div>
+	
+	
+													</td>
+	
+	
+	
+												</tr>
+
+												<%}%>
+
+												<%}%>
 										</tbody>
 									</table>
 								</div>
@@ -806,40 +2282,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"> </div>
 					</div>
 
-					<div class="main-page-charts">
-						<div class="main-page-chart-layer1">
-							<!-- Owner Utility Graph -->
-							<div class="col-md-6 chart-layer1-left">
-								<div class="glocy-chart">
-									<div class="span-2c">
-										<h3 class="tlt">Apartment Maintenance Graph</h3>
-										<img src="images/chart1.png" height="300" width="400" style="width: 491px; height: 300px;"></img>
-
-									</div>
-								</div>
-							</div>
-							<!-- Maintenece Graph -->
-							<div class="col-md-6 chart-layer1-right">
-								<div class="glocy-chart">
-									<div class="span-2c">
-										<h3 class="tlt">Owner utility Graph</h3>
-										<img src="images/chart.png" height="300" width="400" style="width: 491px; height: 300px;"></img>
-
-									</div>
-								</div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
 
 					<div class="chart-layer-2">
 						<!-- Ownwer notice board -->
-						<div class="col-md-6 chart-layer2-left">
-							<div class="content-main revenue">
-								<h3>Owner Notice Board</h3>
-
-
-							</div>
+					
 						</div>
 
 
@@ -847,20 +2293,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						<!-- Employee Notice Board -->
 						<div class="col-md-6 chart-layer2-left">
-							<div class="content-main revenue">
-								<h3>Employee Notice Board</h3>
-
-
-							</div>
+					
 						</div>
 
-						<div class="col-md-12 chart-layer2-left" style="padding-top:15px">
-							<div class="content-main revenue">
-								<h3 style="text-align: center">Notice Board</h3>
-								<h4>hiklvmsmvslvs</h4>
-
-							</div>
-						</div>
+					
 						<div class="clearfix"> </div>
 					</div>
 
@@ -937,7 +2373,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</li>
 
-				
+
 
 
 
@@ -946,7 +2382,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 
 							<li id="menu-arquivos"><a href="/complainList">Complain List</a></li>
-					
+
 						</ul>
 					</li>
 
@@ -963,7 +2399,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							 style="float: right"></span></a>
 						<ul>
 
-						
+
 							<li id="menu-arquivos"><a href="/empNotice">NoticeBoard</a></li>
 							<li id="menu-arquivos"><a href="/ownerNotice">Add Notice</a></li>
 						</ul>
@@ -975,14 +2411,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-				
 
 
 
 
-				
-					<li><a href="/adview"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
-							
+
+
+					<li><a href="/adview"><i class="fa fa-cog"></i><span>System</span></a>
+
 					</li>
 				</ul>
 			</div>

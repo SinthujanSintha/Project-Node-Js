@@ -605,10 +605,75 @@ var remark=req.body.status;
 
 
   app.get('/in', isLoggedIn, function (req, res) {
-    res.render('index2.ejs', {
-      user: req.user
-    });
-  });
+    con.query("SELECT COUNT(*) as total FROM floor ", function (err, row) {
+      con.query("SELECT sum(Total_Amount) as total  FROM owner_utility  ", function (err, row2) {
+        con.query("SELECT COUNT(*) as total FROM  user where Type_Id='TY002' ", function (err, row3) {
+          con.query("SELECT sum(Total_Amount) as total FROM  maintenance  ", function (err, row4) {
+            con.query("SELECT count(Complaint_ID) as total FROM  complaint ", function (err, row5) {
+              con.query("SELECT COUNT(Committee_Id)as total FROM  committee ", function (err, row6) {
+                con.query("SELECT sum(Amount) as total FROM salary ", function (err, row8) {
+                 con.query("SELECT COUNT(*) as total FROM  user where Type_Id='TY003' ", function (err, row7) {
+                   con.query("SELECT * FROM visitor v,floor f,house h where v.User_Id=h.Owner_Id and h.Floor_Id=f.Floor_Id ", function (err, result) {
+
+                  if (err) throw err;
+                  Object.size = function (obj) {
+                    var size = 0,
+                      key;
+                    for (key in obj) {
+                      if (obj.hasOwnProperty(key)) size++;
+                    }
+                    return size;
+                  };
+                  var size = Object.size(result);
+
+                
+                  con.query("  SELECT * FROM user u, complaint c where u.User_Id=c.User_Id ", function (err, row9) {
+                    if (err) throw err;
+                    Object.size = function (obj) {
+                      var cou = 0,
+                        key;
+                      for (key in obj) {
+                        if (obj.hasOwnProperty(key)) cou++;
+                      }
+                      return cou;
+                    };
+                    var cou = Object.size(row9);
+console.log(cou);
+                 
+
+                  res.render('index.ejs',{
+                    floor: row,
+                    utility: row2,
+                    owner: row3,
+                    main: row4,
+                    com: row5,
+                    co: row6,
+                    emp:row7,
+                    sal:row8,
+                    cop:row9,
+                    cou:cou,
+                    vis: result,
+                    size:size,
+                   
+                    user: req.user
+                 
+                  
+                   
+
+                  });
+             
+                })
+                })
+              })
+              })
+            })
+            })
+            })
+          })
+        })
+      })
+
+    })
 
   app.get('/delUtility/:id', isLoggedIn, function (req, res) {
 
