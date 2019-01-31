@@ -135,15 +135,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										
 											<div class="col-md-12 compose-right">
 												<div class="inbox-details -default">
-													
+														<script>
+
+
+																var check = function() {
+																  if (document.getElementById('password').value ==
+																	document.getElementById('password2').value) {
+																	document.getElementById('message').style.color = 'green';
+																	document.getElementById('message').innerHTML = 'PassWord Matching';
+																  } else {
+																	document.getElementById('message').style.color = 'red';
+																	document.getElementById('message').innerHTML = 'PassWord Not Mathching';
+																  }
+																}
+																																		</script>
 													<div class="inbox-details-body" style="background-color:black ;border: 3px solid whitesmoke; border-radius: 29px">
 														
-														<form  name="myform"class="com-mail" action="/ChangePassword/<%=user.adminId%>" method='post' onsubmit="return validateForm()">
+														<form  name="myform"class="com-mail" action="/ChangePassword" method='post' >
 															<div class="form-group">
 																<h4 style="color:cornsilk;font-weight: bold">New PassWord:</h4>
-																<input type="password" name="newPassword" class="form-control" required  placeholder="Enter the New PassWord">
+																<input type="password" name="password" id="password" class="form-control" required placeholder="Enter the New PassWord"
+														 onkeyup='check();'>
 																<h4 style="color:cornsilk;font-weight: bold">Confirm New Password:</h4>
-															<input type="password" name="conPassWord" class="form-control" required placeholder="Confirm PassWord">
+																<input type="password" name="password2" id="password2" class="form-control" required placeholder="Re Enter PassWord"
+																onkeyup='check();'>
 														</div>
 																
 														

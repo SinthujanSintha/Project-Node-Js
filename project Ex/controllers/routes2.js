@@ -559,8 +559,8 @@ var remark=req.body.status;
   }));
 
 
-  app.post('/ChangePassword/:id', urlencodedParser, (function (req, res) {
-    var idd = req.params.id;
+  app.post('/ChangePassword', urlencodedParser, (function (req, res) {
+  
     var newPassword = req.body.newPassword;
 
 
@@ -570,7 +570,7 @@ var remark=req.body.status;
 
 
 
-    var sql = "UPDATE admin SET password=? where adminId=?";
+    var sql = "UPDATE user SET PassWord=? where User_Id=?";
     con.query(sql, [pas, idd], function (err, result) {
       if (err) throw err;
 

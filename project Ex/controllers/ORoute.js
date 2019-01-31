@@ -648,12 +648,7 @@ module.exports = function (app) {
   });
 
 
-  app.get('/ChangeAdPass', isLoggedIn, function (req, res) {
-
-    res.render('ChangeAdPass.ejs', {
-      user: req.user
-    })
-  });
+  
 
 
 

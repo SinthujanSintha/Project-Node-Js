@@ -152,6 +152,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</thead>
 											
 											<tbody>
+													<% if (size>0) { %>
+											
+
+														<% switch (size) { 
+															case(size-(size-1)): %>
 													<tr>
 															<td><%=vis[size-1].Full_Name%></td>
 															<td><%=vis[size-1].Mobile_No%></td>
@@ -172,6 +177,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<a href="/delvisitor/<%=vis[size-1].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 															</tr>
 
+
+															<%  break; 
+															case(size-(size-2)): %>
+															<tr>
+																	<td><%=vis[size-1].Full_Name%></td>
+																	<td><%=vis[size-1].Mobile_No%></td>
+																	<td><%=vis[size-1].Address%></td>
+																	<td><label class="label label-primary ams_label"><%=vis[size-1].Name%></label></td>
+																	<td><label class="label label-warning ams_label"><%=vis[size-1].House_Name %></label>	</td>
+																	<td><%=vis[size-1].InDate%></td>
+																	<td><%=vis[size-1].OutDate%></td>
+																	<td><label class="label label-success ams_label"><%=vis[size-1].InTime%></label></td>
+																	<td><label class="label label-danger ams_label"><%=vis[size-1].OutTime%></label></td>
+																		
+																	
+																		
+																	
+																	   
+																	   
+																	   <td> <a href="/EditVisitors"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																		<a href="/delvisitor/<%=vis[size-1].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																	</tr>
 															<tr>
 																	<td><%=vis[size-2].Full_Name%></td>
 																	<td><%=vis[size-2].Mobile_No%></td>
@@ -192,6 +219,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																		<a href="/delvisitor/<%=vis[size-2].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 																	</tr>
 				
+
+																	<%  break;
+																	case (size-(size-3)): %>
+																	<tr>
+																			<td><%=vis[size-1].Full_Name%></td>
+																			<td><%=vis[size-1].Mobile_No%></td>
+																			<td><%=vis[size-1].Address%></td>
+																			<td><label class="label label-primary ams_label"><%=vis[size-1].Name%></label></td>
+																			<td><label class="label label-warning ams_label"><%=vis[size-1].House_Name %></label>	</td>
+																			<td><%=vis[size-1].InDate%></td>
+																			<td><%=vis[size-1].OutDate%></td>
+																			<td><label class="label label-success ams_label"><%=vis[size-1].InTime%></label></td>
+																			<td><label class="label label-danger ams_label"><%=vis[size-1].OutTime%></label></td>
+																				
+																			
+																				
+																			
+																			   
+																			   
+																			   <td> <a href="/EditVisitors"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																				<a href="/delvisitor/<%=vis[size-1].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																			</tr>
+																	<tr>
+																			<td><%=vis[size-2].Full_Name%></td>
+																			<td><%=vis[size-2].Mobile_No%></td>
+																			<td><%=vis[size-2].Address%></td>
+																			<td><label class="label label-primary ams_label"><%=vis[size-2].Name%></label></td>
+																			<td><label class="label label-warning ams_label"><%=vis[size-2].House_Name %></label>	</td>
+																			<td><%=vis[size-2].InDate%></td>
+																			<td><%=vis[size-2].OutDate%></td>
+																			<td><label class="label label-success ams_label"><%=vis[size-2].InTime%></label></td>
+																			<td><label class="label label-danger ams_label"><%=vis[size-2].OutTime%></label></td>
+																				
+																			
+																				
+																			
+																			   
+																			   
+																			   <td> <a href="/EditVisitors2"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																				<a href="/delvisitor/<%=vis[size-2].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																			</tr>
+						
 																	<tr>
 																		<td><%=vis[size-3].Full_Name%></td>
 																		<td><%=vis[size-3].Mobile_No%></td>
@@ -211,6 +280,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																		   <td> <a href="/EditVisitors3"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
 																			<a href="/delvisitor/<%=vis[size-3].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 																		</tr>
+
+																		<% break;
+																		case (size-(size-4)): %>
+																		<tr>
+																				<td><%=vis[size-1].Full_Name%></td>
+																				<td><%=vis[size-1].Mobile_No%></td>
+																				<td><%=vis[size-1].Address%></td>
+																				<td><label class="label label-primary ams_label"><%=vis[size-1].Name%></label></td>
+																				<td><label class="label label-warning ams_label"><%=vis[size-1].House_Name %></label>	</td>
+																				<td><%=vis[size-1].InDate%></td>
+																				<td><%=vis[size-1].OutDate%></td>
+																				<td><label class="label label-success ams_label"><%=vis[size-1].InTime%></label></td>
+																				<td><label class="label label-danger ams_label"><%=vis[size-1].OutTime%></label></td>
+																					
+																				
+																					
+																				
+																				   
+																				   
+																				   <td> <a href="/EditVisitors"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																					<a href="/delvisitor/<%=vis[size-1].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																				</tr>
+																		<tr>
+																				<td><%=vis[size-2].Full_Name%></td>
+																				<td><%=vis[size-2].Mobile_No%></td>
+																				<td><%=vis[size-2].Address%></td>
+																				<td><label class="label label-primary ams_label"><%=vis[size-2].Name%></label></td>
+																				<td><label class="label label-warning ams_label"><%=vis[size-2].House_Name %></label>	</td>
+																				<td><%=vis[size-2].InDate%></td>
+																				<td><%=vis[size-2].OutDate%></td>
+																				<td><label class="label label-success ams_label"><%=vis[size-2].InTime%></label></td>
+																				<td><label class="label label-danger ams_label"><%=vis[size-2].OutTime%></label></td>
+																					
+																				
+																					
+																				
+																				   
+																				   
+																				   <td> <a href="/EditVisitors2"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																					<a href="/delvisitor/<%=vis[size-2].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																				</tr>
+							
+																		<tr>
+																			<td><%=vis[size-3].Full_Name%></td>
+																			<td><%=vis[size-3].Mobile_No%></td>
+																			<td><%=vis[size-3].Address%></td>
+																			<td><label class="label label-primary ams_label"><%=vis[size-3].Name%></label></td>
+																			<td><label class="label label-warning ams_label"><%=vis[size-3].House_Name %></label>	</td>
+																			<td><%=vis[size-3].InDate%></td>
+																			<td><%=vis[size-3].OutDate%></td>
+																			<td><label class="label label-success ams_label"><%=vis[size-3].InTime%></label></td>
+																			<td><label class="label label-danger ams_label"><%=vis[size-3].OutTime%></label></td>
+																				
+																			
+																				
+																			
+																			   
+																			   
+																			   <td> <a href="/EditVisitors3"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																				<a href="/delvisitor/<%=vis[size-3].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																			</tr>
 																		<tr>
 																			<td><%=vis[size-4].Full_Name%></td>
 																			<td><%=vis[size-4].Mobile_No%></td>
@@ -230,6 +360,86 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																			   <td> <a href="/EditVisitors4"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
 																				<a href="/delvisitor/<%=vis[size-4].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 																			</tr>
+
+																			<% break;
+																			case (size): %>
+																			<tr>
+																					<td><%=vis[size-1].Full_Name%></td>
+																					<td><%=vis[size-1].Mobile_No%></td>
+																					<td><%=vis[size-1].Address%></td>
+																					<td><label class="label label-primary ams_label"><%=vis[size-1].Name%></label></td>
+																					<td><label class="label label-warning ams_label"><%=vis[size-1].House_Name %></label>	</td>
+																					<td><%=vis[size-1].InDate%></td>
+																					<td><%=vis[size-1].OutDate%></td>
+																					<td><label class="label label-success ams_label"><%=vis[size-1].InTime%></label></td>
+																					<td><label class="label label-danger ams_label"><%=vis[size-1].OutTime%></label></td>
+																						
+																					
+																						
+																					
+																					   
+																					   
+																					   <td> <a href="/EditVisitors"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																						<a href="/delvisitor/<%=vis[size-1].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																					</tr>
+																			<tr>
+																					<td><%=vis[size-2].Full_Name%></td>
+																					<td><%=vis[size-2].Mobile_No%></td>
+																					<td><%=vis[size-2].Address%></td>
+																					<td><label class="label label-primary ams_label"><%=vis[size-2].Name%></label></td>
+																					<td><label class="label label-warning ams_label"><%=vis[size-2].House_Name %></label>	</td>
+																					<td><%=vis[size-2].InDate%></td>
+																					<td><%=vis[size-2].OutDate%></td>
+																					<td><label class="label label-success ams_label"><%=vis[size-2].InTime%></label></td>
+																					<td><label class="label label-danger ams_label"><%=vis[size-2].OutTime%></label></td>
+																						
+																					
+																						
+																					
+																					   
+																					   
+																					   <td> <a href="/EditVisitors2"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																						<a href="/delvisitor/<%=vis[size-2].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																					</tr>
+								
+																			<tr>
+																				<td><%=vis[size-3].Full_Name%></td>
+																				<td><%=vis[size-3].Mobile_No%></td>
+																				<td><%=vis[size-3].Address%></td>
+																				<td><label class="label label-primary ams_label"><%=vis[size-3].Name%></label></td>
+																				<td><label class="label label-warning ams_label"><%=vis[size-3].House_Name %></label>	</td>
+																				<td><%=vis[size-3].InDate%></td>
+																				<td><%=vis[size-3].OutDate%></td>
+																				<td><label class="label label-success ams_label"><%=vis[size-3].InTime%></label></td>
+																				<td><label class="label label-danger ams_label"><%=vis[size-3].OutTime%></label></td>
+																					
+																				
+																					
+																				
+																				   
+																				   
+																				   <td> <a href="/EditVisitors3"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																					<a href="/delvisitor/<%=vis[size-3].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																				</tr>
+																			<tr>
+																				<td><%=vis[size-4].Full_Name%></td>
+																				<td><%=vis[size-4].Mobile_No%></td>
+																				<td><%=vis[size-4].Address%></td>
+																				<td><label class="label label-primary ams_label"><%=vis[size-4].Name%></label></td>
+																				<td><label class="label label-warning ams_label"><%=vis[size-4].House_Name %></label>	</td>
+																				<td><%=vis[size-4].InDate%></td>
+																				<td><%=vis[size-4].OutDate%></td>
+																				<td><label class="label label-success ams_label"><%=vis[size-4].InTime%></label></td>
+																				<td><label class="label label-danger ams_label"><%=vis[size-4].OutTime%></label></td>
+																					
+																				
+																					
+																				
+																				   
+																				   
+																				   <td> <a href="/EditVisitors4"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																					<a href="/delvisitor/<%=vis[size-4].Visitor_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete visitor?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+																				</tr>
 																			<tr>
 																				<td><%=vis[size-5].Full_Name%></td>
 																				<td><%=vis[size-5].Mobile_No%></td>
@@ -254,7 +464,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															
 				
 				
-				
+																				<%  break;
+
+																			} %>
+									
+									<%} %>
+									
 				
 				
 				
