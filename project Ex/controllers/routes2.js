@@ -8,6 +8,8 @@ var createHtml = require('create-html');
 var urlencodedParser = bodyParser.urlencoded({
   extended: false
 });
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 var msg = "";
 
 
