@@ -21,8 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>
     
     </script>
-     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-     <script>tinymce.init({ selector:'textarea' });</script>
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://dhakadailybazar.com/apartment-management-system/dist/js/jquery.mask.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
@@ -146,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 </div>
                                         </div>
                                         <% }%>
-                                              <form class="form" action="/editAdmin/<%=user.User_Id%>" method="post" id="registrationForm">
+                                              <form class="form" action="/editAdmin" method="post" id="registrationForm">
                                                
                                                 
                                                    
@@ -179,7 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                   <div class="form-group">
                                                       <div class="col-xs-6">
                                                    
-                                                         <h4 style="color:cornsilk;font-weight: bold">Mobile:</h4>
+                                                         <h4 style="color:cornsilk;font-weight: bold">Contact:</h4>
                                                           <input type="text" class="form-control" name="contactno" value="<%=user.Contact_Number%>" placeholder="enter mobile number" title="enter your mobile number if any.">
                                                       </div>
                                                   </div>
@@ -207,8 +206,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <div class="col-xs-6">
                                             
                                                    
-                                                      <input type="text" class="form-control" name="type" value="admin" style="visibility: hidden">
-                                                    </div>
+                                                  
                                                 </div>
                                                  
                                                   <div class="form-group">

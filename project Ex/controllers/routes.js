@@ -21,7 +21,9 @@ app.get('/profile', isLoggedIn, function (req, res) {
 
   console.log(ty.type);
   if (ty.type == 'TY001') {
+    module.exports.use=req.user;
     res.render('index.ejs', {
+      
       user: req.user
       
     });

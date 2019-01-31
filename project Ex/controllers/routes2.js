@@ -2,6 +2,7 @@ var mysql = require('mysql');
 var express = require('express');
 var app = express();
 var bcrypt = require('bcrypt-nodejs');
+var user = require('./routes.js');
 var bodyParser = require('body-parser');
 var createHtml = require('create-html');
 var urlencodedParser = bodyParser.urlencoded({
@@ -499,8 +500,8 @@ var remark=req.body.status;
   }));
 
 
-  app.post('/editAdmin/:id', urlencodedParser, (function (req, res) {
-    var idd = req.params.id;
+  app.post('/editAdmin', urlencodedParser, (function (req, res) {
+   
     var username = req.body.username;
     var firstname = req.body.name;
     var lastname = req.body.lastname;
@@ -515,8 +516,8 @@ var remark=req.body.status;
 
 
 
-    var sql = "UPDATE admin SET name=?,email=?, contactNo=?,Lastname=?,Phone=?,Location=? where adminId=?";
-    con.query(sql, [firstname, username, contact, lastname, phone, location, idd], function (err, result) {
+    var sql = "UPDATE user SET First_Name=?,Last_Name=?,Email_Id=?,Contact_Number=?,Address=?,Phone=? where  User_Id=?";
+    con.query(sql, [firstname,lastname, username,contact, location,phone,user.use.User_Id], function (err, result) {
       if (err) throw err;
 
       console.log("Number of records inserted: " + result.affectedRows);
@@ -1348,6 +1349,7 @@ console.log(size)
     });
   });
   app.get('/adview', isLoggedIn, function (req, res) {
+
     res.render('AdminProView.ejs', {
       user: req.user
     });
