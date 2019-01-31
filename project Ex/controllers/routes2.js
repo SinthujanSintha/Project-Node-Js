@@ -636,7 +636,7 @@ var remark=req.body.status;
         return size;
       };
       var size = Object.size(result);
-
+console.log(size)
       res.render('FloorList.ejs', {
         floor: result,
         size: size,

@@ -145,6 +145,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</thead>
 											
 											<tbody>
+												
+											<% switch (size) { 
+												case (size-(size-6)): %>
 													<tr>
 														<td><%=floor[size-6].Name %></td>
 														<td><%=floor[size-6].Houses %></td>
@@ -152,7 +155,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																	<a href="/editFloor6"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
 																	<a href="/FloorDel/<%=floor[size-6].Floor_Id %>"><button class="btn btn-danger ams_btn_special" onclick="alert('Are you sure you want to delete this Floor ?')" title="Delete"><i class="fa fa-trash"></i></button></a>																	</td>
 															</tr>
-				
+															<%  break; 
+															case (size-(size-7)): %>
+															<tr>
+																	<td><%=floor[size-6].Name %></td>
+																	<td><%=floor[size-6].Houses %></td>
+																		<td>
+																				<a href="/editFloor6"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																				<a href="/FloorDel/<%=floor[size-6].Floor_Id %>"><button class="btn btn-danger ams_btn_special" onclick="alert('Are you sure you want to delete this Floor ?')" title="Delete"><i class="fa fa-trash"></i></button></a>																	</td>
+																		</tr>
 															<tr>
 																<td><%=floor[size-7].Name %></td>
 																<td><%=floor[size-7].Houses %></td>
@@ -161,6 +172,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																			<a href="/FloorDel/<%=floor[size-7].Floor_Id %>"><button class="btn btn-danger ams_btn_special" onclick="alert('Are you sure you want to delete this Floor ?')" title="Delete"><i class="fa fa-trash"></i></button></a>																			</td>
 																	</tr>
 				
+																	<%  break; 
+																	case (size-(size-8)): %>
+																	<tr>
+																			<td><%=floor[size-6].Name %></td>
+																			<td><%=floor[size-6].Houses %></td>
+																				<td>
+																						<a href="/editFloor6"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																						<a href="/FloorDel/<%=floor[size-6].Floor_Id %>"><button class="btn btn-danger ams_btn_special" onclick="alert('Are you sure you want to delete this Floor ?')" title="Delete"><i class="fa fa-trash"></i></button></a>																	</td>
+																				</tr>
+																	<tr>
+																		<td><%=floor[size-7].Name %></td>
+																		<td><%=floor[size-7].Houses %></td>
+																			<td>
+																					<a href="/editFloor7"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
+																					<a href="/FloorDel/<%=floor[size-7].Floor_Id %>"><button class="btn btn-danger ams_btn_special" onclick="alert('Are you sure you want to delete this Floor ?')" title="Delete"><i class="fa fa-trash"></i></button></a>																			</td>
+																			</tr>
 																	<tr>
 																		<td><%=floor[size-8].Name %></td>
 																		<td><%=floor[size-8].Houses %></td>
@@ -168,29 +195,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																					<a href="/editFloor8"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
 																					<a href="/FloorDel/<%=floor[size-8].Floor_Id %>"><button class="btn btn-danger ams_btn_special" onclick="alert('Are you sure you want to delete this Floor ?')" title="Delete"><i class="fa fa-trash"></i></button></a>																					</td>
 																			</tr>
-																			<!-- <tr>
-																					<td>Fifth Floor</td>
-																					<td>5A,5B,5C,5D</td>
-																					<td>
-																							<a href="/editFloor"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																								<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																							</td>
-																					</tr>
-																					<tr>
-																							<td>Fifth Floor</td>
-																							<td>5A,5B,5C,5D</td>
-																							<td>
-																									<a href="/editFloor"><button class="btn btn-warning ams_btn_special"  title="Edit"><i class="fa fa-pencil"></i></button></a>
-																										<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																									</td>
-																							</tr> -->
+																		
 				
 				
 															
 				
 				
 				
-				
+				<%} %>
 				
 				
 				
