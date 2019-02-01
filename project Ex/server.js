@@ -20,6 +20,7 @@ require('./config/passport')(passport);
 app.use(express.static('./public'));
  app.use(express.static('./views'));
  app.use(express.static('./Oviews'));
+ app.use(express.static('./Eviews'));
  
 
 app.use(morgan('dev'));
@@ -47,6 +48,7 @@ app.use(flash());
 require('./controllers/routes.js')(app, passport);
 require('./controllers/routes2.js')(app);
 require('./controllers/ORoute.js')(app);
+require('./controllers/ERoute.js')(app);
 
 
 app.listen(port);

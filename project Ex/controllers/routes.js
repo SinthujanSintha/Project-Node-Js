@@ -27,9 +27,8 @@ app.get('/profile', isLoggedIn, function (req, res) {
     module.exports.us=req.user;
     res.redirect('/index');
   } else {
-    res.render('contact.ejs', {
-      user: req.user
-    });
+    module.exports.usee=req.user;
+    res.redirect('/indexE');
   }
 
 
