@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<span class="prfil-img"><img src="images/mypro.jpg" width="50px" height="50px" alt=""> </span>
 											<div class="user-name">
 												<p><%=user.First_Name%></p>
-												<span><%=emp.Jop%></span>
+												
 											</div>
 											<i class="fa fa-angle-down lnr"></i>
 											<i class="fa fa-angle-up lnr"></i>
@@ -145,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</thead>
 									
 											<tbody>
-													
+													<% if (size >0) {%>	
 													<tr>
 															<td><%=cop[size-1].Date%></td>
 															<td><%=cop[size-1].First_Name%></td>
@@ -189,12 +189,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             
                                                                 </div>
 															
-                                                                    <a href="EditComplain1E"><button class="btn btn-warning ams_btn_special"  title="edit"><i class="fa fa-pencil"></i></button></a>
-																	<a href="/delComplain/<%=cop[size-1].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+                                                                    <a href="/editComplain1E"><button class="btn btn-warning ams_btn_special"  title="edit"><i class="fa fa-pencil"></i></button></a>
+																	<a href="/delComplainO/<%=cop[size-1].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 																</td>
 															</tr>
-				
-														
+				<% }%>
+				<% if(size >=2){ %>
+					<tr>
+							<td><%=cop[size-1].Date%></td>
+							<td><%=cop[size-1].First_Name%></td>
+							<td><%=cop[size-1].Subject%></td>
+							<td> <label class="label label-primary ams_label"><%=cop[size-1].Remark%></label></td>
+						   
+							<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
+								<div id="v1" class="modal">
+
+									<!-- Modal content -->
+									<div class="modalt-content">
+										<div class="modalt-header">
+											<span class="closet" data-dismiss="modal">&times;</span>
+
+											<h2>Complain Details:</h2>
+										</div>
+														   <div class="modalt-body">
+
+											<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+											<div class="row">
+												<div class="col-xs-6"> 
+													<b>Complained By :</b><%=cop[size-1].First_Name%><br>
+													<b>Title :</b> <%=cop[size-1].Subject%><br>
+													<b>Date :</b><%=cop[size-1].Date%><br>
+												   
+													<br></div>
+												<div class="col-xs-6">
+													<b>Description :</b><%=cop[size-1].Description%><br>
+													<b>Issue :</b><%=cop[size-1].Remark%><br>
+												   
+												</div>
+											</div>
+										</div>
+										<div class="modalt-footer">
+											<h3>Thank you</h3>
+
+										</div>
+
+									</div>
+
+
+								</div>
+							
+									<a href="/editComplain1E"><button class="btn btn-warning ams_btn_special"  title="edit"><i class="fa fa-pencil"></i></button></a>
+									<a href="/delComplainE/<%=cop[size-1].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+								</td>
+							</tr>		
 				<tr>
 						<td><%=cop[size-2].Date%></td>
 						<td><%=cop[size-2].First_Name%></td>
@@ -239,158 +286,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						
 							<a href="/editComplain2E"><button class="btn btn-warning ams_btn_special"  title="edit"><i class="fa fa-pencil"></i></button></a>
-							<a href="/delComplain/<%=cop[size-2].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+							<a href="/delComplainE/<%=cop[size-2].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 							</td>
 						</tr>
 				
-						<tr>
-							<td><%=cop[size-3].Date%></td>
-							<td><%=cop[size-3].First_Name%></td>
-							<td><%=cop[size-3].Subject%></td>
-							<td> <label class="label label-primary ams_label"><%=cop[size-2].Remark%></label></td>
-						   
-							<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i class="fa fa-eye"></i></button>
-								<div id="v2" class="modal">
-	
-									<!-- Modal content -->
-									<div class="modalt-content">
-										<div class="modalt-header">
-											<span class="closet" data-dismiss="modal">&times;</span>
-	
-											<h2>Complain Details:</h2>
-										</div>
-														   <div class="modalt-body">
-	
-											<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-											<div class="row">
-												<div class="col-xs-6"> 
-													<b>Complained By :</b><%=cop[size-3].First_Name%><br>
-													<b>Title :</b> <%=cop[size-3].Subject%><br>
-													<b>Date :</b><%=cop[size-3].Date%><br>
-												   
-													<br></div>
-												<div class="col-xs-6">
-													<b>Description :</b><%=cop[size-3].Description%><br>
-													<b>Issue :</b><%=cop[size-3].Remark%><br>
-												   
-												</div>
-											</div>
-										</div>
-										<div class="modalt-footer">
-											<h3>Thank you</h3>
-	
-										</div>
-	
-									</div>
-	
-	
-								</div>
-							
-								<a href="/editComplain3E"><button class="btn btn-warning ams_btn_special"  title="edit"><i class="fa fa-pencil"></i></button></a>
-								<a href="/delComplain/<%=cop[size-2].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
-								</td>
-							</tr>
-							
+							<% }%>
 				
-							<tr>
-								<td><%=cop[size-4].Date%></td>
-								<td><%=cop[size-4].First_Name%></td>
-								<td><%=cop[size-4].Subject%></td>
-								<td> <label class="label label-primary ams_label"><%=cop[size-2].Remark%></label></td>
-							   
-								<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i class="fa fa-eye"></i></button>
-									<div id="v2" class="modal">
-		
-										<!-- Modal content -->
-										<div class="modalt-content">
-											<div class="modalt-header">
-												<span class="closet" data-dismiss="modal">&times;</span>
-		
-												<h2>Complain Details:</h2>
-											</div>
-															   <div class="modalt-body">
-		
-												<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-												<div class="row">
-													<div class="col-xs-6"> 
-														<b>Complained By :</b><%=cop[size-4].First_Name%><br>
-														<b>Title :</b> <%=cop[size-4].Subject%><br>
-														<b>Date :</b><%=cop[size-4].Date%><br>
-													   
-														<br></div>
-													<div class="col-xs-6">
-														<b>Description :</b><%=cop[size-4].Description%><br>
-														<b>Issue :</b><%=cop[size-4].Remark%><br>
-													   
-													</div>
-												</div>
-											</div>
-											<div class="modalt-footer">
-												<h3>Thank you</h3>
-		
-											</div>
-		
-										</div>
-		
-		
-									</div>
-								
-									<a href="/editComplain4E"><button class="btn btn-warning ams_btn_special"  title="edit"><i class="fa fa-pencil"></i></button></a>
-									<a href="/delComplain/<%=cop[size-2].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
-									</td>
-								</tr>
-						
-								<tr>
-									<td><%=cop[size-5].Date%></td>
-									<td><%=cop[size-5].First_Name%></td>
-									<td><%=cop[size-5].Subject%></td>
-									<td> <label class="label label-primary ams_label"><%=cop[size-5].Remark%></label></td>
-								   
-									<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i class="fa fa-eye"></i></button>
-										<div id="v2" class="modal">
-			
-											<!-- Modal content -->
-											<div class="modalt-content">
-												<div class="modalt-header">
-													<span class="closet" data-dismiss="modal">&times;</span>
-			
-													<h2>Complain Details:</h2>
-												</div>
-																   <div class="modalt-body">
-			
-													<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-													<div class="row">
-														<div class="col-xs-6"> 
-															<b>Complained By :</b><%=cop[size-5].First_Name%><br>
-															<b>Title :</b> <%=cop[size-5].Subject%><br>
-															<b>Date :</b><%=cop[size-5].Date%><br>
-														   
-															<br></div>
-														<div class="col-xs-6">
-															<b>Description :</b><%=cop[size-5].Description%><br>
-															<b>Issue :</b><%=cop[size-5].Remark%><br>
-														   
-														</div>
-													</div>
-												</div>
-												<div class="modalt-footer">
-													<h3>Thank you</h3>
-			
-												</div>
-			
-											</div>
-			
-			
-										</div>
-									
-										<a href="/editComplain5E"><button class="btn btn-warning ams_btn_special"  title="edit"><i class="fa fa-pencil"></i></button></a>
-										<a href="/delComplain/<%=cop[size-2].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
-										</td>
-									</tr>
-									
 				
-										
-												
+				
+				
+				
 				
 				
 				

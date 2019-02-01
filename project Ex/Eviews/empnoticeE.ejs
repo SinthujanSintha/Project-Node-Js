@@ -16,8 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             window.scrollTo(0, 1);
         }
     </script>
-     <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-     <script>tinymce.init({ selector:'textarea' });</script>
+ >
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://dhakadailybazar.com/apartment-management-system/dist/js/jquery.mask.min.js"></script>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
@@ -138,14 +137,858 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="col-md-12 compose-right">
                                         <div class="inbox-details -default">
 
-                                            <table class="table table-dark table-hover">
-                                                <thead>
-                                            <tr><td >Apartment Color Meeting on every .</td></tr>
-                                            <tr><td >Children cannot play game inside the Appartment.</td></tr>                              
-                                            <tr><td >carbage vehicle will come every Sunday morning.</td></tr>
-                                            <tr><td >There will be a meeting about Anual appartment day on next Sunday.  </td></tr>
+                                                <table class="table table-dark table-hover">
+                                                        <thead>
+                            
+                                                            <tr>
+                                                                    <th style=" font-size: 20px;">Date </th>
+                                                                <th style=" font-size: 20px;">Notice Title</th>
+                                                             
+                                                                
+                                                                <th colspan="2" align="center"style=" font-size: 20px;">Action</th>
+                                                            </tr>
+                            
+                            
+                                                        </thead>
+                                                        
+                    
+                                                    <tbody>
+                                                        
+                            <% if(size>0) { %>
+            <% switch (size) { 
             
-            </thead></table>        
+            case 1: %>
+            
+            <tr>
+                                                                        
+                <td><%=not[size-1].Date%></td>  
+            <td><%=not[size-1].Subject %></td>
+            
+            
+            
+            
+                   
+            
+               
+            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+                class="fa fa-eye"></i></button>
+            <div id="v1" class="modal">
+            
+               <!-- Modal content -->
+               <div class="modalt-content">
+                   <div class="modalt-header">
+                       <span class="closet" data-dismiss="modal">&times;</span>
+            
+                       <h2>Notice Details:</h2>
+                   </div>
+                  
+                   <div class="modalt-body">
+            
+                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-1].Subject %></h3>
+                       <div class="row">
+                           <div class="col-xs-6"> <b>Notice Title:</b>
+                               <%=not[size-1].Subject %><br>
+                               <b>Date:</b>
+                               <%=not[size-1].Date %><br>
+                            
+                            
+                           </div>
+                           <div class="col-xs-6"><b>Description :</b>
+                               <%=not[size-1].Content%><br>
+                            
+                           </div>
+                       </div>
+                   </div>
+                   <div class="modalt-footer">
+                       <h3>Thank you</h3>
+            
+                   </div>
+            
+               </div>
+            
+            
+            </div>
+            
+            
+            </td>
+                </tr>
+            
+            
+            
+            <%  break; 
+            case 2: %>
+            <tr>
+                                                                        
+                <td><%=not[size-1].Date%></td>  
+            <td><%=not[size-1].Subject %></td>
+            
+            
+            
+            
+                   
+            
+               
+            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+                class="fa fa-eye"></i></button>
+            <div id="v1" class="modal">
+            
+               <!-- Modal content -->
+               <div class="modalt-content">
+                   <div class="modalt-header">
+                       <span class="closet" data-dismiss="modal">&times;</span>
+            
+                       <h2>Notice Details:</h2>
+                   </div>
+                  
+                   <div class="modalt-body">
+            
+                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-1].Subject %></h3>
+                       <div class="row">
+                           <div class="col-xs-6"> <b>Notice Title:</b>
+                               <%=not[size-1].Subject %><br>
+                               <b>Date:</b>
+                               <%=not[size-1].Date %><br>
+                            
+                            
+                           </div>
+                           <div class="col-xs-6"><b>Description :</b>
+                               <%=not[size-1].Content%><br>
+                            
+                           </div>
+                       </div>
+                   </div>
+                   <div class="modalt-footer">
+                       <h3>Thank you</h3>
+            
+                   </div>
+            
+               </div>
+            
+            
+            </div>
+            
+            
+            </td>
+                </tr>
+                <tr>
+                                                                        
+                        <td><%=not[size-2].Date%></td>  
+                    <td><%=not[size-2].Subject %></td>
+                  
+                    
+               
+               
+                           
+                   
+                       
+                    <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+                        class="fa fa-eye"></i></button>
+                   <div id="v2" class="modal">
+            
+                       <!-- Modal content -->
+                       <div class="modalt-content">
+                           <div class="modalt-header">
+                               <span class="closet" data-dismiss="modal">&times;</span>
+            
+                               <h2>Notice Details:</h2>
+                           </div>
+                          
+                           <div class="modalt-body">
+            
+                               <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-2].Subject %></h3>
+                               <div class="row">
+                                   <div class="col-xs-6"> <b>Notice Title:</b>
+                                       <%=not[size-2].Subject %><br>
+                                       <b>Date:</b>
+                                       <%=not[size-2].Date %><br>
+                                    
+                                    
+                                   </div>
+                                   <div class="col-xs-6"><b>Description :</b>
+                                       <%=not[size-2].Content%><br>
+                                    
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="modalt-footer">
+                               <h3>Thank you</h3>
+            
+                           </div>
+            
+                       </div>
+            
+            
+                   </div>
+            
+                   
+               </td>
+                        </tr>
+            
+            <%  break;
+            case 3: %>
+            <tr>
+                                                                        
+                <td><%=not[size-1].Date%></td>  
+            <td><%=not[size-1].Subject %></td>
+            
+            
+            
+            
+                   
+            
+               
+            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+                class="fa fa-eye"></i></button>
+            <div id="v1" class="modal">
+            
+               <!-- Modal content -->
+               <div class="modalt-content">
+                   <div class="modalt-header">
+                       <span class="closet" data-dismiss="modal">&times;</span>
+            
+                       <h2>Notice Details:</h2>
+                   </div>
+                  
+                   <div class="modalt-body">
+            
+                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-1].Subject %></h3>
+                       <div class="row">
+                           <div class="col-xs-6"> <b>Notice Title:</b>
+                               <%=not[size-1].Subject %><br>
+                               <b>Date:</b>
+                               <%=not[size-1].Date %><br>
+                            
+                            
+                           </div>
+                           <div class="col-xs-6"><b>Description :</b>
+                               <%=not[size-1].Content%><br>
+                            
+                           </div>
+                       </div>
+                   </div>
+                   <div class="modalt-footer">
+                       <h3>Thank you</h3>
+            
+                   </div>
+            
+               </div>
+            
+            
+            </div>
+            
+            
+            </td>
+                </tr>
+                <tr>
+                                                                        
+                        <td><%=not[size-2].Date%></td>  
+                    <td><%=not[size-2].Subject %></td>
+                  
+                    
+               
+               
+                           
+                   
+                       
+                    <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+                        class="fa fa-eye"></i></button>
+                   <div id="v2" class="modal">
+            
+                       <!-- Modal content -->
+                       <div class="modalt-content">
+                           <div class="modalt-header">
+                               <span class="closet" data-dismiss="modal">&times;</span>
+            
+                               <h2>Notice Details:</h2>
+                           </div>
+                          
+                           <div class="modalt-body">
+            
+                               <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-2].Subject %></h3>
+                               <div class="row">
+                                   <div class="col-xs-6"> <b>Notice Title:</b>
+                                       <%=not[size-2].Subject %><br>
+                                       <b>Date:</b>
+                                       <%=not[size-2].Date %><br>
+                                    
+                                    
+                                   </div>
+                                   <div class="col-xs-6"><b>Description :</b>
+                                       <%=not[size-2].Content%><br>
+                                    
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="modalt-footer">
+                               <h3>Thank you</h3>
+            
+                           </div>
+            
+                       </div>
+            
+            
+                   </div>
+            
+                   
+               </td>
+                        </tr>
+                        <tr>
+                                                                        
+                                <td><%=not[size-3].Date%></td>  
+                            <td><%=not[size-3].Subject %></td>
+                          
+                            
+                       
+                       
+                                   
+                           
+                               
+                            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+                                class="fa fa-eye"></i></button>
+                           <div id="v3" class="modal">
+                    
+                               <!-- Modal content -->
+                               <div class="modalt-content">
+                                   <div class="modalt-header">
+                                       <span class="closet" data-dismiss="modal">&times;</span>
+                    
+                                       <h2>Notice Details:</h2>
+                                   </div>
+                                  
+                                   <div class="modalt-body">
+                    
+                                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-3].Subject %></h3>
+                                       <div class="row">
+                                           <div class="col-xs-6"> <b>Notice Title:</b>
+                                               <%=not[size-3].Subject %><br>
+                                               <b>Date:</b>
+                                               <%=not[size-3].Date %><br>
+                                            
+                                            
+                                           </div>
+                                           <div class="col-xs-6"><b>Description :</b>
+                                               <%=not[size-3].Content%><br>
+                                            
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="modalt-footer">
+                                       <h3>Thank you</h3>
+                    
+                                   </div>
+                    
+                               </div>
+                    
+                    
+                           </div>
+                    
+                           
+                       </td>
+                                </tr>
+            
+            <%	  break;
+            case 4: %>
+            
+            <tr>
+                                                                        
+                <td><%=not[size-1].Date%></td>  
+            <td><%=not[size-1].Subject %></td>
+            
+            
+            
+            
+                   
+            
+               
+            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+                class="fa fa-eye"></i></button>
+            <div id="v1" class="modal">
+            
+               <!-- Modal content -->
+               <div class="modalt-content">
+                   <div class="modalt-header">
+                       <span class="closet" data-dismiss="modal">&times;</span>
+            
+                       <h2>Notice Details:</h2>
+                   </div>
+                  
+                   <div class="modalt-body">
+            
+                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-1].Subject %></h3>
+                       <div class="row">
+                           <div class="col-xs-6"> <b>Notice Title:</b>
+                               <%=not[size-1].Subject %><br>
+                               <b>Date:</b>
+                               <%=not[size-1].Date %><br>
+                            
+                            
+                           </div>
+                           <div class="col-xs-6"><b>Description :</b>
+                               <%=not[size-1].Content%><br>
+                            
+                           </div>
+                       </div>
+                   </div>
+                   <div class="modalt-footer">
+                       <h3>Thank you</h3>
+            
+                   </div>
+            
+               </div>
+            
+            
+            </div>
+            
+            
+            </td>
+                </tr>
+                <tr>
+                                                                        
+                        <td><%=not[size-2].Date%></td>  
+                    <td><%=not[size-2].Subject %></td>
+                  
+                    
+               
+               
+                           
+                   
+                       
+                    <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+                        class="fa fa-eye"></i></button>
+                   <div id="v2" class="modal">
+            
+                       <!-- Modal content -->
+                       <div class="modalt-content">
+                           <div class="modalt-header">
+                               <span class="closet" data-dismiss="modal">&times;</span>
+            
+                               <h2>Notice Details:</h2>
+                           </div>
+                          
+                           <div class="modalt-body">
+            
+                               <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-2].Subject %></h3>
+                               <div class="row">
+                                   <div class="col-xs-6"> <b>Notice Title:</b>
+                                       <%=not[size-2].Subject %><br>
+                                       <b>Date:</b>
+                                       <%=not[size-2].Date %><br>
+                                    
+                                    
+                                   </div>
+                                   <div class="col-xs-6"><b>Description :</b>
+                                       <%=not[size-2].Content%><br>
+                                    
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="modalt-footer">
+                               <h3>Thank you</h3>
+            
+                           </div>
+            
+                       </div>
+            
+            
+                   </div>
+            
+                   
+               </td>
+                        </tr>
+                        <tr>
+                                                                        
+                                <td><%=not[size-3].Date%></td>  
+                            <td><%=not[size-3].Subject %></td>
+                          
+                            
+                       
+                       
+                                   
+                           
+                               
+                            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+                                class="fa fa-eye"></i></button>
+                           <div id="v3" class="modal">
+                    
+                               <!-- Modal content -->
+                               <div class="modalt-content">
+                                   <div class="modalt-header">
+                                       <span class="closet" data-dismiss="modal">&times;</span>
+                    
+                                       <h2>Notice Details:</h2>
+                                   </div>
+                                  
+                                   <div class="modalt-body">
+                    
+                                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-3].Subject %></h3>
+                                       <div class="row">
+                                           <div class="col-xs-6"> <b>Notice Title:</b>
+                                               <%=not[size-3].Subject %><br>
+                                               <b>Date:</b>
+                                               <%=not[size-3].Date %><br>
+                                            
+                                            
+                                           </div>
+                                           <div class="col-xs-6"><b>Description :</b>
+                                               <%=not[size-3].Content%><br>
+                                            
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="modalt-footer">
+                                       <h3>Thank you</h3>
+                    
+                                   </div>
+                    
+                               </div>
+                    
+                    
+                           </div>
+                    
+                           
+                       </td>
+                                </tr>
+                                <tr>
+                                                                        
+                                        <td><%=not[size-4].Date%></td>  
+                                    <td><%=not[size-4].Subject %></td>
+                                  
+                                    
+                               
+                               
+                                           
+                                   
+                                       
+                                    <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+                                        class="fa fa-eye"></i></button>
+                                   <div id="v4" class="modal">
+                            
+                                       <!-- Modal content -->
+                                       <div class="modalt-content">
+                                           <div class="modalt-header">
+                                               <span class="closet" data-dismiss="modal">&times;</span>
+                            
+                                               <h2>Notice Details:</h2>
+                                           </div>
+                                          
+                                           <div class="modalt-body">
+                            
+                                               <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-4].Subject %></h3>
+                                               <div class="row">
+                                                   <div class="col-xs-6"> <b>Notice Title:</b>
+                                                       <%=not[size-4].Subject %><br>
+                                                       <b>Date:</b>
+                                                       <%=not[size-4].Date %><br>
+                                                    
+                                                    
+                                                   </div>
+                                                   <div class="col-xs-6"><b>Description :</b>
+                                                       <%=not[size-4].Content%><br>
+                                                    
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="modalt-footer">
+                                               <h3>Thank you</h3>
+                            
+                                           </div>
+                            
+                                       </div>
+                            
+                            
+                                   </div>
+                            
+                                   
+                               </td>
+                                        </tr>
+            
+            <%	  break;
+            case 5: %>
+            
+            <tr>
+                                                                        
+                <td><%=not[size-1].Date%></td>  
+            <td><%=not[size-1].Subject %></td>
+            
+            
+            
+            
+                   
+            
+               
+            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+                class="fa fa-eye"></i></button>
+            <div id="v1" class="modal">
+            
+               <!-- Modal content -->
+               <div class="modalt-content">
+                   <div class="modalt-header">
+                       <span class="closet" data-dismiss="modal">&times;</span>
+            
+                       <h2>Notice Details:</h2>
+                   </div>
+                  
+                   <div class="modalt-body">
+            
+                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-1].Subject %></h3>
+                       <div class="row">
+                           <div class="col-xs-6"> <b>Notice Title:</b>
+                               <%=not[size-1].Subject %><br>
+                               <b>Date:</b>
+                               <%=not[size-1].Date %><br>
+                            
+                            
+                           </div>
+                           <div class="col-xs-6"><b>Description :</b>
+                               <%=not[size-1].Content%><br>
+                            
+                           </div>
+                       </div>
+                   </div>
+                   <div class="modalt-footer">
+                       <h3>Thank you</h3>
+            
+                   </div>
+            
+               </div>
+            
+            
+            </div>
+            
+            
+            </td>
+                </tr>
+                <tr>
+                                                                        
+                        <td><%=not[size-2].Date%></td>  
+                    <td><%=not[size-2].Subject %></td>
+                  
+                    
+               
+               
+                           
+                   
+                       
+                    <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+                        class="fa fa-eye"></i></button>
+                   <div id="v2" class="modal">
+            
+                       <!-- Modal content -->
+                       <div class="modalt-content">
+                           <div class="modalt-header">
+                               <span class="closet" data-dismiss="modal">&times;</span>
+            
+                               <h2>Notice Details:</h2>
+                           </div>
+                          
+                           <div class="modalt-body">
+            
+                               <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-2].Subject %></h3>
+                               <div class="row">
+                                   <div class="col-xs-6"> <b>Notice Title:</b>
+                                       <%=not[size-2].Subject %><br>
+                                       <b>Date:</b>
+                                       <%=not[size-2].Date %><br>
+                                    
+                                    
+                                   </div>
+                                   <div class="col-xs-6"><b>Description :</b>
+                                       <%=not[size-2].Content%><br>
+                                    
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="modalt-footer">
+                               <h3>Thank you</h3>
+            
+                           </div>
+            
+                       </div>
+            
+            
+                   </div>
+            
+                   
+               </td>
+                        </tr>
+                        <tr>
+                                                                        
+                                <td><%=not[size-3].Date%></td>  
+                            <td><%=not[size-3].Subject %></td>
+                          
+                            
+                       
+                       
+                                   
+                           
+                               
+                            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+                                class="fa fa-eye"></i></button>
+                           <div id="v3" class="modal">
+                    
+                               <!-- Modal content -->
+                               <div class="modalt-content">
+                                   <div class="modalt-header">
+                                       <span class="closet" data-dismiss="modal">&times;</span>
+                    
+                                       <h2>Notice Details:</h2>
+                                   </div>
+                                  
+                                   <div class="modalt-body">
+                    
+                                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-3].Subject %></h3>
+                                       <div class="row">
+                                           <div class="col-xs-6"> <b>Notice Title:</b>
+                                               <%=not[size-3].Subject %><br>
+                                               <b>Date:</b>
+                                               <%=not[size-3].Date %><br>
+                                            
+                                            
+                                           </div>
+                                           <div class="col-xs-6"><b>Description :</b>
+                                               <%=not[size-3].Content%><br>
+                                            
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="modalt-footer">
+                                       <h3>Thank you</h3>
+                    
+                                   </div>
+                    
+                               </div>
+                    
+                    
+                           </div>
+                    
+                           
+                       </td>
+                                </tr>
+                                <tr>
+                                                                        
+                                        <td><%=not[size-4].Date%></td>  
+                                    <td><%=not[size-4].Subject %></td>
+                                  
+                                    
+                               
+                               
+                                           
+                                   
+                                       
+                                    <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v4"><i
+                                        class="fa fa-eye"></i></button>
+                                   <div id="v4" class="modal">
+                            
+                                       <!-- Modal content -->
+                                       <div class="modalt-content">
+                                           <div class="modalt-header">
+                                               <span class="closet" data-dismiss="modal">&times;</span>
+                            
+                                               <h2>Notice Details:</h2>
+                                           </div>
+                                          
+                                           <div class="modalt-body">
+                            
+                                               <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-4].Subject %></h3>
+                                               <div class="row">
+                                                   <div class="col-xs-6"> <b>Notice Title:</b>
+                                                       <%=not[size-4].Subject %><br>
+                                                       <b>Date:</b>
+                                                       <%=not[size-4].Date %><br>
+                                                    
+                                                    
+                                                   </div>
+                                                   <div class="col-xs-6"><b>Description :</b>
+                                                       <%=not[size-4].Content%><br>
+                                                    
+                                                   </div>
+                                               </div>
+                                           </div>
+                                           <div class="modalt-footer">
+                                               <h3>Thank you</h3>
+                            
+                                           </div>
+                            
+                                       </div>
+                            
+                            
+                                   </div>
+                            
+                                   
+                               </td>
+                                        </tr>
+                                        <tr>
+                                                                        
+                                                <td><%=not[size-5].Date%></td>  
+                                            <td><%=not[size-5].Subject %></td>
+                                          
+                                            
+                                       
+                                       
+                                                   
+                                           
+                                               
+                                            <td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v5"><i
+                                                class="fa fa-eye"></i></button>
+                                           <div id="v5" class="modal">
+                                    
+                                               <!-- Modal content -->
+                                               <div class="modalt-content">
+                                                   <div class="modalt-header">
+                                                       <span class="closet" data-dismiss="modal">&times;</span>
+                                    
+                                                       <h2>Notice Details:</h2>
+                                                   </div>
+                                                  
+                                                   <div class="modalt-body">
+                                    
+                                                       <h3 style="text-decoration:underline;font-weight:bold "><%=not[size-5].Subject %></h3>
+                                                       <div class="row">
+                                                           <div class="col-xs-6"> <b>Notice Title:</b>
+                                                               <%=not[size-5].Subject %><br>
+                                                               <b>Date:</b>
+                                                               <%=not[size-5].Date %><br>
+                                                            
+                                                            
+                                                           </div>
+                                                           <div class="col-xs-6"><b>Description :</b>
+                                                               <%=not[size-5].Content%><br>
+                                                            
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div class="modalt-footer">
+                                                       <h3>Thank you</h3>
+                                    
+                                                   </div>
+                                    
+                                               </div>
+                                    
+                                    
+                                           </div>
+                                    
+                                           
+                                       </td>
+                                                </tr>
+            
+            <%	  break;
+            
+            } %>
+                                                               
+                            
+                                                                     
+                <% } %>			
+                            
+                            
+                            
+                            
+                            
+                            
+                                                                
+                                                            
+                            
+                                                        </tbody>
+                                                    </table>        
                                         </div>
                                     </div>
                                 </div>

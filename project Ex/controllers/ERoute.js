@@ -71,12 +71,17 @@ module.exports = function (app) {
   }));
 
   app.post('/addComplainE', urlencodedParser, (function (req, res) {
-    var FloorName = req.body.Floorname;
-    var houses = req.body.houses;
+ 
 
 
-    var sql = "INSERT INTO complaint (Subject, Date, Description) VALUES (?,?)";
-    con.query(sql, [FloorName, houses], function (err, result) {
+   
+    var title = req.body.title;
+    var date = req.body.date;
+    var des = req.body.des;
+
+
+    var sql = "INSERT INTO complaint (User_Id,Subject,Description,Date) VALUES (?,?,?,?)";
+    con.query(sql, [user.usee.User_Id, title, des, date], function (err, result) {
       if (err) throw err;
 
       console.log("Number of records inserted: " + result.affectedRows);
@@ -87,7 +92,6 @@ module.exports = function (app) {
       }
 
     });
-
   }));
   app.post('/editComplainE/:id', urlencodedParser, (function (req, res) {
     var id = req.params.id;
@@ -179,7 +183,9 @@ module.exports = function (app) {
 
 
   app.get('/addComplainE', isLoggedIn, function (req, res) {
-    res.render('addcomplainE.ejs');
+    res.render('../Eviews/addcomplainE.ejs',{
+      user:req.user
+    });
   });
 
   
@@ -187,7 +193,7 @@ module.exports = function (app) {
 
   app.get('/editComplain1E', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.usee.User_Id], function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -200,7 +206,7 @@ module.exports = function (app) {
       };
       var size = Object.size(result);
 
-      res.render('../Oviews/editComplain1E.ejs', {
+      res.render('../Eviews/editComplain1E.ejs', {
         cop: result,
         size: size,
         user: req.user
@@ -215,7 +221,7 @@ module.exports = function (app) {
   });
   app.get('/editComplain2E', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.usee.User_Id], function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -228,7 +234,7 @@ module.exports = function (app) {
       };
       var size = Object.size(result);
 
-      res.render('../Oviews/editComplain2E.ejs', {
+      res.render('../Eviews/editComplain2E.ejs', {
         cop: result,
         size: size,
         user: req.user
@@ -243,7 +249,7 @@ module.exports = function (app) {
   });
   app.get('/editComplain3E', isLoggedIn, function (req, res) {
 
-    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.usee.User_Id], function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {
@@ -256,7 +262,7 @@ module.exports = function (app) {
       };
       var size = Object.size(result);
 
-      res.render('../Oviews/editComplain3E.ejs', {
+      res.render('../Eviews/editComplain3E.ejs', {
         cop: result,
         size: size,
         user: req.user
@@ -269,68 +275,13 @@ module.exports = function (app) {
 
     });
   });
-  app.get('/editComplain4E', isLoggedIn, function (req, res) {
-
-    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
-
-      if (err) throw err;
-      Object.size = function (obj) {
-        var size = 0,
-          key;
-        for (key in obj) {
-          if (obj.hasOwnProperty(key)) size++;
-        }
-        return size;
-      };
-      var size = Object.size(result);
-
-      res.render('../Oviews/editComplain4E.ejs', {
-        cop: result,
-        size: size,
-        user: req.user
-      });
-
-
-
-
-      console.log(size);
-
-    });
-  });
-  app.get('/editComplain5E', isLoggedIn, function (req, res) {
-
-    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.us.User_Id], function (err, result, fields) {
-
-      if (err) throw err;
-      Object.size = function (obj) {
-        var size = 0,
-          key;
-        for (key in obj) {
-          if (obj.hasOwnProperty(key)) size++;
-        }
-        return size;
-      };
-      var size = Object.size(result);
-
-      res.render('../Oviews/editComplain5E.ejs', {
-        cop: result,
-        size: size,
-        user: req.user
-      });
-
-
-
-
-      console.log(size);
-
-    });
-  });
+  
 
 
   
-  app.get('/delComplain/:id', isLoggedIn, function (req, res) {
+  app.get('/delComplainE/:id', isLoggedIn, function (req, res) {
 
-    var sql = "DELETE FROM owner_utility WHERE Cost_Id =?";
+    var sql = "DELETE FROM complaint WHERE Complaint_ID =?";
     con.query(sql, [req.params.id], function (err, result) {
       if (err) throw err;
 
@@ -346,7 +297,31 @@ module.exports = function (app) {
 
 
   app.get('/complainListE', isLoggedIn, function (req, res) {
-    res.render('complainListE.ejs');
+    con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.usee.User_Id], function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('../Eviews/complainListE.ejs', {
+        cop: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
   
  
@@ -396,7 +371,7 @@ module.exports = function (app) {
       };
       var size = Object.size(result);
 
-      res.render('../Eviews/CommonNoticeE.ejs', {
+      res.render('../Eviews/commonoticeE.ejs', {
         not: result,
         size: size,
         user: req.user
@@ -415,10 +390,25 @@ module.exports = function (app) {
   app.get('/indexE', isLoggedIn, function (req, res) {
 
     con.query("SELECT * FROM employee_Job e,employee_type t where e.Emtype_Id=t.Emtype_Id and e.Emp_Id=? ",[user.usee.User_Id], function (err, row1) {
+      con.query("SELECT * FROM user u, complaint c where u.User_Id=c.User_Id and u.User_Id=?", [user.usee.User_Id], function (err, result) {
+
+        if (err) throw err;
+        Object.size = function (obj) {
+          var size = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+          }
+          return size;
+        };
+        var size = Object.size(result);
     res.render('../Eviews/indexE.ejs', {
     emp:row1,
-      user: req.user
+    cop:result,
+    size:size,
+    user: req.user
     });
+  })
   });
 
 })
@@ -487,8 +477,30 @@ module.exports = function (app) {
   
   
   app.get('/empnoticeE', isLoggedIn, function (req, res) {
-    res.render('empnoticeE.ejs', {
-      user: req.user
+    con.query("SELECT * FROM noticeboard where 	Notice_Type='ForEmployee' ", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('../Eviews/empnoticeE.ejs', {
+        not: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
     });
   });
 
@@ -553,7 +565,7 @@ module.exports = function (app) {
 
 
   app.get('/empprofileE', isLoggedIn, function (req, res) {
-    res.render('empprofileE.ejs', {
+    res.render('../Eviews/empprofileE.ejs', {
       user: req.user
     });
   });
