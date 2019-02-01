@@ -202,7 +202,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</thead>
 								
 										<tbody>
-												<% if (size >0) {%>	
+												<% if (size>0) { %>
+										
+
+													<% switch (size) { 
+														case(size-(size-1)): %>
+
 												<tr>
 														<td><%=cop[size-1].Date%></td>
 														<td><%=cop[size-1].First_Name%></td>
@@ -249,9 +254,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<a href="/editComplain1E"><button class="btn btn-warning ams_btn_special"  title="edit"><i class="fa fa-pencil"></i></button></a>
 																<a href="/delComplainO/<%=cop[size-1].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 															</td>
-														</tr>
-			<% }%>
-			<% if(size >=2){ %>
+												</tr>
+
+												<%  break; 
+										case(size-(size-2)): %>
 				<tr>
 						<td><%=cop[size-1].Date%></td>
 						<td><%=cop[size-1].First_Name%></td>
@@ -346,8 +352,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="/delComplainE/<%=cop[size-2].Complaint_ID%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Your Complain?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 						</td>
 					</tr>
+					<%} %>
+					<% } %>
 			
-						<% }%>
+						
 			
 			
 			

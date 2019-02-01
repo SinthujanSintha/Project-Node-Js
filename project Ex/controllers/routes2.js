@@ -835,8 +835,200 @@ console.log(size)
     });
   });
   app.get('/leaveReqList', isLoggedIn, function (req, res) {
-    res.render('leaveReqList.ejs');
+    con.query("SELECT * FROM employee_leave l, employee_job j,employee_type t, user u where l.Emp_Id=j.Emp_Id and t.Emtype_Id=j.Emtype_Id and u.User_Id=l.Emp_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('leaveReqList.ejs', {
+        lev: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
   });
+
+  app.get('/delLeaveA/:id', isLoggedIn, function (req, res) {
+
+    var sql = "DELETE FROM employee_Leave WHERE Leave_Id =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/leaveRequestList.ejs');
+
+    })
+  })
+
+  app.post('/LeaveReply/:id', isLoggedIn, function (req, res) {
+
+  var idd = req.params.id;
+var remark=req.body.status;
+    var resPonse = req.body.replyCom;
+   
+    
+
+   
+
+   
+
+
+        var insertutil = "update employee_leave set Response=?,Remark=? where Leave_Id=?";
+        con.query(insertutil, [resPonse,remark,idd],
+          function (err, row) {
+            if (err)
+              console.log(err);
+            res.redirect('/leaveReqList');
+          })
+
+
+
+  })
+
+  app.get('/LeaveReply', isLoggedIn, function (req, res) {
+
+
+     
+    con.query("SELECT * FROM user u, employee_leave e where u.User_Id=e.Emp_Id", function (err, result, fields) {
+
+      if (err) throw err;
+      Object.size = function (obj) {
+        var size = 0,
+          key;
+        for (key in obj) {
+          if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+      };
+      var size = Object.size(result);
+
+      res.render('levReply.ejs', {
+        cop: result,
+        size: size,
+        user: req.user
+      });
+
+
+
+
+      console.log(size);
+
+    });
+  
+     
+  
+     
+  
+  
+         
+  
+  
+    })
+
+    app.get('/LeaveReply2', isLoggedIn, function (req, res) {
+
+
+     
+      con.query("SELECT * FROM user u, employee_leave e where u.User_Id=e.Emp_Id", function (err, result, fields) {
+  
+        if (err) throw err;
+        Object.size = function (obj) {
+          var size = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+          }
+          return size;
+        };
+        var size = Object.size(result);
+  
+        res.render('levReply2.ejs', {
+          cop: result,
+          size: size,
+          user: req.user
+        });
+  
+  
+  
+  
+        console.log(size);
+  
+      });
+    
+       
+    
+       
+    
+    
+           
+    
+    
+      })
+
+
+      app.get('/LeaveReply3', isLoggedIn, function (req, res) {
+
+
+     
+        con.query("SELECT * FROM user u, employee_leave e where u.User_Id=e.Emp_Id", function (err, result, fields) {
+    
+          if (err) throw err;
+          Object.size = function (obj) {
+            var size = 0,
+              key;
+            for (key in obj) {
+              if (obj.hasOwnProperty(key)) size++;
+            }
+            return size;
+          };
+          var size = Object.size(result);
+    
+          res.render('levReply3.ejs', {
+            cop: result,
+            size: size,
+            user: req.user
+          });
+    
+    
+    
+    
+          console.log(size);
+    
+        });
+      
+         
+      
+         
+      
+      
+             
+      
+      
+        })
+
+
+
+
+
+
+
+
+
 
 
   app.get('/OwnerUtilityList', isLoggedIn, function (req, res) {
@@ -1242,7 +1434,7 @@ console.log(size)
 
 
   app.get('/committeList', isLoggedIn, function (req, res) {
-    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID order by u.User_Id DESC", function (err, result, fields) {
+    con.query("SELECT * FROM user u, committee c,committee_type t where u.User_Id=c.Member_Id and c.CType_Id=t.CType_ID", function (err, result, fields) {
 
       if (err) throw err;
       Object.size = function (obj) {

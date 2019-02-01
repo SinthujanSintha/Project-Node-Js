@@ -105,7 +105,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-
+					<script>
+							function myFunction() {
+							  var input, filter, table, tr, td, i, txtValue;
+							  input = document.getElementById("myInput");
+							  filter = input.value.toUpperCase();
+							  table = document.getElementById("myTable");
+							  tr = table.getElementsByTagName("tr");
+							  for (i = 0; i < tr.length; i++) {
+								td = tr[i].getElementsByTagName("td")[0];
+								if (td) {
+								  txtValue = td.textContent || td.innerText;
+								  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+									tr[i].style.display = "";
+								  } else {
+									tr[i].style.display = "none";
+								  }
+								}       
+							  }
+							}
+							</script>
 
 					<div class="chit-chat-layer1t">
 						<!-- last Fivve Complain -->
@@ -119,6 +138,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											Committee Member List</li>
 
 									</ol>
+									<div align="right">
+											<h4 style="color:rgb(238, 255, 0);font-weight: bold">Search:	<input type="text" style="width:21%;"id="myInput" onkeyup="myFunction()" name="Floorname" class="form-control" required  placeholder="Search"></h4>
+																	</div>
 									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/addCommitte" data-toggle="tooltip"
 									 data-placement="left" title="Add Member">
 										<i class="fa fa-plus"></i></a>
@@ -131,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 
 								<div class="table-responsive" style="border: 3px solid whitesmoke; border-radius: 29px">
-									<table class="table table-dark table-hover">
+									<table class="table table-dark table-hover"  id="myTable">
 										<thead>
 
 											<tr>
@@ -149,6 +171,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</thead>
 
 										<tbody>
+												<% if (size>0) { %>
+											
+
+													<% switch (size) { 
+														case(size-(size-1)): %>
 											<tr>
 												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
 
@@ -205,6 +232,350 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<a href="/delCommittee/<%=com[size-1].Committee_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Member?')" title="Delete"><i class="fa fa-trash"></i></button></a>
 												</td>
 											</tr>
+											<%  break; 
+											case(size-(size-2)): %>
+											<tr>
+													<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+	
+													<td><%=com[size-1].First_Name%></td>
+													<td><%=com[size-1].Email_Id%></td>
+													<td><%=com[size-1].Contact_Number%></td>
+													<td><%=com[size-1].Address%></td>
+													<td><%=com[size-1].Member_Type%></td>
+													<td> <label class="label label-success ams_label"><%=com[size-1].Status%></label></td>
+													<td>
+														<button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+															 class="fa fa-eye"></i></button>
+														<div id="v1" class="modal">
+	
+															<!-- Modal content -->
+															<div class="modalt-content">
+																<div class="modalt-header">
+																	<span class="closet" data-dismiss="modal">&times;</span>
+	
+																	<h2>Management Committee Member Details:</h2>
+																</div>
+																<div class="modal-body model_view" align="center">&nbsp;
+																	<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																	</div>
+																	<h3 style="text-decoration:underline;font-weight:bold "><%=com[size-1].First_Name%></h3>
+																</div>
+																<div class="modalt-body">
+	
+																	<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																	<div class="row">
+																		<div class="col-xs-6"> <b>Member Name :</b><%=com[size-1].First_Name%><br>
+																			<b>Email :</b> <%=com[size-1].Email_Id%><br>
+																			<b>Mobile :</b> <%=com[size-1].Phone%><br>
+																			<b>Address :</b> <%=com[size-1].Address%>
+																			<br></div>
+																		<div class="col-xs-6"><b>Member Type:</b> <%=com[size-1].Member_Type%><br>
+																			<b>Joining Date :</b> <%=com[size-1].Join_Date%><br>
+																			<b>Status :</b> <%=com[size-1].Status%><br>
+	
+																		</div>
+																	</div>
+																</div>
+																<div class="modalt-footer">
+																	<h3>Thank you</h3>
+	
+																</div>
+	
+															</div>
+	
+	
+														</div>
+	
+														<a href="/editCommitte"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+														<a href="/delCommittee/<%=com[size-1].Committee_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Member?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+													</td>
+												</tr>
+											<tr>
+												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+
+												<td><%=com[size-2].First_Name%></td>
+												<td><%=com[size-2].Email_Id%></td>
+												<td><%=com[size-2].Contact_Number%></td>
+												<td><%=com[size-2].Address%></td>
+												<td><%=com[size-2].Member_Type%></td>
+												<td> <label class="label label-success ams_label"><%=com[size-2].Status%></label></td>
+												<td>
+													<button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Management Committee Member Details:</h2>
+															</div>
+															<div class="modal-body model_view" align="center">&nbsp;
+																<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																</div>
+																<h3 style="text-decoration:underline;font-weight:bold "><%=com[size-2].First_Name%></h3>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Member Name :</b><%=com[size-2].First_Name%><br>
+																		<b>Email :</b> <%=com[size-2].Email_Id%><br>
+																		<b>Mobile :</b> <%=com[size-2].Phone%><br>
+																		<b>Address :</b> <%=com[size-2].Address%>
+																		<br></div>
+																	<div class="col-xs-6"><b>Member Type:</b> <%=com[size-2].Member_Type%><br>
+																		<b>Joining Date :</b> <%=com[size-2].Join_Date%><br>
+																		<b>Status :</b> <%=com[size-2].Status%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+													<a href="/editCommitte2"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+													<a href="/delCommittee/<%=com[size-2].Committee_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Member?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+												</td>
+											</tr>
+
+											<%  break;
+											case (size-(size-3)): %>
+											<tr>
+													<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+	
+													<td><%=com[size-1].First_Name%></td>
+													<td><%=com[size-1].Email_Id%></td>
+													<td><%=com[size-1].Contact_Number%></td>
+													<td><%=com[size-1].Address%></td>
+													<td><%=com[size-1].Member_Type%></td>
+													<td> <label class="label label-success ams_label"><%=com[size-1].Status%></label></td>
+													<td>
+														<button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+															 class="fa fa-eye"></i></button>
+														<div id="v1" class="modal">
+	
+															<!-- Modal content -->
+															<div class="modalt-content">
+																<div class="modalt-header">
+																	<span class="closet" data-dismiss="modal">&times;</span>
+	
+																	<h2>Management Committee Member Details:</h2>
+																</div>
+																<div class="modal-body model_view" align="center">&nbsp;
+																	<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																	</div>
+																	<h3 style="text-decoration:underline;font-weight:bold "><%=com[size-1].First_Name%></h3>
+																</div>
+																<div class="modalt-body">
+	
+																	<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																	<div class="row">
+																		<div class="col-xs-6"> <b>Member Name :</b><%=com[size-1].First_Name%><br>
+																			<b>Email :</b> <%=com[size-1].Email_Id%><br>
+																			<b>Mobile :</b> <%=com[size-1].Phone%><br>
+																			<b>Address :</b> <%=com[size-1].Address%>
+																			<br></div>
+																		<div class="col-xs-6"><b>Member Type:</b> <%=com[size-1].Member_Type%><br>
+																			<b>Joining Date :</b> <%=com[size-1].Join_Date%><br>
+																			<b>Status :</b> <%=com[size-1].Status%><br>
+	
+																		</div>
+																	</div>
+																</div>
+																<div class="modalt-footer">
+																	<h3>Thank you</h3>
+	
+																</div>
+	
+															</div>
+	
+	
+														</div>
+	
+														<a href="/editCommitte"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+														<a href="/delCommittee/<%=com[size-1].Committee_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Member?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+													</td>
+												</tr>
+											<tr>
+												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+
+												<td><%=com[size-2].First_Name%></td>
+												<td><%=com[size-2].Email_Id%></td>
+												<td><%=com[size-2].Contact_Number%></td>
+												<td><%=com[size-2].Address%></td>
+												<td><%=com[size-2].Member_Type%></td>
+												<td> <label class="label label-success ams_label"><%=com[size-2].Status%></label></td>
+												<td>
+													<button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v2"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v2" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Management Committee Member Details:</h2>
+															</div>
+															<div class="modal-body model_view" align="center">&nbsp;
+																<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																</div>
+																<h3 style="text-decoration:underline;font-weight:bold "><%=com[size-2].First_Name%></h3>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Member Name :</b><%=com[size-2].First_Name%><br>
+																		<b>Email :</b> <%=com[size-2].Email_Id%><br>
+																		<b>Mobile :</b> <%=com[size-2].Phone%><br>
+																		<b>Address :</b> <%=com[size-2].Address%>
+																		<br></div>
+																	<div class="col-xs-6"><b>Member Type:</b> <%=com[size-2].Member_Type%><br>
+																		<b>Joining Date :</b> <%=com[size-2].Join_Date%><br>
+																		<b>Status :</b> <%=com[size-2].Status%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+													<a href="/editCommitte2"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+													<a href="/delCommittee/<%=com[size-2].Committee_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Member?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+												</td>
+											</tr>
+											<tr>
+												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+
+												<td><%=com[size-3].First_Name%></td>
+												<td><%=com[size-3].Email_Id%></td>
+												<td><%=com[size-3].Contact_Number%></td>
+												<td><%=com[size-3].Address%></td>
+												<td><%=com[size-3].Member_Type%></td>
+												<td> <label class="label label-success ams_label"><%=com[size-2].Status%></label></td>
+												<td>
+													<button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v3"><i
+														 class="fa fa-eye"></i></button>
+													<div id="v3" class="modal">
+
+														<!-- Modal content -->
+														<div class="modalt-content">
+															<div class="modalt-header">
+																<span class="closet" data-dismiss="modal">&times;</span>
+
+																<h2>Management Committee Member Details:</h2>
+															</div>
+															<div class="modal-body model_view" align="center">&nbsp;
+																<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																</div>
+																<h3 style="text-decoration:underline;font-weight:bold "><%=com[size-3].First_Name%></h3>
+															</div>
+															<div class="modalt-body">
+
+																<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																<div class="row">
+																	<div class="col-xs-6"> <b>Member Name :</b><%=com[size-3].First_Name%><br>
+																		<b>Email :</b> <%=com[size-3].Email_Id%><br>
+																		<b>Mobile :</b> <%=com[size-3].Phone%><br>
+																		<b>Address :</b> <%=com[size-3].Address%>
+																		<br></div>
+																	<div class="col-xs-6"><b>Member Type:</b> <%=com[size-3].Member_Type%><br>
+																		<b>Joining Date :</b> <%=com[size-3].Join_Date%><br>
+																		<b>Status :</b> <%=com[size-3].Status%><br>
+
+																	</div>
+																</div>
+															</div>
+															<div class="modalt-footer">
+																<h3>Thank you</h3>
+
+															</div>
+
+														</div>
+
+
+													</div>
+
+													<a href="/editCommitte3"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+													<a href="/delCommittee/<%=com[size-3].Committee_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Member?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+												</td>
+											</tr>
+
+											<% break;
+											case (size): %>
+											<tr>
+													<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
+	
+													<td><%=com[size-1].First_Name%></td>
+													<td><%=com[size-1].Email_Id%></td>
+													<td><%=com[size-1].Contact_Number%></td>
+													<td><%=com[size-1].Address%></td>
+													<td><%=com[size-1].Member_Type%></td>
+													<td> <label class="label label-success ams_label"><%=com[size-1].Status%></label></td>
+													<td>
+														<button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
+															 class="fa fa-eye"></i></button>
+														<div id="v1" class="modal">
+	
+															<!-- Modal content -->
+															<div class="modalt-content">
+																<div class="modalt-header">
+																	<span class="closet" data-dismiss="modal">&times;</span>
+	
+																	<h2>Management Committee Member Details:</h2>
+																</div>
+																<div class="modal-body model_view" align="center">&nbsp;
+																	<div> <img class="photo_img_round" style="width:200px;height:200px;" src="http://dhakadailybazar.com/apartment-management-system/img/upload/CC41C5ED-6645-79F7-3E30-5201BCAF153B.jpg">
+																	</div>
+																	<h3 style="text-decoration:underline;font-weight:bold "><%=com[size-1].First_Name%></h3>
+																</div>
+																<div class="modalt-body">
+	
+																	<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
+																	<div class="row">
+																		<div class="col-xs-6"> <b>Member Name :</b><%=com[size-1].First_Name%><br>
+																			<b>Email :</b> <%=com[size-1].Email_Id%><br>
+																			<b>Mobile :</b> <%=com[size-1].Phone%><br>
+																			<b>Address :</b> <%=com[size-1].Address%>
+																			<br></div>
+																		<div class="col-xs-6"><b>Member Type:</b> <%=com[size-1].Member_Type%><br>
+																			<b>Joining Date :</b> <%=com[size-1].Join_Date%><br>
+																			<b>Status :</b> <%=com[size-1].Status%><br>
+	
+																		</div>
+																	</div>
+																</div>
+																<div class="modalt-footer">
+																	<h3>Thank you</h3>
+	
+																</div>
+	
+															</div>
+	
+	
+														</div>
+	
+														<a href="/editCommitte"><button class="btn btn-warning ams_btn_special" title="Edit"><i class="fa fa-pencil"></i></button></a>
+														<a href="/delCommittee/<%=com[size-1].Committee_Id%>"><button class="btn btn-danger ams_btn_special" onclick="return confirm('Are you sure you want to delete Member?')" title="Delete"><i class="fa fa-trash"></i></button></a>
+													</td>
+												</tr>
 											<tr>
 												<td><img class="img-circle" style="width:50px;height:50px;" src="/images/mypro.jpg"></td>
 
@@ -380,11 +751,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
+											<%  break;
+
+										} %>
 
 
 
-
-
+										<%} %>
 
 
 

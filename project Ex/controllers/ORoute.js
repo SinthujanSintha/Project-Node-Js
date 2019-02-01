@@ -21,7 +21,36 @@ var con = mysql.createConnection({
 
 module.exports = function (app) {
 
+  app.post('/editOwner', urlencodedParser, (function (req, res) {
+   
+    var username = req.body.username;
+    var firstname = req.body.name;
+    var lastname = req.body.lastname;
+    var location = req.body.location;
+    var phone = req.body.phone;
 
+    var contact = req.body.contactno;
+
+
+
+
+
+
+
+    var sql = "UPDATE user SET First_Name=?,Last_Name=?,Email_Id=?,Contact_Number=?,Address=?,Phone=? where  User_Id=?";
+    con.query(sql, [firstname,lastname, username,contact, location,phone,user.us.User_Id], function (err, result) {
+      if (err) throw err;
+
+      console.log("Number of records inserted: " + result.affectedRows);
+      if (result.affectedRows == 1) {
+        res.redirect('/OwnerprofileO');
+
+
+      }
+
+    });
+
+  }));
   app.post('/addComplainO', urlencodedParser, (function (req, res) {
 
     var title = req.body.title;
@@ -631,9 +660,9 @@ module.exports = function (app) {
     });
   });
 
-  app.get('/Ownerprofile', isLoggedIn, function (req, res) {
-    msg = "";
-    res.render('Ownerprofile.ejs', {
+  app.get('/OwnerprofileO', isLoggedIn, function (req, res) {
+   
+    res.render('../Oviews/OwnerprofileO.ejs', {
       user: req.user,
       msg: msg
     })

@@ -132,291 +132,326 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 									<div class="table-responsive" style="border: 3px solid whitesmoke; border-radius: 29px">
 										<table class="table table-dark table-hover">
-											<thead>
+												<thead>
 				
-												<tr>
-                                                    <th style=" font-size: 20px;">Request Date</th>
-													<th style=" font-size: 20px;">Employee Name</th>
-													<th style=" font-size: 20px;">Designation</th>
-													<th style=" font-size: 20px;">Days of Leave</th>
-													<th style=" font-size: 20px;">Leave Status</th>
-                                                    <th colspan="2" align="center"style=" font-size: 20px;">Action</th>
-												
-												</tr>
-				
-				
-											</thead>
+														<tr>
+															<th style=" font-size: 20px;">Request Date</th>
+															<th style=" font-size: 20px;">Title</th>
+		
+															<th style=" font-size: 20px;">Designation</th>
+															<th style=" font-size: 20px;">Days From</th>
+		
+															<th style=" font-size: 20px;">Leave Status</th>
+															<th style=" font-size: 20px;">Description</th>
+															<th colspan="2" :align="center"style=" font-size: 20px;">Action</th>
+														
+														</tr>
+						
+						
+													</thead>
 											
 											<tbody>
-													<tr>
-															
-																<td>08/05/2018</td>
-																<td>Sujanthan</td>
-																<td><label class="label label-success ams_label">Security Gard</label></td>
-																<td><label class="label label-success ams_label">3</label></td>
-																<td><select style="font-size:13px;color:green"  value=" Accepted"onchange=><option selected="" value="Accepted">Accepted</option><option value="Pending">Pending</option><option value="Rejected">Rejected</option></select></td>
-															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Leave Details:</h2>
-																		</div>
-																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Leave From :</b>12/11/2018<br>
-																					<b>Leave From :</b>12/11/2018<br>
-                                                                                    <b>Days Of Leave:</b>9<br>
-                                                                                  
-																					<b>Leave Status:</b> Accept
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Leave Details :</b> Wife Stick<br>
-                                                                                   
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
+													<% if (size>0) { %>
 											
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
+
+														<% switch (size) { 
+															case(size-(size-1)): %>
 				
-                                                            <tr>
+															<tr>
 															
-																<td>08/05/2018</td>
-																<td>Sujanthan</td>
-																<td><label class="label label-success ams_label">Security Gard</label></td>
-																<td><label class="label label-success ams_label">3</label></td>
-																<td><select style="font-size:13px;color:green"  value=" Accepted"onchange=><option selected="" value="Accepted">Accepted</option><option value="Pending">Pending</option><option value="Rejected">Rejected</option></select></td>
+																	<td><%=lev[size-1].Leave_From%></td>
+																	<td><%=lev[size-1].Leave_Title%></td>
+																	<td><label class="label label-success ams_label"><%=lev[size-1].Job%></label></td>
+																	<td><label class="label label-success ams_label"><%=lev[size-1].Leave_From%></label></td>
 															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Leave Details:</h2>
-																		</div>
+																	<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-1].Remark%></option></select></td>
+																	<td><%=lev[size-1].Description%></td>
+															
+																<td>
 																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Leave From :</b>12/11/2018<br>
-																					<b>Leave From :</b>12/11/2018<br>
-                                                                                    <b>Days Of Leave:</b>9<br>
-                                                                                  
-																					<b>Leave Status:</b> Accept
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Leave Details :</b> Wife Stick<br>
-                                                                                   
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-											
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
-                                                            <tr>
-															
-																<td>08/05/2018</td>
-																<td>Sujanthan</td>
-																<td><label class="label label-success ams_label">Security Gard</label></td>
-																<td><label class="label label-success ams_label">3</label></td>
-																<td><select style="font-size:13px;color:green"  value=" Accepted"onchange=><option selected="" value="Accepted">Accepted</option><option value="Pending">Pending</option><option value="Rejected">Rejected</option></select></td>
-															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Leave Details:</h2>
-																		</div>
-																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Leave From :</b>12/11/2018<br>
-																					<b>Leave From :</b>12/11/2018<br>
-                                                                                    <b>Days Of Leave:</b>9<br>
-                                                                                  
-																					<b>Leave Status:</b> Accept
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Leave Details :</b> Wife Stick<br>
-                                                                                   
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-											
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
-                                                            <tr>
-															
-																<td>08/05/2018</td>
-																<td>Sujanthan</td>
-																<td><label class="label label-success ams_label">Security Gard</label></td>
-																<td><label class="label label-success ams_label">3</label></td>
-																<td><select style="font-size:13px;color:green"  value=" Accepted"onchange=><option selected="" value="Accepted">Accepted</option><option value="Pending">Pending</option><option value="Rejected">Rejected</option></select></td>
-															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Leave Details:</h2>
-																		</div>
-																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Leave From :</b>12/11/2018<br>
-																					<b>Leave From :</b>12/11/2018<br>
-                                                                                    <b>Days Of Leave:</b>9<br>
-                                                                                  
-																					<b>Leave Status:</b> Accept
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Leave Details :</b> Wife Stick<br>
-                                                                                   
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-											
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
-                                                            <tr>
-															
-																<td>08/05/2018</td>
-																<td>Sujanthan</td>
-																<td><label class="label label-success ams_label">Security Gard</label></td>
-																<td><label class="label label-success ams_label">3</label></td>
-																<td><select style="font-size:13px;color:green"  value=" Accepted"onchange=><option selected="" value="Accepted">Accepted</option><option value="Pending">Pending</option><option value="Rejected">Rejected</option></select></td>
-															
-														
-															<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
-																<div id="v1" class="modal">
-			
-																	<!-- Modal content -->
-																	<div class="modalt-content">
-																		<div class="modalt-header">
-																			<span class="closet" data-dismiss="modal">&times;</span>
-			
-																			<h2>Leave Details:</h2>
-																		</div>
-																	
-																		<div class="modalt-body">
-			
-																			<h3 style="text-decoration:underline;font-weight:bold ">Details Infromation</h3>
-																			<div class="row">
-																				<div class="col-xs-6"> <b>Leave From :</b>12/11/2018<br>
-																					<b>Leave From :</b>12/11/2018<br>
-                                                                                    <b>Days Of Leave:</b>9<br>
-                                                                                  
-																					<b>Leave Status:</b> Accept
-																					thanks<br></div>
-																				<div class="col-xs-6">
-                                                                                    <b>Leave Details :</b> Wife Stick<br>
-                                                                                   
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modalt-footer">
-																			<h3>Thank you</h3>
-			
-																		</div>
-			
-																	</div>
-			
-			
-																</div>
-			
-											
-																		<button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
-																	</td>
-															</tr>
-				
-				
-				
-															
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-													
+																	<a href="/LeaveReply"><button class="btn btn-warning ams_btn_special"  title="Reply"><i class="fa fa-pencil"></i></button></a>
+										
 												
+																	<a href="/delLeaveA/<%= lev[size-1].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																		</td>
+																</tr> 
+															
+																<%  break; 
+																case(size-(size-2)): %>
+																<tr>
+															
+																		<td><%=lev[size-1].Leave_From%></td>
+																		<td><%=lev[size-1].Leave_Title%></td>
+																		<td><label class="label label-success ams_label"><%=lev[size-1].Job%></label></td>
+																		<td><label class="label label-success ams_label"><%=lev[size-1].Leave_From%></label></td>
+																
+																		<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-1].Remark%></option></select></td>
+																		<td><%=lev[size-1].Description%></td>
+																
+																	<td>
+																		
+																		<a href="/LeaveReply"><button class="btn btn-warning ams_btn_special"  title="Reply"><i class="fa fa-pencil"></i></button></a>
+											
+													
+																		<a href="/delLeaveA/<%= lev[size-1].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																			</td>
+																	</tr> 
+																<tr>
+															
+																		<td><%=lev[size-2].Leave_From%></td>
+																		<td><%=lev[size-2].Leave_Title%></td>
+																		<td><label class="label label-success ams_label"><%=lev[size-2].Job%></label></td>
+																		<td><label class="label label-success ams_label"><%=lev[size-2].Leave_From%></label></td>
+																
+																		<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-2].Remark%></option></select></td>
+																		<td><%=lev[size-2].Description%></td>
+																
+																	<td>
+																		
+																		<a href="/LeaveReply2"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+											
+													
+																		<a href="/delLeaveA/<%= lev[size-2].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																			</td>
+																	</tr>
 				
+				
+				
+				
+				
+																	<%  break;
+																	case (size-(size-3)): %>
+																	<tr>
+															
+																			<td><%=lev[size-1].Leave_From%></td>
+																			<td><%=lev[size-1].Leave_Title%></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-1].Job%></label></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-1].Leave_From%></label></td>
+																	
+																			<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-1].Remark%></option></select></td>
+																			<td><%=lev[size-1].Description%></td>
+																	
+																		<td>
+																			
+																			<a href="/LeaveReply"><button class="btn btn-warning ams_btn_special"  title="Reply"><i class="fa fa-pencil"></i></button></a>
+												
+														
+																			<a href="/delLeaveA/<%= lev[size-1].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																				</td>
+																		</tr> 
+																	<tr>
+																
+																			<td><%=lev[size-2].Leave_From%></td>
+																			<td><%=lev[size-2].Leave_Title%></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-2].Job%></label></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-2].Leave_From%></label></td>
+																	
+																			<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-2].Remark%></option></select></td>
+																			<td><%=lev[size-2].Description%></td>
+																	
+																		<td>
+																			
+																			<a href="/LeaveReply2"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+												
+														
+																			<a href="/delLeaveA/<%= lev[size-2].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																				</td>
+																		</tr> 
+																	<tr>
+															
+																			<td><%=lev[size-3].Leave_From%></td>
+																			<td><%=lev[size-3].Leave_Title%></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-3].Job%></label></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-3].Leave_From%></label></td>
+																	
+																			<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-3].Remark%></option></select></td>
+																			<td><%=lev[size-3].Description%></td>
+																	
+																		<td>
+																			
+																			<a href="/LeaveReply3"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+												
+														
+																			<a href="/delLeaveA/<%= lev[size-3].Leave_Id %>"><button class="btn btn-danger ams_btn_special"title="Delete"><i class="fa fa-trash"></i></button>
+																				</td>
+																		</tr>
+				
+																		<% break;
+																		case (size-(size-4)): %>
+																		<tr>
+															
+																				<td><%=lev[size-1].Leave_From%></td>
+																				<td><%=lev[size-1].Leave_Title%></td>
+																				<td><label class="label label-success ams_label"><%=lev[size-1].Job%></label></td>
+																				<td><label class="label label-success ams_label"><%=lev[size-1].Leave_From%></label></td>
+																		
+																				<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-1].Remark%></option></select></td>
+																				<td><%=lev[size-1].Description%></td>
+																		
+																			<td>
+																				
+																				<a href="/LeaveReply"><button class="btn btn-warning ams_btn_special"  title="Reply"><i class="fa fa-pencil"></i></button></a>
+													
+															
+																				<a href="/delLeaveA/<%= lev[size-1].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																					</td>
+																			</tr> 
+																		<tr>
+																	
+																				<td><%=lev[size-2].Leave_From%></td>
+																				<td><%=lev[size-2].Leave_Title%></td>
+																				<td><label class="label label-success ams_label"><%=lev[size-2].Job%></label></td>
+																				<td><label class="label label-success ams_label"><%=lev[size-2].Leave_From%></label></td>
+																		
+																				<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-2].Remark%></option></select></td>
+																				<td><%=lev[size-2].Description%></td>
+																		
+																			<td>
+																				
+																				<a href="/LeaveReply2"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+													
+															
+																				<a href="/delLeaveA/<%= lev[size-2].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																					</td>
+																			</tr> 
+																		<tr>
+																
+																				<td><%=lev[size-3].Leave_From%></td>
+																				<td><%=lev[size-3].Leave_Title%></td>
+																				<td><label class="label label-success ams_label"><%=lev[size-3].Job%></label></td>
+																				<td><label class="label label-success ams_label"><%=lev[size-3].Leave_From%></label></td>
+																		
+																				<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-3].Remark%></option></select></td>
+																				<td><%=lev[size-3].Description%></td>
+																		
+																			<td>
+																				
+																				<a href="/LeaveReply3"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+													
+															
+																				<a href="/delLeaveA/<%= lev[size-3].Leave_Id %>"><button class="btn btn-danger ams_btn_special"title="Delete"><i class="fa fa-trash"></i></button>
+																					</td>
+																			</tr>
+	
+																		<tr>
+															
+																				<td><%=lev[size-4].Leave_From%></td>
+																				<td><%=lev[size-4].Leave_Title%></td>
+																				<td><label class="label label-success ams_label"><%=lev[size-4].Job%></label></td>
+																				<td><label class="label label-success ams_label"><%=lev[size-4].Leave_From%></label></td>
+																		
+																				<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-4].Remark%></option></select></td>
+																				<td><%=lev[size-4].Description%></td>
+																		
+																			<td>
+																				
+																				<a href="/LeaveReply4"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+													
+															
+																				<a href="/delLeaveA/<%= lev[size-4].Leave_Id %>"><button class="btn btn-danger ams_btn_special"title="Delete"><i class="fa fa-trash"></i></button>
+																					</td>
+																			</tr>
+																		<% break;
+																				
+																	case (size-(size-5)): %>
+																	<tr>
+															
+																			<td><%=lev[size-1].Leave_From%></td>
+																			<td><%=lev[size-1].Leave_Title%></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-1].Job%></label></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-1].Leave_From%></label></td>
+																	
+																			<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-1].Remark%></option></select></td>
+																			<td><%=lev[size-1].Description%></td>
+																	
+																		<td>
+																			
+																			<a href="/LeaveReply"><button class="btn btn-warning ams_btn_special"  title="Reply"><i class="fa fa-pencil"></i></button></a>
+												
+														
+																			<a href="/delLeaveA/<%= lev[size-1].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																				</td>
+																		</tr> 
+																	<tr>
+																
+																			<td><%=lev[size-2].Leave_From%></td>
+																			<td><%=lev[size-2].Leave_Title%></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-2].Job%></label></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-2].Leave_From%></label></td>
+																	
+																			<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-2].Remark%></option></select></td>
+																			<td><%=lev[size-2].Description%></td>
+																	
+																		<td>
+																			
+																			<a href="/LeaveReply2"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+												
+														
+																			<a href="/delLeaveA/<%= lev[size-2].Leave_Id %>"><button class="btn btn-danger ams_btn_special" onclick="" title="Delete"><i class="fa fa-trash"></i></button>
+																				</td>
+																		</tr> 
+																	<tr>
+															
+																			<td><%=lev[size-3].Leave_From%></td>
+																			<td><%=lev[size-3].Leave_Title%></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-3].Job%></label></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-3].Leave_From%></label></td>
+																	
+																			<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-3].Remark%></option></select></td>
+																			<td><%=lev[size-3].Description%></td>
+																	
+																		<td>
+																			
+																			<a href="/LeaveReply3"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+												
+														
+																			<a href="/delLeaveA/<%= lev[size-3].Leave_Id %>"><button class="btn btn-danger ams_btn_special"title="Delete"><i class="fa fa-trash"></i></button>
+																				</td>
+																		</tr>
+
+																	<tr>
+														
+																			<td><%=lev[size-4].Leave_From%></td>
+																			<td><%=lev[size-4].Leave_Title%></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-4].Job%></label></td>
+																			<td><label class="label label-success ams_label"><%=lev[size-4].Leave_From%></label></td>
+																	
+																			<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-4].Remark%></option></select></td>
+																			<td><%=lev[size-4].Description%></td>
+																	
+																		<td>
+																			
+																			<a href="/LeaveReply4"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+												
+														
+																			<a href="/delLeaveA/<%= lev[size-4].Leave_Id %>"><button class="btn btn-danger ams_btn_special"title="Delete"><i class="fa fa-trash"></i></button>
+																				</td>
+																		</tr>
+																	</tr>
+																			<tr>
+															
+																					<td><%=lev[size-5].Leave_From%></td>
+																					<td><%=lev[size-5].Leave_Title%></td>
+																					<td><label class="label label-success ams_label"><%=lev[size-5].Job%></label></td>
+																					<td><label class="label label-success ams_label"><%=lev[size-5].Leave_From%></label></td>
+																			
+																					<td><select style="font-size:13px;color:green" disabled><option value="Accepted"><%=lev[size-5].Remark%></option></select></td>
+																					<td><%=lev[size-5].Description%></td>
+																			
+																				<td>
+																					
+																					<a href="/LeaveReply5>"><button class="btn btn-warning ams_btn_special"  title="reply"><i class="fa fa-pencil"></i></button></a>
+														
+																
+																					<a href="/delLeaveA/<%= lev[size-5].Leave_Id %>"><button class="btn btn-danger ams_btn_special"title="Delete"><i class="fa fa-trash"></i></button>
+																						</td>
+												</tr>
+
+
+												<% break;
+											}%>
+											
+												<%}%>
 											</tbody>
 										</table>
 									

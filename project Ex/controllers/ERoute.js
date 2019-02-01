@@ -93,6 +93,8 @@ module.exports = function (app) {
 
     });
   }));
+
+  
   app.post('/editComplainE/:id', urlencodedParser, (function (req, res) {
     var id = req.params.id;
     var title = req.body.title;
@@ -291,7 +293,19 @@ module.exports = function (app) {
 
     })
   })
-  
+
+  app.get('/delLeave/:id', isLoggedIn, function (req, res) {
+
+    var sql = "DELETE FROM employee_Leave WHERE Leave_Id =?";
+    con.query(sql, [req.params.id], function (err, result) {
+      if (err) throw err;
+
+      console.log(result.affectedRows);
+
+      res.redirect('/leaveRequestE.ejs');
+
+    })
+  })
 
 
 

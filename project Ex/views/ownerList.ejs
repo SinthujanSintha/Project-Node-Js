@@ -107,7 +107,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-
+					<script>
+							function my() {
+							  var input, filter, table, tr, td, i, txtValue;
+							  input = document.getElementById("myInput");
+							  filter = input.value.toUpperCase();
+							  table = document.getElementById("myTable");
+							  tr = table.getElementsByTagName("tr");
+							  for (i = 0; i < tr.length; i++) {
+								td = tr[i].getElementsByTagName("td")[0];
+								if (td) {
+								  txtValue = td.textContent || td.innerText;
+								  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+									tr[i].style.display = "";
+								  } else {
+									tr[i].style.display = "none";
+								  }
+								}       
+							  }
+							}
+							</script>
 
 					<div class="chit-chat-layer1t">
 						<!-- last Fivve Complain -->
@@ -120,6 +139,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<li class="breadcrumb-item active" style="color:chocolate;font-size:27px; " aria-current="page">Owner List</li>
 
 									</ol>
+									<div align="right">
+											<h4 style="color:rgb(238, 255, 0);font-weight: bold">Search:	<input type="text" style="width:21%;"id="myInput" onkeyup="my()" name="Floorname" class="form-control" required  placeholder="Search"></h4>
+																	</div>
 									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/addOwner" data-toggle="tooltip"
 									 data-placement="left" title="Add owner">
 										<i class="fa fa-plus"></i></a>
@@ -132,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 
 								<div class="table-responsive" style="border: 3px solid whitesmoke; border-radius: 29px">
-									<table class="table table-dark table-hover">
+									<table class="table table-dark table-hover" id="myTable">
 										<thead>
 
 											<tr>
