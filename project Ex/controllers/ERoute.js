@@ -302,7 +302,7 @@ module.exports = function (app) {
 
       console.log(result.affectedRows);
 
-      res.redirect('/leaveRequestE.ejs');
+      res.redirect('/leaveRequestE');
 
     })
   })
@@ -323,8 +323,8 @@ module.exports = function (app) {
         return size;
       };
       var size = Object.size(result);
-
-      res.render('../Eviews/complainListE.ejs', {
+consolg.log(result)
+      res.render('../Eviews/complainListE', {
         cop: result,
         size: size,
         user: req.user

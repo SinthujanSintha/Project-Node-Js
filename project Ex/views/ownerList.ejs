@@ -114,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							  filter = input.value.toUpperCase();
 							  table = document.getElementById("myTable");
 							  tr = table.getElementsByTagName("tr");
-							  for (i = 0; i < tr.length; i++) {
+							  for (i = 1; i < tr.length; i++) {
 								td = tr[i].getElementsByTagName("td")[0];
 								if (td) {
 								  txtValue = td.textContent || td.innerText;
@@ -140,7 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 									</ol>
 									<div align="right">
-											<h4 style="color:rgb(238, 255, 0);font-weight: bold">Search:	<input type="text" style="width:21%;"id="myInput" onkeyup="my()" name="Floorname" class="form-control" required  placeholder="Search"></h4>
+											<h4 style="color:rgb(238, 255, 0);font-weight: bold">Search:<input type="text" style="width:21%;"id="myInput" onkeyup="my()" name="Fl" class="form-control" required  placeholder="Search"></h4>
 																	</div>
 									<a class="btn btn-primary" style="float: right;    font-size: 2rem;" href="/addOwner" data-toggle="tooltip"
 									 data-placement="left" title="Add owner">
@@ -183,9 +183,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</td>
 
 
-
-												<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i
-														 class="fa fa-eye"></i></button>
+		<td><button title="View " class="btn btn-success ams_btn_special" data-toggle="modal" data-target="#v1"><i class="fa fa-eye"></i></button>
 													<div id="v1" class="modal">
 
 														<!-- Modal content -->
